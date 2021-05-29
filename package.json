@@ -1,7 +1,9 @@
 {
   "author": "Marco Cesi <sq@iamsquare.it> (https://iamsquare.it)",
   "dependencies": {
-    "ramda": "^0.27.1"
+    "ramda": "^0.27.1",
+    "ramda-adjunct": "^2.33.0",
+    "ramda-extension": "^0.11.0"
   },
   "description": "Convert between quantities in different units",
   "devDependencies": {
@@ -20,8 +22,16 @@
     "ts-jest": "^27.0.1",
     "typescript": "^4.3.2"
   },
-  "files": ["lib/"],
-  "keywords": ["metric", "imperial", "convert", "ratio", "fraction"],
+  "files": [
+    "lib/"
+  ],
+  "keywords": [
+    "metric",
+    "imperial",
+    "convert",
+    "ratio",
+    "fraction"
+  ],
   "license": "MIT",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",

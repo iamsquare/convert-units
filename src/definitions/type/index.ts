@@ -1,4 +1,5 @@
 import { Measure, System, UnitType } from './units.type';
+import { Maybe } from './utils.type';
 
 export interface Name {
   singular: string;
@@ -7,14 +8,14 @@ export interface Name {
 
 export type Unit = {
   name: Name;
-  toAnchor: number;
-  anchorShift?: number;
+  anchor: number;
+  anchorShift?: Maybe<number>;
 };
 
 export interface Anchor<U extends UnitType> {
   unit: U;
-  ratio?: number;
-  transform?: (value: number) => number;
+  ratio?: Maybe<number>;
+  transform?: Maybe<(value: number) => number>;
 }
 
 export interface Conversion {

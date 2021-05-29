@@ -14,35 +14,35 @@ const reactivePower = {
       singular: 'Volt-Ampere Reactive',
       plural: 'Volt-Amperes Reactive'
     },
-    toAnchor: 1
+    anchor: 1
   },
   [ReactivePowerEnum.MILLIVOLT_AMPERE_REACTIVE]: {
     name: {
       singular: 'Millivolt-Ampere Reactive',
       plural: 'Millivolt-Amperes Reactive'
     },
-    toAnchor: 1e-3
+    anchor: 1e-3
   },
   [ReactivePowerEnum.KILOVOLT_AMPERE_REACTIVE]: {
     name: {
       singular: 'Kilovolt-Ampere Reactive',
       plural: 'Kilovolt-Amperes Reactive'
     },
-    toAnchor: 1e3
+    anchor: 1e3
   },
   [ReactivePowerEnum.MEGAVOLT_AMPERE_REACTIVE]: {
     name: {
       singular: 'Megavolt-Ampere Reactive',
       plural: 'Megavolt-Amperes Reactive'
     },
-    toAnchor: 1e6
+    anchor: 1e6
   },
   [ReactivePowerEnum.GIGAVOLT_AMPERE_REACTIVE]: {
     name: {
       singular: 'Gigavolt-Ampere Reactive',
       plural: 'Gigavolt-Amperes Reactive'
     },
-    toAnchor: 1e9
+    anchor: 1e9
   }
 };
 

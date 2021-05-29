@@ -10,21 +10,21 @@ const voltage = {
       singular: 'Volt',
       plural: 'Volts'
     },
-    toAnchor: 1
+    anchor: 1
   },
   [VoltageEnum.MILLIVOLT]: {
     name: {
       singular: 'Millivolt',
       plural: 'Millivolts'
     },
-    toAnchor: 0.001
+    anchor: 0.001
   },
   [VoltageEnum.KILOVOLT]: {
     name: {
       singular: 'Kilovolt',
       plural: 'Kilovolts'
     },
-    toAnchor: 1000
+    anchor: 1000
   }
 };
 

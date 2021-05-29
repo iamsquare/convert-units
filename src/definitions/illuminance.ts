@@ -15,7 +15,7 @@ const metric = {
       singular: 'Lux',
       plural: 'Lux'
     },
-    toAnchor: 1
+    anchor: 1
   }
 };
 
@@ -25,7 +25,7 @@ const imperial = {
       singular: 'Foot-candle',
       plural: 'Foot-candles'
     },
-    toAnchor: 1
+    anchor: 1
   }
 };
 

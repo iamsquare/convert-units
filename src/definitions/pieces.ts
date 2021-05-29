@@ -23,91 +23,91 @@ const pieces = {
       singular: 'Piece',
       plural: 'Pieces'
     },
-    toAnchor: 1
+    anchor: 1
   },
   [PiecesEnum.BAKERS_DOZEN]: {
     name: {
       singular: 'Bakers Dozen',
       plural: 'Bakers Dozen'
     },
-    toAnchor: 13
+    anchor: 13
   },
   [PiecesEnum.COUPLE]: {
     name: {
       singular: 'Couple',
       plural: 'Couples'
     },
-    toAnchor: 2
+    anchor: 2
   },
   [PiecesEnum.DOZEN_DOZEN]: {
     name: {
       singular: 'Dozen Dozen',
       plural: 'Dozen Dozen'
     },
-    toAnchor: 144
+    anchor: 144
   },
   [PiecesEnum.DOZEN]: {
     name: {
       singular: 'Dozen',
       plural: 'Dozens'
     },
-    toAnchor: 12
+    anchor: 12
   },
   [PiecesEnum.GREAT_GROSS]: {
     name: {
       singular: 'Great Gross',
       plural: 'Great Gross'
     },
-    toAnchor: 1728
+    anchor: 1728
   },
   [PiecesEnum.GROSS]: {
     name: {
       singular: 'Gross',
       plural: 'Gross'
     },
-    toAnchor: 144
+    anchor: 144
   },
   [PiecesEnum.HALF_DOZEN]: {
     name: {
       singular: 'Half Dozen',
       plural: 'Half Dozen'
     },
-    toAnchor: 6
+    anchor: 6
   },
   [PiecesEnum.LONG_HUNDRED]: {
     name: {
       singular: 'Long Hundred',
       plural: 'Long Hundred'
     },
-    toAnchor: 120
+    anchor: 120
   },
   [PiecesEnum.REAM]: {
     name: {
       singular: 'Reams',
       plural: 'Reams'
     },
-    toAnchor: 500
+    anchor: 500
   },
   [PiecesEnum.SCORES]: {
     name: {
       singular: 'Scores',
       plural: 'Scores'
     },
-    toAnchor: 20
+    anchor: 20
   },
   [PiecesEnum.SMALL_GROSS]: {
     name: {
       singular: 'Small Gross',
       plural: 'Small Gross'
     },
-    toAnchor: 120
+    anchor: 120
   },
   [PiecesEnum.TRIO]: {
     name: {
       singular: 'Trio',
       plural: 'Trio'
     },
-    toAnchor: 3
+    anchor: 3
   }
 };
 

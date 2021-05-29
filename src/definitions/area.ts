@@ -23,35 +23,35 @@ const metric = {
       singular: 'Square Millimeter',
       plural: 'Square Millimeters'
     },
-    toAnchor: 1e-6
+    anchor: 1e-6
   },
   [MetricAreaEnum.SQUARE_CENTIMETER]: {
     name: {
       singular: 'Square Centimeter',
       plural: 'Square Centimeters'
     },
-    toAnchor: 1e-4
+    anchor: 1e-4
   },
   [MetricAreaEnum.SQUARE_METER]: {
     name: {
       singular: 'Square Meter',
       plural: 'Square Meters'
     },
-    toAnchor: 1
+    anchor: 1
   },
   [MetricAreaEnum.SQUARE_KILOMETER]: {
     name: {
       singular: 'Square Kilometer',
       plural: 'Square Kilometers'
     },
-    toAnchor: 1e6
+    anchor: 1e6
   },
   [MetricAreaEnum.HECTARE]: {
     name: {
       singular: 'Hectare',
       plural: 'Hectares'
     },
-    toAnchor: 1e4
+    anchor: 1e4
   }
 };
 
@@ -61,35 +61,35 @@ const imperial = {
       singular: 'Square Inch',
       plural: 'Square Inches'
     },
-    toAnchor: 1 / 144
+    anchor: 1 / 144
   },
   [ImperialAreaEnum.SQUARE_YARD]: {
     name: {
       singular: 'Square Yard',
       plural: 'Square Yards'
     },
-    toAnchor: 9
+    anchor: 9
   },
   [ImperialAreaEnum.SQUARE_FOOT]: {
     name: {
       singular: 'Square Foot',
       plural: 'Square Feet'
     },
-    toAnchor: 1
+    anchor: 1
   },
   [ImperialAreaEnum.SQUARE_MILE]: {
     name: {
       singular: 'Square Mile',
       plural: 'Square Miles'
     },
-    toAnchor: 27878400
+    anchor: 27878400
   },
   [ImperialAreaEnum.ACRE]: {
     name: {
       singular: 'Acre',
       plural: 'Acres'
     },
-    toAnchor: 43560
+    anchor: 43560
   }
 };
 

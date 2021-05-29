@@ -13,21 +13,21 @@ const current = {
       singular: 'Ampere',
       plural: 'Amperes'
     },
-    toAnchor: 1
+    anchor: 1
   },
   [CurrentEnum.MILLIAMPERE]: {
     name: {
       singular: 'Milliampere',
       plural: 'Milliamperes'
     },
-    toAnchor: 1e-3
+    anchor: 1e-3
   },
   [CurrentEnum.KILOAMPERE]: {
     name: {
       singular: 'Kiloampere',
       plural: 'Kiloamperes'
     },
-    toAnchor: 1e3
+    anchor: 1e3
   }
 };
 

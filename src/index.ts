@@ -1,167 +1,174 @@
-// import acceleration from './definitions/acceleration';
-// import angle from './definitions/angle';
-// import apparentPower from './definitions/apparentPower';
-// import area from './definitions/area';
-// import charge from './definitions/charge';
-// import current from './definitions/current';
-// import digital from './definitions/digital';
-// import length from './definitions/distance';
-// import each from './definitions/each';
-// import energy from './definitions/energy';
-// import force from './definitions/force';
-// import frequency from './definitions/frequency';
-// import illuminance from './definitions/illuminance';
-// import mass from './definitions/mass';
-// import pace from './definitions/pace';
-// import partsPer from './definitions/partsPer';
-// import pieces from './definitions/pieces';
-// import power from './definitions/power';
-// import pressure from './definitions/pressure';
-// import reactiveEnergy from './definitions/reactiveEnergy';
-// import reactivePower from './definitions/reactivePower';
-// import speed from './definitions/speed';
-// import temperature from './definitions/temperature';
-// import time from './definitions/time';
-// import { Conversion, Definition, Unit, UnitDescription } from './definitions/type';
-// import { Measure, System, UnitType } from './definitions/type/units.type';
-// import { PartialRecord } from './definitions/type/utils.type';
-// import voltage from './definitions/voltage';
-// import volume from './definitions/volume';
-// import volumeFlowRate from './definitions/volumeFlowRate';
+import {
+  __,
+  add,
+  chain,
+  cond,
+  curry,
+  divide,
+  identity,
+  isNil,
+  keys,
+  map,
+  memoizeWith,
+  multiply,
+  pipe,
+  subtract,
+  uncurryN,
+  when,
+  without
+} from 'ramda';
+import { isNotNil } from 'ramda-adjunct';
 
-// const measures: Definition<unknown, UnitType> = {
-//   acceleration,
-//   angle,
-//   apparentPower,
-//   area,
-//   charge,
-//   current,
-//   digital,
-//   each,
-//   energy,
-//   force,
-//   frequency,
-//   illuminance,
-//   length,
-//   mass,
-//   pace,
-//   partsPer,
-//   pieces,
-//   power,
-//   pressure,
-//   reactiveEnergy,
-//   reactivePower,
-//   speed,
-//   temperature,
-//   time,
-//   voltage,
-//   volume,
-//   volumeFlowRate
-// };
+import acceleration from './definitions/acceleration';
+import angle from './definitions/angle';
+import apparentPower from './definitions/apparentPower';
+import area from './definitions/area';
+import charge from './definitions/charge';
+import current from './definitions/current';
+import digital from './definitions/digital';
+import distance from './definitions/distance';
+import each from './definitions/each';
+import energy from './definitions/energy';
+import force from './definitions/force';
+import frequency from './definitions/frequency';
+import illuminance from './definitions/illuminance';
+import mass from './definitions/mass';
+import pace from './definitions/pace';
+import partsPer from './definitions/partsPer';
+import pieces from './definitions/pieces';
+import power from './definitions/power';
+import pressure from './definitions/pressure';
+import reactiveEnergy from './definitions/reactiveEnergy';
+import reactivePower from './definitions/reactivePower';
+import speed from './definitions/speed';
+import temperature from './definitions/temperature';
+import time from './definitions/time';
+import { Conversion, Definition } from './definitions/type';
+import { Measure, System, UnitType } from './definitions/type/units.type';
+import { Maybe, Nullable } from './definitions/type/utils.type';
+import voltage from './definitions/voltage';
+import volume from './definitions/volume';
+import volumeFlowRate from './definitions/volumeFlowRate';
+
+const measures: Record<Measure, Definition<any, any>> = {
+  acceleration,
+  angle,
+  apparentPower,
+  area,
+  charge,
+  current,
+  digital,
+  distance,
+  each,
+  energy,
+  force,
+  frequency,
+  illuminance,
+  mass,
+  pace,
+  partsPer,
+  pieces,
+  power,
+  pressure,
+  reactiveEnergy,
+  reactivePower,
+  speed,
+  temperature,
+  time,
+  voltage,
+  volume,
+  volumeFlowRate
+};
+
+export const getUnit = memoizeWith(identity, (unitType: UnitType): Nullable<Conversion> => {
+  for (const [measure, measureValue] of Object.entries(measures)) {
+    for (const [system, systemValue] of Object.entries(measureValue.systems)) {
+      for (const [unit, unitValue] of Object.entries(systemValue)) {
+        if (unit == unitType) {
+          return {
+            unitType: unitType,
+            measure: measure as Measure,
+            system: system as System,
+            unit: unitValue
+          };
+        }
+      }
+    }
+  }
+
+  return null;
+});
+
+export const convert: (from: UnitType, to: UnitType, value: number) => number = uncurryN(3, (from: UnitType) => {
+  const fromConversion = getUnit(from);
+
+  if (isNil(fromConversion)) throw new Error(`Incompatible unit '${from}' for *from* parameter`);
+
+  return (to: UnitType) => {
+    const toConversion = getUnit(to);
+
+    if (isNil(toConversion)) throw new Error(`Incompatible unit '${to}' for *to* parameter`);
+
+    return (value: number) => {
+      if (from === to) return value;
+      if (fromConversion.measure !== toConversion.measure) {
+        throw new Error(
+          `Cannot convert incompatible measures of '${fromConversion.measure}' and '${toConversion.measure}'`
+        );
+      }
+
+      return pipe(
+        multiply(fromConversion.unit.anchor),
+        when(() => isNotNil(fromConversion.unit.anchorShift), subtract(__, fromConversion.unit.anchorShift as number)),
+        when(
+          () => fromConversion.system !== toConversion.system,
+          (v) => {
+            const { transform, ratio } = measures[fromConversion.measure].anchors[fromConversion.system];
+
+            if (isNotNil(transform)) {
+              return transform(v);
+            }
+
+            if (isNotNil(ratio)) {
+              return v * ratio;
+            }
+
+            throw new Error('A system anchor needs to either have a defined ratio number or a transform function.');
+          }
+        ),
+        when(() => isNotNil(toConversion.unit.anchorShift), add(toConversion.unit.anchorShift as number)),
+        divide(__, toConversion.unit.anchor)
+      )(value);
+    };
+  };
+});
+
+export const possibilities: (forMeasure?: Maybe<Measure>) => string[] = pipe(
+  (f: Maybe<Measure>) => (isNotNil(f) ? [f] : keys(measures)),
+  map((m) => measures[m as Measure].systems),
+  chain(keys)
+);
+
+// export const convertToBest: (dto: ConvertToBestDto, value: number) => number = uncurryN(2, (dto: ConvertToBestDto) => {
+//   const fromConversion = getUnit(dto.from);
+
+//   if (isNil(fromConversion)) throw new Error(`Incompatible unit '${dto.from}' for *from* parameter`);
+
+//   const filteredPossibilities = pipe(
+//     (conversion: Conversion) => possibilities(conversion.measure),
+//     without(dto.exclude ?? [])
+//   )(fromConversion);
+
+//   return (value: number) => {
+//     return 0;
+//   };
+// });
 
 // /**
 //  * Represents a conversion path
 //  */
-// class Converter {
-//   private val = 0;
-//   private destination: Conversion | null = null;
-//   private origin: Conversion | null = null;
 
-//   constructor(numerator?: number, denominator?: number) {
-//     if (typeof numerator === 'number') {
-//       this.val = numerator;
-//       if (typeof denominator === 'number') this.val = numerator / denominator;
-//     }
-//   }
-
-//   /**
-//    * Lets the converter know the source unit abbreviation
-//    */
-//   from(from: string): this {
-//     if (this.destination != null) throw new Error('.from must be called before .to');
-
-//     this.origin = this.getUnit(from);
-
-//     if (this.origin == null) {
-//       this.throwUnsupportedUnitError(from);
-//     }
-
-//     return this;
-//   }
-
-//   /**
-//    * Converts the unit and returns the value
-//    */
-//   to(to: string): number {
-//     if (this.origin == null) throw new Error('.to must be called after .from');
-
-//     this.destination = this.getUnit(to);
-
-//     if (this.destination == null) {
-//       this.throwUnsupportedUnitError(to);
-//     }
-
-//     const destination = this.destination as Conversion;
-//     const origin = this.origin as Conversion;
-
-//     // Don't change the value if origin and destination are the same
-//     if (origin.abbr === destination.abbr) {
-//       return this.val;
-//     }
-
-//     // You can't go from liquid to mass, for example
-//     if (destination.measure != origin.measure) {
-//       throw new Error(`Cannot convert incompatible measures of ${destination.measure} and ${origin.measure}`);
-//     }
-
-//     /**
-//      * Convert from the source value to its anchor inside the system
-//      */
-//     let result: number = this.val * origin.unit.toAnchor;
-
-//     /**
-//      * For some changes it's a simple shift (C to K)
-//      * So we'll add it when convering into the unit (later)
-//      * and subtract it when converting from the unit
-//      */
-//     if (origin.unit.anchorShift) {
-//       result -= origin.unit.anchorShift;
-//     }
-
-//     /**
-//      * Convert from one system to another through the anchor ratio. Some conversions
-//      * aren't ratio based or require more than a simple shift. We can provide a custom
-//      * transform here to provide the direct result
-//      */
-//     if (origin.system != destination.system) {
-//       const transform: unknown = measures[origin.measure].anchors[origin.system].transform;
-//       const ratio: unknown = measures[origin.measure].anchors[origin.system].ratio;
-//       if (typeof transform === 'function') {
-//         result = transform(result);
-//       } else if (typeof ratio === 'number') {
-//         result *= ratio;
-//       } else {
-//         throw new Error('A system anchor needs to either have a defined ratio number or a transform function.');
-//       }
-//     }
-
-//     /**
-//      * This shift has to be done after the system conversion business
-//      */
-//     if (destination.unit.anchorShift) {
-//       result += destination.unit.anchorShift;
-//     }
-
-//     /**
-//      * Convert to another unit inside the destination system
-//      */
-//     return result / destination.unit.toAnchor;
-//   }
-
-//   /**
-//    * Converts the unit to the best available unit.
-//    */
-//   toBest(options?: { exclude?: string[]; cutOffNumber?: number }) {
+// toBest(options?: { exclude?: string[]; cutOffNumber?: number }) {
 //     if (this.origin == null) throw new Error('.toBest must be called after .from');
 
 //     options = Object.assign(
@@ -198,42 +205,6 @@
 
 //     return best;
 //   }
-//   /**
-//    * Finds the unit
-//    */
-//   getUnit(abbr: string): Conversion | null {
-//     const found = null;
-
-//     for (const [measureName, measure] of Object.entries(measures)) {
-//       for (const [systemName, system] of Object.entries(measure.systems)) {
-//         for (const [testAbbr, unit] of Object.entries(system)) {
-//           if (testAbbr == abbr) {
-//             return {
-//               abbr: abbr,
-//               measure: measureName,
-//               system: systemName,
-//               unit: unit
-//             };
-//           }
-//         }
-//       }
-//     }
-
-//     return found;
-//   }
-
-//   /**
-//    * An alias for getUnit
-//    */
-//   describe(abbr: string): UnitDescription | never {
-//     const result = this.getUnit(abbr);
-
-//     if (result != null) {
-//       return this.describeUnit(result);
-//     }
-
-//     this.throwUnsupportedUnitError(abbr);
-//   }
 
 //   private describeUnit(unit: Conversion): UnitDescription {
 //     return {
@@ -244,105 +215,4 @@
 //       plural: unit.unit.name.plural
 //     };
 //   }
-
-//   /**
-//    * Detailed list of all supported units
-//    *
-//    * If a measure is supplied the list will only contain
-//    * details about that measure. Otherwise the list will contain
-//    * details abaout all measures.
-//    *
-//    * However, if the measure doesn't exist, an empty array will be
-//    * returned
-//    *
-//    */
-//   list(measureName?: string): UnitDescription[] | never {
-//     const list = [];
-
-//     if (measureName == null) {
-//       for (const [name, measure] of Object.entries(measures)) {
-//         for (const [systemName, units] of Object.entries((measure as Definition).systems)) {
-//           for (const [abbr, unit] of Object.entries(units)) {
-//             list.push(
-//               this.describeUnit({
-//                 abbr: abbr,
-//                 measure: name,
-//                 system: systemName,
-//                 unit: unit
-//               })
-//             );
-//           }
-//         }
-//       }
-//     } else if (!(measureName in measures)) {
-//       throw new Error(`Meausre "${measureName}" not found.`);
-//     } else {
-//       const measure = measures[measureName];
-//       for (const [systemName, units] of Object.entries((measure as Definition).systems)) {
-//         for (const [abbr, unit] of Object.entries(units)) {
-//           list.push(
-//             this.describeUnit({
-//               abbr: abbr,
-//               measure: measureName,
-//               system: systemName,
-//               unit: unit
-//             })
-//           );
-//         }
-//       }
-//     }
-
-//     return list;
-//   }
-
-//   private throwUnsupportedUnitError(what: string): never {
-//     let validUnits: string[] = [];
-
-//     for (const measure of Object.values(measures)) {
-//       for (const systems of Object.values((measure as Definition).systems)) {
-//         validUnits = validUnits.concat(Object.keys(systems));
-//       }
-//     }
-
-//     throw new Error(`Unsupported unit ${what}, use one of: ${validUnits.join(', ')}`);
-//   }
-
-//   /**
-//    * Returns the abbreviated measures that the value can be
-//    * converted to.
-//    */
-//   possibilities(forMeasure?: unknown) {
-//     let possibilities: string[] = [];
-//     let list_measures: string[] = [];
-
-//     if (typeof forMeasure == 'string') {
-//       list_measures.push(forMeasure);
-//     } else if (this.origin != null) {
-//       list_measures.push(this.origin.measure);
-//     } else {
-//       list_measures = Object.keys(measures);
-//     }
-
-//     for (const measure of list_measures) {
-//       const systems: Record<string, Record<string, Unit>> = measures[measure].systems;
-
-//       for (const system of Object.values(systems)) {
-//         possibilities = [...possibilities, ...Object.keys(system)];
-//       }
-//     }
-
-//     return possibilities;
-//   }
-
-//   /**
-//    * Returns the abbreviated measures that the value can be
-//    * converted to.
-//    */
-//   measures() {
-//     return Object.keys(measures);
-//   }
-// }
-
-// export default function (value?: number): Converter {
-//   return new Converter(value);
 // }

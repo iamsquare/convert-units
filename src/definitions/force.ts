@@ -13,21 +13,21 @@ const force = {
       singular: 'Newton',
       plural: 'Newtons'
     },
-    toAnchor: 1
+    anchor: 1
   },
   [ForceEnum.KILONEWTON]: {
     name: {
       singular: 'Kilonewton',
       plural: 'Kilonewtons'
     },
-    toAnchor: 1e3
+    anchor: 1e3
   },
   [ForceEnum.POUND_FORCE]: {
     name: {
       singular: 'Pound-force',
       plural: 'Pound-forces'
     },
-    toAnchor: 4.44822
+    anchor: 4.44822
   }
 };
 

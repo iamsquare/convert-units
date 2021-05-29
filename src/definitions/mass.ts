@@ -21,35 +21,35 @@ const metric = {
       singular: 'Microgram',
       plural: 'Micrograms'
     },
-    toAnchor: 1e-6
+    anchor: 1e-6
   },
   [MetricMassEnum.MILLIGRAM]: {
     name: {
       singular: 'Milligram',
       plural: 'Milligrams'
     },
-    toAnchor: 1e-3
+    anchor: 1e-3
   },
   [MetricMassEnum.GRAM]: {
     name: {
       singular: 'Gram',
       plural: 'Grams'
     },
-    toAnchor: 1
+    anchor: 1
   },
   [MetricMassEnum.KILOGRAM]: {
     name: {
       singular: 'Kilogram',
       plural: 'Kilograms'
     },
-    toAnchor: 1e3
+    anchor: 1e3
   },
   [MetricMassEnum.METRIC_TONNE]: {
     name: {
       singular: 'Metric Tonne',
       plural: 'Metric Tonnes'
     },
-    toAnchor: 1e6
+    anchor: 1e6
   }
 };
 
@@ -59,21 +59,21 @@ const imperial = {
       singular: 'Ounce',
       plural: 'Ounces'
     },
-    toAnchor: 1 / 16
+    anchor: 1 / 16
   },
   [ImperialMassEnum.POUND]: {
     name: {
       singular: 'Pound',
       plural: 'Pounds'
     },
-    toAnchor: 1
+    anchor: 1
   },
   [ImperialMassEnum.TON]: {
     name: {
       singular: 'Ton',
       plural: 'Tons'
     },
-    toAnchor: 2e3
+    anchor: 2e3
   }
 };
 
