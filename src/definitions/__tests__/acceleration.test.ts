@@ -1,9 +1,10 @@
-import convert from '../..';
+import { convert } from '../..';
+import { AccelerationEnum } from '../acceleration';
 
 test('g to m/s2', () => {
-  expect(convert(1).from('g-force').to('m/s2')).toBe(9.80665);
+  expect(convert(AccelerationEnum.G_FORCE, AccelerationEnum.METRE_PER_SECOND_SQUARED, 1)).toBe(9.80665);
 });
 
 test('m/s2 to g', () => {
-  expect(convert(9.80665).from('m/s2').to('g-force')).toBe(1);
+  expect(convert(AccelerationEnum.METRE_PER_SECOND_SQUARED, AccelerationEnum.G_FORCE, 9.80665)).toBe(1);
 });
