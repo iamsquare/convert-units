@@ -1,19 +1,16 @@
-convert-units
-=============
+# convert-units
 
 [![Downloads](https://img.shields.io/npm/dm/convert-units.svg)](https://www.npmjs.com/package/convert-units)
 
 A handy utility for converting between quantities in different units.
 
-Installation
------
+## Installation
 
-```
+```shell
 npm install convert-units --save
 ```
 
-Usage
------
+## Usage
 
 `convert-units` has a simple chained API that is easy to read.
 
@@ -41,6 +38,7 @@ convert(1).from('oz').to('fl-oz')
 ```
 
 You can ask `convert-units` to select the best unit for you. You can also optionally explicitly exclude orders of magnitude or specify a cut off number for selecting the best representation.
+
 ```js
 convert(12000).from('mm').toBest()
 // { val: 12, unit: 'm', plural: 'Meters' } (the smallest unit with a value above 1)
@@ -73,12 +71,14 @@ convert().from('kg').possibilities()
 ```
 
 You can also get the possible conversions for a measure:
+
 ```js
 convert().possibilities('mass')
 // [ 'mcg', 'mg', 'g', 'kg', 'oz', 'lb', 'mt', 't' ]
 ```
 
 You can also get the all the available units:
+
 ```js
 convert().possibilities()
 // [ 'mm', 'cm', 'm', 'in', 'ft-us', 'ft', 'mi', 'mcg', 'mg', 'g', 'kg', 'oz', 'lb', 'mt', 't', 'ml', 'l', 'tsp', 'Tbs', 'fl-oz', 'cup', 'pnt', 'qt', 'gal', 'ea', 'dz' ];
@@ -129,9 +129,10 @@ convert().list('mass')
 */
 ```
 
-Supported Units
----------------
+## Supported Units
+
 ### Length
+
 * nm
 * μm
 * mm
@@ -147,6 +148,7 @@ Supported Units
 * nMi
 
 ### Area
+
 * mm2
 * cm2
 * m2
@@ -158,6 +160,7 @@ Supported Units
 * mi2
 
 ### Mass
+
 * mcg
 * mg
 * g
@@ -168,6 +171,7 @@ Supported Units
 * t
 
 ### Volume
+
 * mm3
 * cm3
 * ml
@@ -187,6 +191,7 @@ Supported Units
 * yd3
 
 ### Volume Flow Rate
+
 * mm3/s
 * cm3/s
 * ml/s
@@ -226,12 +231,14 @@ Supported Units
 * yd3/h'
 
 ### Temperature
+
 * C
 * F
 * K
 * R
 
 ### Time
+
 * ns
 * mu
 * ms
@@ -244,6 +251,7 @@ Supported Units
 * year
 
 ### Frequency
+
 * Hz
 * mHz
 * kHz
@@ -255,6 +263,7 @@ Supported Units
 * rad/s
 
 ### Speed
+
 * m/s
 * km/h
 * mph
@@ -262,12 +271,14 @@ Supported Units
 * ft/s
 
 ### Pace
+
 * s/m
 * min/km
 * s/ft
 * min/mi
 
 ### Pressure
+
 * Pa
 * hPa
 * kPa
@@ -278,6 +289,7 @@ Supported Units
 * ksi
 
 ### Digital
+
 * b
 * Kb
 * Mb
@@ -290,26 +302,31 @@ Supported Units
 * TB
 
 ### Illuminance
+
 * lx
 * ft-cd
 
 ### Parts-Per
+
 * ppm
 * ppb
 * ppt
 * ppq
 
 ### Voltage
+
 * V
 * mV
 * kV
 
 ### Current
+
 * A
 * mA
 * kA
 
 ### Power
+
 * W
 * mW
 * kW
@@ -321,6 +338,7 @@ Supported Units
 * hp
 
 ### Apparent Power
+
 * VA
 * mVA
 * kVA
@@ -328,6 +346,7 @@ Supported Units
 * GVA
 
 ### Reactive Power
+
 * VAR
 * mVAR
 * kVAR
@@ -335,6 +354,7 @@ Supported Units
 * GVAR
 
 ### Energy
+
 * Wh
 * mWh
 * kWh
@@ -344,6 +364,7 @@ Supported Units
 * kJ
 
 ### Reactive Energy
+
 * VARh
 * mVARh
 * kVARh
@@ -351,6 +372,7 @@ Supported Units
 * GVARh
 
 ### Angle
+
 * deg
 * rad
 * grad
@@ -358,6 +380,7 @@ Supported Units
 * arcsec
 
 ### Charge
+
 * c
 * mC
 * μC
@@ -365,29 +388,31 @@ Supported Units
 * pC
 
 ### Force
+
 * N
 * kN
 * lbf
 
 ### Acceleration
+
 * g (g-force)
 * m/s2
 
 ### Pieces
+
 * pcs
 * bk-doz
 * cp
 * doz-doz
 * doz
 * gr-gr
-* gros 
+* gros
 * half-dozen
 * long-hundred
 * ream
 * scores
 * sm-gr
-* trio 
-
+* trio
 
 ### Want More?
 
@@ -395,9 +420,9 @@ Adding new measurement sets is easy. Take a look at
 [`src/definitions`](https://github.com/convert-units/convert-units/tree/main/src/definitions)
 to see how it's done.
 
-License
--------
-Copyright (c) 2013-2017 Ben Ng and Contributors, http://benng.me
+## License
+
+Copyright (c) 2021 Marco Cesi, <https://iamsquare.it>
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
