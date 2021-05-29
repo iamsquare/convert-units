@@ -1,38 +1,49 @@
+import { Definition } from './type';
+import { ApparentPowerUnit } from './type/units.type';
+
+export enum ApparentPowerEnum {
+  VOLT_AMPERE = 'VA',
+  MILLIVOLT_AMPERE = 'mVA',
+  KILOVOLT_AMPERE = 'kVA',
+  MEGAVOLT_AMPERE = 'MVA',
+  GIGAVOLT_AMPERE = 'GVA'
+}
+
 const apparentPower = {
-  VA: {
+  [ApparentPowerEnum.VOLT_AMPERE]: {
     name: {
       singular: 'Volt-Ampere',
       plural: 'Volt-Amperes'
     },
-    to_anchor: 1
+    toAnchor: 1
   },
-  mVA: {
+  [ApparentPowerEnum.MILLIVOLT_AMPERE]: {
     name: {
       singular: 'Millivolt-Ampere',
       plural: 'Millivolt-Amperes'
     },
-    to_anchor: 0.001
+    toAnchor: 1e-3
   },
-  kVA: {
+  [ApparentPowerEnum.KILOVOLT_AMPERE]: {
     name: {
       singular: 'Kilovolt-Ampere',
       plural: 'Kilovolt-Amperes'
     },
-    to_anchor: 1000
+    toAnchor: 1e3
   },
-  MVA: {
+  [ApparentPowerEnum.MEGAVOLT_AMPERE]: {
     name: {
       singular: 'Megavolt-Ampere',
       plural: 'Megavolt-Amperes'
     },
-    to_anchor: 1000000
+    toAnchor: 1e6
   },
-  GVA: {
+  [ApparentPowerEnum.GIGAVOLT_AMPERE]: {
     name: {
       singular: 'Gigavolt-Ampere',
       plural: 'Gigavolt-Amperes'
     },
-    to_anchor: 1000000000
+    toAnchor: 1e9
   }
 };
 
@@ -41,9 +52,9 @@ export default {
     apparentPower
   },
   anchors: {
-    metric: {
-      unit: 'VA',
+    apparentPower: {
+      unit: ApparentPowerEnum.VOLT_AMPERE,
       ratio: 1
     }
   }
-};
+} as Definition<'apparentPower', ApparentPowerUnit>;

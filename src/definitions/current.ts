@@ -1,24 +1,33 @@
+import { Definition } from './type';
+import { CurrentUnit } from './type/units.type';
+
+export enum CurrentEnum {
+  AMPERE = 'A',
+  MILLIAMPERE = 'mA',
+  KILOAMPERE = 'kA'
+}
+
 const current = {
-  A: {
+  [CurrentEnum.AMPERE]: {
     name: {
       singular: 'Ampere',
       plural: 'Amperes'
     },
-    to_anchor: 1
+    toAnchor: 1
   },
-  mA: {
+  [CurrentEnum.MILLIAMPERE]: {
     name: {
       singular: 'Milliampere',
       plural: 'Milliamperes'
     },
-    to_anchor: 0.001
+    toAnchor: 1e-3
   },
-  kA: {
+  [CurrentEnum.KILOAMPERE]: {
     name: {
       singular: 'Kiloampere',
       plural: 'Kiloamperes'
     },
-    to_anchor: 1000
+    toAnchor: 1e3
   }
 };
 
@@ -27,9 +36,9 @@ export default {
     current
   },
   anchors: {
-    metric: {
-      unit: 'A',
+    current: {
+      unit: CurrentEnum.AMPERE,
       ratio: 1
     }
   }
-};
+} as Definition<'current', CurrentUnit>;

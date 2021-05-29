@@ -1,75 +1,89 @@
-const daysInYear = 365.25;
+import { Definition } from './type';
+import { TimeUnit } from './type/units.type';
+
+export enum TimeEnum {
+  NANOSECOND = 'ns',
+  MICROSECOND = 'mu',
+  MILLISECOND = 'ms',
+  SECOND = 's',
+  MINUTE = 'min',
+  HOUR = 'h',
+  DAY = 'd',
+  WEEK = 'week',
+  MONTH = 'month',
+  YEAR = 'year'
+}
 
 const time = {
-  ns: {
+  [TimeEnum.NANOSECOND]: {
     name: {
       singular: 'Nanosecond',
       plural: 'Nanoseconds'
     },
-    to_anchor: 1 / 1000000000
+    toAnchor: 1e-9
   },
-  mu: {
+  [TimeEnum.MICROSECOND]: {
     name: {
       singular: 'Microsecond',
       plural: 'Microseconds'
     },
-    to_anchor: 1 / 1000000
+    toAnchor: 1e-6
   },
-  ms: {
+  [TimeEnum.MILLISECOND]: {
     name: {
       singular: 'Millisecond',
       plural: 'Milliseconds'
     },
-    to_anchor: 1 / 1000
+    toAnchor: 1e-3
   },
-  s: {
+  [TimeEnum.SECOND]: {
     name: {
       singular: 'Second',
       plural: 'Seconds'
     },
-    to_anchor: 1
+    toAnchor: 1
   },
-  min: {
+  [TimeEnum.MINUTE]: {
     name: {
       singular: 'Minute',
       plural: 'Minutes'
     },
-    to_anchor: 60
+    toAnchor: 60
   },
-  h: {
+  [TimeEnum.HOUR]: {
     name: {
       singular: 'Hour',
       plural: 'Hours'
     },
-    to_anchor: 60 * 60
+    toAnchor: 3600
   },
-  d: {
+  [TimeEnum.DAY]: {
     name: {
       singular: 'Day',
       plural: 'Days'
     },
-    to_anchor: 60 * 60 * 24
+    toAnchor: 86400
   },
-  week: {
+  [TimeEnum.WEEK]: {
     name: {
       singular: 'Week',
       plural: 'Weeks'
     },
-    to_anchor: 60 * 60 * 24 * 7
+    toAnchor: 604800
   },
-  month: {
+  [TimeEnum.MONTH]: {
     name: {
       singular: 'Month',
       plural: 'Months'
     },
-    to_anchor: (60 * 60 * 24 * daysInYear) / 12
+    toAnchor: 2629800
   },
-  year: {
+  [TimeEnum.YEAR]: {
     name: {
       singular: 'Year',
       plural: 'Years'
     },
-    to_anchor: 60 * 60 * 24 * daysInYear
+    toAnchor: 220903200
   }
 };
 
@@ -78,9 +92,9 @@ export default {
     time
   },
   anchors: {
-    metric: {
-      unit: 's',
+    time: {
+      unit: TimeEnum.SECOND,
       ratio: 1
     }
   }
-};
+} as Definition<'time', TimeUnit>;

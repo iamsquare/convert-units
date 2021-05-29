@@ -1,37 +1,50 @@
+import { Definition } from './type';
+import { TemperatureUnit } from './type/units.type';
+
+export enum MetricTemperatureEnum {
+  CELSIUS = 'C',
+  KELVIN = 'K'
+}
+
+export enum ImperialTemperatureEnum {
+  FAHRENHEIT = 'F',
+  RANKINE = 'R'
+}
+
 const metric = {
-  C: {
+  [MetricTemperatureEnum.CELSIUS]: {
     name: {
-      singular: 'degree Celsius',
-      plural: 'degrees Celsius'
+      singular: 'Degree Celsius',
+      plural: 'Degrees Celsius'
     },
-    to_anchor: 1,
-    anchor_shift: 0
+    toAnchor: 1,
+    anchorShift: 0
   },
-  K: {
+  [MetricTemperatureEnum.KELVIN]: {
     name: {
-      singular: 'degree Kelvin',
-      plural: 'degrees Kelvin'
+      singular: 'Degree Kelvin',
+      plural: 'Degrees Kelvin'
     },
-    to_anchor: 1,
-    anchor_shift: 273.15
+    toAnchor: 1,
+    anchorShift: 273.15
   }
 };
 
 const imperial = {
-  F: {
+  [ImperialTemperatureEnum.FAHRENHEIT]: {
     name: {
-      singular: 'degree Fahrenheit',
-      plural: 'degrees Fahrenheit'
+      singular: 'Degree Fahrenheit',
+      plural: 'Degrees Fahrenheit'
     },
-    to_anchor: 1
+    toAnchor: 1
   },
-  R: {
+  [ImperialTemperatureEnum.RANKINE]: {
     name: {
-      singular: 'degree Rankine',
-      plural: 'degrees Rankine'
+      singular: 'Degree Rankine',
+      plural: 'Degrees Rankine'
     },
-    to_anchor: 1,
-    anchor_shift: 459.67
+    toAnchor: 1,
+    anchorShift: 459.67
   }
 };
 
@@ -42,16 +55,16 @@ export default {
   },
   anchors: {
     metric: {
-      unit: 'C',
+      unit: MetricTemperatureEnum.CELSIUS,
       transform: function (C: number): number {
         return C / (5 / 9) + 32;
       }
     },
     imperial: {
-      unit: 'F',
+      unit: ImperialTemperatureEnum.FAHRENHEIT,
       transform: function (F: number): number {
         return (F - 32) * (5 / 9);
       }
     }
   }
-};
+} as Definition<'metric' | 'imperial', TemperatureUnit>;
