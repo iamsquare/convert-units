@@ -2,8 +2,7 @@
   "author": "Marco Cesi <sq@iamsquare.it> (https://iamsquare.it)",
   "dependencies": {
     "ramda": "^0.27.1",
-    "ramda-adjunct": "^2.33.0",
-    "ramda-extension": "^0.11.0"
+    "ramda-adjunct": "^2.33.0"
   },
   "description": "Convert between quantities in different units",
   "devDependencies": {

@@ -2,20 +2,18 @@ import {
   __,
   add,
   chain,
-  cond,
   curry,
   divide,
   identity,
+  includes,
   isNil,
   keys,
-  map,
   memoizeWith,
   multiply,
   pipe,
   subtract,
-  uncurryN,
-  when,
-  without
+  values,
+  when
 } from 'ramda';
 import { isNotNil } from 'ramda-adjunct';
 
@@ -43,8 +41,8 @@ import reactivePower from './definitions/reactivePower';
 import speed from './definitions/speed';
 import temperature from './definitions/temperature';
 import time from './definitions/time';
-import { Conversion, Definition } from './definitions/type';
-import { Measure, System, UnitType } from './definitions/type/units.type';
+import { Conversion, Definition, UnitDescription } from './definitions/type';
+import { Measure, MeasureEnum, System, UnitType } from './definitions/type/units.type';
 import { Maybe, Nullable } from './definitions/type/utils.type';
 import voltage from './definitions/voltage';
 import volume from './definitions/volume';
@@ -99,55 +97,74 @@ export const getUnit = memoizeWith(identity, (unitType: UnitType): Nullable<Conv
   return null;
 });
 
-export const convert: (from: UnitType, to: UnitType, value: number) => number = uncurryN(3, (from: UnitType) => {
+export const describe = (type: UnitType): UnitDescription => {
+  const unit = getUnit(type);
+
+  if (isNil(unit)) throw new Error(`Cannot describe incompatible unit '${type}'`);
+
+  const { unitType, measure, system, unit: unitObject } = unit;
+
+  return { unitType, measure, system, ...unitObject.name };
+};
+
+export const convert = curry((from: UnitType, to: UnitType, value: number) => {
   const fromConversion = getUnit(from);
 
   if (isNil(fromConversion)) throw new Error(`Incompatible unit '${from}' for *from* parameter`);
 
-  return (to: UnitType) => {
-    const toConversion = getUnit(to);
+  const toConversion = getUnit(to);
 
-    if (isNil(toConversion)) throw new Error(`Incompatible unit '${to}' for *to* parameter`);
+  if (isNil(toConversion)) throw new Error(`Incompatible unit '${to}' for *to* parameter`);
 
-    return (value: number) => {
-      if (from === to) return value;
-      if (fromConversion.measure !== toConversion.measure) {
-        throw new Error(
-          `Cannot convert incompatible measures of '${fromConversion.measure}' and '${toConversion.measure}'`
-        );
+  if (from === to) return value;
+  if (fromConversion.measure !== toConversion.measure) {
+    throw new Error(
+      `Cannot convert incompatible measures of '${fromConversion.measure}' and '${toConversion.measure}'`
+    );
+  }
+
+  return pipe(
+    multiply(fromConversion.unit.anchor),
+    when(() => isNotNil(fromConversion.unit.anchorShift), subtract(__, fromConversion.unit.anchorShift as number)),
+    when(
+      () => fromConversion.system !== toConversion.system,
+      (v) => {
+        const { transform, ratio } = measures[fromConversion.measure].anchors[fromConversion.system];
+
+        if (isNotNil(transform)) {
+          return transform(v);
+        }
+
+        if (isNotNil(ratio)) {
+          return v * ratio;
+        }
+
+        throw new Error('A system anchor needs to either have a defined ratio number or a transform function.');
       }
-
-      return pipe(
-        multiply(fromConversion.unit.anchor),
-        when(() => isNotNil(fromConversion.unit.anchorShift), subtract(__, fromConversion.unit.anchorShift as number)),
-        when(
-          () => fromConversion.system !== toConversion.system,
-          (v) => {
-            const { transform, ratio } = measures[fromConversion.measure].anchors[fromConversion.system];
-
-            if (isNotNil(transform)) {
-              return transform(v);
-            }
-
-            if (isNotNil(ratio)) {
-              return v * ratio;
-            }
-
-            throw new Error('A system anchor needs to either have a defined ratio number or a transform function.');
-          }
-        ),
-        when(() => isNotNil(toConversion.unit.anchorShift), add(toConversion.unit.anchorShift as number)),
-        divide(__, toConversion.unit.anchor)
-      )(value);
-    };
-  };
+    ),
+    when(() => isNotNil(toConversion.unit.anchorShift), add(toConversion.unit.anchorShift as number)),
+    divide(__, toConversion.unit.anchor)
+  )(value);
 });
 
-export const possibilities: (forMeasure?: Maybe<Measure>) => string[] = pipe(
-  (f: Maybe<Measure>) => (isNotNil(f) ? [f] : keys(measures)),
-  map((m) => measures[m as Measure].systems),
+export const possibilities: (arg?: Maybe<UnitType | Measure>) => string[] = pipe(
+  (f: Maybe<UnitType | Measure>) => {
+    if (isNil(f)) return null;
+
+    if (includes(f, values(MeasureEnum))) return f as Measure;
+
+    const unit = getUnit(f as UnitType);
+
+    if (isNil(unit)) throw new Error(`Cannot get possibilities for incompatible unit '${f}'`);
+
+    return unit.measure;
+  },
+  (m: Nullable<Measure>) => (isNotNil(m) ? [m] : keys(measures)),
+  chain((m) => values(measures[m as Measure].systems)),
   chain(keys)
 );
+
+export * from './definitions';
 
 // export const convertToBest: (dto: ConvertToBestDto, value: number) => number = uncurryN(2, (dto: ConvertToBestDto) => {
 //   const fromConversion = getUnit(dto.from);
