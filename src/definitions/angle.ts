@@ -1,49 +1,60 @@
-const angle = {
-  rad: {
+import { Definition } from './type';
+import { AngleUnit } from './type/units.type';
+
+export enum AngleEnum {
+  RADIANS = 'rad',
+  DEGREES = 'deg',
+  GRADIANS = 'grad',
+  ARCMINUTES = 'arcmin',
+  ARCSECONDS = 'arcsec'
+}
+
+const metric = {
+  [AngleEnum.RADIANS]: {
     name: {
-      singular: 'radian',
-      plural: 'radians'
+      singular: 'Radian',
+      plural: 'Radians'
     },
-    to_anchor: 180 / Math.PI
+    toAnchor: 180 / Math.PI
   },
-  deg: {
+  [AngleEnum.DEGREES]: {
     name: {
-      singular: 'degree',
-      plural: 'degrees'
+      singular: 'Degree',
+      plural: 'Degrees'
     },
-    to_anchor: 1
+    toAnchor: 1
   },
-  grad: {
+  [AngleEnum.GRADIANS]: {
     name: {
-      singular: 'gradian',
-      plural: 'gradians'
+      singular: 'Gradian',
+      plural: 'Gradians'
     },
-    to_anchor: 9 / 10
+    toAnchor: 9 / 10
   },
-  arcmin: {
+  [AngleEnum.ARCMINUTES]: {
     name: {
-      singular: 'arcminute',
-      plural: 'arcminutes'
+      singular: 'Arcminute',
+      plural: 'Arcminutes'
     },
-    to_anchor: 1 / 60
+    toAnchor: 1 / 60
   },
-  arcsec: {
+  [AngleEnum.ARCSECONDS]: {
     name: {
-      singular: 'arcsecond',
-      plural: 'arcseconds'
+      singular: 'Arcsecond',
+      plural: 'Arcseconds'
     },
-    to_anchor: 1 / 3600
+    toAnchor: 1 / 3600
   }
 };
 
 export default {
   systems: {
-    angle
+    metric
   },
   anchors: {
     metric: {
-      unit: 'deg',
+      unit: AngleEnum.DEGREES,
       ratio: 1
     }
   }
-};
+} as Definition<'metric', AngleUnit>;

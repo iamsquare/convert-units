@@ -1,183 +1,215 @@
+import { Definition } from './type';
+import { VolumeUnit } from './type/units.type';
+
+export enum MetricVolumeEnum {
+  CUBIC_MILLIMETER = 'mm3',
+  CUBIC_CENTIMETER = 'cm3',
+  MILLILITRE = 'ml',
+  CENTILITRE = 'cl',
+  DECILITRE = 'dl',
+  LITRE = 'l',
+  KILOLITRE = 'kl',
+  CUBIC_METER = 'm3',
+  CUBIC_KILOMETER = 'km3',
+  KRYDDMATTET = 'krm',
+  TESKED = 'tsk',
+  MATSKED = 'msk',
+  KAFFEKOPP = 'kkp',
+  GLAS = 'glas',
+  KANNA = 'kanna'
+}
+
+export enum ImperialVolumeEnum {
+  TEASPOON = 'tsp',
+  TABLESPOON = 'Tbs',
+  CUBIC_INCH = 'in3',
+  FLUID_OUNCE = 'fl-oz',
+  CUP = 'cup',
+  PINT = 'pnt',
+  QUART = 'qt',
+  GALLON = 'gal',
+  CUBIC_FOOT = 'ft3',
+  CUBIC_YARD = 'yd3'
+}
+
 const metric = {
-  mm3: {
+  [MetricVolumeEnum.CUBIC_MILLIMETER]: {
     name: {
       singular: 'Cubic Millimeter',
       plural: 'Cubic Millimeters'
     },
-    to_anchor: 1 / 1000000
+    toAnchor: 1e-6
   },
-  cm3: {
+  [MetricVolumeEnum.CUBIC_CENTIMETER]: {
     name: {
       singular: 'Cubic Centimeter',
       plural: 'Cubic Centimeters'
     },
-    to_anchor: 1 / 1000
+    toAnchor: 1e-3
   },
-  ml: {
+  [MetricVolumeEnum.MILLILITRE]: {
     name: {
       singular: 'Millilitre',
       plural: 'Millilitres'
     },
-    to_anchor: 1 / 1000
+    toAnchor: 1e-3
   },
-  cl: {
+  [MetricVolumeEnum.CENTILITRE]: {
     name: {
       singular: 'Centilitre',
       plural: 'Centilitres'
     },
-    to_anchor: 1 / 100
+    toAnchor: 1e-2
   },
-  dl: {
+  [MetricVolumeEnum.DECILITRE]: {
     name: {
       singular: 'Decilitre',
       plural: 'Decilitres'
     },
-    to_anchor: 1 / 10
+    toAnchor: 1e-1
   },
-  l: {
+  [MetricVolumeEnum.LITRE]: {
     name: {
       singular: 'Litre',
       plural: 'Litres'
     },
-    to_anchor: 1
+    toAnchor: 1
   },
-  kl: {
+  [MetricVolumeEnum.KILOLITRE]: {
     name: {
       singular: 'Kilolitre',
       plural: 'Kilolitres'
     },
-    to_anchor: 1000
+    toAnchor: 1e3
   },
-  m3: {
+  [MetricVolumeEnum.CUBIC_METER]: {
     name: {
       singular: 'Cubic meter',
       plural: 'Cubic meters'
     },
-    to_anchor: 1000
+    toAnchor: 1e3
   },
-  km3: {
+  [MetricVolumeEnum.CUBIC_KILOMETER]: {
     name: {
       singular: 'Cubic kilometer',
       plural: 'Cubic kilometers'
     },
-    to_anchor: 1000000000000
+    toAnchor: 1e12
   },
-
-  // Swedish units
-  krm: {
+  [MetricVolumeEnum.KRYDDMATTET]: {
     name: {
-      singular: 'Matsked',
-      plural: 'Matskedar'
+      singular: 'Kryddmåttet',
+      plural: 'Kryddmått'
     },
-    to_anchor: 1 / 1000
+    toAnchor: 1e-3
   },
-  tsk: {
+  [MetricVolumeEnum.TESKED]: {
     name: {
       singular: 'Tesked',
       plural: 'Teskedar'
     },
-    to_anchor: 5 / 1000
+    toAnchor: 5e-3
   },
-  msk: {
+  [MetricVolumeEnum.MATSKED]: {
     name: {
       singular: 'Matsked',
       plural: 'Matskedar'
     },
-    to_anchor: 15 / 1000
+    toAnchor: 1.5e-2
   },
-  kkp: {
+  [MetricVolumeEnum.KAFFEKOPP]: {
     name: {
       singular: 'Kaffekopp',
       plural: 'Kaffekoppar'
     },
-    to_anchor: 150 / 1000
+    toAnchor: 0.15
   },
-  glas: {
+  [MetricVolumeEnum.GLAS]: {
     name: {
       singular: 'Glas',
       plural: 'Glas'
     },
-    to_anchor: 200 / 1000
+    toAnchor: 0.2
   },
-  kanna: {
+  [MetricVolumeEnum.KANNA]: {
     name: {
       singular: 'Kanna',
       plural: 'Kannor'
     },
-    to_anchor: 2.617
+    toAnchor: 2.617
   }
 };
 
 const imperial = {
-  tsp: {
+  [ImperialVolumeEnum.TEASPOON]: {
     name: {
       singular: 'Teaspoon',
       plural: 'Teaspoons'
     },
-    to_anchor: 1 / 6
+    toAnchor: 1 / 6
   },
-  Tbs: {
+  [ImperialVolumeEnum.TABLESPOON]: {
     name: {
       singular: 'Tablespoon',
       plural: 'Tablespoons'
     },
-    to_anchor: 1 / 2
+    toAnchor: 1 / 2
   },
-  in3: {
+  [ImperialVolumeEnum.CUBIC_INCH]: {
     name: {
       singular: 'Cubic inch',
       plural: 'Cubic inches'
     },
-    to_anchor: 0.55411
+    toAnchor: 0.55411
   },
-  'fl-oz': {
+  [ImperialVolumeEnum.FLUID_OUNCE]: {
     name: {
       singular: 'Fluid Ounce',
       plural: 'Fluid Ounces'
     },
-    to_anchor: 1
+    toAnchor: 1
   },
-  cup: {
+  [ImperialVolumeEnum.CUP]: {
     name: {
       singular: 'Cup',
       plural: 'Cups'
     },
-    to_anchor: 8
+    toAnchor: 8
   },
-  pnt: {
+  [ImperialVolumeEnum.PINT]: {
     name: {
       singular: 'Pint',
       plural: 'Pints'
     },
-    to_anchor: 16
+    toAnchor: 16
   },
-  qt: {
+  [ImperialVolumeEnum.QUART]: {
     name: {
       singular: 'Quart',
       plural: 'Quarts'
     },
-    to_anchor: 32
+    toAnchor: 32
   },
-  gal: {
+  [ImperialVolumeEnum.GALLON]: {
     name: {
       singular: 'Gallon',
       plural: 'Gallons'
     },
-    to_anchor: 128
+    toAnchor: 128
   },
-  ft3: {
+  [ImperialVolumeEnum.CUBIC_FOOT]: {
     name: {
       singular: 'Cubic foot',
       plural: 'Cubic feet'
     },
-    to_anchor: 957.506
+    toAnchor: 957.506
   },
-  yd3: {
+  [ImperialVolumeEnum.CUBIC_YARD]: {
     name: {
       singular: 'Cubic yard',
       plural: 'Cubic yards'
     },
-    to_anchor: 25852.7
+    toAnchor: 25852.7
   }
 };
 
@@ -188,12 +220,12 @@ export default {
   },
   anchors: {
     metric: {
-      unit: 'l',
+      unit: MetricVolumeEnum.LITRE,
       ratio: 33.8140226
     },
     imperial: {
-      unit: 'fl-oz',
+      unit: ImperialVolumeEnum.FLUID_OUNCE,
       ratio: 1 / 33.8140226
     }
   }
-};
+} as Definition<'metric' | 'imperial', VolumeUnit>;

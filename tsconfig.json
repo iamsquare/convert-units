@@ -5,7 +5,6 @@
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
-    "baseUrl": "./",
     "target": "ES5",
     "module": "ES2020",
     "allowJs": false,

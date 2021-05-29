@@ -1,24 +1,30 @@
+export enum VoltageEnum {
+  VOLT = 'V',
+  MILLIVOLT = 'mV',
+  KILOVOLT = 'kV'
+}
+
 const voltage = {
-  V: {
+  [VoltageEnum.VOLT]: {
     name: {
       singular: 'Volt',
       plural: 'Volts'
     },
-    to_anchor: 1
+    toAnchor: 1
   },
-  mV: {
+  [VoltageEnum.MILLIVOLT]: {
     name: {
       singular: 'Millivolt',
       plural: 'Millivolts'
     },
-    to_anchor: 0.001
+    toAnchor: 0.001
   },
-  kV: {
+  [VoltageEnum.KILOVOLT]: {
     name: {
       singular: 'Kilovolt',
       plural: 'Kilovolts'
     },
-    to_anchor: 1000
+    toAnchor: 1000
   }
 };
 
@@ -28,7 +34,7 @@ export default {
   },
   anchors: {
     metric: {
-      unit: 'V',
+      unit: VoltageEnum.VOLT,
       ratio: 1
     }
   }

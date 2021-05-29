@@ -1,76 +1,95 @@
+import { Definition } from './type';
+import { DigitalUnit } from './type/units.type';
+
+export enum BitEnum {
+  BIT = 'b',
+  KILOBIT = 'kb',
+  MEGABIT = 'Mb',
+  GIGABIT = 'Gb',
+  TERABIT = 'Tb'
+}
+
+export enum ByteEnum {
+  BYTE = 'B',
+  KILOBYTE = 'kB',
+  MEGABYTE = 'MB',
+  GIGABYTE = 'GB',
+  TERABYTE = 'TB'
+}
+
 const bits = {
-  b: {
+  [BitEnum.BIT]: {
     name: {
       singular: 'Bit',
       plural: 'Bits'
     },
-    to_anchor: 1
+    toAnchor: 1
   },
-  Kb: {
+  [BitEnum.KILOBIT]: {
     name: {
       singular: 'Kilobit',
       plural: 'Kilobits'
     },
-    to_anchor: 1024
+    toAnchor: 1024
   },
-  Mb: {
+  [BitEnum.MEGABIT]: {
     name: {
       singular: 'Megabit',
       plural: 'Megabits'
     },
-    to_anchor: 1048576
+    toAnchor: 1048576
   },
-  Gb: {
+  [BitEnum.GIGABIT]: {
     name: {
       singular: 'Gigabit',
       plural: 'Gigabits'
     },
-    to_anchor: 1073741824
+    toAnchor: 1073741824
   },
-  Tb: {
+  [BitEnum.TERABIT]: {
     name: {
       singular: 'Terabit',
       plural: 'Terabits'
     },
-    to_anchor: 1099511627776
+    toAnchor: 1099511627776
   }
 };
 
 const bytes = {
-  B: {
+  [ByteEnum.BYTE]: {
     name: {
       singular: 'Byte',
       plural: 'Bytes'
     },
-    to_anchor: 1
+    toAnchor: 1
   },
-  KB: {
+  [ByteEnum.KILOBYTE]: {
     name: {
       singular: 'Kilobyte',
       plural: 'Kilobytes'
     },
-    to_anchor: 1024
+    toAnchor: 1024
   },
-  MB: {
+  [ByteEnum.MEGABYTE]: {
     name: {
       singular: 'Megabyte',
       plural: 'Megabytes'
     },
-    to_anchor: 1048576
+    toAnchor: 1048576
   },
-  GB: {
+  [ByteEnum.GIGABYTE]: {
     name: {
       singular: 'Gigabyte',
       plural: 'Gigabytes'
     },
-    to_anchor: 1073741824
+    toAnchor: 1073741824
   },
-  TB: {
+  [ByteEnum.TERABYTE]: {
     name: {
       singular: 'Terabyte',
       plural: 'Terabytes'
     },
-    to_anchor: 1099511627776
+    toAnchor: 1099511627776
   }
 };
 
@@ -81,12 +100,12 @@ export default {
   },
   anchors: {
     bits: {
-      unit: 'b',
+      unit: BitEnum.BIT,
       ratio: 1 / 8
     },
     bytes: {
-      unit: 'B',
+      unit: ByteEnum.BYTE,
       ratio: 8
     }
   }
-};
+} as Definition<'bits' | 'bytes', DigitalUnit>;

@@ -1,62 +1,79 @@
+import { Definition } from './type';
+import { PressureUnit } from './type/units.type';
+
+export enum MetricPressureEnum {
+  PASCAL = 'Pa',
+  KILOPASCAL = 'kPa',
+  MEGAPASCAL = 'MPa',
+  HECTOPASCAL = 'hPa',
+  BAR = 'bar',
+  TORR = 'torr'
+}
+
+export enum ImperialPressureEnum {
+  POUND_PER_SQUARE_INCH = 'psi',
+  KILOPOUND_PER_SQUARE_INCH = 'ksi'
+}
+
 const metric = {
-  Pa: {
+  [MetricPressureEnum.PASCAL]: {
     name: {
       singular: 'pascal',
       plural: 'pascals'
     },
-    to_anchor: 1 / 1000
+    toAnchor: 1 / 1000
   },
-  kPa: {
+  [MetricPressureEnum.KILOPASCAL]: {
     name: {
       singular: 'kilopascal',
       plural: 'kilopascals'
     },
-    to_anchor: 1
+    toAnchor: 1
   },
-  MPa: {
+  [MetricPressureEnum.MEGAPASCAL]: {
     name: {
       singular: 'megapascal',
       plural: 'megapascals'
     },
-    to_anchor: 1000
+    toAnchor: 1000
   },
-  hPa: {
+  [MetricPressureEnum.HECTOPASCAL]: {
     name: {
       singular: 'hectopascal',
       plural: 'hectopascals'
     },
-    to_anchor: 1 / 10
+    toAnchor: 1 / 10
   },
-  bar: {
+  [MetricPressureEnum.BAR]: {
     name: {
       singular: 'bar',
       plural: 'bar'
     },
-    to_anchor: 100
+    toAnchor: 100
   },
-  torr: {
+  [MetricPressureEnum.TORR]: {
     name: {
       singular: 'torr',
       plural: 'torr'
     },
-    to_anchor: 101325 / 760000
+    toAnchor: 101325 / 760000
   }
 };
 
 const imperial = {
-  psi: {
+  [ImperialPressureEnum.POUND_PER_SQUARE_INCH]: {
     name: {
       singular: 'pound per square inch',
       plural: 'pounds per square inch'
     },
-    to_anchor: 1 / 1000
+    toAnchor: 1 / 1000
   },
-  ksi: {
+  [ImperialPressureEnum.KILOPOUND_PER_SQUARE_INCH]: {
     name: {
       singular: 'kilopound per square inch',
       plural: 'kilopound per square inch'
     },
-    to_anchor: 1
+    toAnchor: 1
   }
 };
 
@@ -67,12 +84,12 @@ export default {
   },
   anchors: {
     metric: {
-      unit: 'kPa',
+      unit: MetricPressureEnum.KILOPASCAL,
       ratio: 0.00014503768078
     },
     imperial: {
-      unit: 'psi',
+      unit: ImperialPressureEnum.POUND_PER_SQUARE_INCH,
       ratio: 1 / 0.00014503768078
     }
   }
-};
+} as Definition<'metric' | 'imperial', PressureUnit>;

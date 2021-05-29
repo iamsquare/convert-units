@@ -1,265 +1,311 @@
+import { Definition } from './type';
+import { VolumeFlowRateUnit } from './type/units.type';
+
+export enum MetricVolumeFlowEnum {
+  CUBIC_MILLIMETER_PER_SECOND = 'mm3/s',
+  CUBIC_CENTIMETER_PER_SECOND = 'cm3/s',
+  MILLILITRE_PER_SECOND = 'ml/s',
+  CENTILITRE_PER_SECOND = 'cl/s',
+  DECILITRE_PER_SECOND = 'dl/s',
+  LITRE_PER_SECOND = 'l/s',
+  LITRE_PER_MINUTE = 'l/min',
+  LITRE_PER_HOUR = 'l/h',
+  KILOLITRE_PER_SECOND = 'kl/s',
+  KILOLITRE_PER_MINUTE = 'kl/min',
+  KILOLITRE_PER_HOUR = 'kl/h',
+  CUBIC_METER_PER_SECOND = 'm3/s',
+  CUBIC_METER_PER_MINUTE = 'm3/min',
+  CUBIC_METER_PER_HOUR = 'm3/h',
+  CUBIC_KILOMETER_PER_SECOND = 'km3/s'
+}
+
+export enum ImperialVolumeFlowEnum {
+  TEASPOON_PER_SECOND = 'tsp/s',
+  TABLESPOON_PER_SECOND = 'Tbs/s',
+  CUBIC_INCH_PER_SECOND = 'in3/s',
+  CUBIC_INCH_PER_MINUTE = 'in3/min',
+  CUBIC_INCH_PER_HOUR = 'in3/h',
+  FLUID_OUNCE_PER_SECOND = 'fl-oz/s',
+  FLUID_OUNCE_PER_MINUTE = 'fl-oz/min',
+  FLUID_OUNCE_PER_HOUR = 'fl-oz/h',
+  CUP_PER_SECOND = 'cup/s',
+  PINT_PER_SECOND = 'pnt/s',
+  PINT_PER_MINUTE = 'pnt/min',
+  PINT_PER_HOUR = 'pnt/h',
+  QUART_PER_SECOND = 'qt/s',
+  GALLON_PER_SECOND = 'gal/s',
+  GALLON_PER_MINUTE = 'gal/min',
+  GALLON_PER_HOUR = 'gal/h',
+  CUBIC_FOOT_PER_SECOND = 'ft3/s',
+  CUBIC_FOOT_PER_MINUTE = 'ft3/min',
+  CUBIC_FOOT_PER_HOUR = 'ft3/h',
+  CUBIC_YARD_PER_SECOND = 'yd3/s',
+  CUBIC_YARD_PER_MINUTE = 'yd3/min',
+  CUBIX_YARD_PER_HOUR = 'yd3/h'
+}
+
 const metric = {
-  'mm3/s': {
+  [MetricVolumeFlowEnum.CUBIC_MILLIMETER_PER_SECOND]: {
     name: {
       singular: 'Cubic Millimeter per second',
       plural: 'Cubic Millimeters per second'
     },
-    to_anchor: 1 / 1000000
+    toAnchor: 1e-6
   },
-  'cm3/s': {
+  [MetricVolumeFlowEnum.CUBIC_CENTIMETER_PER_SECOND]: {
     name: {
       singular: 'Cubic Centimeter per second',
       plural: 'Cubic Centimeters per second'
     },
-    to_anchor: 1 / 1000
+    toAnchor: 1e-3
   },
-  'ml/s': {
+  [MetricVolumeFlowEnum.MILLILITRE_PER_SECOND]: {
     name: {
       singular: 'Millilitre per second',
       plural: 'Millilitres per second'
     },
-    to_anchor: 1 / 1000
+    toAnchor: 1e-3
   },
-  'cl/s': {
+  [MetricVolumeFlowEnum.CENTILITRE_PER_SECOND]: {
     name: {
       singular: 'Centilitre per second',
       plural: 'Centilitres per second'
     },
-    to_anchor: 1 / 100
+    toAnchor: 1e-2
   },
-  'dl/s': {
+  [MetricVolumeFlowEnum.DECILITRE_PER_SECOND]: {
     name: {
       singular: 'Decilitre per second',
       plural: 'Decilitres per second'
     },
-    to_anchor: 1 / 10
+    toAnchor: 0.1
   },
-  'l/s': {
+  [MetricVolumeFlowEnum.LITRE_PER_SECOND]: {
     name: {
       singular: 'Litre per second',
       plural: 'Litres per second'
     },
-    to_anchor: 1
+    toAnchor: 1
   },
-  'l/min': {
+  [MetricVolumeFlowEnum.LITRE_PER_MINUTE]: {
     name: {
       singular: 'Litre per minute',
       plural: 'Litres per minute'
     },
-    to_anchor: 1 / 60
+    toAnchor: 1 / 60
   },
-  'l/h': {
+  [MetricVolumeFlowEnum.LITRE_PER_HOUR]: {
     name: {
       singular: 'Litre per hour',
       plural: 'Litres per hour'
     },
-    to_anchor: 1 / 3600
+    toAnchor: 1 / 3600
   },
-  'kl/s': {
+  [MetricVolumeFlowEnum.KILOLITRE_PER_SECOND]: {
     name: {
       singular: 'Kilolitre per second',
       plural: 'Kilolitres per second'
     },
-    to_anchor: 1000
+    toAnchor: 1e3
   },
-  'kl/min': {
+  [MetricVolumeFlowEnum.KILOLITRE_PER_MINUTE]: {
     name: {
       singular: 'Kilolitre per minute',
       plural: 'Kilolitres per minute'
     },
-    to_anchor: 50 / 3
+    toAnchor: 50 / 3
   },
-  'kl/h': {
+  [MetricVolumeFlowEnum.KILOLITRE_PER_HOUR]: {
     name: {
       singular: 'Kilolitre per hour',
       plural: 'Kilolitres per hour'
     },
-    to_anchor: 5 / 18
+    toAnchor: 5 / 18
   },
-  'm3/s': {
+  [MetricVolumeFlowEnum.CUBIC_METER_PER_SECOND]: {
     name: {
       singular: 'Cubic meter per second',
       plural: 'Cubic meters per second'
     },
-    to_anchor: 1000
+    toAnchor: 1e3
   },
-  'm3/min': {
+  [MetricVolumeFlowEnum.CUBIC_METER_PER_MINUTE]: {
     name: {
       singular: 'Cubic meter per minute',
       plural: 'Cubic meters per minute'
     },
-    to_anchor: 50 / 3
+    toAnchor: 50 / 3
   },
-  'm3/h': {
+  [MetricVolumeFlowEnum.CUBIC_METER_PER_HOUR]: {
     name: {
       singular: 'Cubic meter per hour',
       plural: 'Cubic meters per hour'
     },
-    to_anchor: 5 / 18
+    toAnchor: 5 / 18
   },
-  'km3/s': {
+  [MetricVolumeFlowEnum.CUBIC_KILOMETER_PER_SECOND]: {
     name: {
       singular: 'Cubic kilometer per second',
       plural: 'Cubic kilometers per second'
     },
-    to_anchor: 1000000000000
+    toAnchor: 1e12
   }
 };
 
 const imperial = {
-  'tsp/s': {
+  [ImperialVolumeFlowEnum.TEASPOON_PER_SECOND]: {
     name: {
       singular: 'Teaspoon per second',
       plural: 'Teaspoons per second'
     },
-    to_anchor: 1 / 6
+    toAnchor: 1 / 6
   },
-  'Tbs/s': {
+  [ImperialVolumeFlowEnum.TABLESPOON_PER_SECOND]: {
     name: {
       singular: 'Tablespoon per second',
       plural: 'Tablespoons per second'
     },
-    to_anchor: 1 / 2
+    toAnchor: 1 / 2
   },
-  'in3/s': {
+  [ImperialVolumeFlowEnum.CUBIC_INCH_PER_SECOND]: {
     name: {
       singular: 'Cubic inch per second',
       plural: 'Cubic inches per second'
     },
-    to_anchor: 0.55411
+    toAnchor: 0.55411
   },
-  'in3/min': {
+  [ImperialVolumeFlowEnum.CUBIC_INCH_PER_MINUTE]: {
     name: {
       singular: 'Cubic inch per minute',
       plural: 'Cubic inches per minute'
     },
-    to_anchor: 0.55411 / 60
+    toAnchor: 0.55411 / 60
   },
-  'in3/h': {
+  [ImperialVolumeFlowEnum.CUBIC_INCH_PER_HOUR]: {
     name: {
       singular: 'Cubic inch per hour',
       plural: 'Cubic inches per hour'
     },
-    to_anchor: 0.55411 / 3600
+    toAnchor: 0.55411 / 3600
   },
-  'fl-oz/s': {
+  [ImperialVolumeFlowEnum.FLUID_OUNCE_PER_SECOND]: {
     name: {
       singular: 'Fluid Ounce per second',
       plural: 'Fluid Ounces per second'
     },
-    to_anchor: 1
+    toAnchor: 1
   },
-  'fl-oz/min': {
+  [ImperialVolumeFlowEnum.FLUID_OUNCE_PER_MINUTE]: {
     name: {
       singular: 'Fluid Ounce per minute',
       plural: 'Fluid Ounces per minute'
     },
-    to_anchor: 1 / 60
+    toAnchor: 1 / 60
   },
-  'fl-oz/h': {
+  [ImperialVolumeFlowEnum.FLUID_OUNCE_PER_HOUR]: {
     name: {
       singular: 'Fluid Ounce per hour',
       plural: 'Fluid Ounces per hour'
     },
-    to_anchor: 1 / 3600
+    toAnchor: 1 / 3600
   },
-  'cup/s': {
+  [ImperialVolumeFlowEnum.CUP_PER_SECOND]: {
     name: {
       singular: 'Cup per second',
       plural: 'Cups per second'
     },
-    to_anchor: 8
+    toAnchor: 8
   },
-  'pnt/s': {
+  [ImperialVolumeFlowEnum.PINT_PER_SECOND]: {
     name: {
       singular: 'Pint per second',
       plural: 'Pints per second'
     },
-    to_anchor: 16
+    toAnchor: 16
   },
-  'pnt/min': {
+  [ImperialVolumeFlowEnum.PINT_PER_MINUTE]: {
     name: {
       singular: 'Pint per minute',
       plural: 'Pints per minute'
     },
-    to_anchor: 4 / 15
+    toAnchor: 4 / 15
   },
-  'pnt/h': {
+  [ImperialVolumeFlowEnum.PINT_PER_HOUR]: {
     name: {
       singular: 'Pint per hour',
       plural: 'Pints per hour'
     },
-    to_anchor: 1 / 225
+    toAnchor: 1 / 225
   },
-  'qt/s': {
+  [ImperialVolumeFlowEnum.QUART_PER_SECOND]: {
     name: {
       singular: 'Quart per second',
       plural: 'Quarts per second'
     },
-    to_anchor: 32
+    toAnchor: 32
   },
-  'gal/s': {
+  [ImperialVolumeFlowEnum.GALLON_PER_SECOND]: {
     name: {
       singular: 'Gallon per second',
       plural: 'Gallons per second'
     },
-    to_anchor: 128
+    toAnchor: 128
   },
-  'gal/min': {
+  [ImperialVolumeFlowEnum.GALLON_PER_MINUTE]: {
     name: {
       singular: 'Gallon per minute',
       plural: 'Gallons per minute'
     },
-    to_anchor: 32 / 15
+    toAnchor: 32 / 15
   },
-  'gal/h': {
+  [ImperialVolumeFlowEnum.GALLON_PER_HOUR]: {
     name: {
       singular: 'Gallon per hour',
       plural: 'Gallons per hour'
     },
-    to_anchor: 8 / 225
+    toAnchor: 8 / 225
   },
-  'ft3/s': {
+  [ImperialVolumeFlowEnum.CUBIC_FOOT_PER_SECOND]: {
     name: {
       singular: 'Cubic foot per second',
       plural: 'Cubic feet per second'
     },
-    to_anchor: 957.506
+    toAnchor: 957.506
   },
-  'ft3/min': {
+  [ImperialVolumeFlowEnum.CUBIC_FOOT_PER_MINUTE]: {
     name: {
       singular: 'Cubic foot per minute',
       plural: 'Cubic feet per minute'
     },
-    to_anchor: 957.506 / 60
+    toAnchor: 957.506 / 60
   },
-  'ft3/h': {
+  [ImperialVolumeFlowEnum.CUBIC_FOOT_PER_HOUR]: {
     name: {
       singular: 'Cubic foot per hour',
       plural: 'Cubic feet per hour'
     },
-    to_anchor: 957.506 / 3600
+    toAnchor: 957.506 / 3600
   },
-  'yd3/s': {
+  [ImperialVolumeFlowEnum.CUBIC_YARD_PER_SECOND]: {
     name: {
       singular: 'Cubic yard per second',
       plural: 'Cubic yards per second'
     },
-    to_anchor: 25852.7
+    toAnchor: 25852.7
   },
-  'yd3/min': {
+  [ImperialVolumeFlowEnum.CUBIC_YARD_PER_MINUTE]: {
     name: {
       singular: 'Cubic yard per minute',
       plural: 'Cubic yards per minute'
     },
-    to_anchor: 25852.7 / 60
+    toAnchor: 25852.7 / 60
   },
-  'yd3/h': {
+  [ImperialVolumeFlowEnum.CUBIX_YARD_PER_HOUR]: {
     name: {
       singular: 'Cubic yard per hour',
       plural: 'Cubic yards per hour'
     },
-    to_anchor: 25852.7 / 3600
+    toAnchor: 25852.7 / 3600
   }
 };
 
@@ -270,12 +316,12 @@ export default {
   },
   anchors: {
     metric: {
-      unit: 'l/s',
+      unit: MetricVolumeFlowEnum.LITRE_PER_SECOND,
       ratio: 33.8140227
     },
     imperial: {
-      unit: 'fl-oz/s',
+      unit: ImperialVolumeFlowEnum.FLUID_OUNCE_PER_SECOND,
       ratio: 1 / 33.8140227
     }
   }
-};
+} as Definition<'metric' | 'imperial', VolumeFlowRateUnit>;
