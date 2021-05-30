@@ -1,45 +1,46 @@
-import convert from '../..';
+import { convert } from '../..';
+import { PartsPerEnum } from '../partsPer';
 
 test('ppm to ppm', () => {
-  expect(convert(1).from('ppm').to('ppm')).toBe(1);
+  expect(convert(PartsPerEnum.PART_PER_MILLION, PartsPerEnum.PART_PER_MILLION, 1)).toBe(1);
 });
 
 test('ppb to ppb', () => {
-  expect(convert(1).from('ppb').to('ppb')).toBe(1);
+  expect(convert(PartsPerEnum.PART_PER_BILLION, PartsPerEnum.PART_PER_BILLION, 1)).toBe(1);
 });
 
 test('ppm to ppb', () => {
-  expect(convert(1).from('ppm').to('ppb')).toBe(1000);
+  expect(convert(PartsPerEnum.PART_PER_MILLION, PartsPerEnum.PART_PER_BILLION, 1)).toBe(1e3);
 });
 
 test('ppb to ppm', () => {
-  expect(convert(1).from('ppb').to('ppm')).toBe(0.001);
+  expect(convert(PartsPerEnum.PART_PER_BILLION, PartsPerEnum.PART_PER_MILLION, 1)).toBe(1e-3);
 });
 
 test('ppt to ppt', () => {
-  expect(convert(1).from('ppt').to('ppt')).toBe(1);
+  expect(convert(PartsPerEnum.PART_PER_TRILLION, PartsPerEnum.PART_PER_TRILLION, 1)).toBe(1);
 });
 
 test('ppm to ppt', () => {
-  expect(convert(1).from('ppm').to('ppt')).toBe(1000000);
+  expect(convert(PartsPerEnum.PART_PER_MILLION, PartsPerEnum.PART_PER_TRILLION, 1)).toBe(1e6);
 });
 
 test('ppt to ppb', () => {
-  expect(convert(1).from('ppt').to('ppb')).toBe(0.001);
+  expect(convert(PartsPerEnum.PART_PER_TRILLION, PartsPerEnum.PART_PER_BILLION, 1)).toBe(1e-3);
 });
 
 test('ppt to ppm', () => {
-  expect(convert(1).from('ppt').to('ppm')).toBe(0.000001);
+  expect(convert(PartsPerEnum.PART_PER_TRILLION, PartsPerEnum.PART_PER_MILLION, 1)).toBe(1e-6);
 });
 
 test('ppq to ppq', () => {
-  expect(convert(1).from('ppq').to('ppq')).toBe(1);
+  expect(convert(PartsPerEnum.PART_PER_QUADRILLION, PartsPerEnum.PART_PER_QUADRILLION, 1)).toBe(1);
 });
 
 test('ppq to ppt', () => {
-  expect(convert(1).from('ppq').to('ppt')).toBe(0.001);
+  expect(convert(PartsPerEnum.PART_PER_QUADRILLION, PartsPerEnum.PART_PER_TRILLION, 1)).toBe(1e-3);
 });
 
 test('ppq to ppm', () => {
-  expect(convert(1).from('ppq').to('ppm')).toBe(0.000000001);
+  expect(convert(PartsPerEnum.PART_PER_QUADRILLION, PartsPerEnum.PART_PER_MILLION, 1)).toBe(1e-9);
 });

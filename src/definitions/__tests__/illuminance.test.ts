@@ -1,9 +1,10 @@
-import convert from '../..';
+import { convert } from '../..';
+import { ImperialIlluminanceEnum, MetricIlluminanceEnum } from '../illuminance';
 
 test('ft-cd to lx', () => {
-  expect(convert(1).from('ft-cd').to('lx')).toBe(10.76391);
+  expect(convert(ImperialIlluminanceEnum.FOOT_CANDLE, MetricIlluminanceEnum.LUX, 1)).toBeCloseTo(10.76391);
 });
 
 test('lx to ft-cd', () => {
-  expect(convert(1).from('lx').to('ft-cd')).toBe(0.09290304359661128);
+  expect(convert(MetricIlluminanceEnum.LUX, ImperialIlluminanceEnum.FOOT_CANDLE, 1)).toBeCloseTo(0.09290304);
 });

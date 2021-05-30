@@ -1,20 +1,31 @@
+import { Definition } from '../type';
+import { IlluminanceUnit } from './type/units.type';
+
+export enum MetricIlluminanceEnum {
+  LUX = 'lx'
+}
+
+export enum ImperialIlluminanceEnum {
+  FOOT_CANDLE = 'ft-cd'
+}
+
 const metric = {
-  lx: {
+  [MetricIlluminanceEnum.LUX]: {
     name: {
       singular: 'Lux',
       plural: 'Lux'
     },
-    to_anchor: 1
+    anchor: 1
   }
 };
 
 const imperial = {
-  'ft-cd': {
+  [ImperialIlluminanceEnum.FOOT_CANDLE]: {
     name: {
       singular: 'Foot-candle',
       plural: 'Foot-candles'
     },
-    to_anchor: 1
+    anchor: 1
   }
 };
 
@@ -25,12 +36,12 @@ export default {
   },
   anchors: {
     metric: {
-      unit: 'lx',
+      unit: MetricIlluminanceEnum.LUX,
       ratio: 1 / 10.76391
     },
     imperial: {
-      unit: 'ft-cd',
+      unit: ImperialIlluminanceEnum.FOOT_CANDLE,
       ratio: 10.76391
     }
   }
-};
+} as Definition<'metric' | 'imperial', IlluminanceUnit>;

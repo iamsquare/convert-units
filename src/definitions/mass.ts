@@ -1,62 +1,79 @@
+import { Definition } from '../type';
+import { MassUnit } from './type/units.type';
+
+export enum MetricMassEnum {
+  GRAM = 'g',
+  MICROGRAM = 'mcg',
+  MILLIGRAM = 'mg',
+  KILOGRAM = 'kg',
+  METRIC_TONNE = 'mt'
+}
+
+export enum ImperialMassEnum {
+  OUNCE = 'oz',
+  POUND = 'lb',
+  TON = 't'
+}
+
 const metric = {
-  mcg: {
+  [MetricMassEnum.MICROGRAM]: {
     name: {
       singular: 'Microgram',
       plural: 'Micrograms'
     },
-    to_anchor: 1 / 1000000
+    anchor: 1e-6
   },
-  mg: {
+  [MetricMassEnum.MILLIGRAM]: {
     name: {
       singular: 'Milligram',
       plural: 'Milligrams'
     },
-    to_anchor: 1 / 1000
+    anchor: 1e-3
   },
-  g: {
+  [MetricMassEnum.GRAM]: {
     name: {
       singular: 'Gram',
       plural: 'Grams'
     },
-    to_anchor: 1
+    anchor: 1
   },
-  kg: {
+  [MetricMassEnum.KILOGRAM]: {
     name: {
       singular: 'Kilogram',
       plural: 'Kilograms'
     },
-    to_anchor: 1000
+    anchor: 1e3
   },
-  mt: {
+  [MetricMassEnum.METRIC_TONNE]: {
     name: {
       singular: 'Metric Tonne',
       plural: 'Metric Tonnes'
     },
-    to_anchor: 1000000
+    anchor: 1e6
   }
 };
 
 const imperial = {
-  oz: {
+  [ImperialMassEnum.OUNCE]: {
     name: {
       singular: 'Ounce',
       plural: 'Ounces'
     },
-    to_anchor: 1 / 16
+    anchor: 1 / 16
   },
-  lb: {
+  [ImperialMassEnum.POUND]: {
     name: {
       singular: 'Pound',
       plural: 'Pounds'
     },
-    to_anchor: 1
+    anchor: 1
   },
-  t: {
+  [ImperialMassEnum.TON]: {
     name: {
       singular: 'Ton',
       plural: 'Tons'
     },
-    to_anchor: 2000
+    anchor: 2e3
   }
 };
 
@@ -67,12 +84,12 @@ export default {
   },
   anchors: {
     metric: {
-      unit: 'g',
+      unit: MetricMassEnum.GRAM,
       ratio: 1 / 453.592
     },
     imperial: {
-      unit: 'lb',
+      unit: ImperialMassEnum.POUND,
       ratio: 453.592
     }
   }
-};
+} as Definition<'metric' | 'imperial', MassUnit>;

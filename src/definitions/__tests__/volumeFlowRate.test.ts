@@ -1,157 +1,200 @@
-import convert from '../..';
+import { convert } from '../..';
+import { ImperialVolumeFlowEnum, MetricVolumeFlowEnum } from '../volumeFlowRate';
 
 test('l/s to l/s', () => {
-  expect(convert(2).from('l/s').to('l/s')).toBe(2);
+  expect(convert(MetricVolumeFlowEnum.LITRE_PER_SECOND, MetricVolumeFlowEnum.LITRE_PER_SECOND, 1)).toBe(1);
 });
 
 test('mm3/s to l/s', () => {
-  expect(convert(1000000).from('mm3/s').to('l/s')).toBe(1);
+  expect(convert(MetricVolumeFlowEnum.CUBIC_MILLIMETER_PER_SECOND, MetricVolumeFlowEnum.LITRE_PER_SECOND, 1e6)).toBe(1);
 });
 
 test('cm3/s to l/s', () => {
-  expect(convert(100).from('cm3/s').to('l/s')).toBe(1 / 10);
+  expect(convert(MetricVolumeFlowEnum.CUBIC_CENTIMETER_PER_SECOND, MetricVolumeFlowEnum.LITRE_PER_SECOND, 1e2)).toBe(
+    0.1
+  );
 });
 
 test('dl/s to l/s', () => {
-  expect(convert(2).from('dl/s').to('l/s')).toBe(0.2);
+  expect(convert(MetricVolumeFlowEnum.DECILITRE_PER_SECOND, MetricVolumeFlowEnum.LITRE_PER_SECOND, 2)).toBe(0.2);
 });
 
 test('cl/s to l/s', () => {
-  expect(convert(25).from('cl/s').to('l/s')).toBe(0.25);
+  expect(convert(MetricVolumeFlowEnum.CENTILITRE_PER_SECOND, MetricVolumeFlowEnum.LITRE_PER_SECOND, 25)).toBe(0.25);
 });
 
 test('ml/s to l/s', () => {
-  expect(convert(100).from('ml/s').to('l/s')).toBe(1 / 10);
+  expect(convert(MetricVolumeFlowEnum.MILLILITRE_PER_SECOND, MetricVolumeFlowEnum.LITRE_PER_SECOND, 1e2)).toBe(0.1);
 });
 
 test('m3/s to l/s', () => {
-  expect(convert(1).from('m3/s').to('l/s')).toBe(1000);
+  expect(convert(MetricVolumeFlowEnum.CUBIC_METER_PER_SECOND, MetricVolumeFlowEnum.LITRE_PER_SECOND, 1)).toBe(1e3);
 });
 
 test('km3/s to l/s', () => {
-  expect(convert(1).from('km3/s').to('l/s')).toBe(1000000000000);
+  expect(convert(MetricVolumeFlowEnum.CUBIC_KILOMETER_PER_SECOND, MetricVolumeFlowEnum.LITRE_PER_SECOND, 1)).toBe(1e12);
 });
 
 test('l/s to ml/s', () => {
-  expect(convert(1).from('l/s').to('ml/s')).toBe(1000);
+  expect(convert(MetricVolumeFlowEnum.LITRE_PER_SECOND, MetricVolumeFlowEnum.MILLILITRE_PER_SECOND, 1)).toBe(1e3);
 });
 
 test('dl/s to ml/s', () => {
-  expect(convert(10).from('dl/s').to('ml/s')).toBe(1000);
+  expect(convert(MetricVolumeFlowEnum.DECILITRE_PER_SECOND, MetricVolumeFlowEnum.MILLILITRE_PER_SECOND, 10)).toBe(1e3);
 });
 
 test('cl/s to ml/s', () => {
-  expect(convert(100).from('cl/s').to('ml/s')).toBe(1000);
+  expect(convert(MetricVolumeFlowEnum.CENTILITRE_PER_SECOND, MetricVolumeFlowEnum.MILLILITRE_PER_SECOND, 1e2)).toBe(
+    1e3
+  );
 });
 
 test('ml/s to ml/s', () => {
-  expect(convert(13).from('ml/s').to('ml/s')).toBe(13);
+  expect(convert(MetricVolumeFlowEnum.MILLILITRE_PER_SECOND, MetricVolumeFlowEnum.MILLILITRE_PER_SECOND, 1)).toBe(1);
 });
 
 test('fl-oz/s to fl-oz/s', () => {
-  expect(convert(62).from('fl-oz/s').to('fl-oz/s')).toBe(62);
+  expect(convert(ImperialVolumeFlowEnum.FLUID_OUNCE_PER_SECOND, ImperialVolumeFlowEnum.FLUID_OUNCE_PER_SECOND, 1)).toBe(
+    1
+  );
 });
 
 test('fl-oz/s to Tbs/s', () => {
-  expect(convert(4).from('fl-oz/s').to('Tbs/s')).toBe(8);
+  expect(convert(ImperialVolumeFlowEnum.FLUID_OUNCE_PER_SECOND, ImperialVolumeFlowEnum.TABLESPOON_PER_SECOND, 4)).toBe(
+    8
+  );
 });
 
 test('Tbs/s to fl-oz/s', () => {
-  expect(convert(2).from('Tbs/s').to('fl-oz/s')).toBe(1);
+  expect(convert(ImperialVolumeFlowEnum.TABLESPOON_PER_SECOND, ImperialVolumeFlowEnum.FLUID_OUNCE_PER_SECOND, 2)).toBe(
+    1
+  );
 });
 
 test('Tbs/s to Tbs/s', () => {
-  expect(convert(140).from('Tbs/s').to('Tbs/s')).toBe(140);
+  expect(convert(ImperialVolumeFlowEnum.TABLESPOON_PER_SECOND, ImperialVolumeFlowEnum.TABLESPOON_PER_SECOND, 1)).toBe(
+    1
+  );
 });
 
 test('l/s to l/min', () => {
-  expect(convert(1).from('l/s').to('l/min')).toBe(60);
+  expect(convert(MetricVolumeFlowEnum.LITRE_PER_SECOND, MetricVolumeFlowEnum.LITRE_PER_MINUTE, 1)).toBe(60);
 });
 
 test('l/s to l/h', () => {
-  expect(convert(1).from('l/s').to('l/h')).toBe(3600);
+  expect(convert(MetricVolumeFlowEnum.LITRE_PER_SECOND, MetricVolumeFlowEnum.LITRE_PER_HOUR, 1)).toBe(3.6e3);
 });
 
 test('kl/s to kl/h', () => {
-  expect(convert(1).from('kl/s').to('kl/h')).toBe(3600);
+  expect(convert(MetricVolumeFlowEnum.KILOLITRE_PER_SECOND, MetricVolumeFlowEnum.KILOLITRE_PER_HOUR, 1)).toBe(3.6e3);
 });
 
 test('l/s to kl/h', () => {
-  expect(convert(1).from('l/s').to('kl/h')).toBeCloseTo(3.6);
+  expect(convert(MetricVolumeFlowEnum.LITRE_PER_SECOND, MetricVolumeFlowEnum.KILOLITRE_PER_HOUR, 1)).toBeCloseTo(3.6);
 });
 
 test('l/s to m3/s', () => {
-  expect(convert(1).from('l/s').to('m3/s')).toBe(0.001);
+  expect(convert(MetricVolumeFlowEnum.LITRE_PER_SECOND, MetricVolumeFlowEnum.CUBIC_METER_PER_SECOND, 1)).toBe(1e-3);
 });
 
 test('m3/s to m3/h', () => {
-  expect(convert(1).from('kl/s').to('kl/h')).toBe(3600);
+  expect(convert(MetricVolumeFlowEnum.CUBIC_METER_PER_SECOND, MetricVolumeFlowEnum.CUBIC_METER_PER_HOUR, 1)).toBe(
+    3.6e3
+  );
 });
 
 test('tsp/s to l/s', () => {
-  expect(convert(355).from('tsp/s').to('l/s')).toBeCloseTo(1.75);
+  expect(convert(ImperialVolumeFlowEnum.TEASPOON_PER_SECOND, MetricVolumeFlowEnum.LITRE_PER_SECOND, 355)).toBeCloseTo(
+    1.75
+  );
 });
 
 test('in3/s to l/s', () => {
-  expect(convert(1).from('in3/s').to('l/s')).toBeCloseTo(0.0163871);
+  expect(convert(ImperialVolumeFlowEnum.CUBIC_INCH_PER_SECOND, MetricVolumeFlowEnum.LITRE_PER_SECOND, 1)).toBeCloseTo(
+    0.0163871
+  );
 });
 
 test('in3/s to fl-oz/s', () => {
-  expect(convert(1).from('in3/s').to('fl-oz/s')).toBeCloseTo(0.554113);
+  expect(
+    convert(ImperialVolumeFlowEnum.CUBIC_INCH_PER_SECOND, ImperialVolumeFlowEnum.FLUID_OUNCE_PER_SECOND, 1)
+  ).toBeCloseTo(0.554113);
 });
 
 test('m3/s to yd3/s', () => {
-  expect(convert(1).from('m3/s').to('yd3/s')).toBeCloseTo(1.30795);
+  expect(
+    convert(MetricVolumeFlowEnum.CUBIC_METER_PER_SECOND, ImperialVolumeFlowEnum.CUBIC_YARD_PER_SECOND, 1)
+  ).toBeCloseTo(1.30795);
 });
 
 test('ft3/s to cm3/s', () => {
-  expect(convert(1).from('ft3/s').to('cm3/s')).toBeCloseTo(28316.832);
+  expect(
+    convert(ImperialVolumeFlowEnum.CUBIC_FOOT_PER_SECOND, MetricVolumeFlowEnum.CUBIC_CENTIMETER_PER_SECOND, 1)
+  ).toBeCloseTo(28316.832);
 });
 
 test('pnt/s to ml/s', () => {
-  expect(convert(5).from('pnt/s').to('ml/s')).toBeCloseTo(2365.882);
+  expect(convert(ImperialVolumeFlowEnum.PINT_PER_SECOND, MetricVolumeFlowEnum.MILLILITRE_PER_SECOND, 5)).toBeCloseTo(
+    2365.882
+  );
 });
 
 test('ml/s to gal/s', () => {
-  expect(convert(9876).from('ml/s').to('gal/s')).toBeCloseTo(2.609);
+  expect(
+    convert(MetricVolumeFlowEnum.MILLILITRE_PER_SECOND, ImperialVolumeFlowEnum.GALLON_PER_SECOND, 9876)
+  ).toBeCloseTo(2.609);
 });
 
 test('gal/s to l/s', () => {
-  expect(convert(1).from('gal/s').to('l/s')).toBeCloseTo(3.78541178);
+  expect(convert(ImperialVolumeFlowEnum.GALLON_PER_SECOND, MetricVolumeFlowEnum.LITRE_PER_SECOND, 1)).toBeCloseTo(
+    3.78541178
+  );
 });
 
 test('kl/s to kl/min', () => {
-  expect(convert(1).from('kl/s').to('kl/min')).toBeCloseTo(60);
+  expect(convert(MetricVolumeFlowEnum.KILOLITRE_PER_SECOND, MetricVolumeFlowEnum.KILOLITRE_PER_MINUTE, 1)).toBeCloseTo(
+    60
+  );
 });
 
 test('l/s to kl/h', () => {
-  expect(convert(1).from('l/s').to('kl/h')).toBeCloseTo(3.6);
+  expect(convert(MetricVolumeFlowEnum.LITRE_PER_SECOND, MetricVolumeFlowEnum.KILOLITRE_PER_HOUR, 1)).toBeCloseTo(3.6);
 });
 
 test('kl/min to l/h', () => {
-  expect(convert(1).from('kl/min').to('l/h')).toBeCloseTo(60000);
+  expect(convert(MetricVolumeFlowEnum.KILOLITRE_PER_MINUTE, MetricVolumeFlowEnum.LITRE_PER_HOUR, 1)).toBeCloseTo(6e4);
 });
 
 test('l/s to m3/h', () => {
-  expect(convert(1).from('l/s').to('m3/h')).toBeCloseTo(3.6);
+  expect(convert(MetricVolumeFlowEnum.LITRE_PER_SECOND, MetricVolumeFlowEnum.CUBIC_METER_PER_HOUR, 1)).toBeCloseTo(3.6);
 });
 
 test('m3/s to kl/h', () => {
-  expect(convert(1).from('m3/s').to('kl/h')).toBeCloseTo(3600);
+  expect(convert(MetricVolumeFlowEnum.CUBIC_METER_PER_SECOND, MetricVolumeFlowEnum.KILOLITRE_PER_HOUR, 1)).toBeCloseTo(
+    3.6e3
+  );
 });
 
 test('fl-oz/s to m3/min', () => {
-  expect(convert(1).from('fl-oz/s').to('m3/min')).toBeCloseTo(0.00177441177);
+  expect(
+    convert(ImperialVolumeFlowEnum.FLUID_OUNCE_PER_SECOND, MetricVolumeFlowEnum.CUBIC_METER_PER_MINUTE, 1)
+  ).toBeCloseTo(0.00177441177);
 });
 
 test('ft3/min to l/s', () => {
-  expect(convert(1).from('ft3/min').to('l/s')).toBeCloseTo(0.471947443);
+  expect(convert(ImperialVolumeFlowEnum.CUBIC_FOOT_PER_MINUTE, MetricVolumeFlowEnum.LITRE_PER_SECOND, 1)).toBeCloseTo(
+    0.471947443
+  );
 });
 
 test('pnt/min to kl/h', () => {
-  expect(convert(1).from('pnt/min').to('kl/h')).toBeCloseTo(0.0283905884);
+  expect(convert(ImperialVolumeFlowEnum.PINT_PER_MINUTE, MetricVolumeFlowEnum.KILOLITRE_PER_HOUR, 1)).toBeCloseTo(
+    0.0283905884
+  );
 });
 
 test('yd3/h to m3/min', () => {
-  expect(convert(1).from('yd3/h').to('m3/min')).toBeCloseTo(0.012742581);
+  expect(
+    convert(ImperialVolumeFlowEnum.CUBIX_YARD_PER_HOUR, MetricVolumeFlowEnum.CUBIC_METER_PER_MINUTE, 1)
+  ).toBeCloseTo(0.012742581);
 });

@@ -1,49 +1,60 @@
-const charge = {
-  c: {
+import { Definition } from '../type';
+import { ChargeUnit } from './type/units.type';
+
+export enum ChargeEnum {
+  COULOMB = 'c',
+  MILLICOULOMB = 'mC',
+  MICROCOULOMB = 'μC',
+  NANOCOULOMB = 'nC',
+  PICOCOULOMB = 'pC'
+}
+
+const metric = {
+  [ChargeEnum.COULOMB]: {
     name: {
       singular: 'Coulomb',
       plural: 'Coulombs'
     },
-    to_anchor: 1
+    anchor: 1
   },
-  mC: {
+  [ChargeEnum.MILLICOULOMB]: {
     name: {
       singular: 'Millicoulomb',
       plural: 'Millicoulombs'
     },
-    to_anchor: 1 / 1000
+    anchor: 1e-3
   },
-  μC: {
+  [ChargeEnum.MICROCOULOMB]: {
     name: {
       singular: 'Microcoulomb',
       plural: 'Microcoulombs'
     },
-    to_anchor: 1 / 1000000
+    anchor: 1e-6
   },
-  nC: {
+  [ChargeEnum.NANOCOULOMB]: {
     name: {
       singular: 'Nanocoulomb',
       plural: 'Nanocoulombs'
     },
-    to_anchor: 1e-9
+    anchor: 1e-9
   },
-  pC: {
+  [ChargeEnum.PICOCOULOMB]: {
     name: {
       singular: 'Picocoulomb',
       plural: 'Picocoulombs'
     },
-    to_anchor: 1e-12
+    anchor: 1e-12
   }
 };
 
 export default {
   systems: {
-    charge
+    metric
   },
   anchors: {
     metric: {
-      unit: 'c',
+      unit: ChargeEnum.COULOMB,
       ratio: 1
     }
   }
-};
+} as Definition<'metric', ChargeUnit>;

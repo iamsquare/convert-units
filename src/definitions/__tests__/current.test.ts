@@ -1,37 +1,38 @@
-import convert from '../..';
+import { convert } from '../..';
+import { CurrentEnum } from '../current';
 
 test('A to A', () => {
-  expect(convert(1).from('A').to('A')).toBe(1);
+  expect(convert(CurrentEnum.AMPERE, CurrentEnum.AMPERE, 1)).toBe(1);
 });
 
 test('mA to mA', () => {
-  expect(convert(1).from('mA').to('mA')).toBe(1);
+  expect(convert(CurrentEnum.MILLIAMPERE, CurrentEnum.MILLIAMPERE, 1)).toBe(1);
 });
 
 test('kA to kA', () => {
-  expect(convert(1).from('kA').to('kA')).toBe(1);
+  expect(convert(CurrentEnum.KILOAMPERE, CurrentEnum.KILOAMPERE, 1)).toBe(1);
 });
 
 test('A to mA', () => {
-  expect(convert(1).from('A').to('mA')).toBe(1000);
+  expect(convert(CurrentEnum.AMPERE, CurrentEnum.MILLIAMPERE, 1)).toBe(1e3);
 });
 
 test('A to kA', () => {
-  expect(convert(1).from('A').to('kA')).toBe(0.001);
+  expect(convert(CurrentEnum.AMPERE, CurrentEnum.KILOAMPERE, 1)).toBe(1e-3);
 });
 
 test('kA to mA', () => {
-  expect(convert(1).from('kA').to('mA')).toBe(1000000);
+  expect(convert(CurrentEnum.KILOAMPERE, CurrentEnum.MILLIAMPERE, 1)).toBe(1e6);
 });
 
 test('mA to kA', () => {
-  expect(convert(1).from('mA').to('kA')).toBe(0.000001);
+  expect(convert(CurrentEnum.MILLIAMPERE, CurrentEnum.KILOAMPERE, 1)).toBe(1e-6);
 });
 
 test('mA to A', () => {
-  expect(convert(1).from('mA').to('A')).toBe(0.001);
+  expect(convert(CurrentEnum.MILLIAMPERE, CurrentEnum.AMPERE, 1)).toBe(1e-3);
 });
 
 test('kA to A', () => {
-  expect(convert(1).from('kA').to('A')).toBe(1000);
+  expect(convert(CurrentEnum.KILOAMPERE, CurrentEnum.AMPERE, 1)).toBe(1e3);
 });

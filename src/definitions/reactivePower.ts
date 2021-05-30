@@ -1,44 +1,54 @@
-const reactivePower = {
-  VAR: {
+import { Definition } from '../type';
+
+export enum ReactivePowerEnum {
+  VOLT_AMPERE_REACTIVE = 'VAR',
+  MILLIVOLT_AMPERE_REACTIVE = 'mVAR',
+  KILOVOLT_AMPERE_REACTIVE = 'kVAR',
+  MEGAVOLT_AMPERE_REACTIVE = 'MVAR',
+  GIGAVOLT_AMPERE_REACTIVE = 'GVAR'
+}
+
+const metric = {
+  [ReactivePowerEnum.VOLT_AMPERE_REACTIVE]: {
     name: {
       singular: 'Volt-Ampere Reactive',
       plural: 'Volt-Amperes Reactive'
     },
-    to_anchor: 1
+    anchor: 1
   },
-  mVAR: {
+  [ReactivePowerEnum.MILLIVOLT_AMPERE_REACTIVE]: {
     name: {
       singular: 'Millivolt-Ampere Reactive',
       plural: 'Millivolt-Amperes Reactive'
     },
-    to_anchor: 0.001
+    anchor: 1e-3
   },
-  kVAR: {
+  [ReactivePowerEnum.KILOVOLT_AMPERE_REACTIVE]: {
     name: {
       singular: 'Kilovolt-Ampere Reactive',
       plural: 'Kilovolt-Amperes Reactive'
     },
-    to_anchor: 1000
+    anchor: 1e3
   },
-  MVAR: {
+  [ReactivePowerEnum.MEGAVOLT_AMPERE_REACTIVE]: {
     name: {
       singular: 'Megavolt-Ampere Reactive',
       plural: 'Megavolt-Amperes Reactive'
     },
-    to_anchor: 1000000
+    anchor: 1e6
   },
-  GVAR: {
+  [ReactivePowerEnum.GIGAVOLT_AMPERE_REACTIVE]: {
     name: {
       singular: 'Gigavolt-Ampere Reactive',
       plural: 'Gigavolt-Amperes Reactive'
     },
-    to_anchor: 1000000000
+    anchor: 1e9
   }
 };
 
 export default {
   systems: {
-    reactivePower
+    metric
   },
   anchors: {
     metric: {
@@ -46,4 +56,4 @@ export default {
       ratio: 1
     }
   }
-};
+} as Definition<'metric', ReactivePowerEnum>;

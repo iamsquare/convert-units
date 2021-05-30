@@ -1,63 +1,76 @@
-const energy = {
-  Wh: {
+import { Definition } from '../type';
+import { EnergyUnit } from './type/units.type';
+
+export enum EnergyEnum {
+  WATT_HOUR = 'Wh',
+  MILLIWATT_HOUR = 'mWh',
+  KILOWATT_HOUR = 'kWh',
+  MEGAWATT_HOUR = 'MWh',
+  GIGAWATT_HOUR = 'GWh',
+  JOULE = 'J',
+  KILOJOULE = 'kJ'
+}
+
+const metric = {
+  [EnergyEnum.WATT_HOUR]: {
     name: {
       singular: 'Watt-hour',
       plural: 'Watt-hours'
     },
-    to_anchor: 3600
+    anchor: 3.6e3
   },
-  mWh: {
+  [EnergyEnum.MILLIWATT_HOUR]: {
     name: {
       singular: 'Milliwatt-hour',
       plural: 'Milliwatt-hours'
     },
-    to_anchor: 3.6
+    anchor: 3.6
   },
-  kWh: {
+  [EnergyEnum.KILOWATT_HOUR]: {
     name: {
       singular: 'Kilowatt-hour',
       plural: 'Kilowatt-hours'
     },
-    to_anchor: 3600000
+    anchor: 3.6e6
   },
-  MWh: {
+  [EnergyEnum.MEGAWATT_HOUR]: {
     name: {
       singular: 'Megawatt-hour',
       plural: 'Megawatt-hours'
     },
-    to_anchor: 3600000000
+    anchor: 3.6e9
   },
-  GWh: {
+  [EnergyEnum.GIGAWATT_HOUR]: {
     name: {
       singular: 'Gigawatt-hour',
       plural: 'Gigawatt-hours'
     },
-    to_anchor: 3600000000000
+    anchor: 3.6e12
   },
-  J: {
+  [EnergyEnum.JOULE]: {
     name: {
       singular: 'Joule',
       plural: 'Joules'
     },
-    to_anchor: 1
+    anchor: 1
   },
-  kJ: {
+  [EnergyEnum.KILOJOULE]: {
     name: {
       singular: 'Kilojoule',
       plural: 'Kilojoules'
     },
-    to_anchor: 1000
+    anchor: 1e3
   }
 };
 
 export default {
   systems: {
-    energy
+    metric
   },
   anchors: {
     metric: {
-      unit: 'J',
+      unit: EnergyEnum.JOULE,
       ratio: 1
     }
   }
-};
+} as Definition<'metric', EnergyUnit>;

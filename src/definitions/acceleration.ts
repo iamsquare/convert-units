@@ -1,17 +1,25 @@
+import { Definition } from '../type';
+import { AccelerationUnit } from './type/units.type';
+
+export enum AccelerationEnum {
+  G_FORCE = 'g-force',
+  METRE_PER_SECOND_SQUARED = 'm/s2'
+}
+
 const metric = {
-  'g-force': {
+  [AccelerationEnum.G_FORCE]: {
     name: {
       singular: 'g-force',
       plural: 'g-forces'
     },
-    to_anchor: 9.80665
+    anchor: 9.80665
   },
-  'm/s2': {
+  [AccelerationEnum.METRE_PER_SECOND_SQUARED]: {
     name: {
       singular: 'Metre per second squared',
       plural: 'Metres per second squared'
     },
-    to_anchor: 1
+    anchor: 1
   }
 };
 
@@ -21,8 +29,8 @@ export default {
   },
   anchors: {
     metric: {
-      unit: 'g-force',
+      unit: AccelerationEnum.G_FORCE,
       ratio: 1
     }
   }
-};
+} as Definition<'metric', AccelerationUnit>;

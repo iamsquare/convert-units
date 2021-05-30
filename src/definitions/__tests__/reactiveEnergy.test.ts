@@ -1,61 +1,92 @@
-import convert from '../..';
+import { convert } from '../..';
+import { ReactiveEnergyEnum } from '../reactiveEnergy';
 
 test('VARh to VARh', () => {
-  expect(convert(1).from('VARh').to('VARh')).toBe(1);
+  expect(convert(ReactiveEnergyEnum.VOLT_AMPERE_REACTIVE_HOUR, ReactiveEnergyEnum.VOLT_AMPERE_REACTIVE_HOUR, 1)).toBe(
+    1
+  );
 });
 
 test('mVARh to mVARh', () => {
-  expect(convert(1).from('mVARh').to('mVARh')).toBe(1);
+  expect(
+    convert(ReactiveEnergyEnum.MILLIVOLT_AMPERE_REACTIVE_HOUR, ReactiveEnergyEnum.MILLIVOLT_AMPERE_REACTIVE_HOUR, 1)
+  ).toBe(1);
 });
 
 test('kVARh to kVARh', () => {
-  expect(convert(1).from('kVARh').to('kVARh')).toBe(1);
+  expect(
+    convert(ReactiveEnergyEnum.KILOVOLT_AMPERE_REACTIVE_HOUR, ReactiveEnergyEnum.KILOVOLT_AMPERE_REACTIVE_HOUR, 1)
+  ).toBe(1);
 });
 
 test('MVARh to MVARh', () => {
-  expect(convert(1).from('MVARh').to('MVARh')).toBe(1);
+  expect(
+    convert(ReactiveEnergyEnum.MEGAVOLT_AMPERE_REACTIVE_HOUR, ReactiveEnergyEnum.MEGAVOLT_AMPERE_REACTIVE_HOUR, 1)
+  ).toBe(1);
 });
 
 test('GVARh to GVARh', () => {
-  expect(convert(1).from('GVARh').to('GVARh')).toBe(1);
+  expect(
+    convert(ReactiveEnergyEnum.GIGAVOLT_AMPERE_REACTIVE_HOUR, ReactiveEnergyEnum.GIGAVOLT_AMPERE_REACTIVE_HOUR, 1)
+  ).toBe(1);
 });
 
 test('VARh to mVARh', () => {
-  expect(convert(1).from('VARh').to('mVARh')).toBe(1000);
+  expect(
+    convert(ReactiveEnergyEnum.VOLT_AMPERE_REACTIVE_HOUR, ReactiveEnergyEnum.MILLIVOLT_AMPERE_REACTIVE_HOUR, 1)
+  ).toBe(1e3);
 });
 
 test('VARh to kVARh', () => {
-  expect(convert(1).from('VARh').to('kVARh')).toBe(0.001);
+  expect(
+    convert(ReactiveEnergyEnum.VOLT_AMPERE_REACTIVE_HOUR, ReactiveEnergyEnum.KILOVOLT_AMPERE_REACTIVE_HOUR, 1)
+  ).toBe(1e-3);
 });
 
 test('VARh to MVARh', () => {
-  expect(convert(1).from('VARh').to('MVARh')).toBe(0.000001);
+  expect(
+    convert(ReactiveEnergyEnum.VOLT_AMPERE_REACTIVE_HOUR, ReactiveEnergyEnum.MEGAVOLT_AMPERE_REACTIVE_HOUR, 1)
+  ).toBe(1e-6);
 });
 
 test('VARh to GVARh', () => {
-  expect(convert(1).from('VARh').to('GVARh')).toBe(0.000000001);
+  expect(
+    convert(ReactiveEnergyEnum.VOLT_AMPERE_REACTIVE_HOUR, ReactiveEnergyEnum.GIGAVOLT_AMPERE_REACTIVE_HOUR, 1)
+  ).toBe(1e-9);
 });
 
 test('GVARh to mVARh', () => {
-  expect(convert(1).from('GVARh').to('mVARh')).toBe(1000000000000);
+  expect(
+    convert(ReactiveEnergyEnum.GIGAVOLT_AMPERE_REACTIVE_HOUR, ReactiveEnergyEnum.MILLIVOLT_AMPERE_REACTIVE_HOUR, 1)
+  ).toBe(1e12);
 });
 
 test('MVARh to mVARh', () => {
-  expect(convert(1).from('MVARh').to('mVARh')).toBe(1000000000);
+  expect(
+    convert(ReactiveEnergyEnum.MEGAVOLT_AMPERE_REACTIVE_HOUR, ReactiveEnergyEnum.MILLIVOLT_AMPERE_REACTIVE_HOUR, 1)
+  ).toBe(1e9);
 });
 
 test('kVARh to mVARh', () => {
-  expect(convert(1).from('kVARh').to('mVARh')).toBe(1000000);
+  expect(
+    convert(ReactiveEnergyEnum.KILOVOLT_AMPERE_REACTIVE_HOUR, ReactiveEnergyEnum.MILLIVOLT_AMPERE_REACTIVE_HOUR, 1)
+  ).toBe(1e6);
 });
 
 test('mVARh to kVARh', () => {
-  expect(convert(1).from('mVARh').to('kVARh')).toBe(0.000001);
+  expect(
+    convert(ReactiveEnergyEnum.MILLIVOLT_AMPERE_REACTIVE_HOUR, ReactiveEnergyEnum.KILOVOLT_AMPERE_REACTIVE_HOUR, 1)
+  ).toBe(1e-6);
 });
 
 test('mVARh to VARh', () => {
-  expect(convert(1).from('mVARh').to('VARh')).toBe(0.001);
+  expect(
+    convert(ReactiveEnergyEnum.MILLIVOLT_AMPERE_REACTIVE_HOUR, ReactiveEnergyEnum.VOLT_AMPERE_REACTIVE_HOUR, 1)
+  ).toBe(1e-3);
 });
 
 test('kVARh to VARh', () => {
-  expect(convert(1).from('kVARh').to('VARh')).toBe(1000);
+  expect(
+    convert(ReactiveEnergyEnum.KILOVOLT_AMPERE_REACTIVE_HOUR, ReactiveEnergyEnum.VOLT_AMPERE_REACTIVE_HOUR, 1)
+  ).toBe(1e3);
 });

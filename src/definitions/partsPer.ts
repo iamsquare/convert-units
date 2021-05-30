@@ -1,31 +1,41 @@
+import { Definition } from '../type';
+import { PartsPerUnit } from './type/units.type';
+
+export enum PartsPerEnum {
+  PART_PER_MILLION = 'ppm',
+  PART_PER_BILLION = 'ppb',
+  PART_PER_TRILLION = 'ppt',
+  PART_PER_QUADRILLION = 'ppq'
+}
+
 const metric = {
-  ppm: {
+  [PartsPerEnum.PART_PER_MILLION]: {
     name: {
       singular: 'Part-per Million',
       plural: 'Parts-per Million'
     },
-    to_anchor: 1
+    anchor: 1
   },
-  ppb: {
+  [PartsPerEnum.PART_PER_BILLION]: {
     name: {
       singular: 'Part-per Billion',
       plural: 'Parts-per Billion'
     },
-    to_anchor: 0.001
+    anchor: 1e-3
   },
-  ppt: {
+  [PartsPerEnum.PART_PER_TRILLION]: {
     name: {
       singular: 'Part-per Trillion',
       plural: 'Parts-per Trillion'
     },
-    to_anchor: 0.000001
+    anchor: 1e-6
   },
-  ppq: {
+  [PartsPerEnum.PART_PER_QUADRILLION]: {
     name: {
       singular: 'Part-per Quadrillion',
       plural: 'Parts-per Quadrillion'
     },
-    to_anchor: 0.000000001
+    anchor: 1e-9
   }
 };
 
@@ -35,8 +45,8 @@ export default {
   },
   anchors: {
     metric: {
-      unit: 'ppm',
-      ratio: 0.000001
+      unit: PartsPerEnum.PART_PER_TRILLION,
+      ratio: 1e-6
     }
   }
-};
+} as Definition<'metric', PartsPerUnit>;

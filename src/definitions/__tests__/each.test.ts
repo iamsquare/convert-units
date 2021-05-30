@@ -1,13 +1,14 @@
-import convert from '../..';
+import { convert } from '../..';
+import { EachEnum } from '../each';
 
 test('ea to ea', () => {
-  expect(convert(1).from('ea').to('ea')).toBe(1);
+  expect(convert(EachEnum.EACH, EachEnum.EACH, 1)).toBe(1);
 });
 
 test('dz to ea', () => {
-  expect(convert(1).from('dz').to('ea')).toBe(12);
+  expect(convert(EachEnum.DOZEN, EachEnum.EACH, 1)).toBe(12);
 });
 
 test('ea to dz', () => {
-  expect(convert(12).from('ea').to('dz')).toBe(1);
+  expect(convert(EachEnum.EACH, EachEnum.DOZEN, 12)).toBe(1);
 });

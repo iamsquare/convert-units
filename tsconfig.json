@@ -1,24 +1,20 @@
 {
   "compilerOptions": {
-    "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
+    "removeComments": true,
     "sourceMap": true,
-    "baseUrl": "./",
     "target": "ES5",
     "module": "ES2020",
     "allowJs": false,
     "checkJs": false,
+    "baseUrl": "./src",
     "noImplicitAny": true,
-    "declaration": true,
-    "strict": true,
     "outDir": "./lib/esm",
     "esModuleInterop": true,
-    "skipLibCheck": true,
     "typeRoots": ["node_modules/@types"],
     "moduleResolution": "Node"
   },
-  "include": ["./src"],
-  "exclude": ["node_modules", "lib", "**/__tests__/**"]
+  "exclude": ["node_modules", "lib"]
 }

@@ -1,17 +1,18 @@
-import convert from '../..';
+import { convert } from '../..';
+import { ForceEnum } from '../force';
 
 test('N to kN', () => {
-  expect(convert(1).from('N').to('kN')).toBe(1 / 1000);
+  expect(convert(ForceEnum.NEWTON, ForceEnum.KILONEWTON, 1)).toBe(1e-3);
 });
 
 test('kN to N', () => {
-  expect(convert(1).from('kN').to('N')).toBe(1000);
+  expect(convert(ForceEnum.KILONEWTON, ForceEnum.NEWTON, 1)).toBe(1e3);
 });
 
 test('N to lbf', () => {
-  expect(convert(1).from('N').to('lbf')).toBeCloseTo(0.2224809);
+  expect(convert(ForceEnum.NEWTON, ForceEnum.POUND_FORCE, 1)).toBeCloseTo(0.2224809);
 });
 
 test('lbf to N', () => {
-  expect(convert(1).from('lbf').to('N')).toBe(4.44822);
+  expect(convert(ForceEnum.POUND_FORCE, ForceEnum.NEWTON, 1)).toBe(4.44822);
 });

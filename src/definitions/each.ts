@@ -1,17 +1,25 @@
+import { Definition } from '../type';
+import { EachUnit } from './type/units.type';
+
+export enum EachEnum {
+  EACH = 'ea',
+  DOZEN = 'dz'
+}
+
 const metric = {
-  ea: {
+  [EachEnum.EACH]: {
     name: {
       singular: 'Each',
       plural: 'Each'
     },
-    to_anchor: 1
+    anchor: 1
   },
-  dz: {
+  [EachEnum.DOZEN]: {
     name: {
       singular: 'Dozen',
       plural: 'Dozens'
     },
-    to_anchor: 12
+    anchor: 12
   }
 };
 
@@ -21,8 +29,8 @@ export default {
   },
   anchors: {
     metric: {
-      unit: 'ea',
+      unit: EachEnum.EACH,
       ratio: 1
     }
   }
-};
+} as Definition<'metric', EachUnit>;

@@ -1,53 +1,54 @@
-import convert from '../..';
+import { convert } from '../..';
+import { TimeEnum } from '../time';
 
 test('s to ns', () => {
-  expect(convert(1).from('s').to('ns')).toBeCloseTo(1000000000);
+  expect(convert(TimeEnum.SECOND, TimeEnum.NANOSECOND, 1)).toBeCloseTo(1e9);
 });
 
 test('s to mu', () => {
-  expect(convert(1).from('s').to('mu')).toBe(1000000);
+  expect(convert(TimeEnum.SECOND, TimeEnum.MICROSECOND, 1)).toBe(1e6);
 });
 
 test('s to ms', () => {
-  expect(convert(1).from('s').to('ms')).toBe(1000);
+  expect(convert(TimeEnum.SECOND, TimeEnum.MILLISECOND, 1)).toBe(1e3);
 });
 
 test('s to m', () => {
-  expect(convert(60).from('s').to('min')).toBe(1);
+  expect(convert(TimeEnum.SECOND, TimeEnum.MINUTE, 60)).toBe(1);
 });
 
 test('s to s', () => {
-  expect(convert(1).from('s').to('s')).toBe(1);
+  expect(convert(TimeEnum.SECOND, TimeEnum.SECOND, 1)).toBe(1);
 });
 
 test('s to h', () => {
-  expect(convert(3600).from('s').to('h')).toBe(1);
+  expect(convert(TimeEnum.SECOND, TimeEnum.HOUR, 3600)).toBe(1);
 });
 
 test('s to d', () => {
-  expect(convert(86400).from('s').to('d')).toBe(1);
+  expect(convert(TimeEnum.SECOND, TimeEnum.DAY, 86400)).toBe(1);
 });
 
 test('d to week', () => {
-  expect(convert(7).from('d').to('week')).toBe(1);
+  expect(convert(TimeEnum.DAY, TimeEnum.WEEK, 7)).toBe(1);
 });
 
 test('d to month', () => {
-  expect(convert(30.4375).from('d').to('month')).toBe(1);
+  expect(convert(TimeEnum.DAY, TimeEnum.MONTH, 30.4375)).toBe(1);
 });
 
 test('d to year', () => {
-  expect(convert(365.25).from('d').to('year')).toBe(1);
+  expect(convert(TimeEnum.DAY, TimeEnum.YEAR, 365.25)).toBe(1);
 });
 
 test('week to month', () => {
-  expect(convert(4.34821).from('week').to('month')).toBeCloseTo(1);
+  expect(convert(TimeEnum.WEEK, TimeEnum.MONTH, 4.34821)).toBeCloseTo(1);
 });
 
 test('week to year', () => {
-  expect(convert(52.17857).from('week').to('year')).toBeCloseTo(1);
+  expect(convert(TimeEnum.WEEK, TimeEnum.YEAR, 52.17857)).toBeCloseTo(1);
 });
 
 test('month to year', () => {
-  expect(convert(12).from('month').to('year')).toBe(1);
+  expect(convert(TimeEnum.MONTH, TimeEnum.YEAR, 12)).toBe(1);
 });

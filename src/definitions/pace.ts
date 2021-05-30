@@ -1,34 +1,47 @@
+import { Definition } from '../type';
+import { PaceUnit } from './type/units.type';
+
+export enum MetricPaceEnum {
+  MINUTE_PER_KILOMETRE = 'min/km',
+  SECOND_PER_METRE = 's/m'
+}
+
+export enum ImperialPaceEnum {
+  MINUTE_PER_MILE = 'min/mi',
+  SECOND_PER_FOOT = 's/ft'
+}
+
 const metric = {
-  'min/km': {
+  [MetricPaceEnum.MINUTE_PER_KILOMETRE]: {
     name: {
       singular: 'Minute per kilometre',
       plural: 'Minutes per kilometre'
     },
-    to_anchor: 0.06
+    anchor: 0.06
   },
-  's/m': {
+  [MetricPaceEnum.SECOND_PER_METRE]: {
     name: {
       singular: 'Second per metre',
       plural: 'Seconds per metre'
     },
-    to_anchor: 1
+    anchor: 1
   }
 };
 
 const imperial = {
-  'min/mi': {
+  [ImperialPaceEnum.MINUTE_PER_MILE]: {
     name: {
       singular: 'Minute per mile',
       plural: 'Minutes per mile'
     },
-    to_anchor: 0.0113636
+    anchor: 0.0113636
   },
-  's/ft': {
+  [ImperialPaceEnum.SECOND_PER_FOOT]: {
     name: {
       singular: 'Second per foot',
       plural: 'Seconds per foot'
     },
-    to_anchor: 1
+    anchor: 1
   }
 };
 
@@ -39,12 +52,12 @@ export default {
   },
   anchors: {
     metric: {
-      unit: 's/m',
+      unit: MetricPaceEnum.SECOND_PER_METRE,
       ratio: 0.3048
     },
     imperial: {
-      unit: 's/ft',
+      unit: ImperialPaceEnum.SECOND_PER_FOOT,
       ratio: 1 / 0.3048
     }
   }
-};
+} as Definition<'metric' | 'imperial', PaceUnit>;

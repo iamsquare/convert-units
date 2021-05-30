@@ -1,69 +1,87 @@
+import { Definition } from '../type';
+import { PowerUnit } from './type/units.type';
+
+export enum MetricPowerEnum {
+  WATT = 'W',
+  MILLIWATT = 'mW',
+  KILOWATT = 'kW',
+  MEGAWATT = 'MW',
+  GIGAWATT = 'GW',
+  HORSE_POWER = 'PS'
+}
+
+export enum ImperialPowerEnum {
+  BTU_PER_SECOND = 'Btu/s',
+  FOOT_POUND_PER_SECOND = 'ft-lb/s',
+  HORSE_POWER = 'hp'
+}
+
 const metric = {
-  W: {
+  [MetricPowerEnum.WATT]: {
     name: {
       singular: 'Watt',
       plural: 'Watts'
     },
-    to_anchor: 1
+    anchor: 1
   },
-  mW: {
+  [MetricPowerEnum.MILLIWATT]: {
     name: {
       singular: 'Milliwatt',
       plural: 'Milliwatts'
     },
-    to_anchor: 0.001
+    anchor: 1e-3
   },
-  kW: {
+  [MetricPowerEnum.KILOWATT]: {
     name: {
       singular: 'Kilowatt',
       plural: 'Kilowatts'
     },
-    to_anchor: 1000
+    anchor: 1e3
   },
-  MW: {
+  [MetricPowerEnum.MEGAWATT]: {
     name: {
       singular: 'Megawatt',
       plural: 'Megawatts'
     },
-    to_anchor: 1000000
+    anchor: 1e6
   },
-  GW: {
+  [MetricPowerEnum.GIGAWATT]: {
     name: {
       singular: 'Gigawatt',
       plural: 'Gigawatts'
     },
-    to_anchor: 1000000000
+    anchor: 1e9
   },
-  PS: {
+  [MetricPowerEnum.HORSE_POWER]: {
     name: {
       singular: 'Horsepower (metric)',
       plural: 'Horsepower (metric)'
     },
-    to_anchor: 735.49875
+    anchor: 735.49875
   }
 };
 
 const imperial = {
-  'Btu/s': {
+  [ImperialPowerEnum.BTU_PER_SECOND]: {
     name: {
       singular: 'British thermal unit per second',
       plural: 'British thermal units per second'
     },
-    to_anchor: 778.16937
+    anchor: 778.16937
   },
-  'ft-lb/s': {
+  [ImperialPowerEnum.FOOT_POUND_PER_SECOND]: {
     name: {
       singular: 'Foot-pound per second',
       plural: 'Foot-pounds per second'
     },
-    to_anchor: 1
+    anchor: 1
   },
-  hp: {
+  [ImperialPowerEnum.HORSE_POWER]: {
     name: {
       singular: 'Horsepower (British)',
       plural: 'Horsepower (British)'
     },
-    to_anchor: 550
+    anchor: 550
   }
 };
 
@@ -74,12 +92,12 @@ export default {
   },
   anchors: {
     metric: {
-      unit: 'W',
+      unit: MetricPowerEnum.WATT,
       ratio: 0.737562149
     },
     imperial: {
-      unit: 'ft-lb/s',
+      unit: ImperialPowerEnum.FOOT_POUND_PER_SECOND,
       ratio: 1 / 0.737562149
     }
   }
-};
+} as Definition<'metric' | 'imperial', PowerUnit>;

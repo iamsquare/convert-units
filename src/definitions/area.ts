@@ -1,76 +1,95 @@
+import { Definition } from '../type';
+import { AreaUnit } from './type/units.type';
+
+export enum MetricAreaEnum {
+  SQUARE_MILLIMETER = 'mm2',
+  SQUARE_CENTIMETER = 'cm2',
+  SQUARE_METER = 'm2',
+  SQUARE_KILOMETER = 'km2',
+  HECTARE = 'ha'
+}
+
+export enum ImperialAreaEnum {
+  SQUARE_INCH = 'in2',
+  SQUARE_YARD = 'yd2',
+  SQUARE_FOOT = 'ft2',
+  SQUARE_MILE = 'mi2',
+  ACRE = 'ac'
+}
+
 const metric = {
-  mm2: {
+  [MetricAreaEnum.SQUARE_MILLIMETER]: {
     name: {
       singular: 'Square Millimeter',
       plural: 'Square Millimeters'
     },
-    to_anchor: 1 / 1000000
+    anchor: 1e-6
   },
-  cm2: {
+  [MetricAreaEnum.SQUARE_CENTIMETER]: {
     name: {
-      singular: 'Centimeter',
-      plural: 'Centimeters'
+      singular: 'Square Centimeter',
+      plural: 'Square Centimeters'
     },
-    to_anchor: 1 / 10000
+    anchor: 1e-4
   },
-  m2: {
+  [MetricAreaEnum.SQUARE_METER]: {
     name: {
       singular: 'Square Meter',
       plural: 'Square Meters'
     },
-    to_anchor: 1
+    anchor: 1
   },
-  ha: {
-    name: {
-      singular: 'Hectare',
-      plural: 'Hectares'
-    },
-    to_anchor: 10000
-  },
-  km2: {
+  [MetricAreaEnum.SQUARE_KILOMETER]: {
     name: {
       singular: 'Square Kilometer',
       plural: 'Square Kilometers'
     },
-    to_anchor: 1000000
+    anchor: 1e6
+  },
+  [MetricAreaEnum.HECTARE]: {
+    name: {
+      singular: 'Hectare',
+      plural: 'Hectares'
+    },
+    anchor: 1e4
   }
 };
 
 const imperial = {
-  in2: {
+  [ImperialAreaEnum.SQUARE_INCH]: {
     name: {
       singular: 'Square Inch',
       plural: 'Square Inches'
     },
-    to_anchor: 1 / 144
+    anchor: 1 / 144
   },
-  yd2: {
+  [ImperialAreaEnum.SQUARE_YARD]: {
     name: {
       singular: 'Square Yard',
       plural: 'Square Yards'
     },
-    to_anchor: 9
+    anchor: 9
   },
-  ft2: {
+  [ImperialAreaEnum.SQUARE_FOOT]: {
     name: {
       singular: 'Square Foot',
       plural: 'Square Feet'
     },
-    to_anchor: 1
+    anchor: 1
   },
-  ac: {
-    name: {
-      singular: 'Acre',
-      plural: 'Acres'
-    },
-    to_anchor: 43560
-  },
-  mi2: {
+  [ImperialAreaEnum.SQUARE_MILE]: {
     name: {
       singular: 'Square Mile',
       plural: 'Square Miles'
     },
-    to_anchor: 27878400
+    anchor: 27878400
+  },
+  [ImperialAreaEnum.ACRE]: {
+    name: {
+      singular: 'Acre',
+      plural: 'Acres'
+    },
+    anchor: 43560
   }
 };
 
@@ -81,12 +100,12 @@ export default {
   },
   anchors: {
     metric: {
-      unit: 'm2',
+      unit: MetricAreaEnum.SQUARE_METER,
       ratio: 10.7639
     },
     imperial: {
-      unit: 'ft2',
+      unit: ImperialAreaEnum.SQUARE_FOOT,
       ratio: 1 / 10.7639
     }
   }
-};
+} as Definition<'metric' | 'imperial', AreaUnit>;

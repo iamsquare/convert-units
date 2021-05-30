@@ -1,94 +1,113 @@
+import { Definition } from '../type';
+import { PiecesUnit } from './type/units.type';
+
+export enum PiecesEnum {
+  PIECE = 'pcs',
+  BAKERS_DOZEN = 'bk-doz',
+  COUPLE = 'cp',
+  DOZEN_DOZEN = 'doz-doz',
+  DOZEN = 'doz',
+  GREAT_GROSS = 'gr-gr',
+  GROSS = 'gros',
+  SMALL_GROSS = 'sm-gr',
+  HALF_DOZEN = 'half-dozen',
+  LONG_HUNDRED = 'long-hundred',
+  REAM = 'ream',
+  SCORES = 'scores',
+  TRIO = 'trio'
+}
+
 const pieces = {
-  pcs: {
+  [PiecesEnum.PIECE]: {
     name: {
       singular: 'Piece',
       plural: 'Pieces'
     },
-    to_anchor: 1
+    anchor: 1
   },
-  'bk-doz': {
+  [PiecesEnum.BAKERS_DOZEN]: {
     name: {
       singular: 'Bakers Dozen',
       plural: 'Bakers Dozen'
     },
-    to_anchor: 13
+    anchor: 13
   },
-  cp: {
+  [PiecesEnum.COUPLE]: {
     name: {
       singular: 'Couple',
       plural: 'Couples'
     },
-    to_anchor: 2
+    anchor: 2
   },
-  'doz-doz': {
+  [PiecesEnum.DOZEN_DOZEN]: {
     name: {
       singular: 'Dozen Dozen',
       plural: 'Dozen Dozen'
     },
-    to_anchor: 144
+    anchor: 144
   },
-  doz: {
+  [PiecesEnum.DOZEN]: {
     name: {
       singular: 'Dozen',
       plural: 'Dozens'
     },
-    to_anchor: 12
+    anchor: 12
   },
-  'gr-gr': {
+  [PiecesEnum.GREAT_GROSS]: {
     name: {
       singular: 'Great Gross',
       plural: 'Great Gross'
     },
-    to_anchor: 1728
+    anchor: 1728
   },
-  gros: {
+  [PiecesEnum.GROSS]: {
     name: {
       singular: 'Gross',
       plural: 'Gross'
     },
-    to_anchor: 144
+    anchor: 144
   },
-  'half-dozen': {
+  [PiecesEnum.HALF_DOZEN]: {
     name: {
       singular: 'Half Dozen',
       plural: 'Half Dozen'
     },
-    to_anchor: 6
+    anchor: 6
   },
-  'long-hundred': {
+  [PiecesEnum.LONG_HUNDRED]: {
     name: {
       singular: 'Long Hundred',
       plural: 'Long Hundred'
     },
-    to_anchor: 120
+    anchor: 120
   },
-  ream: {
+  [PiecesEnum.REAM]: {
     name: {
       singular: 'Reams',
       plural: 'Reams'
     },
-    to_anchor: 500
+    anchor: 500
   },
-  scores: {
+  [PiecesEnum.SCORES]: {
     name: {
       singular: 'Scores',
       plural: 'Scores'
     },
-    to_anchor: 20
+    anchor: 20
   },
-  'sm-gr': {
+  [PiecesEnum.SMALL_GROSS]: {
     name: {
       singular: 'Small Gross',
       plural: 'Small Gross'
     },
-    to_anchor: 120
+    anchor: 120
   },
-  trio: {
+  [PiecesEnum.TRIO]: {
     name: {
       singular: 'Trio',
       plural: 'Trio'
     },
-    to_anchor: 3
+    anchor: 3
   }
 };
 
@@ -97,9 +116,9 @@ export default {
     pieces
   },
   anchors: {
-    metric: {
-      unit: 'pcs',
+    pieces: {
+      unit: PiecesEnum.PIECE,
       ratio: 1
     }
   }
-};
+} as Definition<'pieces', PiecesUnit>;
