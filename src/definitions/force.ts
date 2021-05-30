@@ -7,7 +7,7 @@ export enum ForceEnum {
   POUND_FORCE = 'lbf'
 }
 
-const force = {
+const metric = {
   [ForceEnum.NEWTON]: {
     name: {
       singular: 'Newton',
@@ -33,12 +33,12 @@ const force = {
 
 export default {
   systems: {
-    force
+    metric
   },
   anchors: {
-    force: {
+    metric: {
       unit: ForceEnum.NEWTON,
       ratio: 1
     }
   }
-} as Definition<'force', ForceUnit>;
+} as Definition<'metric', ForceUnit>;

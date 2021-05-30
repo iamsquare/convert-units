@@ -9,7 +9,7 @@ export enum ReactiveEnergyEnum {
   GIGAVOLT_AMPERE_REACTIVE_HOUR = 'GVARh'
 }
 
-const reactiveEnergy = {
+const metric = {
   [ReactiveEnergyEnum.VOLT_AMPERE_REACTIVE_HOUR]: {
     name: {
       singular: 'Volt-Ampere Reactive Hour',
@@ -49,12 +49,12 @@ const reactiveEnergy = {
 
 export default {
   systems: {
-    reactiveEnergy
+    metric
   },
   anchors: {
-    reactiveEnergy: {
+    metric: {
       unit: ReactiveEnergyEnum.VOLT_AMPERE_REACTIVE_HOUR,
       ratio: 1
     }
   }
-} as Definition<'reactiveEnergy', ReactiveEnergyUnit>;
+} as Definition<'metric', ReactiveEnergyUnit>;

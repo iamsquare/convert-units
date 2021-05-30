@@ -7,7 +7,7 @@ export enum VoltageEnum {
   KILOVOLT = 'kV'
 }
 
-const voltage = {
+const metric = {
   [VoltageEnum.VOLT]: {
     name: {
       singular: 'Volt',
@@ -33,12 +33,12 @@ const voltage = {
 
 export default {
   systems: {
-    voltage
+    metric
   },
   anchors: {
-    voltage: {
+    metric: {
       unit: VoltageEnum.VOLT,
       ratio: 1
     }
   }
-} as Definition<'voltage', VoltageUnit>;
+} as Definition<'metric', VoltageUnit>;

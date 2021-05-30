@@ -8,7 +8,7 @@ export enum ReactivePowerEnum {
   GIGAVOLT_AMPERE_REACTIVE = 'GVAR'
 }
 
-const reactivePower = {
+const metric = {
   [ReactivePowerEnum.VOLT_AMPERE_REACTIVE]: {
     name: {
       singular: 'Volt-Ampere Reactive',
@@ -48,12 +48,12 @@ const reactivePower = {
 
 export default {
   systems: {
-    reactivePower
+    metric
   },
   anchors: {
-    reactivePower: {
+    metric: {
       unit: 'VAR',
       ratio: 1
     }
   }
-} as Definition<'reactivePower', ReactivePowerEnum>;
+} as Definition<'metric', ReactivePowerEnum>;

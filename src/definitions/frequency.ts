@@ -13,7 +13,7 @@ export enum FrequencyEnum {
   RADIAN_PER_SECOND = 'rad/s'
 }
 
-const frequency = {
+const metric = {
   [FrequencyEnum.HERTZ]: {
     name: {
       singular: 'Hertz',
@@ -81,12 +81,12 @@ const frequency = {
 
 export default {
   systems: {
-    frequency
+    metric
   },
   anchors: {
-    frequency: {
+    metric: {
       unit: FrequencyEnum.HERTZ,
       ratio: 1
     }
   }
-} as Definition<'frequency', FrequencyUnit>;
+} as Definition<'metric', FrequencyUnit>;

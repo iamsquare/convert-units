@@ -11,7 +11,7 @@ export enum EnergyEnum {
   KILOJOULE = 'kJ'
 }
 
-const energy = {
+const metric = {
   [EnergyEnum.WATT_HOUR]: {
     name: {
       singular: 'Watt-hour',
@@ -65,12 +65,12 @@ const energy = {
 
 export default {
   systems: {
-    energy
+    metric
   },
   anchors: {
-    energy: {
+    metric: {
       unit: EnergyEnum.JOULE,
       ratio: 1
     }
   }
-} as Definition<'energy', EnergyUnit>;
+} as Definition<'metric', EnergyUnit>;

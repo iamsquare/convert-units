@@ -9,7 +9,7 @@ export enum ChargeEnum {
   PICOCOULOMB = 'pC'
 }
 
-const charge = {
+const metric = {
   [ChargeEnum.COULOMB]: {
     name: {
       singular: 'Coulomb',
@@ -49,12 +49,12 @@ const charge = {
 
 export default {
   systems: {
-    charge
+    metric
   },
   anchors: {
-    charge: {
+    metric: {
       unit: ChargeEnum.COULOMB,
       ratio: 1
     }
   }
-} as Definition<'charge', ChargeUnit>;
+} as Definition<'metric', ChargeUnit>;

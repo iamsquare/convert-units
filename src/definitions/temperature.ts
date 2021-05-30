@@ -56,15 +56,11 @@ export default {
   anchors: {
     metric: {
       unit: MetricTemperatureEnum.CELSIUS,
-      transform: function (C: number): number {
-        return C / (5 / 9) + 32;
-      }
+      transform: (C: number): number => C / (5 / 9) + 32
     },
     imperial: {
       unit: ImperialTemperatureEnum.FAHRENHEIT,
-      transform: function (F: number): number {
-        return (F - 32) * (5 / 9);
-      }
+      transform: (F: number): number => (F - 32) * (5 / 9)
     }
   }
 } as Definition<'metric' | 'imperial', TemperatureUnit>;

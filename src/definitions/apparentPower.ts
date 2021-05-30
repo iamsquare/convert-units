@@ -9,7 +9,7 @@ export enum ApparentPowerEnum {
   GIGAVOLT_AMPERE = 'GVA'
 }
 
-const apparentPower = {
+const metric = {
   [ApparentPowerEnum.VOLT_AMPERE]: {
     name: {
       singular: 'Volt-Ampere',
@@ -49,12 +49,12 @@ const apparentPower = {
 
 export default {
   systems: {
-    apparentPower
+    metric
   },
   anchors: {
-    apparentPower: {
+    metric: {
       unit: ApparentPowerEnum.VOLT_AMPERE,
       ratio: 1
     }
   }
-} as Definition<'apparentPower', ApparentPowerUnit>;
+} as Definition<'metric', ApparentPowerUnit>;

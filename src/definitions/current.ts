@@ -7,7 +7,7 @@ export enum CurrentEnum {
   KILOAMPERE = 'kA'
 }
 
-const current = {
+const metric = {
   [CurrentEnum.AMPERE]: {
     name: {
       singular: 'Ampere',
@@ -33,12 +33,12 @@ const current = {
 
 export default {
   systems: {
-    current
+    metric
   },
   anchors: {
-    current: {
+    metric: {
       unit: CurrentEnum.AMPERE,
       ratio: 1
     }
   }
-} as Definition<'current', CurrentUnit>;
+} as Definition<'metric', CurrentUnit>;

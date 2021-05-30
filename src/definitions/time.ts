@@ -14,7 +14,7 @@ export enum TimeEnum {
   YEAR = 'year'
 }
 
-const time = {
+const metric = {
   [TimeEnum.NANOSECOND]: {
     name: {
       singular: 'Nanosecond',
@@ -89,12 +89,12 @@ const time = {
 
 export default {
   systems: {
-    time
+    metric
   },
   anchors: {
-    time: {
+    metric: {
       unit: TimeEnum.SECOND,
       ratio: 1
     }
   }
-} as Definition<'time', TimeUnit>;
+} as Definition<'metric', TimeUnit>;
