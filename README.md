@@ -1,4 +1,4 @@
-# convert-units
+# iamsquare/convert-units
 
 A handy utility for converting between quantities in different units.
 
@@ -64,13 +64,14 @@ convert().measures();
 ```
 -->
 
-If you ever want to know the possible conversions for a unit, just use `.possibilities`
+If you ever want to know the possible conversions for a unit, just use `possibilities`
 
 ```js
 import { possibilities } = from '@iamsquare/convert-units';
 
 possibilities('l');
 // [ 'ml', 'l', 'tsp', 'Tbs', 'fl-oz', 'cup', 'pnt', 'qt', 'gal' ]
+
 possibilities('kg');
 // [ 'mcg', 'mg', 'g', 'kg', 'oz', 'lb' ]
 ```
@@ -93,15 +94,16 @@ To get a detailed description of a unit, use `describe`
 
 ```js
 describe('kg');
-/*
-  {
-    unitType: 'kg',
-    measure: 'mass',
-    system: 'metric',
-    singular: 'Kilogram',
-    plural: 'Kilograms'
-  }
-*/
+```
+
+```js
+{
+  unitType: 'kg',
+  measure: 'mass',
+  system: 'metric',
+  singular: 'Kilogram',
+  plural: 'Kilograms'
+}
 ```
 
 <!-- TODO
@@ -138,7 +140,7 @@ convert().list('mass');
 
 ## Supported Units
 
-| Measure | Metric | Imperial | Other |
+| ***Measure*** | ***Metric*** | ***Imperial*** | ***Other*** |
 |:-:|-|-|-|
 | *Length* | nm, μm, mm, cm, m, km | in, yd, ft-us, ft, fathom, mi, nMi | - |
 | *Area* | mm2, cm2, m2, ha, km2 | in2, ft2, ac, mi2 | - |
@@ -167,7 +169,7 @@ convert().list('mass');
 | *Acceleration* | g-force, m/s2 | - | - |
 | *Pieces* | - | - | pcs, bk-doz, cp, doz-doz, doz, gr-gr, gros, half-dozen, long-hundred, ream, scores, sm-gr, trio |
 
-**NOTE**: these units are exported as enums so that you don't have to remember which unit is which. Also, if you're using this library in a plain `javascript` environment you can avoid typos. To see a list of these enums check the documentation.
+**NOTE**: these units are exported as enums so that you don't have to remember which unit is which. Also, if you're using this library in a plain `javascript` environment these are useful to avoid annoying typos. To see a list of these enums check the documentation.
 
 ### Want More?
 
@@ -179,8 +181,14 @@ to see how it's done.
 
 This library depends on [`ramda`](https://github.com/ramda/ramda) and [`ramda-extension`](https://github.com/tommmyy/ramda-extension).
 
-These imports are ***not*** `tree-shaken`, so if you're bundling this library in a project please refer to your bundler's documentation.
-Note that *Rollup* and *Webpack* should handle this without extra-effort.
+These imports are _**not** tree-shaken_, so if you're bundling this library in a project please refer to your bundler's documentation.
+Note that *Rollup* and *Webpack* should handle tree-shaking without extra-effort.
+
+## To-do list
+
+- [ ]: port `convertToBest` functionality.
+- [ ]: extends and refactor tests.
+- [ ]: allow conversion between an arbitrary number of systems in the same measure family (eg. metric ↔ imperial ↔ lorem ipsum ↔ metric).
 
 ## License
 
