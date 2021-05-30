@@ -1,6 +1,6 @@
 {
   "name": "@iamsquare/convert-units",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Convert between quantities in different units",
   "author": "Marco Cesi <sq@iamsquare.it> (https://iamsquare.it)",
   "keywords": [
@@ -10,9 +10,6 @@
     "ratio",
     "fraction"
   ],
-  "bugs": {
-    "url": "https://github.com/iamsquare/convert-units/issues"
-  },
   "dependencies": {
     "ramda": "^0.27.1",
     "ramda-adjunct": "^2.33.0"
@@ -40,18 +37,22 @@
   "files": [
     "lib/"
   ],
-  "homepage": "https://iamsquare.js/convert-units",
-  "license": "MIT",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
+  "types": "lib/types/index.d.ts",
   "private": false,
   "publishConfig": {
     "access": "public"
   },
+  "homepage": "https://github.com/iamsquare/convert-units",
   "repository": {
     "type": "git",
     "url": "git://github.com/iamsquare/convert-units.git"
   },
+  "bugs": {
+    "url": "https://github.com/iamsquare/convert-units/issues"
+  },
+  "license": "MIT",
   "scripts": {
     "build": "npm run clean:lib && tsc -p ./tsconfig-esm.json && tsc -p ./tsconfig-cjs.json && tsc -p ./tsconfig-umd.json && tsc -p ./tsconfig-d.json",
     "clean": "rimraf",
@@ -64,6 +65,5 @@
     "test:coverage": "npm run test -- --coverage",
     "test:watch": "npm run test -- --watch",
     "postinstall": "is-ci || husky install"
-  },
-  "types": "lib/types/index.d.ts"
+  }
 }
