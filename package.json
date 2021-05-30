@@ -43,8 +43,9 @@
     "compile": "tsc -p ./tsconfig-esm.json && tsc -p ./tsconfig-cjs.json && tsc -p ./tsconfig-umd.json",
     "format": "prettier --write src",
     "lint": "eslint src",
-    "test": "jest --coverage",
-    "test:watch": "jest --watch"
+    "test": "jest",
+    "test:coverage": "npm run test -- --coverage",
+    "test:watch": "npm run test -- --watch"
   },
   "version": "0.0.1"
 }

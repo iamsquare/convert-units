@@ -1,108 +1,114 @@
 # convert-units
 
-[![Downloads](https://img.shields.io/npm/dm/convert-units.svg)](https://www.npmjs.com/package/convert-units)
-
 A handy utility for converting between quantities in different units.
 
 ## Installation
 
 ```shell
-npm install convert-units --save
+npm i @iamsquare/convert-units
 ```
 
 ## Usage
 
-`convert-units` has a simple chained API that is easy to read.
+`@iamsquare/convert-units` is functional port of <https://www.npmjs.com/package/convert-units> with extended type support.
 
 Here's how you move between the metric units for volume:
 
 ```js
-var convert = require('convert-units')
+import { convert } from '@iamsquare/convert-units';
 
-convert(1).from('l').to('ml')
+convert('l', 'ml', 1);
 // 1000
 ```
 
 Jump from imperial to metric units the same way:
 
 ```js
-convert(1).from('lb').to('kg')
+convert('lb', 'kg', 1);
 // 0.4536... (tested to 4 significant figures)
 ```
 
 Just be careful not to ask for an impossible conversion:
 
 ```js
-convert(1).from('oz').to('fl-oz')
-// throws -- you can't go from mass to volume!
+convert('oz', 'fl-oz', 1);
+// throws exception -- you can't go from mass to volume!
 ```
 
+<!-- TODO
 You can ask `convert-units` to select the best unit for you. You can also optionally explicitly exclude orders of magnitude or specify a cut off number for selecting the best representation.
 
 ```js
-convert(12000).from('mm').toBest()
+convert(12000).from('mm').toBest();
 // { val: 12, unit: 'm', plural: 'Meters' } (the smallest unit with a value above 1)
 
-convert(12000).from('mm').toBest({ exclude: ['m'] })
+convert(12000)
+  .from('mm')
+  .toBest({ exclude: ['m'] });
 // { val: 1200, unit: 'cm', plural: 'Centimeters' } (the smallest unit excluding meters)
 
 convert(900).from('mm').toBest({ cutOffNumber: 10 });
 // { val: 90, unit: 'cm', plural: 'Centimeters' } (the smallest unit with a value equal to or above 10)
 
-convert(1000).from('mm').toBest({ cutOffNumber: 10 })
+convert(1000).from('mm').toBest({ cutOffNumber: 10 });
 // { val: 100, unit: 'cm', plural: 'Centimeters' } (the smallest unit with a value equal to or above 10)
 ```
+-->
 
+<!-- TODO
 You can get a list of the measurement types supported with `.measures`
 
 ```js
-convert().measures()
+convert().measures();
 // [ 'length', 'mass', 'volume' ]
 ```
+-->
 
 If you ever want to know the possible conversions for a unit, just use `.possibilities`
 
 ```js
-convert().from('l').possibilities()
-// [ 'ml', 'l', 'tsp', 'Tbs', 'fl-oz', 'cup', 'pnt', 'qt', 'gal' ]
+import { possibilities } = from '@iamsquare/convert-units';
 
-convert().from('kg').possibilities()
+possibilities('l');
+// [ 'ml', 'l', 'tsp', 'Tbs', 'fl-oz', 'cup', 'pnt', 'qt', 'gal' ]
+possibilities('kg');
 // [ 'mcg', 'mg', 'g', 'kg', 'oz', 'lb' ]
 ```
 
 You can also get the possible conversions for a measure:
 
 ```js
-convert().possibilities('mass')
+possibilities('mass');
 // [ 'mcg', 'mg', 'g', 'kg', 'oz', 'lb', 'mt', 't' ]
 ```
 
 You can also get the all the available units:
 
 ```js
-convert().possibilities()
-// [ 'mm', 'cm', 'm', 'in', 'ft-us', 'ft', 'mi', 'mcg', 'mg', 'g', 'kg', 'oz', 'lb', 'mt', 't', 'ml', 'l', 'tsp', 'Tbs', 'fl-oz', 'cup', 'pnt', 'qt', 'gal', 'ea', 'dz' ];
+possibilities();
+// [ 'mm', 'cm', 'm', 'in', 'ft-us', 'ft', 'mi', ... ];
 ```
 
 To get a detailed description of a unit, use `describe`
 
 ```js
-convert().describe('kg')
+describe('kg');
 /*
   {
-    abbr: 'kg'
-  , measure: 'mass'
-  , system: 'metric'
-  , singular: 'Kilogram'
-  , plural: 'Kilograms'
+    unitType: 'kg',
+    measure: 'mass',
+    system: 'metric',
+    singular: 'Kilogram',
+    plural: 'Kilograms'
   }
 */
 ```
 
+<!-- TODO
 To get detailed descriptions of all units, use `list`.
 
 ```js
-convert().list()
+convert().list();
 /*
   [{
     abbr: 'kg'
@@ -117,7 +123,7 @@ convert().list()
 You can also get detailed descriptions of all units for a measure:
 
 ```js
-convert().list('mass')
+convert().list('mass');
 /*
   [{
     abbr: 'kg'
@@ -128,297 +134,53 @@ convert().list('mass')
   }, ...]
 */
 ```
+-->
 
 ## Supported Units
 
-### Length
+| Measure | Metric | Imperial | Other |
+|:-:|-|-|-|
+| *Length* | nm, μm, mm, cm, m, km | in, yd, ft-us, ft, fathom, mi, nMi | - |
+| *Area* | mm2, cm2, m2, ha, km2 | in2, ft2, ac, mi2 | - |
+| *Mass* | mcg, mg, g, kg, mt | oz, lb, t | - |
+| *Volume* | mm3, cm3, ml, l, kl, m3, km3 | tsp, Tbs, in3, fl-oz, cup, pnt, qt, gal, ft3, yd3 | - |
+| *Volume Flow Rate* | mm3/s, cm3/s, ml/s, cl/s, dl/s, l/s, l/min, l/h, kl/s, kl/min, kl/h, m3/s, m3/min, m3/h, km3/s | tsp/s, Tbs/s, in3/s, in3/min, in3/h, fl-oz/s, fl-oz/min, fl-oz/h, cup/s, pnt/s, pnt/min, pnt/h, qt/s, gal/s, gal/min, gal/h, ft3/s, ft3/min, ft3/h, yd3/s, yd3/min, yd3/h | - |
+| *Temperature* | C, K | F, R | - |
+| *Time* | - | - | ns, mu, ms, s, min, h, d, week, month, year |
+| *Frequency* | - | - | Hz, mHz, kHz, MHz, GHz, THz, rpm, deg/s, rad/s |
+| *Speed* | m/s, km/h | mph, knot, ft/s | - |
+| *Pace*  | s/m, min/km | s/ft, min/mi | - |
+| *Pressure* | Pa, hPa, kPa, MPa, bar, torr | psi, ksi | - |
+| *Digital* | - | - |  b, Kb, Mb, Gb, Tb, B, KB, MB, GB, TB |
+| *Illuminance* | lx | ft-cd | - |
+| *Parts-Per* | - | - | ppm, ppb, ppt, ppq |
+| *Voltage* | - | - | V, mV, kV |
+| *Current* | - | - | A, mA, kA |
+| *Power* | W, mW, kW, MW, GW, PS | Btu/s, ft-lb/s, hp | - |
+| *Apparent Power* | - | - | VA, mVA, kVA, MVA, GVA |
+| *Reactive Power* | - | - | VAR, mVAR, kVAR, MVAR, GVAR |
+| *Energy* | - | - | Wh, mWh, kWh, MWh, GWh, J, kJ |
+| *Reactive Energy* | - | - | VARh, mVARh, kVARh, MVARh, GVARh |
+| *Angle* | - | - | deg, rad, grad, arcmin, arcsec |
+| *Charge* | - | - | c, mC, μC, nC, pC |
+| *Force* | N, kN | lbf | - |
+| *Acceleration* | g-force, m/s2 | - | - |
+| *Pieces* | - | - | pcs, bk-doz, cp, doz-doz, doz, gr-gr, gros, half-dozen, long-hundred, ream, scores, sm-gr, trio |
 
-* nm
-* μm
-* mm
-* cm
-* m
-* km
-* in
-* yd
-* ft-us
-* ft
-* fathom
-* mi
-* nMi
-
-### Area
-
-* mm2
-* cm2
-* m2
-* ha
-* km2
-* in2
-* ft2
-* ac
-* mi2
-
-### Mass
-
-* mcg
-* mg
-* g
-* kg
-* oz
-* lb
-* mt
-* t
-
-### Volume
-
-* mm3
-* cm3
-* ml
-* l
-* kl
-* m3
-* km3
-* tsp
-* Tbs
-* in3
-* fl-oz
-* cup
-* pnt
-* qt
-* gal
-* ft3
-* yd3
-
-### Volume Flow Rate
-
-* mm3/s
-* cm3/s
-* ml/s
-* cl/s
-* dl/s
-* l/s
-* l/min
-* l/h
-* kl/s
-* kl/min
-* kl/h
-* m3/s
-* m3/min
-* m3/h
-* km3/s
-* tsp/s
-* Tbs/s
-* in3/s
-* in3/min
-* in3/h
-* fl-oz/s
-* fl-oz/min
-* fl-oz/h
-* cup/s
-* pnt/s
-* pnt/min
-* pnt/h
-* qt/s
-* gal/s
-* gal/min
-* gal/h
-* ft3/s
-* ft3/min
-* ft3/h
-* yd3/s
-* yd3/min
-* yd3/h'
-
-### Temperature
-
-* C
-* F
-* K
-* R
-
-### Time
-
-* ns
-* mu
-* ms
-* s
-* min
-* h
-* d
-* week
-* month
-* year
-
-### Frequency
-
-* Hz
-* mHz
-* kHz
-* MHz
-* GHz
-* THz
-* rpm
-* deg/s
-* rad/s
-
-### Speed
-
-* m/s
-* km/h
-* mph
-* knot
-* ft/s
-
-### Pace
-
-* s/m
-* min/km
-* s/ft
-* min/mi
-
-### Pressure
-
-* Pa
-* hPa
-* kPa
-* MPa
-* bar
-* torr
-* psi
-* ksi
-
-### Digital
-
-* b
-* Kb
-* Mb
-* Gb
-* Tb
-* B
-* KB
-* MB
-* GB
-* TB
-
-### Illuminance
-
-* lx
-* ft-cd
-
-### Parts-Per
-
-* ppm
-* ppb
-* ppt
-* ppq
-
-### Voltage
-
-* V
-* mV
-* kV
-
-### Current
-
-* A
-* mA
-* kA
-
-### Power
-
-* W
-* mW
-* kW
-* MW
-* GW
-* PS
-* Btu/s
-* ft-lb/s
-* hp
-
-### Apparent Power
-
-* VA
-* mVA
-* kVA
-* MVA
-* GVA
-
-### Reactive Power
-
-* VAR
-* mVAR
-* kVAR
-* MVAR
-* GVAR
-
-### Energy
-
-* Wh
-* mWh
-* kWh
-* MWh
-* GWh
-* J
-* kJ
-
-### Reactive Energy
-
-* VARh
-* mVARh
-* kVARh
-* MVARh
-* GVARh
-
-### Angle
-
-* deg
-* rad
-* grad
-* arcmin
-* arcsec
-
-### Charge
-
-* c
-* mC
-* μC
-* nC
-* pC
-
-### Force
-
-* N
-* kN
-* lbf
-
-### Acceleration
-
-* g (g-force)
-* m/s2
-
-### Pieces
-
-* pcs
-* bk-doz
-* cp
-* doz-doz
-* doz
-* gr-gr
-* gros
-* half-dozen
-* long-hundred
-* ream
-* scores
-* sm-gr
-* trio
+**NOTE**: these units are exported as enums so that you don't have to remember which unit is which. Also, if you're using this library in a plain `javascript` environment you can avoid typos. To see a list of these enums check the documentation.
 
 ### Want More?
 
 Adding new measurement sets is easy. Take a look at
-[`src/definitions`](https://github.com/convert-units/convert-units/tree/main/src/definitions)
+[`src/definitions`](https://github.com/iamsquare/convert-units/tree/master/src/definitions)
 to see how it's done.
+
+## Dependencies
+
+This library depends on [`ramda`](https://github.com/ramda/ramda) and [`ramda-extension`](https://github.com/tommmyy/ramda-extension).
+
+These imports are ***not*** `tree-shaken`, so if you're bundling this library in a project please refer to your bundler's documentation.
+Note that *Rollup* and *Webpack* should handle this without extra-effort.
 
 ## License
 
