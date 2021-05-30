@@ -29,6 +29,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "husky": "^6.0.0",
+    "is-ci": "^3.0.0",
     "jest": "^27.0.1",
     "lint-staged": "^11.0.0",
     "prettier": "2.3.0",
@@ -62,7 +63,7 @@
     "test": "jest",
     "test:coverage": "npm run test -- --coverage",
     "test:watch": "npm run test -- --watch",
-    "prepare": "husky install"
+    "prepare": "is-ci || husky install"
   },
   "types": "lib/types/index.d.ts"
 }
