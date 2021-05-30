@@ -1,3 +1,5 @@
+import { keys } from 'ramda';
+
 import acceleration from './definitions/acceleration';
 import angle from './definitions/angle';
 import apparentPower from './definitions/apparentPower';
@@ -27,7 +29,7 @@ import volume from './definitions/volume';
 import volumeFlowRate from './definitions/volumeFlowRate';
 import { Definition, Measure } from './type';
 
-export default {
+export const MeasureDictionary = {
   acceleration,
   angle,
   apparentPower,
@@ -56,3 +58,5 @@ export default {
   volume,
   volumeFlowRate
 } as Readonly<Record<Measure, Definition<any, any>>>;
+
+export default () => keys(MeasureDictionary);

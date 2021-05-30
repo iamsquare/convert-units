@@ -42,13 +42,20 @@ test('nonexistant unit to kg throws', () => {
 test('describe throws if unit is not found', () => {
   expect(() => {
     //@ts-ignore
-    _describe('no-a-unit');
+    _describe('not-a-unit');
   }).toThrow();
 });
 
 test('possibilities throws if unit is not found', () => {
   expect(() => {
     //@ts-ignore
-    possibilities('no-a-unit');
+    possibilities('not-a-unit');
+  }).toThrow();
+});
+
+test('unsupported measure should throw', () => {
+  expect(() => {
+    //@ts-ignore
+    list('not-a-measure');
   }).toThrow();
 });

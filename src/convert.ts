@@ -3,7 +3,7 @@ import { isNotNil } from 'ramda-adjunct';
 
 import { UnitType } from './definitions/type';
 import getUnit from './getUnit';
-import measures from './measures';
+import { MeasureDictionary } from './measures';
 
 export default curry((from: UnitType, to: UnitType, value: number) => {
   const fromConversion = getUnit(from);
@@ -27,7 +27,7 @@ export default curry((from: UnitType, to: UnitType, value: number) => {
     when(
       () => fromConversion.system !== toConversion.system,
       (v) => {
-        const { transform, ratio } = measures[fromConversion.measure].anchors[fromConversion.system];
+        const { transform, ratio } = MeasureDictionary[fromConversion.measure].anchors[fromConversion.system];
 
         if (isNotNil(transform)) {
           return transform(v);

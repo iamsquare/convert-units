@@ -1,6 +1,7 @@
 **/__tests__
 coverage
 docs
+.husky
 .eslintrc.js
 .eslintignore
 .prettierignore

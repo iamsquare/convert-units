@@ -55,13 +55,14 @@
     "build": "npm run clean:lib && tsc -p ./tsconfig-esm.json && tsc -p ./tsconfig-cjs.json && tsc -p ./tsconfig-umd.json && tsc -p ./tsconfig-d.json",
     "clean": "rimraf",
     "clean:lib": "npm run clean -- lib",
-    "lint": "eslint src --quiet",
-    "lint:fix": "npm run eslint -- --fix",
-    "lint:lintstaged": "eslint --quiet --fix",
+    "lint": "eslint . --quiet",
+    "lint:fix": "npm run lint -- --fix",
+    "lint-staged": "lint-staged",
     "prettier": "prettier --write",
     "test": "jest",
     "test:coverage": "npm run test -- --coverage",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+    "prepare": "husky install"
   },
   "types": "lib/types/index.d.ts"
 }
