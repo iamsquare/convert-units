@@ -3,7 +3,7 @@ on:
     tags:
       - 'v*'
 
-name: Generic workflow
+name: Deploy Workflow
 jobs:
   build:
     name: Test and Build library
