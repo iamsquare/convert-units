@@ -1,145 +1,146 @@
-import convert from '../..';
+import { convert } from '../..';
+import { ImperialVolumeEnum, MetricVolumeEnum } from '../volume';
 
 test('l to l', () => {
-  expect(convert(2).from('l').to('l')).toBe(2);
+  expect(convert(MetricVolumeEnum.LITRE, MetricVolumeEnum.LITRE, 2)).toBe(2);
 });
 
 test('mm3 to l', () => {
-  expect(convert(1000000).from('mm3').to('l')).toBe(1);
+  expect(convert(MetricVolumeEnum.CUBIC_MILLIMETER, MetricVolumeEnum.LITRE, 1e6)).toBe(1);
 });
 
 test('cm3 to l', () => {
-  expect(convert(100).from('cm3').to('l')).toBe(1 / 10);
+  expect(convert(MetricVolumeEnum.CUBIC_CENTIMETER, MetricVolumeEnum.LITRE, 1e2)).toBe(0.1);
 });
 
 test('dl to l', () => {
-  expect(convert(2).from('dl').to('l')).toBe(0.2);
+  expect(convert(MetricVolumeEnum.DECILITRE, MetricVolumeEnum.LITRE, 2)).toBe(0.2);
 });
 
 test('cl to l', () => {
-  expect(convert(25).from('cl').to('l')).toBe(0.25);
+  expect(convert(MetricVolumeEnum.CENTILITRE, MetricVolumeEnum.LITRE, 25)).toBe(0.25);
 });
 
 test('ml to l', () => {
-  expect(convert(100).from('ml').to('l')).toBe(1 / 10);
+  expect(convert(MetricVolumeEnum.MILLILITRE, MetricVolumeEnum.LITRE, 1e2)).toBe(0.1);
 });
 
 test('m3 to l', () => {
-  expect(convert(1).from('m3').to('l')).toBe(1000);
+  expect(convert(MetricVolumeEnum.CUBIC_METER, MetricVolumeEnum.LITRE, 1)).toBe(1e3);
 });
 
 test('km3 to l', () => {
-  expect(convert(1).from('km3').to('l')).toBe(1000000000000);
+  expect(convert(MetricVolumeEnum.CUBIC_KILOMETER, MetricVolumeEnum.LITRE, 1)).toBe(1e12);
 });
 
 test('l to ml', () => {
-  expect(convert(1).from('l').to('ml')).toBe(1000);
+  expect(convert(MetricVolumeEnum.LITRE, MetricVolumeEnum.MILLILITRE, 1)).toBe(1e3);
 });
 
 test('dl to ml', () => {
-  expect(convert(10).from('dl').to('ml')).toBe(1000);
+  expect(convert(MetricVolumeEnum.DECILITRE, MetricVolumeEnum.MILLILITRE, 10)).toBe(1e3);
 });
 
 test('cl to ml', () => {
-  expect(convert(100).from('cl').to('ml')).toBe(1000);
+  expect(convert(MetricVolumeEnum.CENTILITRE, MetricVolumeEnum.MILLILITRE, 100)).toBe(1e3);
 });
 
 test('ml to ml', () => {
-  expect(convert(13).from('ml').to('ml')).toBe(13);
+  expect(convert(MetricVolumeEnum.MILLILITRE, MetricVolumeEnum.MILLILITRE, 1)).toBe(1);
 });
 
 test('msk to ml', () => {
-  expect(convert(2).from('msk').to('ml')).toBe(30);
+  expect(convert(MetricVolumeEnum.MATSKED, MetricVolumeEnum.MILLILITRE, 2)).toBe(30);
 });
 
 test('tsk to ml', () => {
-  expect(convert(3).from('tsk').to('ml')).toBe(15);
+  expect(convert(MetricVolumeEnum.TESKED, MetricVolumeEnum.MILLILITRE, 3)).toBe(15);
 });
 
 test('krm to ml', () => {
-  expect(convert(13).from('krm').to('ml')).toBe(13);
+  expect(convert(MetricVolumeEnum.KRYDDMATTET, MetricVolumeEnum.MILLILITRE, 13)).toBe(13);
 });
 
 test('kanna to l', () => {
-  expect(convert(2).from('kanna').to('l')).toBe(2 * 2.617);
+  expect(convert(MetricVolumeEnum.KANNA, MetricVolumeEnum.LITRE, 2)).toBe(5.234);
 });
 
 test('kkp to ml', () => {
-  expect(convert(2).from('kkp').to('ml')).toBe(300);
+  expect(convert(MetricVolumeEnum.KAFFEKOPP, MetricVolumeEnum.MILLILITRE, 2)).toBe(3e2);
 });
 
 test('glas to ml', () => {
-  expect(convert(2).from('glas').to('ml')).toBe(400);
+  expect(convert(MetricVolumeEnum.GLAS, MetricVolumeEnum.MILLILITRE, 2)).toBe(4e2);
 });
 
 test('ml to msk', () => {
-  expect(convert(15).from('ml').to('msk')).toBe(1);
+  expect(convert(MetricVolumeEnum.MILLILITRE, MetricVolumeEnum.MATSKED, 15)).toBe(1);
 });
 
 test('ml to tsk', () => {
-  expect(convert(5).from('ml').to('tsk')).toBe(1);
+  expect(convert(MetricVolumeEnum.MILLILITRE, MetricVolumeEnum.TESKED, 5)).toBe(1);
 });
 
 test('ml to krm', () => {
-  expect(convert(1).from('ml').to('krm')).toBe(1);
+  expect(convert(MetricVolumeEnum.MILLILITRE, MetricVolumeEnum.KRYDDMATTET, 1)).toBe(1);
 });
 
 test('l to kanna', () => {
-  expect(convert(2.617).from('l').to('kanna')).toBe(1);
+  expect(convert(MetricVolumeEnum.LITRE, MetricVolumeEnum.KANNA, 2.617)).toBe(1);
 });
 
 test('lm to kkp', () => {
-  expect(convert(150).from('ml').to('kkp')).toBe(1);
+  expect(convert(MetricVolumeEnum.MILLILITRE, MetricVolumeEnum.KAFFEKOPP, 150)).toBe(1);
 });
 
 test('ml to glas', () => {
-  expect(convert(200).from('ml').to('glas')).toBe(1);
+  expect(convert(MetricVolumeEnum.MILLILITRE, MetricVolumeEnum.GLAS, 2e2)).toBe(1);
 });
 
 test('fl-oz to fl-oz', () => {
-  expect(convert(62).from('fl-oz').to('fl-oz')).toBe(62);
+  expect(convert(ImperialVolumeEnum.FLUID_OUNCE, ImperialVolumeEnum.FLUID_OUNCE, 1)).toBe(1);
 });
 
 test('fl-oz to tbsp', () => {
-  expect(convert(4).from('fl-oz').to('Tbs')).toBe(8);
+  expect(convert(ImperialVolumeEnum.FLUID_OUNCE, ImperialVolumeEnum.TABLESPOON, 4)).toBe(8);
 });
 
 test('Tbs to fl-oz', () => {
-  expect(convert(2).from('Tbs').to('fl-oz')).toBe(1);
+  expect(convert(ImperialVolumeEnum.TABLESPOON, ImperialVolumeEnum.FLUID_OUNCE, 2)).toBe(1);
 });
 
 test('Tbs to Tbs', () => {
-  expect(convert(140).from('Tbs').to('Tbs')).toBe(140);
+  expect(convert(ImperialVolumeEnum.TABLESPOON, ImperialVolumeEnum.TABLESPOON, 1)).toBe(1);
 });
 
 test('tsp to l', () => {
-  expect(convert(355).from('tsp').to('l')).toBeCloseTo(1.74977);
+  expect(convert(ImperialVolumeEnum.TEASPOON, MetricVolumeEnum.LITRE, 355)).toBeCloseTo(1.74977);
 });
 
 test('in3 to l', () => {
-  expect(convert(1).from('in3').to('l')).toBeCloseTo(0.0163871);
+  expect(convert(ImperialVolumeEnum.CUBIC_INCH, MetricVolumeEnum.LITRE, 1)).toBeCloseTo(0.0163871);
 });
 
 test('in3 to fl-oz', () => {
-  expect(convert(1).from('in3').to('fl-oz')).toBeCloseTo(0.554113);
+  expect(convert(ImperialVolumeEnum.CUBIC_INCH, ImperialVolumeEnum.FLUID_OUNCE, 1)).toBeCloseTo(0.554113);
 });
 
 test('m3 to yd3', () => {
-  expect(convert(1).from('m3').to('yd3')).toBeCloseTo(1.30795);
+  expect(convert(MetricVolumeEnum.CUBIC_METER, ImperialVolumeEnum.CUBIC_YARD, 1)).toBeCloseTo(1.30795);
 });
 
 test('ft3 to cm3', () => {
-  expect(convert(1).from('ft3').to('cm3')).toBeCloseTo(28316.832);
+  expect(convert(ImperialVolumeEnum.CUBIC_FOOT, MetricVolumeEnum.CUBIC_CENTIMETER, 1)).toBeCloseTo(28316.832);
 });
 
 test('pnt to ml', () => {
-  expect(convert(5).from('pnt').to('ml')).toBeCloseTo(2365.88);
+  expect(convert(ImperialVolumeEnum.PINT, MetricVolumeEnum.MILLILITRE, 5)).toBeCloseTo(2365.88);
 });
 
 test('ml to gal', () => {
-  expect(convert(9876).from('ml').to('gal')).toBeCloseTo(2.609);
+  expect(convert(MetricVolumeEnum.MILLILITRE, ImperialVolumeEnum.GALLON, 9876)).toBeCloseTo(2.609);
 });
 
 test('gal to l', () => {
-  expect(convert(10).from('gal').to('l')).toBeCloseTo(37.85);
+  expect(convert(ImperialVolumeEnum.GALLON, MetricVolumeEnum.LITRE, 10)).toBeCloseTo(37.85);
 });

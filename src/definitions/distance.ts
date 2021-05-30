@@ -1,4 +1,4 @@
-import { Definition } from './type';
+import { Definition } from '../type';
 import { DistanceUnit } from './type/units.type';
 
 export enum MetricDistanceEnum {
@@ -26,42 +26,42 @@ const metric = {
       singular: 'Nanometer',
       plural: 'Nanometers'
     },
-    toAnchor: 1e-9
+    anchor: 1e-9
   },
   [MetricDistanceEnum.MICROMETER]: {
     name: {
       singular: 'Micrometer',
       plural: 'Micrometers'
     },
-    toAnchor: 1e-6
+    anchor: 1e-6
   },
   [MetricDistanceEnum.MILLIMETER]: {
     name: {
       singular: 'Millimeter',
       plural: 'Millimeters'
     },
-    toAnchor: 1e-3
+    anchor: 1e-3
   },
   [MetricDistanceEnum.CENTIMETER]: {
     name: {
       singular: 'Centimeter',
       plural: 'Centimeters'
     },
-    toAnchor: 1e-2
+    anchor: 1e-2
   },
   [MetricDistanceEnum.METER]: {
     name: {
       singular: 'Meter',
       plural: 'Meters'
     },
-    toAnchor: 1
+    anchor: 1
   },
   [MetricDistanceEnum.KILOMETER]: {
     name: {
       singular: 'Kilometer',
       plural: 'Kilometers'
     },
-    toAnchor: 1e3
+    anchor: 1e3
   }
 };
 
@@ -71,49 +71,49 @@ const imperial = {
       singular: 'Inch',
       plural: 'Inches'
     },
-    toAnchor: 1 / 12
+    anchor: 1 / 12
   },
   [ImperialDistanceEnum.YARD]: {
     name: {
       singular: 'Yard',
       plural: 'Yards'
     },
-    toAnchor: 3
+    anchor: 3
   },
   [ImperialDistanceEnum.US_SURVEY_FOOT]: {
     name: {
       singular: 'US Survey Foot',
       plural: 'US Survey Feet'
     },
-    toAnchor: 1.000002
+    anchor: 1.000002
   },
   [ImperialDistanceEnum.FOOT]: {
     name: {
       singular: 'Foot',
       plural: 'Feet'
     },
-    toAnchor: 1
+    anchor: 1
   },
   [ImperialDistanceEnum.FATHOM]: {
     name: {
       singular: 'Fathom',
       plural: 'Fathoms'
     },
-    toAnchor: 6
+    anchor: 6
   },
   [ImperialDistanceEnum.MILE]: {
     name: {
       singular: 'Mile',
       plural: 'Miles'
     },
-    toAnchor: 5280
+    anchor: 5280
   },
   [ImperialDistanceEnum.NAUTICAL_MILE]: {
     name: {
       singular: 'Nautical Mile',
       plural: 'Nautical Miles'
     },
-    toAnchor: 6076.12
+    anchor: 6076.12
   }
 };
 

@@ -1,4 +1,4 @@
-import { Definition } from './type';
+import { Definition } from '../type';
 import { ApparentPowerUnit } from './type/units.type';
 
 export enum ApparentPowerEnum {
@@ -9,52 +9,52 @@ export enum ApparentPowerEnum {
   GIGAVOLT_AMPERE = 'GVA'
 }
 
-const apparentPower = {
+const metric = {
   [ApparentPowerEnum.VOLT_AMPERE]: {
     name: {
       singular: 'Volt-Ampere',
       plural: 'Volt-Amperes'
     },
-    toAnchor: 1
+    anchor: 1
   },
   [ApparentPowerEnum.MILLIVOLT_AMPERE]: {
     name: {
       singular: 'Millivolt-Ampere',
       plural: 'Millivolt-Amperes'
     },
-    toAnchor: 1e-3
+    anchor: 1e-3
   },
   [ApparentPowerEnum.KILOVOLT_AMPERE]: {
     name: {
       singular: 'Kilovolt-Ampere',
       plural: 'Kilovolt-Amperes'
     },
-    toAnchor: 1e3
+    anchor: 1e3
   },
   [ApparentPowerEnum.MEGAVOLT_AMPERE]: {
     name: {
       singular: 'Megavolt-Ampere',
       plural: 'Megavolt-Amperes'
     },
-    toAnchor: 1e6
+    anchor: 1e6
   },
   [ApparentPowerEnum.GIGAVOLT_AMPERE]: {
     name: {
       singular: 'Gigavolt-Ampere',
       plural: 'Gigavolt-Amperes'
     },
-    toAnchor: 1e9
+    anchor: 1e9
   }
 };
 
 export default {
   systems: {
-    apparentPower
+    metric
   },
   anchors: {
-    apparentPower: {
+    metric: {
       unit: ApparentPowerEnum.VOLT_AMPERE,
       ratio: 1
     }
   }
-} as Definition<'apparentPower', ApparentPowerUnit>;
+} as Definition<'metric', ApparentPowerUnit>;

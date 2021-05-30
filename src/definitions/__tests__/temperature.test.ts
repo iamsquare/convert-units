@@ -1,37 +1,38 @@
-import convert from '../..';
+import { convert } from '../..';
+import { ImperialTemperatureEnum, MetricTemperatureEnum } from '../temperature';
 
 test('C to K', () => {
-  expect(convert(0).from('C').to('K')).toBe(273.15);
+  expect(convert(MetricTemperatureEnum.CELSIUS, MetricTemperatureEnum.KELVIN, 0)).toBe(273.15);
 });
 
 test('K to C', () => {
-  expect(convert(273.15).from('K').to('C')).toBe(0);
+  expect(convert(MetricTemperatureEnum.KELVIN, MetricTemperatureEnum.CELSIUS, 273.15)).toBe(0);
 });
 
 test('F to C', () => {
-  expect(convert(32).from('F').to('C')).toBe(0);
+  expect(convert(ImperialTemperatureEnum.FAHRENHEIT, MetricTemperatureEnum.CELSIUS, 32)).toBe(0);
 });
 
 test('C to F', () => {
-  expect(convert(0).from('C').to('F')).toBe(32);
+  expect(convert(MetricTemperatureEnum.CELSIUS, ImperialTemperatureEnum.FAHRENHEIT, 0)).toBe(32);
 });
 
 test('F to K', () => {
-  expect(convert(32).from('F').to('K')).toBe(273.15);
+  expect(convert(ImperialTemperatureEnum.FAHRENHEIT, MetricTemperatureEnum.KELVIN, 32)).toBe(273.15);
 });
 
 test('F to R', () => {
-  expect(convert(100).from('F').to('R')).toBe(559.6700000000001);
+  expect(convert(ImperialTemperatureEnum.FAHRENHEIT, ImperialTemperatureEnum.RANKINE, 100)).toBeCloseTo(559.67);
 });
 
 test('R to F', () => {
-  expect(convert(670).from('R').to('F')).toBe(210.32999999999998);
+  expect(convert(ImperialTemperatureEnum.RANKINE, ImperialTemperatureEnum.FAHRENHEIT, 670)).toBeCloseTo(210.32999);
 });
 
 test('R to C', () => {
-  expect(convert(612).from('R').to('C')).toBe(66.85);
+  expect(convert(ImperialTemperatureEnum.RANKINE, MetricTemperatureEnum.CELSIUS, 612)).toBe(66.85);
 });
 
 test('R to K', () => {
-  expect(convert(459.67).from('R').to('K')).toBe(255.3722222222222);
+  expect(convert(ImperialTemperatureEnum.RANKINE, MetricTemperatureEnum.KELVIN, 459.67)).toBeCloseTo(255.37222);
 });

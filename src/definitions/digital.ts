@@ -1,4 +1,4 @@
-import { Definition } from './type';
+import { Definition } from '../type';
 import { DigitalUnit } from './type/units.type';
 
 export enum BitEnum {
@@ -23,35 +23,35 @@ const bits = {
       singular: 'Bit',
       plural: 'Bits'
     },
-    toAnchor: 1
+    anchor: 1
   },
   [BitEnum.KILOBIT]: {
     name: {
       singular: 'Kilobit',
       plural: 'Kilobits'
     },
-    toAnchor: 1024
+    anchor: 1024
   },
   [BitEnum.MEGABIT]: {
     name: {
       singular: 'Megabit',
       plural: 'Megabits'
     },
-    toAnchor: 1048576
+    anchor: 1048576
   },
   [BitEnum.GIGABIT]: {
     name: {
       singular: 'Gigabit',
       plural: 'Gigabits'
     },
-    toAnchor: 1073741824
+    anchor: 1073741824
   },
   [BitEnum.TERABIT]: {
     name: {
       singular: 'Terabit',
       plural: 'Terabits'
     },
-    toAnchor: 1099511627776
+    anchor: 1099511627776
   }
 };
 
@@ -61,35 +61,35 @@ const bytes = {
       singular: 'Byte',
       plural: 'Bytes'
     },
-    toAnchor: 1
+    anchor: 1
   },
   [ByteEnum.KILOBYTE]: {
     name: {
       singular: 'Kilobyte',
       plural: 'Kilobytes'
     },
-    toAnchor: 1024
+    anchor: 1024
   },
   [ByteEnum.MEGABYTE]: {
     name: {
       singular: 'Megabyte',
       plural: 'Megabytes'
     },
-    toAnchor: 1048576
+    anchor: 1048576
   },
   [ByteEnum.GIGABYTE]: {
     name: {
       singular: 'Gigabyte',
       plural: 'Gigabytes'
     },
-    toAnchor: 1073741824
+    anchor: 1073741824
   },
   [ByteEnum.TERABYTE]: {
     name: {
       singular: 'Terabyte',
       plural: 'Terabytes'
     },
-    toAnchor: 1099511627776
+    anchor: 1099511627776
   }
 };
 

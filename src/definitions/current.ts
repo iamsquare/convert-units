@@ -1,4 +1,4 @@
-import { Definition } from './type';
+import { Definition } from '../type';
 import { CurrentUnit } from './type/units.type';
 
 export enum CurrentEnum {
@@ -7,38 +7,38 @@ export enum CurrentEnum {
   KILOAMPERE = 'kA'
 }
 
-const current = {
+const metric = {
   [CurrentEnum.AMPERE]: {
     name: {
       singular: 'Ampere',
       plural: 'Amperes'
     },
-    toAnchor: 1
+    anchor: 1
   },
   [CurrentEnum.MILLIAMPERE]: {
     name: {
       singular: 'Milliampere',
       plural: 'Milliamperes'
     },
-    toAnchor: 1e-3
+    anchor: 1e-3
   },
   [CurrentEnum.KILOAMPERE]: {
     name: {
       singular: 'Kiloampere',
       plural: 'Kiloamperes'
     },
-    toAnchor: 1e3
+    anchor: 1e3
   }
 };
 
 export default {
   systems: {
-    current
+    metric
   },
   anchors: {
-    current: {
+    metric: {
       unit: CurrentEnum.AMPERE,
       ratio: 1
     }
   }
-} as Definition<'current', CurrentUnit>;
+} as Definition<'metric', CurrentUnit>;

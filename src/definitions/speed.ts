@@ -1,4 +1,4 @@
-import { Definition } from './type';
+import { Definition } from '../type';
 import { SpeedUnit } from './type/units.type';
 
 export enum MetricSpeedEnum {
@@ -19,21 +19,21 @@ const metric = {
       singular: 'Metre per second',
       plural: 'Metres per second'
     },
-    toAnchor: 3.6
+    anchor: 3.6
   },
   [MetricSpeedEnum.KILOMETRE_PER_HOUR]: {
     name: {
       singular: 'Kilometre per hour',
       plural: 'Kilometres per hour'
     },
-    toAnchor: 1
+    anchor: 1
   },
   [MetricSpeedEnum.METRE_PER_HOUR]: {
     name: {
       singular: 'Metre per hour',
       plural: 'Metres per hour'
     },
-    toAnchor: 1e3
+    anchor: 1e3
   }
 };
 
@@ -43,21 +43,21 @@ const imperial = {
       singular: 'Mile per hour',
       plural: 'Miles per hour'
     },
-    toAnchor: 1
+    anchor: 1
   },
   [ImperialSpeedEnum.KNOT]: {
     name: {
       singular: 'Knot',
       plural: 'Knots'
     },
-    toAnchor: 1.150779
+    anchor: 1.150779
   },
   [ImperialSpeedEnum.FOOT_PER_SECOND]: {
     name: {
       singular: 'Foot per second',
       plural: 'Feet per second'
     },
-    toAnchor: 0.681818
+    anchor: 0.681818
   }
 };
 

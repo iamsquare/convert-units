@@ -1,4 +1,4 @@
-import { Definition } from './type';
+import { Definition } from '../type';
 import { ForceUnit } from './type/units.type';
 
 export enum ForceEnum {
@@ -7,38 +7,38 @@ export enum ForceEnum {
   POUND_FORCE = 'lbf'
 }
 
-const force = {
+const metric = {
   [ForceEnum.NEWTON]: {
     name: {
       singular: 'Newton',
       plural: 'Newtons'
     },
-    toAnchor: 1
+    anchor: 1
   },
   [ForceEnum.KILONEWTON]: {
     name: {
       singular: 'Kilonewton',
       plural: 'Kilonewtons'
     },
-    toAnchor: 1e3
+    anchor: 1e3
   },
   [ForceEnum.POUND_FORCE]: {
     name: {
       singular: 'Pound-force',
       plural: 'Pound-forces'
     },
-    toAnchor: 4.44822
+    anchor: 4.44822
   }
 };
 
 export default {
   systems: {
-    force
+    metric
   },
   anchors: {
-    force: {
+    metric: {
       unit: ForceEnum.NEWTON,
       ratio: 1
     }
   }
-} as Definition<'force', ForceUnit>;
+} as Definition<'metric', ForceUnit>;

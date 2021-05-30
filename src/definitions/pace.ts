@@ -1,4 +1,4 @@
-import { Definition } from './type';
+import { Definition } from '../type';
 import { PaceUnit } from './type/units.type';
 
 export enum MetricPaceEnum {
@@ -17,14 +17,14 @@ const metric = {
       singular: 'Minute per kilometre',
       plural: 'Minutes per kilometre'
     },
-    toAnchor: 0.06
+    anchor: 0.06
   },
   [MetricPaceEnum.SECOND_PER_METRE]: {
     name: {
       singular: 'Second per metre',
       plural: 'Seconds per metre'
     },
-    toAnchor: 1
+    anchor: 1
   }
 };
 
@@ -34,14 +34,14 @@ const imperial = {
       singular: 'Minute per mile',
       plural: 'Minutes per mile'
     },
-    toAnchor: 0.0113636
+    anchor: 0.0113636
   },
   [ImperialPaceEnum.SECOND_PER_FOOT]: {
     name: {
       singular: 'Second per foot',
       plural: 'Seconds per foot'
     },
-    toAnchor: 1
+    anchor: 1
   }
 };
 

@@ -1,4 +1,4 @@
-import { Definition } from './type';
+import { Definition } from '../type';
 import { AccelerationUnit } from './type/units.type';
 
 export enum AccelerationEnum {
@@ -12,14 +12,14 @@ const metric = {
       singular: 'g-force',
       plural: 'g-forces'
     },
-    toAnchor: 9.80665
+    anchor: 9.80665
   },
   [AccelerationEnum.METRE_PER_SECOND_SQUARED]: {
     name: {
       singular: 'Metre per second squared',
       plural: 'Metres per second squared'
     },
-    toAnchor: 1
+    anchor: 1
   }
 };
 

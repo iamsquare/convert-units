@@ -1,4 +1,4 @@
-import { Definition } from './type';
+import { Definition } from '../type';
 import { EachUnit } from './type/units.type';
 
 export enum EachEnum {
@@ -12,14 +12,14 @@ const metric = {
       singular: 'Each',
       plural: 'Each'
     },
-    toAnchor: 1
+    anchor: 1
   },
   [EachEnum.DOZEN]: {
     name: {
       singular: 'Dozen',
       plural: 'Dozens'
     },
-    toAnchor: 12
+    anchor: 12
   }
 };
 

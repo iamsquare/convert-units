@@ -1,4 +1,4 @@
-import { Definition } from './type';
+import { Definition } from '../type';
 import { AngleUnit } from './type/units.type';
 
 export enum AngleEnum {
@@ -15,35 +15,35 @@ const metric = {
       singular: 'Radian',
       plural: 'Radians'
     },
-    toAnchor: 180 / Math.PI
+    anchor: 180 / Math.PI
   },
   [AngleEnum.DEGREES]: {
     name: {
       singular: 'Degree',
       plural: 'Degrees'
     },
-    toAnchor: 1
+    anchor: 1
   },
   [AngleEnum.GRADIANS]: {
     name: {
       singular: 'Gradian',
       plural: 'Gradians'
     },
-    toAnchor: 9 / 10
+    anchor: 9 / 10
   },
   [AngleEnum.ARCMINUTES]: {
     name: {
       singular: 'Arcminute',
       plural: 'Arcminutes'
     },
-    toAnchor: 1 / 60
+    anchor: 1 / 60
   },
   [AngleEnum.ARCSECONDS]: {
     name: {
       singular: 'Arcsecond',
       plural: 'Arcseconds'
     },
-    toAnchor: 1 / 3600
+    anchor: 1 / 3600
   }
 };
 

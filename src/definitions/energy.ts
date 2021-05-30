@@ -1,4 +1,4 @@
-import { Definition } from './type';
+import { Definition } from '../type';
 import { EnergyUnit } from './type/units.type';
 
 export enum EnergyEnum {
@@ -11,66 +11,66 @@ export enum EnergyEnum {
   KILOJOULE = 'kJ'
 }
 
-const energy = {
+const metric = {
   [EnergyEnum.WATT_HOUR]: {
     name: {
       singular: 'Watt-hour',
       plural: 'Watt-hours'
     },
-    toAnchor: 3.6e3
+    anchor: 3.6e3
   },
   [EnergyEnum.MILLIWATT_HOUR]: {
     name: {
       singular: 'Milliwatt-hour',
       plural: 'Milliwatt-hours'
     },
-    toAnchor: 3.6
+    anchor: 3.6
   },
   [EnergyEnum.KILOWATT_HOUR]: {
     name: {
       singular: 'Kilowatt-hour',
       plural: 'Kilowatt-hours'
     },
-    toAnchor: 3.6e6
+    anchor: 3.6e6
   },
   [EnergyEnum.MEGAWATT_HOUR]: {
     name: {
       singular: 'Megawatt-hour',
       plural: 'Megawatt-hours'
     },
-    toAnchor: 3.6e9
+    anchor: 3.6e9
   },
   [EnergyEnum.GIGAWATT_HOUR]: {
     name: {
       singular: 'Gigawatt-hour',
       plural: 'Gigawatt-hours'
     },
-    toAnchor: 3.6e12
+    anchor: 3.6e12
   },
   [EnergyEnum.JOULE]: {
     name: {
       singular: 'Joule',
       plural: 'Joules'
     },
-    toAnchor: 1
+    anchor: 1
   },
   [EnergyEnum.KILOJOULE]: {
     name: {
       singular: 'Kilojoule',
       plural: 'Kilojoules'
     },
-    toAnchor: 1e3
+    anchor: 1e3
   }
 };
 
 export default {
   systems: {
-    energy
+    metric
   },
   anchors: {
-    energy: {
+    metric: {
       unit: EnergyEnum.JOULE,
       ratio: 1
     }
   }
-} as Definition<'energy', EnergyUnit>;
+} as Definition<'metric', EnergyUnit>;

@@ -1,36 +1,39 @@
+import { Definition } from '../type';
+import { VoltageUnit } from './type/units.type';
+
 export enum VoltageEnum {
   VOLT = 'V',
   MILLIVOLT = 'mV',
   KILOVOLT = 'kV'
 }
 
-const voltage = {
+const metric = {
   [VoltageEnum.VOLT]: {
     name: {
       singular: 'Volt',
       plural: 'Volts'
     },
-    toAnchor: 1
+    anchor: 1
   },
   [VoltageEnum.MILLIVOLT]: {
     name: {
       singular: 'Millivolt',
       plural: 'Millivolts'
     },
-    toAnchor: 0.001
+    anchor: 0.001
   },
   [VoltageEnum.KILOVOLT]: {
     name: {
       singular: 'Kilovolt',
       plural: 'Kilovolts'
     },
-    toAnchor: 1000
+    anchor: 1000
   }
 };
 
 export default {
   systems: {
-    voltage
+    metric
   },
   anchors: {
     metric: {
@@ -38,4 +41,4 @@ export default {
       ratio: 1
     }
   }
-};
+} as Definition<'metric', VoltageUnit>;

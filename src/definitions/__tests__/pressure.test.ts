@@ -1,49 +1,54 @@
-import convert from '../..';
+import { convert } from '../..';
+import { ImperialPressureEnum, MetricPressureEnum } from '../pressure';
 
 test('Pa to Pa', () => {
-  expect(convert(1).from('Pa').to('Pa')).toBe(1);
+  expect(convert(MetricPressureEnum.PASCAL, MetricPressureEnum.PASCAL, 1)).toBe(1);
 });
 
 test('Pa to kPa', () => {
-  expect(convert(2000).from('Pa').to('kPa')).toBe(2);
+  expect(convert(MetricPressureEnum.PASCAL, MetricPressureEnum.KILOPASCAL, 1e3)).toBe(1);
 });
 
 test('kPa to Pa', () => {
-  expect(convert(1).from('kPa').to('Pa')).toBe(1000);
+  expect(convert(MetricPressureEnum.KILOPASCAL, MetricPressureEnum.PASCAL, 1)).toBe(1e3);
 });
 
 test('kPa to hPa', () => {
-  expect(convert(20).from('kPa').to('hPa')).toBe(200);
+  expect(convert(MetricPressureEnum.KILOPASCAL, MetricPressureEnum.HECTOPASCAL, 10)).toBe(100);
 });
 
 test('kPa to MPa', () => {
-  expect(convert(8000).from('kPa').to('MPa')).toBe(8);
+  expect(convert(MetricPressureEnum.KILOPASCAL, MetricPressureEnum.MEGAPASCAL, 1e3)).toBe(1);
 });
 
 test('kPa to bar', () => {
-  expect(convert(6000).from('kPa').to('bar')).toBe(60);
+  expect(convert(MetricPressureEnum.KILOPASCAL, MetricPressureEnum.BAR, 1e3)).toBe(10);
 });
 
 test('kPa to torr', () => {
-  expect(convert(532).from('kPa').to('torr')).toBeCloseTo(3990.33);
+  expect(convert(MetricPressureEnum.KILOPASCAL, MetricPressureEnum.TORR, 532)).toBeCloseTo(3990.33);
 });
 
 test('psi to psi', () => {
-  expect(convert(10).from('psi').to('psi')).toBe(10);
+  expect(convert(ImperialPressureEnum.POUND_PER_SQUARE_INCH, ImperialPressureEnum.POUND_PER_SQUARE_INCH, 1)).toBe(1);
 });
 
 test('psi to ksi', () => {
-  expect(convert(10000).from('psi').to('ksi')).toBe(10);
+  expect(convert(ImperialPressureEnum.POUND_PER_SQUARE_INCH, ImperialPressureEnum.KILOPOUND_PER_SQUARE_INCH, 1e3)).toBe(
+    1
+  );
 });
 
 test('Pa to psi', () => {
-  expect(convert(10000).from('Pa').to('psi')).toBeCloseTo(1.450377);
+  expect(convert(MetricPressureEnum.PASCAL, ImperialPressureEnum.POUND_PER_SQUARE_INCH, 10000)).toBeCloseTo(1.450377);
 });
 
 test('torr to ksi', () => {
-  expect(convert(51714.931860168974).from('torr').to('ksi')).toBeCloseTo(1);
+  expect(convert(MetricPressureEnum.TORR, ImperialPressureEnum.KILOPOUND_PER_SQUARE_INCH, 51714.93186)).toBeCloseTo(1);
 });
 
 test('psi to hPa', () => {
-  expect(convert(10).from('psi').to('hPa')).toBeCloseTo(689.47573);
+  expect(convert(ImperialPressureEnum.POUND_PER_SQUARE_INCH, MetricPressureEnum.HECTOPASCAL, 10)).toBeCloseTo(
+    689.47573
+  );
 });

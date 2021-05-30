@@ -1,4 +1,4 @@
-import { Definition } from './type';
+import { Definition } from '../type';
 import { PartsPerUnit } from './type/units.type';
 
 export enum PartsPerEnum {
@@ -14,28 +14,28 @@ const metric = {
       singular: 'Part-per Million',
       plural: 'Parts-per Million'
     },
-    toAnchor: 1
+    anchor: 1
   },
   [PartsPerEnum.PART_PER_BILLION]: {
     name: {
       singular: 'Part-per Billion',
       plural: 'Parts-per Billion'
     },
-    toAnchor: 1e-3
+    anchor: 1e-3
   },
   [PartsPerEnum.PART_PER_TRILLION]: {
     name: {
       singular: 'Part-per Trillion',
       plural: 'Parts-per Trillion'
     },
-    toAnchor: 1e-6
+    anchor: 1e-6
   },
   [PartsPerEnum.PART_PER_QUADRILLION]: {
     name: {
       singular: 'Part-per Quadrillion',
       plural: 'Parts-per Quadrillion'
     },
-    toAnchor: 1e-9
+    anchor: 1e-9
   }
 };
 

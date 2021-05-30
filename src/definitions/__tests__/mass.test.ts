@@ -1,45 +1,46 @@
-import convert from '../..';
+import { convert } from '../..';
+import { ImperialMassEnum, MetricMassEnum } from '../mass';
 
 test('lb to lb', () => {
-  expect(convert(1).from('lb').to('lb')).toBe(1);
+  expect(convert(ImperialMassEnum.POUND, ImperialMassEnum.POUND, 1)).toBe(1);
 });
 
 test('lb to oz', () => {
-  expect(convert(1).from('lb').to('oz')).toBe(16);
+  expect(convert(ImperialMassEnum.POUND, ImperialMassEnum.OUNCE, 1)).toBe(16);
 });
 
 test('oz to lb', () => {
-  expect(convert(1).from('oz').to('lb')).toBe(1 / 16);
+  expect(convert(ImperialMassEnum.OUNCE, ImperialMassEnum.POUND, 1)).toBe(1 / 16);
 });
 
 test('oz to oz', () => {
-  expect(convert(6).from('oz').to('oz')).toBe(6);
+  expect(convert(ImperialMassEnum.OUNCE, ImperialMassEnum.OUNCE, 6)).toBe(6);
 });
 
 test('kg to kg', () => {
-  expect(convert(1).from('kg').to('kg')).toBe(1);
+  expect(convert(MetricMassEnum.KILOGRAM, MetricMassEnum.KILOGRAM, 1)).toBe(1);
 });
 
 test('kg to g', () => {
-  expect(convert(1).from('kg').to('g')).toBe(1000);
+  expect(convert(MetricMassEnum.KILOGRAM, MetricMassEnum.GRAM, 1)).toBe(1e3);
 });
 
 test('g to kg', () => {
-  expect(convert(1).from('g').to('kg')).toBe(1 / 1000);
+  expect(convert(MetricMassEnum.GRAM, MetricMassEnum.KILOGRAM, 1)).toBe(1e-3);
 });
 
 test('g to g', () => {
-  expect(convert(100).from('g').to('g')).toBe(100);
+  expect(convert(MetricMassEnum.GRAM, MetricMassEnum.GRAM, 1)).toBe(1);
 });
 
 test('lb to kg', () => {
-  expect(convert(1).from('lb').to('kg')).toBeCloseTo(0.453592);
+  expect(convert(ImperialMassEnum.POUND, MetricMassEnum.KILOGRAM, 1)).toBeCloseTo(0.453592);
 });
 
 test('g to lb', () => {
-  expect(convert(1).from('g').to('lb')).toBeCloseTo(0.00220462);
+  expect(convert(MetricMassEnum.GRAM, ImperialMassEnum.POUND, 1)).toBeCloseTo(0.00220462);
 });
 
 test('lb to g', () => {
-  expect(convert(3).from('lb').to('g')).toBeCloseTo(1360.78);
+  expect(convert(ImperialMassEnum.POUND, MetricMassEnum.GRAM, 3)).toBeCloseTo(1360.78);
 });

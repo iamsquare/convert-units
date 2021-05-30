@@ -1,4 +1,4 @@
-import { Definition } from './type';
+import { Definition } from '../type';
 import { ReactiveEnergyUnit } from './type/units.type';
 
 export enum ReactiveEnergyEnum {
@@ -9,52 +9,52 @@ export enum ReactiveEnergyEnum {
   GIGAVOLT_AMPERE_REACTIVE_HOUR = 'GVARh'
 }
 
-const reactiveEnergy = {
+const metric = {
   [ReactiveEnergyEnum.VOLT_AMPERE_REACTIVE_HOUR]: {
     name: {
       singular: 'Volt-Ampere Reactive Hour',
       plural: 'Volt-Amperes Reactive Hour'
     },
-    toAnchor: 1
+    anchor: 1
   },
   [ReactiveEnergyEnum.MILLIVOLT_AMPERE_REACTIVE_HOUR]: {
     name: {
       singular: 'Millivolt-Ampere Reactive Hour',
       plural: 'Millivolt-Amperes Reactive Hour'
     },
-    toAnchor: 1e-3
+    anchor: 1e-3
   },
   [ReactiveEnergyEnum.KILOVOLT_AMPERE_REACTIVE_HOUR]: {
     name: {
       singular: 'Kilovolt-Ampere Reactive Hour',
       plural: 'Kilovolt-Amperes Reactive Hour'
     },
-    toAnchor: 1e3
+    anchor: 1e3
   },
   [ReactiveEnergyEnum.MEGAVOLT_AMPERE_REACTIVE_HOUR]: {
     name: {
       singular: 'Megavolt-Ampere Reactive Hour',
       plural: 'Megavolt-Amperes Reactive Hour'
     },
-    toAnchor: 1e6
+    anchor: 1e6
   },
   [ReactiveEnergyEnum.GIGAVOLT_AMPERE_REACTIVE_HOUR]: {
     name: {
       singular: 'Gigavolt-Ampere Reactive Hour',
       plural: 'Gigavolt-Amperes Reactive Hour'
     },
-    toAnchor: 1e9
+    anchor: 1e9
   }
 };
 
 export default {
   systems: {
-    reactiveEnergy
+    metric
   },
   anchors: {
-    reactiveEnergy: {
+    metric: {
       unit: ReactiveEnergyEnum.VOLT_AMPERE_REACTIVE_HOUR,
       ratio: 1
     }
   }
-} as Definition<'reactiveEnergy', ReactiveEnergyUnit>;
+} as Definition<'metric', ReactiveEnergyUnit>;
