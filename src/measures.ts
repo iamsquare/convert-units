@@ -28,7 +28,7 @@ import voltage from './definitions/voltage';
 import volume from './definitions/volume';
 import volumeFlowRate from './definitions/volumeFlowRate';
 
-export const measures: Record<Measure, Definition<any, any>> = {
+export default {
   acceleration,
   angle,
   apparentPower,
@@ -56,4 +56,4 @@ export const measures: Record<Measure, Definition<any, any>> = {
   voltage,
   volume,
   volumeFlowRate
-};
+} as Record<Measure, Definition<any, any>>;

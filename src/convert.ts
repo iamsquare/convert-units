@@ -1,11 +1,11 @@
 import { __, add, curry, divide, isNil, multiply, pipe, subtract, when } from 'ramda';
 import { isNotNil } from 'ramda-adjunct';
 
+import { getUnit } from './';
 import { UnitType } from './definitions/type/units.type';
-import { getUnit } from './getUnit';
-import { measures } from './measures';
+import measures from './measures';
 
-export const convert = curry((from: UnitType, to: UnitType, value: number) => {
+export default curry((from: UnitType, to: UnitType, value: number) => {
   const fromConversion = getUnit(from);
 
   if (isNil(fromConversion)) throw new Error(`Incompatible unit '${from}' for *from* parameter`);

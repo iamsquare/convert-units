@@ -1,8 +1,8 @@
-export { convert } from './convert';
+export { default as convert } from './convert';
 export * from './definitions';
-export { describe } from './describe';
-export { getUnit } from './getUnit';
-export { possibilities } from './possibilities';
+export { default as describe } from './describe';
+export { default as getUnit } from './getUnit';
+export { default as possibilities } from './possibilities';
 
 // export const convertToBest: (dto: ConvertToBestDto, value: number) => number = uncurryN(2, (dto: ConvertToBestDto) => {
 //   const fromConversion = getUnit(dto.from);

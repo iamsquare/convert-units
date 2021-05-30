@@ -3,10 +3,10 @@ import { isNotNil } from 'ramda-adjunct';
 
 import { Measure, MeasureEnum, UnitType } from './definitions/type/units.type';
 import { Maybe, Nullable } from './definitions/type/utils.type';
-import { getUnit } from './getUnit';
-import { measures } from './measures';
+import getUnit from './getUnit';
+import measures from './measures';
 
-export const possibilities: (arg?: Maybe<UnitType | Measure>) => string[] = pipe(
+export default pipe(
   (f: Maybe<UnitType | Measure>) => {
     if (isNil(f)) return null;
 
@@ -21,4 +21,4 @@ export const possibilities: (arg?: Maybe<UnitType | Measure>) => string[] = pipe
   (m: Nullable<Measure>) => (isNotNil(m) ? [m] : keys(measures)),
   chain((m) => values(measures[m as Measure].systems)),
   chain(keys)
-);
+) as (arg?: Maybe<UnitType | Measure>) => string[];
