@@ -1,10 +1,22 @@
 {
+  "name": "@iamsquare/convert-units",
+  "version": "0.0.1",
+  "description": "Convert between quantities in different units",
   "author": "Marco Cesi <sq@iamsquare.it> (https://iamsquare.it)",
+  "keywords": [
+    "metric",
+    "imperial",
+    "convert",
+    "ratio",
+    "fraction"
+  ],
+  "bugs": {
+    "url": "https://github.com/iamsquare/convert-units/issues"
+  },
   "dependencies": {
     "ramda": "^0.27.1",
     "ramda-adjunct": "^2.33.0"
   },
-  "description": "Convert between quantities in different units",
   "devDependencies": {
     "@types/jest": "^26.0.23",
     "@types/ramda": "^0.27.40",
@@ -16,36 +28,40 @@
     "eslint-plugin-jest": "^24.3.6",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
+    "husky": "^6.0.0",
     "jest": "^27.0.1",
+    "lint-staged": "^11.0.0",
     "prettier": "2.3.0",
+    "rimraf": "^3.0.2",
     "ts-jest": "^27.0.1",
     "typescript": "^4.3.2"
   },
   "files": [
     "lib/"
   ],
-  "keywords": [
-    "metric",
-    "imperial",
-    "convert",
-    "ratio",
-    "fraction"
-  ],
+  "homepage": "https://iamsquare.js/convert-units",
   "license": "MIT",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
-  "name": "@iamsquare/convert-units",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/iamsquare/convert-units.git"
   },
   "scripts": {
-    "compile": "tsc -p ./tsconfig-esm.json && tsc -p ./tsconfig-cjs.json && tsc -p ./tsconfig-umd.json",
-    "format": "prettier --write src",
-    "lint": "eslint src",
+    "build": "npm run clean:lib && tsc -p ./tsconfig-esm.json && tsc -p ./tsconfig-cjs.json && tsc -p ./tsconfig-umd.json && tsc -p ./tsconfig-d.json",
+    "clean": "rimraf",
+    "clean:lib": "npm run clean -- lib",
+    "lint": "eslint src --quiet",
+    "lint:fix": "npm run eslint -- --fix",
+    "lint:lintstaged": "eslint --quiet --fix",
+    "prettier": "prettier --write",
     "test": "jest",
     "test:coverage": "npm run test -- --coverage",
     "test:watch": "npm run test -- --watch"
   },
-  "version": "0.0.1"
+  "types": "lib/types/index.d.ts"
 }

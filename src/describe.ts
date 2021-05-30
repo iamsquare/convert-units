@@ -1,7 +1,7 @@
 import { isNil } from 'ramda';
 
-import { getUnit } from './';
 import { UnitType } from './definitions/type';
+import getUnit from './getUnit';
 import { UnitDescription } from './type';
 
 export default (type: UnitType): UnitDescription => {

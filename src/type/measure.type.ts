@@ -1,4 +1,4 @@
-import { CamelToPascalCase } from './';
+import { CamelToPascalCase } from './utils.type';
 
 export const MeasureEnum: Readonly<Record<CamelToPascalCase<Measure>, Measure>> = {
   ACCELERATION: 'acceleration',

@@ -1,4 +1,8 @@
-build
-converage
 lib
 dist
+build
+node_modules
+coverage
+types
+docs
+temp

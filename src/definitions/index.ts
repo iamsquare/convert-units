@@ -22,6 +22,7 @@ export { ReactivePowerEnum } from './reactivePower';
 export { ImperialSpeedEnum, MetricSpeedEnum } from './speed';
 export { ImperialTemperatureEnum, MetricTemperatureEnum } from './temperature';
 export { TimeEnum } from './time';
+export * from './type';
 export { VoltageEnum } from './voltage';
 export { ImperialVolumeEnum, MetricVolumeEnum } from './volume';
 export { ImperialVolumeFlowEnum, MetricVolumeFlowEnum } from './volumeFlowRate';

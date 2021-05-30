@@ -169,7 +169,7 @@ convert().list('mass');
 | *Acceleration* | g-force, m/s2 | - | - |
 | *Pieces* | - | - | pcs, bk-doz, cp, doz-doz, doz, gr-gr, gros, half-dozen, long-hundred, ream, scores, sm-gr, trio |
 
-**NOTE**: these units are exported as enums so that you don't have to remember which unit is which. Also, if you're using this library in a plain `javascript` environment these are useful to avoid annoying typos. To see a list of these enums check the documentation.
+**NOTE**: these units are exported as enums so that you don't have to remember which unit is which. Also, if you're using this library in a plain `javascript` environment these are useful to avoid annoying typos. To see a list of these enums take a look in [`here`](https://github.com/iamsquare/convert-units/tree/master/src/definitions).
 
 ### Want More?
 
@@ -189,6 +189,7 @@ Note that *Rollup* and *Webpack* should handle tree-shaking without extra-effort
 - [ ]: port `convertToBest` functionality.
 - [ ]: extends and refactor tests.
 - [ ]: allow conversion between an arbitrary number of systems in the same measure family (eg. metric ↔ imperial ↔ lorem ipsum ↔ metric).
+- [ ]: generate documentation.
 
 ## License
 

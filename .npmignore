@@ -1,10 +1,12 @@
 **/__tests__
 coverage
+docs
 .eslintrc.js
-.github/**/*
-.prettierignore
-.prettierrc.json
 .eslintignore
-babel.config.js
+.prettierignore
+.prettierrc
+.eslintignore
+.huskyrc
+.lintstagedrc
 tsconfig*.json
 src

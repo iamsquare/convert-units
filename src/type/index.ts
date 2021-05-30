@@ -39,6 +39,6 @@ export interface Definition<S extends System, U extends UnitType> {
 }
 
 export * from './dto.type';
-export * from './measure.type';
-export * from './system.type';
+export { Measure, MeasureEnum } from './measure.type';
+export { System, SystemEnum } from './system.type';
 export * from './utils.type';

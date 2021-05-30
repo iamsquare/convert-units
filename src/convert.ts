@@ -1,8 +1,8 @@
 import { __, add, curry, divide, isNil, multiply, pipe, subtract, when } from 'ramda';
 import { isNotNil } from 'ramda-adjunct';
 
-import { getUnit } from './';
-import { UnitType } from './definitions/type/units.type';
+import { UnitType } from './definitions/type';
+import getUnit from './getUnit';
 import measures from './measures';
 
 export default curry((from: UnitType, to: UnitType, value: number) => {

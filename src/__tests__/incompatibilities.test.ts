@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { convert } from '..';
+import { convert, describe as _describe, possibilities } from '..';
 
 test('l to kg throws', () => {
   expect(() => {
