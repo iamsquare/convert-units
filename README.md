@@ -1,5 +1,7 @@
 # iamsquare/convert-units
 
+[![NPM](https://img.shields.io/npm/v/@iamsquare/convert-units.svg?style=flat-square)](https://www.npmjs.com/package/@iamsquare/convert-units) [![GitHub issues](https://img.shields.io/github/issues-raw/iamsquare/convert-units.svg?style=flat-square)](https://github.com/iamsquare/complex.js/issues) ![GitHub](https://img.shields.io/github/license/iamsquare/convert-units?style=flat-square) ![npm bundle size (scoped)](https://img.shields.io/bundlephobia/min/@iamsquare/convert-units?style=flat-square)
+
 > A handy utility for converting between quantities in different units.
 
 ## Installation

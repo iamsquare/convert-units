@@ -9,5 +9,7 @@ docs
 .eslintignore
 .huskyrc
 .lintstagedrc
+.github
+jest.config.js
 tsconfig*.json
 src
