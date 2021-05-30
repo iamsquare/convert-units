@@ -1,4 +1,4 @@
-import { Definition } from './type';
+import { Definition } from '../type';
 
 export enum ReactivePowerEnum {
   VOLT_AMPERE_REACTIVE = 'VAR',

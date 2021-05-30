@@ -1,9 +1,8 @@
 import { identity, memoizeWith } from 'ramda';
 
-import { Conversion } from './definitions/type';
-import { Measure, System, UnitType } from './definitions/type/units.type';
-import { Nullable } from './definitions/type/utils.type';
+import { UnitType } from './definitions/type';
 import measures from './measures';
+import { Conversion, Measure, Nullable, System } from './type';
 
 export default memoizeWith(identity, (unitType: UnitType): Nullable<Conversion> => {
   for (const [measure, measureValue] of Object.entries(measures)) {

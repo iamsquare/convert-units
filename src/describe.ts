@@ -1,8 +1,8 @@
 import { isNil } from 'ramda';
 
 import { getUnit } from './';
-import { UnitDescription } from './definitions/type';
-import { UnitType } from './definitions/type/units.type';
+import { UnitType } from './definitions/type';
+import { UnitDescription } from './type';
 
 export default (type: UnitType): UnitDescription => {
   const unit = getUnit(type);

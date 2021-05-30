@@ -1,8 +1,7 @@
 import { forEach } from 'ramda';
 
 import { describe } from '..';
-import { UnitDescription } from '../definitions/type';
-import { Nullable } from '../definitions/type/utils.type';
+import { Nullable, UnitDescription } from '../type';
 
 forEach<{ label: string; value: Nullable<UnitDescription>; expected: UnitDescription }>(
   ({ label, value, expected }) => test(label, () => expect(value).toEqual(expected)),

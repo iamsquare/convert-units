@@ -1,4 +1,4 @@
-import { Definition } from './type';
+import { Definition } from '../type';
 import { PressureUnit } from './type/units.type';
 
 export enum MetricPressureEnum {

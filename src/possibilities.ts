@@ -1,10 +1,10 @@
 import { chain, includes, isNil, keys, pipe, values } from 'ramda';
 import { isNotNil } from 'ramda-adjunct';
 
-import { Measure, MeasureEnum, UnitType } from './definitions/type/units.type';
-import { Maybe, Nullable } from './definitions/type/utils.type';
+import { UnitType } from './definitions/type';
 import getUnit from './getUnit';
 import measures from './measures';
+import { Maybe, Measure, MeasureEnum, Nullable } from './type';
 
 export default pipe(
   (f: Maybe<UnitType | Measure>) => {

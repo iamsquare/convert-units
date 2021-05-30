@@ -3,7 +3,7 @@ export * from './definitions';
 export { default as describe } from './describe';
 export { default as getUnit } from './getUnit';
 export { default as possibilities } from './possibilities';
-
+export * from './type';
 // export const convertToBest: (dto: ConvertToBestDto, value: number) => number = uncurryN(2, (dto: ConvertToBestDto) => {
 //   const fromConversion = getUnit(dto.from);
 

@@ -22,11 +22,10 @@ import reactivePower from './definitions/reactivePower';
 import speed from './definitions/speed';
 import temperature from './definitions/temperature';
 import time from './definitions/time';
-import { Definition } from './definitions/type';
-import { Measure } from './definitions/type/units.type';
 import voltage from './definitions/voltage';
 import volume from './definitions/volume';
 import volumeFlowRate from './definitions/volumeFlowRate';
+import { Definition, Measure } from './type';
 
 export default {
   acceleration,
@@ -56,4 +55,4 @@ export default {
   voltage,
   volume,
   volumeFlowRate
-} as Record<Measure, Definition<any, any>>;
+} as Readonly<Record<Measure, Definition<any, any>>>;

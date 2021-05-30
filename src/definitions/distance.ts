@@ -1,4 +1,4 @@
-import { Definition } from './type';
+import { Definition } from '../type';
 import { DistanceUnit } from './type/units.type';
 
 export enum MetricDistanceEnum {

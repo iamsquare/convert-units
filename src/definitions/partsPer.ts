@@ -1,4 +1,4 @@
-import { Definition } from './type';
+import { Definition } from '../type';
 import { PartsPerUnit } from './type/units.type';
 
 export enum PartsPerEnum {

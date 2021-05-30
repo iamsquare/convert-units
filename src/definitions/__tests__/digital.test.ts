@@ -1,49 +1,50 @@
-import convert from '../..';
+import { convert } from '../..';
+import { BitEnum, ByteEnum } from '../digital';
 
 test('b to b', () => {
-  expect(convert(1).from('b').to('b')).toBe(1);
+  expect(convert(BitEnum.BIT, BitEnum.BIT, 1)).toBe(1);
 });
 
 test('Kb to b', () => {
-  expect(convert(1).from('Kb').to('b')).toBe(1024);
+  expect(convert(BitEnum.KILOBIT, BitEnum.BIT, 1)).toBe(1024);
 });
 
 test('Mb to b', () => {
-  expect(convert(1).from('Mb').to('b')).toBe(1048576);
+  expect(convert(BitEnum.MEGABIT, BitEnum.BIT, 1)).toBe(1048576);
 });
 
 test('Gb to b', () => {
-  expect(convert(1).from('Gb').to('b')).toBe(1073741824);
+  expect(convert(BitEnum.GIGABIT, BitEnum.BIT, 1)).toBe(1073741824);
 });
 
 test('Tb to b', () => {
-  expect(convert(1).from('Tb').to('b')).toBe(1099511627776);
+  expect(convert(BitEnum.TERABIT, BitEnum.BIT, 1)).toBe(1099511627776);
 });
 
 test('B to B', () => {
-  expect(convert(1).from('B').to('B')).toBe(1);
+  expect(convert(ByteEnum.BYTE, ByteEnum.BYTE, 1)).toBe(1);
 });
 
 test('KB to B', () => {
-  expect(convert(1).from('KB').to('B')).toBe(1024);
+  expect(convert(ByteEnum.KILOBYTE, ByteEnum.BYTE, 1)).toBe(1024);
 });
 
 test('MB to B', () => {
-  expect(convert(1).from('MB').to('B')).toBe(1048576);
+  expect(convert(ByteEnum.MEGABYTE, ByteEnum.BYTE, 1)).toBe(1048576);
 });
 
 test('GB to B', () => {
-  expect(convert(1).from('GB').to('B')).toBe(1073741824);
+  expect(convert(ByteEnum.GIGABYTE, ByteEnum.BYTE, 1)).toBe(1073741824);
 });
 
 test('TB to B', () => {
-  expect(convert(1).from('TB').to('B')).toBe(1099511627776);
+  expect(convert(ByteEnum.TERABYTE, ByteEnum.BYTE, 1)).toBe(1099511627776);
 });
 
 test('B to b', () => {
-  expect(convert(1).from('B').to('b')).toBe(8);
+  expect(convert(ByteEnum.BYTE, BitEnum.BIT, 1)).toBe(8);
 });
 
 test('b to B', () => {
-  expect(convert(1).from('b').to('B')).toBeCloseTo(0.125);
+  expect(convert(BitEnum.BIT, ByteEnum.BYTE, 1)).toBeCloseTo(0.125);
 });

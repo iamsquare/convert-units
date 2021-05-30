@@ -1,3 +1,6 @@
+import { Definition } from '../type';
+import { VoltageUnit } from './type/units.type';
+
 export enum VoltageEnum {
   VOLT = 'V',
   MILLIVOLT = 'mV',
@@ -33,9 +36,9 @@ export default {
     voltage
   },
   anchors: {
-    metric: {
+    voltage: {
       unit: VoltageEnum.VOLT,
       ratio: 1
     }
   }
-};
+} as Definition<'voltage', VoltageUnit>;
