@@ -29,6 +29,7 @@
     "is-ci": "^3.0.0",
     "jest": "^27.0.1",
     "lint-staged": "^11.0.0",
+    "pinst": "^2.1.6",
     "prettier": "2.3.0",
     "rimraf": "^3.0.2",
     "ts-jest": "^27.0.1",
@@ -64,6 +65,8 @@
     "test": "jest",
     "test:coverage": "npm run test -- --coverage",
     "test:watch": "npm run test -- --watch",
-    "postinstall": "is-ci || husky install"
+    "postinstall": "is-ci || husky install",
+    "prepublishOnly": "pinst --disable",
+    "postpublish": "pinst --enable"
   }
 }
