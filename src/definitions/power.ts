@@ -1,6 +1,3 @@
-import { Definition } from '../type';
-import { PowerUnit } from './type/units.type';
-
 export enum MetricPowerEnum {
   WATT = 'W',
   MILLIWATT = 'mW',
@@ -85,7 +82,7 @@ const imperial = {
   }
 };
 
-export default {
+const power = {
   systems: {
     metric,
     imperial
@@ -100,4 +97,6 @@ export default {
       ratio: 1 / 0.737562149
     }
   }
-} as Definition<'metric' | 'imperial', PowerUnit>;
+};
+
+export default power;

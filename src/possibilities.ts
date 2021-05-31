@@ -3,14 +3,14 @@ import { isNotNil } from 'ramda-adjunct';
 
 import { UnitType } from './definitions/type';
 import getUnit from './getUnit';
-import measures, { MeasureDictionary } from './measures';
+import measures, { measureDictionary } from './measures';
 import { Maybe, Measure, MeasureEnum, Nullable } from './type';
 
-export default pipe(
+const possibilities = pipe(
   (f: Maybe<UnitType | Measure>) => {
     if (isNil(f)) return null;
 
-    if (includes(f, values(MeasureEnum))) return f as Measure;
+    if (includes(f, values(MeasureEnum))) return f;
 
     const unit = getUnit(f as UnitType);
 
@@ -19,6 +19,8 @@ export default pipe(
     return unit.measure;
   },
   (m: Nullable<Measure>) => (isNotNil(m) ? [m] : measures()),
-  chain((m) => values(MeasureDictionary[m as Measure].systems)),
+  chain((m) => values(measureDictionary[m].systems)),
   chain(keys)
-) as (arg?: Maybe<UnitType | Measure>) => UnitType[];
+);
+
+export default possibilities;

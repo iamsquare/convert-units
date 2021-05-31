@@ -1,6 +1,3 @@
-import { Definition } from '../type';
-import { CurrentUnit } from './type/units.type';
-
 export enum CurrentEnum {
   AMPERE = 'A',
   MILLIAMPERE = 'mA',
@@ -31,7 +28,7 @@ const metric = {
   }
 };
 
-export default {
+const current = {
   systems: {
     metric
   },
@@ -41,4 +38,6 @@ export default {
       ratio: 1
     }
   }
-} as Definition<'metric', CurrentUnit>;
+};
+
+export default current;

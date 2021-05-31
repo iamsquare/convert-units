@@ -1,6 +1,3 @@
-import { Definition } from '../type';
-import { VolumeUnit } from './type/units.type';
-
 export enum MetricVolumeEnum {
   CUBIC_MILLIMETER = 'mm3',
   CUBIC_CENTIMETER = 'cm3',
@@ -213,7 +210,7 @@ const imperial = {
   }
 };
 
-export default {
+const volume = {
   systems: {
     metric,
     imperial
@@ -228,4 +225,6 @@ export default {
       ratio: 1 / 33.8140226
     }
   }
-} as Definition<'metric' | 'imperial', VolumeUnit>;
+};
+
+export default volume;

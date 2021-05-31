@@ -1,6 +1,3 @@
-import { Definition } from '../type';
-import { DistanceUnit } from './type/units.type';
-
 export enum MetricDistanceEnum {
   NANOMETER = 'nm',
   MICROMETER = 'μm',
@@ -117,7 +114,7 @@ const imperial = {
   }
 };
 
-export default {
+const distance = {
   systems: {
     metric,
     imperial
@@ -132,4 +129,6 @@ export default {
       ratio: 1 / 3.28084
     }
   }
-} as Definition<'metric' | 'imperial', DistanceUnit>;
+};
+
+export default distance;

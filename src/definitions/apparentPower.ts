@@ -47,7 +47,7 @@ const metric = {
   }
 };
 
-export default {
+const apparentPower = {
   systems: {
     metric
   },
@@ -57,4 +57,6 @@ export default {
       ratio: 1
     }
   }
-} as Definition<'metric', ApparentPowerUnit>;
+};
+
+export default apparentPower;

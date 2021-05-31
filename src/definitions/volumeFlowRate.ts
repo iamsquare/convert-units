@@ -1,6 +1,3 @@
-import { Definition } from '../type';
-import { VolumeFlowRateUnit } from './type/units.type';
-
 export enum MetricVolumeFlowEnum {
   CUBIC_MILLIMETER_PER_SECOND = 'mm3/s',
   CUBIC_CENTIMETER_PER_SECOND = 'cm3/s',
@@ -309,7 +306,7 @@ const imperial = {
   }
 };
 
-export default {
+const volumeFlowRate = {
   systems: {
     metric,
     imperial
@@ -324,4 +321,6 @@ export default {
       ratio: 1 / 33.8140227
     }
   }
-} as Definition<'metric' | 'imperial', VolumeFlowRateUnit>;
+};
+
+export default volumeFlowRate;

@@ -1,6 +1,3 @@
-import { Definition } from '../type';
-import { ReactiveEnergyUnit } from './type/units.type';
-
 export enum ReactiveEnergyEnum {
   VOLT_AMPERE_REACTIVE_HOUR = 'VARh',
   MILLIVOLT_AMPERE_REACTIVE_HOUR = 'mVARh',
@@ -47,7 +44,7 @@ const metric = {
   }
 };
 
-export default {
+const reactiveEnergy = {
   systems: {
     metric
   },
@@ -57,4 +54,6 @@ export default {
       ratio: 1
     }
   }
-} as Definition<'metric', ReactiveEnergyUnit>;
+};
+
+export default reactiveEnergy;

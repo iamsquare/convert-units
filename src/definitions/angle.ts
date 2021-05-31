@@ -1,6 +1,3 @@
-import { Definition } from '../type';
-import { AngleUnit } from './type/units.type';
-
 export enum AngleEnum {
   RADIANS = 'rad',
   DEGREES = 'deg',
@@ -47,7 +44,7 @@ const metric = {
   }
 };
 
-export default {
+const angle = {
   systems: {
     metric
   },
@@ -57,4 +54,6 @@ export default {
       ratio: 1
     }
   }
-} as Definition<'metric', AngleUnit>;
+};
+
+export default angle;

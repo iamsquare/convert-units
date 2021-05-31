@@ -27,9 +27,8 @@ import time from './definitions/time';
 import voltage from './definitions/voltage';
 import volume from './definitions/volume';
 import volumeFlowRate from './definitions/volumeFlowRate';
-import { Definition, Measure } from './type';
 
-export const MeasureDictionary = {
+export const measureDictionary = {
   acceleration,
   angle,
   apparentPower,
@@ -57,6 +56,6 @@ export const MeasureDictionary = {
   voltage,
   volume,
   volumeFlowRate
-} as Readonly<Record<Measure, Definition<any, any>>>;
+};
 
-export default () => keys(MeasureDictionary);
+export default () => keys(measureDictionary);
