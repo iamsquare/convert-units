@@ -1,6 +1,6 @@
 {
   "name": "@iamsquare/convert-units",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Convert between quantities in different units",
   "author": "Marco Cesi <sq@iamsquare.it> (https://iamsquare.it)",
   "keywords": [
@@ -11,12 +11,12 @@
     "fraction"
   ],
   "dependencies": {
+    "@types/ramda": "^0.27.40",
     "ramda": "^0.27.1",
     "ramda-adjunct": "^2.33.0"
   },
   "devDependencies": {
     "@types/jest": "^26.0.23",
-    "@types/ramda": "^0.27.40",
     "@typescript-eslint/eslint-plugin": "^4.25.0",
     "@typescript-eslint/parser": "^4.25.0",
     "eslint": "^7.27.0",
@@ -26,7 +26,6 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "husky": "^6.0.0",
-    "is-ci": "^3.0.0",
     "jest": "^27.0.1",
     "lint-staged": "^11.0.0",
     "prettier": "2.3.0",
