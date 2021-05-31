@@ -1,6 +1,6 @@
 {
   "name": "@iamsquare/convert-units",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Convert between quantities in different units",
   "author": "Marco Cesi <sq@iamsquare.it> (https://iamsquare.it)",
   "keywords": [
