@@ -177,6 +177,11 @@ Note that _Rollup_ and _Webpack_ should handle tree-shaking without extra-effort
 - [ ]: allow conversion between an arbitrary number of systems in the same measure family (eg. metric ↔ imperial ↔ ... ↔ \[nth-system\] ↔ metric).
 - [ ]: generate documentation (right now typedoc throws cryptic errors).
 
+### Development
+
+If you want to help remember to run the command `npm run setup:dev`.
+It will install all dependencies and `husky` so that code will get tested and linted before every commit.
+
 ## License
 
 Copyright (c) 2021 Marco Cesi, <https://iamsquare.it>
