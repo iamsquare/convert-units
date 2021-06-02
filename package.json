@@ -1,6 +1,6 @@
 {
   "name": "@iamsquare/convert-units",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Convert between quantities in different units",
   "author": "Marco Cesi <sq@iamsquare.it> (https://iamsquare.it)",
   "keywords": [
@@ -63,6 +63,7 @@
     "test": "jest",
     "test:coverage": "npm run test -- --coverage",
     "test:watch": "npm run test -- --watch",
-    "setup:dev": "npm ci && husky install"
+    "setup:dev": "npm ci && husky install",
+    "version": "npm version --git-tag-version=false"
   }
 }
