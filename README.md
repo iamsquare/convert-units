@@ -138,7 +138,7 @@ list('mass');
 | _Frequency_ | - | - | Hz, mHz, kHz, MHz, GHz, THz, rpm, deg/s, rad/s |
 | _Speed_ | m/s, km/h | mph, knot, ft/s | - |
 | _Pace_ | s/m, min/km | s/ft, min/mi | - |
-| _Pressure_ | Pa, hPa, kPa, MPa, bar, torr | psi, ksi | - |
+| _Pressure_ | Pa, hPa, kPa, MPa, bar, torr, mmHg (@ 0°C) | psi, ksi, inHg (@ 32°F) | - |
 | _Digital_ | - | - | b, kb, Mb, Gb, Tb, Pb, kib, Mib, Gib, Tib, Pib, B, kB, MB, GB, TB, PB, kiB, MiB, GiB, TiB, PiB |
 | _Illuminance_ | lx | ft-cd | - |
 | _Parts-Per_ | - | - | ppm, ppb, ppt, ppq |
