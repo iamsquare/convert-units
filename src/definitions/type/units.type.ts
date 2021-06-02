@@ -64,7 +64,7 @@ export type PiecesUnit =
   | 'sm-gr'
   | 'trio';
 export type PowerUnit = 'W' | 'mW' | 'kW' | 'MW' | 'GW' | 'PS' | 'Btu/s' | 'ft-lb/s' | 'hp';
-export type PressureUnit = 'Pa' | 'hPa' | 'kPa' | 'MPa' | 'bar' | 'torr' | 'psi' | 'ksi';
+export type PressureUnit = 'Pa' | 'hPa' | 'kPa' | 'MPa' | 'bar' | 'torr' | 'mmHg' | 'psi' | 'ksi' | 'inHg';
 export type ReactiveEnergyUnit = 'VARh' | 'mVARh' | 'kVARh' | 'MVARh' | 'GVARh';
 export type ReactivePowerUnit = 'VAR' | 'mVAR' | 'kVAR' | 'MVAR' | 'GVAR';
 export type SpeedUnit = 'm/s' | 'km/h' | 'm/h' | 'knot' | 'ft/s' | 'mph';

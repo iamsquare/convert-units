@@ -29,6 +29,10 @@ test('kPa to torr', () => {
   expect(convert(MetricPressureEnum.KILOPASCAL, MetricPressureEnum.TORR, 532)).toBeCloseTo(3990.33);
 });
 
+test('kPa to mmHg', () => {
+  expect(convert(MetricPressureEnum.KILOPASCAL, MetricPressureEnum.MILLIMETRE_OF_MERCURY, 532)).toBeCloseTo(3990.33);
+});
+
 test('psi to psi', () => {
   expect(convert(ImperialPressureEnum.POUND_PER_SQUARE_INCH, ImperialPressureEnum.POUND_PER_SQUARE_INCH, 1)).toBe(1);
 });
@@ -36,6 +40,12 @@ test('psi to psi', () => {
 test('psi to ksi', () => {
   expect(convert(ImperialPressureEnum.POUND_PER_SQUARE_INCH, ImperialPressureEnum.KILOPOUND_PER_SQUARE_INCH, 1e3)).toBe(
     1
+  );
+});
+
+test('psi to inHg', () => {
+  expect(convert(ImperialPressureEnum.POUND_PER_SQUARE_INCH, ImperialPressureEnum.INCH_OF_MERCURY, 1)).toBeCloseTo(
+    2.03604
   );
 });
 
