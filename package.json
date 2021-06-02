@@ -63,6 +63,7 @@
     "test": "jest",
     "test:coverage": "npm run test -- --coverage",
     "test:watch": "npm run test -- --watch",
-    "setup:dev": "npm ci && husky install"
+    "setup:dev": "npm ci && husky install",
+    "version": "npm version --git-tag-version=false"
   }
 }

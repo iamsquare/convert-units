@@ -146,7 +146,7 @@ list('mass');
 | _Parts-Per_ | - | - | ppm, ppb, ppt, ppq |
 | _Pieces_ | - | - | pcs, bk-doz, cp, doz-doz, doz, gr-gr, gros, half-dozen, long-hundred, ream, scores, sm-gr, trio |
 | _Power_ | W, mW, kW, MW, GW, PS | Btu/s, ft-lb/s, hp | - |
-| _Pressure_ | Pa, hPa, kPa, MPa, bar, torr, mmHg (@ 0°C) | psi, ksi, inHg (@ 32°F) | - |
+| _Pressure_ | Pa, hPa, kPa, MPa, bar, torr, mmHg (_@ 0°C_) | psi, ksi, inHg (_@ 32°F_) | - |
 | _Reactive Energy_ | - | - | VARh, mVARh, kVARh, MVARh, GVARh |
 | _Reactive Power_ | - | - | VAR, mVAR, kVAR, MVAR, GVAR |
 | _Speed_ | m/s, km/h | mph, knot, ft/s | - |
@@ -178,7 +178,7 @@ Check the kanban board [`here`](https://github.com/iamsquare/convert-units/proje
 ### Development
 
 If you want to help remember to run the command `npm run setup:dev`.
-It will install all dependencies and `husky` so that code will get tested and linted before every commit.
+It will install all dependencies and [`husky`](https://www.npmjs.com/package/husky) so that code will get tested and linted before every commit.
 
 ## License
 
