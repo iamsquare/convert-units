@@ -6,12 +6,12 @@ import getUnit from './getUnit';
 import measures, { measureDictionary } from './measures';
 import { Maybe, Measure, MeasureEnum, Nullable } from './type';
 
-const possibilities = (f?: Maybe<UnitType | Measure>): UnitType[] =>
+const possibilities = (f?: Maybe<UnitType | Measure>): UnitType[] | never =>
   pipe(
-    (f: Maybe<UnitType | Measure>) => {
+    (f: Maybe<UnitType | Measure>): Nullable<Measure> | never => {
       if (isNil(f)) return null;
 
-      if (includes(f, values(MeasureEnum))) return f;
+      if (includes(f, values(MeasureEnum))) return f as Measure;
 
       const unit = getUnit(f as UnitType);
 
@@ -19,7 +19,7 @@ const possibilities = (f?: Maybe<UnitType | Measure>): UnitType[] =>
 
       return unit.measure;
     },
-    (m: Nullable<Measure>) => (isNotNil(m) ? [m] : measures()),
+    (m) => (isNotNil(m) ? [m] : measures()),
     chain((m) => values(measureDictionary[m].systems)),
     chain((s) => keys(s))
   )(f);

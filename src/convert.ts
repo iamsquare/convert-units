@@ -5,7 +5,7 @@ import { UnitType } from './definitions/type';
 import getUnit from './getUnit';
 import { measureDictionary } from './measures';
 
-export default curry((from: UnitType, to: UnitType, value: number) => {
+export default curry((from: UnitType, to: UnitType, value: number): number | never => {
   const fromConversion = getUnit(from);
 
   if (isNil(fromConversion)) throw new Error(`Incompatible unit '${from}' for *from* parameter`);
