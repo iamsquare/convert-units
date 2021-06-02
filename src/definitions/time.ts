@@ -1,6 +1,3 @@
-import { Definition } from '../type';
-import { TimeUnit } from './type/units.type';
-
 export enum TimeEnum {
   NANOSECOND = 'ns',
   MICROSECOND = 'mu',
@@ -87,7 +84,7 @@ const metric = {
   }
 };
 
-export default {
+const time = {
   systems: {
     metric
   },
@@ -97,4 +94,6 @@ export default {
       ratio: 1
     }
   }
-} as Definition<'metric', TimeUnit>;
+};
+
+export default time;

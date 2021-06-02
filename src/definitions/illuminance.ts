@@ -1,6 +1,3 @@
-import { Definition } from '../type';
-import { IlluminanceUnit } from './type/units.type';
-
 export enum MetricIlluminanceEnum {
   LUX = 'lx'
 }
@@ -29,7 +26,7 @@ const imperial = {
   }
 };
 
-export default {
+const illuminance = {
   systems: {
     metric,
     imperial
@@ -44,4 +41,6 @@ export default {
       ratio: 10.76391
     }
   }
-} as Definition<'metric' | 'imperial', IlluminanceUnit>;
+};
+
+export default illuminance;

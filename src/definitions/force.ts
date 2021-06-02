@@ -1,6 +1,3 @@
-import { Definition } from '../type';
-import { ForceUnit } from './type/units.type';
-
 export enum ForceEnum {
   NEWTON = 'N',
   KILONEWTON = 'kN',
@@ -31,7 +28,7 @@ const metric = {
   }
 };
 
-export default {
+const force = {
   systems: {
     metric
   },
@@ -41,4 +38,6 @@ export default {
       ratio: 1
     }
   }
-} as Definition<'metric', ForceUnit>;
+};
+
+export default force;

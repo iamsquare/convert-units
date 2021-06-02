@@ -1,6 +1,3 @@
-import { Definition } from '../type';
-import { AccelerationUnit } from './type/units.type';
-
 export enum AccelerationEnum {
   G_FORCE = 'g-force',
   METRE_PER_SECOND_SQUARED = 'm/s2'
@@ -23,7 +20,7 @@ const metric = {
   }
 };
 
-export default {
+const acceleration = {
   systems: {
     metric
   },
@@ -33,4 +30,6 @@ export default {
       ratio: 1
     }
   }
-} as Definition<'metric', AccelerationUnit>;
+};
+
+export default acceleration;

@@ -1,6 +1,3 @@
-import { Definition } from '../type';
-import { EachUnit } from './type/units.type';
-
 export enum EachEnum {
   EACH = 'ea',
   DOZEN = 'dz'
@@ -23,7 +20,7 @@ const metric = {
   }
 };
 
-export default {
+const each = {
   systems: {
     metric
   },
@@ -33,4 +30,6 @@ export default {
       ratio: 1
     }
   }
-} as Definition<'metric', EachUnit>;
+};
+
+export default each;

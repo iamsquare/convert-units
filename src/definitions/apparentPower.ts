@@ -1,6 +1,3 @@
-import { Definition } from '../type';
-import { ApparentPowerUnit } from './type/units.type';
-
 export enum ApparentPowerEnum {
   VOLT_AMPERE = 'VA',
   MILLIVOLT_AMPERE = 'mVA',
@@ -47,7 +44,7 @@ const metric = {
   }
 };
 
-export default {
+const apparentPower = {
   systems: {
     metric
   },
@@ -57,4 +54,6 @@ export default {
       ratio: 1
     }
   }
-} as Definition<'metric', ApparentPowerUnit>;
+};
+
+export default apparentPower;

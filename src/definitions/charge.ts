@@ -1,6 +1,3 @@
-import { Definition } from '../type';
-import { ChargeUnit } from './type/units.type';
-
 export enum ChargeEnum {
   COULOMB = 'c',
   MILLICOULOMB = 'mC',
@@ -47,7 +44,7 @@ const metric = {
   }
 };
 
-export default {
+const charge = {
   systems: {
     metric
   },
@@ -57,4 +54,6 @@ export default {
       ratio: 1
     }
   }
-} as Definition<'metric', ChargeUnit>;
+};
+
+export default charge;

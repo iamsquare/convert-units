@@ -1,5 +1,3 @@
-import { Definition } from '../type';
-
 export enum ReactivePowerEnum {
   VOLT_AMPERE_REACTIVE = 'VAR',
   MILLIVOLT_AMPERE_REACTIVE = 'mVAR',
@@ -46,14 +44,16 @@ const metric = {
   }
 };
 
-export default {
+const reactivePower = {
   systems: {
     metric
   },
   anchors: {
     metric: {
-      unit: 'VAR',
+      unit: ReactivePowerEnum.VOLT_AMPERE_REACTIVE,
       ratio: 1
     }
   }
-} as Definition<'metric', ReactivePowerEnum>;
+};
+
+export default reactivePower;

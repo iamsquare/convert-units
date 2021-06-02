@@ -1,6 +1,3 @@
-import { Definition } from '../type';
-import { AreaUnit } from './type/units.type';
-
 export enum MetricAreaEnum {
   SQUARE_MILLIMETER = 'mm2',
   SQUARE_CENTIMETER = 'cm2',
@@ -108,4 +105,4 @@ export default {
       ratio: 1 / 10.7639
     }
   }
-} as Definition<'metric' | 'imperial', AreaUnit>;
+};

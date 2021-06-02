@@ -1,6 +1,3 @@
-import { Definition } from '../type';
-import { EnergyUnit } from './type/units.type';
-
 export enum EnergyEnum {
   WATT_HOUR = 'Wh',
   MILLIWATT_HOUR = 'mWh',
@@ -63,7 +60,7 @@ const metric = {
   }
 };
 
-export default {
+const energy = {
   systems: {
     metric
   },
@@ -73,4 +70,6 @@ export default {
       ratio: 1
     }
   }
-} as Definition<'metric', EnergyUnit>;
+};
+
+export default energy;

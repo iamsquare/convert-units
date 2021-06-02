@@ -1,6 +1,3 @@
-import { Definition } from '../type';
-import { PressureUnit } from './type/units.type';
-
 export enum MetricPressureEnum {
   PASCAL = 'Pa',
   KILOPASCAL = 'kPa',
@@ -77,7 +74,7 @@ const imperial = {
   }
 };
 
-export default {
+const pressure = {
   systems: {
     metric,
     imperial
@@ -92,4 +89,6 @@ export default {
       ratio: 1 / 0.00014503768078
     }
   }
-} as Definition<'metric' | 'imperial', PressureUnit>;
+};
+
+export default pressure;

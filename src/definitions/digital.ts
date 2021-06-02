@@ -1,12 +1,15 @@
-import { Definition } from '../type';
-import { DigitalUnit } from './type/units.type';
-
 export enum BitEnum {
   BIT = 'b',
   KILOBIT = 'kb',
   MEGABIT = 'Mb',
   GIGABIT = 'Gb',
-  TERABIT = 'Tb'
+  TERABIT = 'Tb',
+  PETABIT = 'Pb',
+  KIBIBIT = 'kib',
+  MEBIBIT = 'Mib',
+  GIBIBIT = 'Gib',
+  TEBIBIT = 'Tib',
+  PEBIBIT = 'Pib'
 }
 
 export enum ByteEnum {
@@ -14,7 +17,13 @@ export enum ByteEnum {
   KILOBYTE = 'kB',
   MEGABYTE = 'MB',
   GIGABYTE = 'GB',
-  TERABYTE = 'TB'
+  TERABYTE = 'TB',
+  PETABYTE = 'PB',
+  KIBIBYTE = 'kiB',
+  MEBIBYTE = 'MiB',
+  GIBIBYTE = 'GiB',
+  TEBIBYTE = 'TiB',
+  PEBIBYTE = 'PiB'
 }
 
 const bits = {
@@ -30,12 +39,26 @@ const bits = {
       singular: 'Kilobit',
       plural: 'Kilobits'
     },
+    anchor: 1e3
+  },
+  [BitEnum.KIBIBIT]: {
+    name: {
+      singular: 'Kibibit',
+      plural: 'Kibibits'
+    },
     anchor: 1024
   },
   [BitEnum.MEGABIT]: {
     name: {
       singular: 'Megabit',
       plural: 'Megabits'
+    },
+    anchor: 1e6
+  },
+  [BitEnum.MEBIBIT]: {
+    name: {
+      singular: 'Mebibit',
+      plural: 'Mebibits'
     },
     anchor: 1048576
   },
@@ -44,6 +67,13 @@ const bits = {
       singular: 'Gigabit',
       plural: 'Gigabits'
     },
+    anchor: 1e9
+  },
+  [BitEnum.GIBIBIT]: {
+    name: {
+      singular: 'Gibibit',
+      plural: 'Gibibits'
+    },
     anchor: 1073741824
   },
   [BitEnum.TERABIT]: {
@@ -51,7 +81,28 @@ const bits = {
       singular: 'Terabit',
       plural: 'Terabits'
     },
+    anchor: 1e12
+  },
+  [BitEnum.TEBIBIT]: {
+    name: {
+      singular: 'Tebibit',
+      plural: 'Tebibits'
+    },
     anchor: 1099511627776
+  },
+  [BitEnum.PETABIT]: {
+    name: {
+      singular: 'Petabit',
+      plural: 'Petabits'
+    },
+    anchor: 1e15
+  },
+  [BitEnum.PEBIBIT]: {
+    name: {
+      singular: 'Pebibit',
+      plural: 'Pebibits'
+    },
+    anchor: 1125899906842624
   }
 };
 
@@ -68,12 +119,26 @@ const bytes = {
       singular: 'Kilobyte',
       plural: 'Kilobytes'
     },
+    anchor: 1e3
+  },
+  [ByteEnum.KIBIBYTE]: {
+    name: {
+      singular: 'Kibibyte',
+      plural: 'Kibibytes'
+    },
     anchor: 1024
   },
   [ByteEnum.MEGABYTE]: {
     name: {
       singular: 'Megabyte',
       plural: 'Megabytes'
+    },
+    anchor: 1e6
+  },
+  [ByteEnum.MEBIBYTE]: {
+    name: {
+      singular: 'Mebibyte',
+      plural: 'Mebibytes'
     },
     anchor: 1048576
   },
@@ -82,6 +147,13 @@ const bytes = {
       singular: 'Gigabyte',
       plural: 'Gigabytes'
     },
+    anchor: 1e9
+  },
+  [ByteEnum.GIBIBYTE]: {
+    name: {
+      singular: 'Gibibyte',
+      plural: 'Gibibytes'
+    },
     anchor: 1073741824
   },
   [ByteEnum.TERABYTE]: {
@@ -89,11 +161,32 @@ const bytes = {
       singular: 'Terabyte',
       plural: 'Terabytes'
     },
+    anchor: 1e12
+  },
+  [ByteEnum.TEBIBYTE]: {
+    name: {
+      singular: 'Tebibyte',
+      plural: 'Tebibytes'
+    },
     anchor: 1099511627776
+  },
+  [ByteEnum.PETABYTE]: {
+    name: {
+      singular: 'Petabyte',
+      plural: 'Petabytes'
+    },
+    anchor: 1e15
+  },
+  [ByteEnum.PEBIBYTE]: {
+    name: {
+      singular: 'Pebibyte',
+      plural: 'Pebibytes'
+    },
+    anchor: 1125899906842624
   }
 };
 
-export default {
+const digital = {
   systems: {
     bits,
     bytes
@@ -108,4 +201,6 @@ export default {
       ratio: 8
     }
   }
-} as Definition<'bits' | 'bytes', DigitalUnit>;
+};
+
+export default digital;

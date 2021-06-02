@@ -33,12 +33,6 @@ export interface UnitDescription extends Name {
   system: System;
 }
 
-export interface Definition<S extends System, U extends UnitType> {
-  systems: Record<S, Record<U, Unit>>;
-  anchors: Record<S, Anchor<U>>;
-}
-
-export * from './dto.type';
 export { Measure, MeasureEnum } from './measure.type';
 export { System, SystemEnum } from './system.type';
 export * from './utils.type';

@@ -3,9 +3,9 @@ import { isNotNil } from 'ramda-adjunct';
 
 import { UnitType } from './definitions/type';
 import getUnit from './getUnit';
-import { MeasureDictionary } from './measures';
+import { measureDictionary } from './measures';
 
-export default curry((from: UnitType, to: UnitType, value: number) => {
+export default curry((from: UnitType, to: UnitType, value: number): number | never => {
   const fromConversion = getUnit(from);
 
   if (isNil(fromConversion)) throw new Error(`Incompatible unit '${from}' for *from* parameter`);
@@ -23,11 +23,11 @@ export default curry((from: UnitType, to: UnitType, value: number) => {
 
   return pipe(
     multiply(fromConversion.unit.anchor),
-    when(() => isNotNil(fromConversion.unit.anchorShift), subtract(__, fromConversion.unit.anchorShift as number)),
+    when(() => isNotNil(fromConversion.unit.anchorShift), subtract(__, fromConversion.unit.anchorShift)),
     when(
       () => fromConversion.system !== toConversion.system,
       (v) => {
-        const { transform, ratio } = MeasureDictionary[fromConversion.measure].anchors[fromConversion.system];
+        const { transform, ratio } = measureDictionary[fromConversion.measure].anchors[fromConversion.system];
 
         if (isNotNil(transform)) {
           return transform(v);
@@ -40,7 +40,7 @@ export default curry((from: UnitType, to: UnitType, value: number) => {
         throw new Error('A system anchor needs to either have a defined ratio number or a transform function.');
       }
     ),
-    when(() => isNotNil(toConversion.unit.anchorShift), add(toConversion.unit.anchorShift as number)),
+    when(() => isNotNil(toConversion.unit.anchorShift), add(toConversion.unit.anchorShift)),
     divide(__, toConversion.unit.anchor)
   )(value);
 });

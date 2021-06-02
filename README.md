@@ -139,7 +139,7 @@ list('mass');
 | _Speed_ | m/s, km/h | mph, knot, ft/s | - |
 | _Pace_ | s/m, min/km | s/ft, min/mi | - |
 | _Pressure_ | Pa, hPa, kPa, MPa, bar, torr | psi, ksi | - |
-| _Digital_ | - | - | b, Kb, Mb, Gb, Tb, B, KB, MB, GB, TB |
+| _Digital_ | - | - | b, kb, Mb, Gb, Tb, Pb, kib, Mib, Gib, Tib, Pib, B, kB, MB, GB, TB, PB, kiB, MiB, GiB, TiB, PiB |
 | _Illuminance_ | lx | ft-cd | - |
 | _Parts-Per_ | - | - | ppm, ppb, ppt, ppq |
 | _Voltage_ | - | - | V, mV, kV |
@@ -170,12 +170,9 @@ to see how it's done.
 These imports are _**not** tree-shaken_, so if you're bundling this library in a project please refer to your bundler's documentation.
 Note that _Rollup_ and _Webpack_ should handle tree-shaking without extra-effort.
 
-## To-do list
+## Roadmap
 
-- [ ]: port `convertToBest` functionality.
-- [ ]: extend and refactor tests.
-- [ ]: allow conversion between an arbitrary number of systems in the same measure family (eg. metric ↔ imperial ↔ ... ↔ \[nth-system\] ↔ metric).
-- [ ]: generate documentation (right now typedoc throws cryptic errors).
+Check the kanban board [`here`](https://github.com/iamsquare/convert-units/projects/1)
 
 ### Development
 

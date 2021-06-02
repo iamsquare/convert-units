@@ -4,7 +4,7 @@ import { UnitType } from './definitions/type';
 import getUnit from './getUnit';
 import { UnitDescription } from './type';
 
-export default (type: UnitType): UnitDescription => {
+export default (type: UnitType): UnitDescription | never => {
   const unit = getUnit(type);
 
   if (isNil(unit)) throw new Error(`Cannot describe incompatible unit '${type}'`);
