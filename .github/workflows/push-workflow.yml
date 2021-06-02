@@ -1,12 +1,5 @@
 on:
   push:
-    branches:
-      - 'master'
-      - 'develop'
-  pull_request:
-    branches:
-      - 'master'
-      - 'develop'
 
 name: Push Workflow
 jobs:
@@ -26,3 +19,12 @@ jobs:
         run: |
           npm ci
           npm run test
+          npm run docs
+
+      - name: Publish Documentation
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          cname: www.iamsquare.it
+          force_orphan: true

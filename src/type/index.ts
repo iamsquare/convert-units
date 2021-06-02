@@ -35,4 +35,3 @@ export interface UnitDescription extends Name {
 
 export { Measure, MeasureEnum } from './measure.type';
 export { System, SystemEnum } from './system.type';
-export * from './utils.type';
