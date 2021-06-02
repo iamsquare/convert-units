@@ -172,10 +172,7 @@ Note that _Rollup_ and _Webpack_ should handle tree-shaking without extra-effort
 
 ## To-do list
 
-- ⬜️: port `convertToBest` functionality.
-- ⬜️: extend and refactor tests.
-- ⬜️: allow conversion between an arbitrary number of systems in the same measure family (eg. metric ↔ imperial ↔ ... ↔ \[nth-system\] ↔ metric).
-- ⬜️: generate documentation (right now typedoc throws cryptic errors).
+Check the kanban board [`here`](https://github.com/iamsquare/convert-units/projects/1)
 
 ### Development
 
