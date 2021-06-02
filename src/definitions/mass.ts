@@ -82,11 +82,15 @@ const mass = {
   anchors: {
     metric: {
       unit: MetricMassEnum.GRAM,
-      ratio: 1 / 453.592
+      ratio: {
+        imperial: 1 / 453.592
+      }
     },
     imperial: {
       unit: ImperialMassEnum.POUND,
-      ratio: 453.592
+      ratio: {
+        metric: 453.592
+      }
     }
   }
 };

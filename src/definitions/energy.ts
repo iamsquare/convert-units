@@ -63,12 +63,6 @@ const metric = {
 const energy = {
   systems: {
     metric
-  },
-  anchors: {
-    metric: {
-      unit: EnergyEnum.JOULE,
-      ratio: 1
-    }
   }
 };
 

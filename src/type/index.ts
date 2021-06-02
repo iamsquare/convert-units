@@ -1,7 +1,7 @@
 import { UnitType } from '../definitions/type/units.type';
 import { Measure } from './measure.type';
 import { System } from './system.type';
-import { Maybe } from './utils.type';
+import { Maybe, PartialRecord } from './utils.type';
 
 export interface Name {
   singular: string;
@@ -16,8 +16,8 @@ export type Unit = {
 
 export interface Anchor<U extends UnitType> {
   unit: U;
-  ratio?: Maybe<number>;
-  transform?: Maybe<(value: number) => number>;
+  ratio?: Maybe<PartialRecord<System, number>>;
+  transform?: Maybe<PartialRecord<System, (value: number) => number>>;
 }
 
 export interface Conversion {

@@ -4,73 +4,89 @@ export enum MetricPressureEnum {
   MEGAPASCAL = 'MPa',
   HECTOPASCAL = 'hPa',
   BAR = 'bar',
-  TORR = 'torr'
+  TORR = 'torr',
+  MILLIMETRE_OF_MERCURY = 'mmHg'
 }
 
 export enum ImperialPressureEnum {
   POUND_PER_SQUARE_INCH = 'psi',
-  KILOPOUND_PER_SQUARE_INCH = 'ksi'
+  KILOPOUND_PER_SQUARE_INCH = 'ksi',
+  INCH_OF_MERCURY = 'inHg'
 }
 
 const metric = {
   [MetricPressureEnum.PASCAL]: {
     name: {
-      singular: 'pascal',
-      plural: 'pascals'
+      singular: 'Pascal',
+      plural: 'Pascals'
     },
-    anchor: 1 / 1000
+    anchor: 1e-3
   },
   [MetricPressureEnum.KILOPASCAL]: {
     name: {
-      singular: 'kilopascal',
-      plural: 'kilopascals'
+      singular: 'Kilopascal',
+      plural: 'Kilopascals'
     },
     anchor: 1
   },
   [MetricPressureEnum.MEGAPASCAL]: {
     name: {
-      singular: 'megapascal',
-      plural: 'megapascals'
+      singular: 'Megapascal',
+      plural: 'Megapascals'
     },
-    anchor: 1000
+    anchor: 1e3
   },
   [MetricPressureEnum.HECTOPASCAL]: {
     name: {
-      singular: 'hectopascal',
-      plural: 'hectopascals'
+      singular: 'Hectopascal',
+      plural: 'Hectopascals'
     },
-    anchor: 1 / 10
+    anchor: 0.1
   },
   [MetricPressureEnum.BAR]: {
     name: {
-      singular: 'bar',
-      plural: 'bar'
+      singular: 'Bar',
+      plural: 'Bar'
     },
-    anchor: 100
+    anchor: 1e2
   },
   [MetricPressureEnum.TORR]: {
     name: {
-      singular: 'torr',
-      plural: 'torr'
+      singular: 'Torr',
+      plural: 'Torr'
     },
-    anchor: 101325 / 760000
+    anchor: 1 / 7.500616827
+  },
+  [MetricPressureEnum.MILLIMETRE_OF_MERCURY]: {
+    name: {
+      singular: 'Millimetre of mercury',
+      plural: 'Millimetres of mercury'
+    },
+    anchor: 0.133322387415
   }
 };
 
 const imperial = {
   [ImperialPressureEnum.POUND_PER_SQUARE_INCH]: {
     name: {
-      singular: 'pound per square inch',
-      plural: 'pounds per square inch'
+      singular: 'Pound per square inch',
+      plural: 'Pounds per square inch'
     },
-    anchor: 1 / 1000
+    anchor: 1
   },
   [ImperialPressureEnum.KILOPOUND_PER_SQUARE_INCH]: {
     name: {
-      singular: 'kilopound per square inch',
-      plural: 'kilopound per square inch'
+      singular: 'Kilopound per square inch',
+      plural: 'Kilopound per square inch'
     },
-    anchor: 1
+    anchor: 1e3
+  },
+  [ImperialPressureEnum.INCH_OF_MERCURY]: {
+    name: {
+      singular: 'Inch of mercury',
+      plural: 'Inches of mercury'
+    },
+    anchor: 0.49115
   }
 };
 
@@ -82,11 +98,15 @@ const pressure = {
   anchors: {
     metric: {
       unit: MetricPressureEnum.KILOPASCAL,
-      ratio: 0.00014503768078
+      ratio: {
+        imperial: 0.14503768078
+      }
     },
     imperial: {
       unit: ImperialPressureEnum.POUND_PER_SQUARE_INCH,
-      ratio: 1 / 0.00014503768078
+      ratio: {
+        metric: 1 / 0.14503768078
+      }
     }
   }
 };

@@ -1,4 +1,15 @@
-export type AccelerationUnit = 'g-force' | 'm/s2';
+export type AccelerationUnit =
+  | 'g0'
+  | 'm/s2'
+  | 'g-sun'
+  | 'g-mercury'
+  | 'g-venus'
+  | 'g-mars'
+  | 'g-saturn'
+  | 'g-jupiter'
+  | 'g-neptune'
+  | 'g-pluto'
+  | 'g-moon';
 export type AngleUnit = 'deg' | 'rad' | 'grad' | 'arcmin' | 'arcsec';
 export type ApparentPowerUnit = 'VA' | 'mVA' | 'kVA' | 'MVA' | 'GVA';
 export type AreaUnit = 'mm2' | 'cm2' | 'm2' | 'ha' | 'km2' | 'in2' | 'yd2' | 'ft2' | 'ac' | 'mi2';
@@ -64,7 +75,7 @@ export type PiecesUnit =
   | 'sm-gr'
   | 'trio';
 export type PowerUnit = 'W' | 'mW' | 'kW' | 'MW' | 'GW' | 'PS' | 'Btu/s' | 'ft-lb/s' | 'hp';
-export type PressureUnit = 'Pa' | 'hPa' | 'kPa' | 'MPa' | 'bar' | 'torr' | 'psi' | 'ksi';
+export type PressureUnit = 'Pa' | 'hPa' | 'kPa' | 'MPa' | 'bar' | 'torr' | 'mmHg' | 'psi' | 'ksi' | 'inHg';
 export type ReactiveEnergyUnit = 'VARh' | 'mVARh' | 'kVARh' | 'MVARh' | 'GVARh';
 export type ReactivePowerUnit = 'VAR' | 'mVAR' | 'kVAR' | 'MVAR' | 'GVAR';
 export type SpeedUnit = 'm/s' | 'km/h' | 'm/h' | 'knot' | 'ft/s' | 'mph';

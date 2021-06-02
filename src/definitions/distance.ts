@@ -122,11 +122,15 @@ const distance = {
   anchors: {
     metric: {
       unit: MetricDistanceEnum.METER,
-      ratio: 3.28084
+      ratio: {
+        imperial: 3.28084
+      }
     },
     imperial: {
       unit: ImperialDistanceEnum.FOOT,
-      ratio: 1 / 3.28084
+      ratio: {
+        metric: 1 / 3.28084
+      }
     }
   }
 };

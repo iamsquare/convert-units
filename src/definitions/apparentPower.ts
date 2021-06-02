@@ -47,12 +47,6 @@ const metric = {
 const apparentPower = {
   systems: {
     metric
-  },
-  anchors: {
-    metric: {
-      unit: ApparentPowerEnum.VOLT_AMPERE,
-      ratio: 1
-    }
   }
 };
 

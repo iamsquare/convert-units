@@ -5,7 +5,7 @@ export enum PartsPerEnum {
   PART_PER_QUADRILLION = 'ppq'
 }
 
-const metric = {
+const other = {
   [PartsPerEnum.PART_PER_MILLION]: {
     name: {
       singular: 'Part-per Million',
@@ -38,13 +38,7 @@ const metric = {
 
 const partsPer = {
   systems: {
-    metric
-  },
-  anchors: {
-    metric: {
-      unit: PartsPerEnum.PART_PER_TRILLION,
-      ratio: 1e-6
-    }
+    other
   }
 };
 

@@ -314,11 +314,15 @@ const volumeFlowRate = {
   anchors: {
     metric: {
       unit: MetricVolumeFlowEnum.LITRE_PER_SECOND,
-      ratio: 33.8140227
+      ratio: {
+        imperial: 33.8140227
+      }
     },
     imperial: {
       unit: ImperialVolumeFlowEnum.FLUID_OUNCE_PER_SECOND,
-      ratio: 1 / 33.8140227
+      ratio: {
+        metric: 1 / 33.8140227
+      }
     }
   }
 };

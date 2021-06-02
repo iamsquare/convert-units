@@ -31,12 +31,6 @@ const metric = {
 const voltage = {
   systems: {
     metric
-  },
-  anchors: {
-    metric: {
-      unit: VoltageEnum.VOLT,
-      ratio: 1
-    }
   }
 };
 

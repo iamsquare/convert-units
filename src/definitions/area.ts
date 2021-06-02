@@ -98,11 +98,15 @@ export default {
   anchors: {
     metric: {
       unit: MetricAreaEnum.SQUARE_METER,
-      ratio: 10.7639
+      ratio: {
+        imperial: 10.7639
+      }
     },
     imperial: {
       unit: ImperialAreaEnum.SQUARE_FOOT,
-      ratio: 1 / 10.7639
+      ratio: {
+        metric: 1 / 10.7639
+      }
     }
   }
 };

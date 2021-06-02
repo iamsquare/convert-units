@@ -5,7 +5,7 @@ export const SystemEnum: Readonly<Record<CamelToPascalCase<System>, System>> = {
   IMPERIAL: 'imperial',
   BITS: 'bits',
   BYTES: 'bytes',
-  PIECES: 'pieces'
+  OTHER: 'other'
 };
 
-export type System = 'metric' | 'imperial' | 'bits' | 'bytes' | 'pieces';
+export type System = 'metric' | 'imperial' | 'bits' | 'bytes' | 'other';

@@ -128,32 +128,33 @@ list('mass');
 
 | **_Measure_** | **_Metric_** | **_Imperial_** | **_Other_** |
 |:-:|-|-|-|
-| _Length_ | nm, μm, mm, cm, m, km | in, yd, ft-us, ft, fathom, mi, nMi | - |
+| _Acceleration_ | m/s2, g0, g-sun, g-mercury, g-venus, g-mars, g-saturn, g-jupiter, g-neptune, g-pluto, g-moon | - | - |
+| _Angle_ | - | - | deg, rad, grad, arcmin, arcsec |
+| _Apparent Power_ | - | - | VA, mVA, kVA, MVA, GVA |
 | _Area_ | mm2, cm2, m2, ha, km2 | in2, ft2, ac, mi2 | - |
+| _Charge_ | - | - | c, mC, μC, nC, pC |
+| _Current_ | - | - | A, mA, kA |
+| _Digital_ | - | - | b, kb, Mb, Gb, Tb, Pb, kib, Mib, Gib, Tib, Pib, B, kB, MB, GB, TB, PB, kiB, MiB, GiB, TiB, PiB |
+| _Distance_ | nm, μm, mm, cm, m, km | in, yd, ft-us, ft, fathom, mi, nMi | - |
+| _Each_ | - | - | ea, dz |
+| _Energy_ | - | - | Wh, mWh, kWh, MWh, GWh, J, kJ |
+| _Force_ | N, kN | lbf | - |
+| _Frequency_ | - | - | Hz, mHz, kHz, MHz, GHz, THz, rpm, deg/s, rad/s |
+| _Illuminance_ | lx | ft-cd | - |
 | _Mass_ | mcg, mg, g, kg, mt | oz, lb, t | - |
-| _Volume_ | mm3, cm3, ml, l, kl, m3, km3 | tsp, Tbs, in3, fl-oz, cup, pnt, qt, gal, ft3, yd3 | - |
-| _Volume Flow Rate_ | mm3/s, cm3/s, ml/s, cl/s, dl/s, l/s, l/min, l/h, kl/s, kl/min, kl/h, m3/s, m3/min, m3/h, km3/s | tsp/s, Tbs/s, in3/s, in3/min, in3/h, fl-oz/s, fl-oz/min, fl-oz/h, cup/s, pnt/s, pnt/min, pnt/h, qt/s, gal/s, gal/min, gal/h, ft3/s, ft3/min, ft3/h, yd3/s, yd3/min, yd3/h | - |
+| _Pace_ | s/m, min/km | s/ft, min/mi | - |
+| _Parts-Per_ | - | - | ppm, ppb, ppt, ppq |
+| _Pieces_ | - | - | pcs, bk-doz, cp, doz-doz, doz, gr-gr, gros, half-dozen, long-hundred, ream, scores, sm-gr, trio |
+| _Power_ | W, mW, kW, MW, GW, PS | Btu/s, ft-lb/s, hp | - |
+| _Pressure_ | Pa, hPa, kPa, MPa, bar, torr, mmHg (_@ 0°C_) | psi, ksi, inHg (_@ 32°F_) | - |
+| _Reactive Energy_ | - | - | VARh, mVARh, kVARh, MVARh, GVARh |
+| _Reactive Power_ | - | - | VAR, mVAR, kVAR, MVAR, GVAR |
+| _Speed_ | m/s, km/h | mph, knot, ft/s | - |
 | _Temperature_ | C, K | F, R | - |
 | _Time_ | - | - | ns, mu, ms, s, min, h, d, week, month, year |
-| _Frequency_ | - | - | Hz, mHz, kHz, MHz, GHz, THz, rpm, deg/s, rad/s |
-| _Speed_ | m/s, km/h | mph, knot, ft/s | - |
-| _Pace_ | s/m, min/km | s/ft, min/mi | - |
-| _Pressure_ | Pa, hPa, kPa, MPa, bar, torr | psi, ksi | - |
-| _Digital_ | - | - | b, kb, Mb, Gb, Tb, Pb, kib, Mib, Gib, Tib, Pib, B, kB, MB, GB, TB, PB, kiB, MiB, GiB, TiB, PiB |
-| _Illuminance_ | lx | ft-cd | - |
-| _Parts-Per_ | - | - | ppm, ppb, ppt, ppq |
 | _Voltage_ | - | - | V, mV, kV |
-| _Current_ | - | - | A, mA, kA |
-| _Power_ | W, mW, kW, MW, GW, PS | Btu/s, ft-lb/s, hp | - |
-| _Apparent Power_ | - | - | VA, mVA, kVA, MVA, GVA |
-| _Reactive Power_ | - | - | VAR, mVAR, kVAR, MVAR, GVAR |
-| _Energy_ | - | - | Wh, mWh, kWh, MWh, GWh, J, kJ |
-| _Reactive Energy_ | - | - | VARh, mVARh, kVARh, MVARh, GVARh |
-| _Angle_ | - | - | deg, rad, grad, arcmin, arcsec |
-| _Charge_ | - | - | c, mC, μC, nC, pC |
-| _Force_ | N, kN | lbf | - |
-| _Acceleration_ | g-force, m/s2 | - | - |
-| _Pieces_ | - | - | pcs, bk-doz, cp, doz-doz, doz, gr-gr, gros, half-dozen, long-hundred, ream, scores, sm-gr, trio |
+| _Volume_ | mm3, cm3, ml, l, kl, m3, km3 | tsp, Tbs, in3, fl-oz, cup, pnt, qt, gal, ft3, yd3 | - |
+| _Volume Flow Rate_ | mm3/s, cm3/s, ml/s, cl/s, dl/s, l/s, l/min, l/h, kl/s, kl/min, kl/h, m3/s, m3/min, m3/h, km3/s | tsp/s, Tbs/s, in3/s, in3/min, in3/h, fl-oz/s, fl-oz/min, fl-oz/h, cup/s, pnt/s, pnt/min, pnt/h, qt/s, gal/s, gal/min, gal/h, ft3/s, ft3/min, ft3/h, yd3/s, yd3/min, yd3/h | - |
 
 **NOTE**: these units are exported as enums so that you don't have to remember which unit is which. Also, if you're using this library in a plain `javascript` environment these are useful to avoid annoying typos. To see a list of these enums take a look in [`here`](https://github.com/iamsquare/convert-units/tree/master/src/definitions).
 
@@ -177,7 +178,7 @@ Check the kanban board [`here`](https://github.com/iamsquare/convert-units/proje
 ### Development
 
 If you want to help remember to run the command `npm run setup:dev`.
-It will install all dependencies and `husky` so that code will get tested and linted before every commit.
+It will install all dependencies and [`husky`](https://www.npmjs.com/package/husky) so that code will get tested and linted before every commit.
 
 ## License
 

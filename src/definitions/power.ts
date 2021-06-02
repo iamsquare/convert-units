@@ -90,11 +90,15 @@ const power = {
   anchors: {
     metric: {
       unit: MetricPowerEnum.WATT,
-      ratio: 0.737562149
+      ratio: {
+        imperial: 0.737562149
+      }
     },
     imperial: {
       unit: ImperialPowerEnum.FOOT_POUND_PER_SECOND,
-      ratio: 1 / 0.737562149
+      ratio: {
+        metric: 1 / 0.737562149
+      }
     }
   }
 };

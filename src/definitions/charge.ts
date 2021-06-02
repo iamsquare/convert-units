@@ -47,12 +47,6 @@ const metric = {
 const charge = {
   systems: {
     metric
-  },
-  anchors: {
-    metric: {
-      unit: ChargeEnum.COULOMB,
-      ratio: 1
-    }
   }
 };
 
