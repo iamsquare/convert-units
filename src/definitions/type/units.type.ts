@@ -4,7 +4,29 @@ export type ApparentPowerUnit = 'VA' | 'mVA' | 'kVA' | 'MVA' | 'GVA';
 export type AreaUnit = 'mm2' | 'cm2' | 'm2' | 'ha' | 'km2' | 'in2' | 'yd2' | 'ft2' | 'ac' | 'mi2';
 export type ChargeUnit = 'c' | 'mC' | 'μC' | 'nC' | 'pC';
 export type CurrentUnit = 'A' | 'mA' | 'kA';
-export type DigitalUnit = 'b' | 'kb' | 'Mb' | 'Gb' | 'Tb' | 'B' | 'kB' | 'MB' | 'GB' | 'TB';
+export type DigitalUnit =
+  | 'b'
+  | 'kb'
+  | 'Mb'
+  | 'Gb'
+  | 'Tb'
+  | 'Pb'
+  | 'kib'
+  | 'Mib'
+  | 'Gib'
+  | 'Tib'
+  | 'Pib'
+  | 'B'
+  | 'kB'
+  | 'MB'
+  | 'GB'
+  | 'TB'
+  | 'PB'
+  | 'kiB'
+  | 'MiB'
+  | 'GiB'
+  | 'TiB'
+  | 'PiB';
 export type DistanceUnit =
   | 'nm'
   | 'μm'
