@@ -1,4 +1,15 @@
-export type AccelerationUnit = 'g-force' | 'm/s2';
+export type AccelerationUnit =
+  | 'g0'
+  | 'm/s2'
+  | 'g-sun'
+  | 'g-mercury'
+  | 'g-venus'
+  | 'g-mars'
+  | 'g-saturn'
+  | 'g-jupiter'
+  | 'g-neptune'
+  | 'g-pluto'
+  | 'g-moon';
 export type AngleUnit = 'deg' | 'rad' | 'grad' | 'arcmin' | 'arcsec';
 export type ApparentPowerUnit = 'VA' | 'mVA' | 'kVA' | 'MVA' | 'GVA';
 export type AreaUnit = 'mm2' | 'cm2' | 'm2' | 'ha' | 'km2' | 'in2' | 'yd2' | 'ft2' | 'ac' | 'mi2';
