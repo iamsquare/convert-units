@@ -3,3 +3,4 @@ export type Maybe<T> = T | undefined;
 export type CamelToPascalCase<S extends string> = S extends `${infer T}${infer U}`
   ? `${T extends Capitalize<T> ? '_' : ''}${Uppercase<T>}${CamelToPascalCase<U>}`
   : S;
+export type PartialRecord<T extends keyof any, U> = { [P in T]?: U };

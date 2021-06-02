@@ -1,6 +1,3 @@
-import { Definition } from '../type';
-import { ApparentPowerUnit } from './type/units.type';
-
 export enum ApparentPowerEnum {
   VOLT_AMPERE = 'VA',
   MILLIVOLT_AMPERE = 'mVA',

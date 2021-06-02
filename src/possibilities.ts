@@ -6,21 +6,22 @@ import getUnit from './getUnit';
 import measures, { measureDictionary } from './measures';
 import { Maybe, Measure, MeasureEnum, Nullable } from './type';
 
-const possibilities = pipe(
-  (f: Maybe<UnitType | Measure>) => {
-    if (isNil(f)) return null;
+const possibilities = (f?: Maybe<UnitType | Measure>): UnitType[] =>
+  pipe(
+    (f: Maybe<UnitType | Measure>) => {
+      if (isNil(f)) return null;
 
-    if (includes(f, values(MeasureEnum))) return f;
+      if (includes(f, values(MeasureEnum))) return f;
 
-    const unit = getUnit(f as UnitType);
+      const unit = getUnit(f as UnitType);
 
-    if (isNil(unit)) throw new Error(`Cannot get possibilities for incompatible unit '${f}'`);
+      if (isNil(unit)) throw new Error(`Cannot get possibilities for incompatible unit '${f}'`);
 
-    return unit.measure;
-  },
-  (m: Nullable<Measure>) => (isNotNil(m) ? [m] : measures()),
-  chain((m) => values(measureDictionary[m].systems)),
-  chain(keys)
-);
+      return unit.measure;
+    },
+    (m: Nullable<Measure>) => (isNotNil(m) ? [m] : measures()),
+    chain((m) => values(measureDictionary[m].systems)),
+    chain((s) => keys(s))
+  )(f);
 
 export default possibilities;

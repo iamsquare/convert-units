@@ -24,11 +24,18 @@ import reactivePower from './definitions/reactivePower';
 import speed from './definitions/speed';
 import temperature from './definitions/temperature';
 import time from './definitions/time';
+import { UnitType } from './definitions/type';
 import voltage from './definitions/voltage';
 import volume from './definitions/volume';
 import volumeFlowRate from './definitions/volumeFlowRate';
+import { Anchor, Measure, PartialRecord, System, Unit } from './type';
 
-export const measureDictionary = {
+type PartialMeasureDictionary = {
+  systems: PartialRecord<System, PartialRecord<UnitType, Unit>>;
+  anchors: PartialRecord<System, Anchor<UnitType>>;
+};
+
+export const measureDictionary: Record<Measure, PartialMeasureDictionary> = {
   acceleration,
   angle,
   apparentPower,

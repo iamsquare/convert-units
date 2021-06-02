@@ -23,7 +23,7 @@ export default curry((from: UnitType, to: UnitType, value: number) => {
 
   return pipe(
     multiply(fromConversion.unit.anchor),
-    when(() => isNotNil(fromConversion.unit.anchorShift), subtract(__, fromConversion.unit.anchorShift as number)),
+    when(() => isNotNil(fromConversion.unit.anchorShift), subtract(__, fromConversion.unit.anchorShift)),
     when(
       () => fromConversion.system !== toConversion.system,
       (v) => {
@@ -40,7 +40,7 @@ export default curry((from: UnitType, to: UnitType, value: number) => {
         throw new Error('A system anchor needs to either have a defined ratio number or a transform function.');
       }
     ),
-    when(() => isNotNil(toConversion.unit.anchorShift), add(toConversion.unit.anchorShift as number)),
+    when(() => isNotNil(toConversion.unit.anchorShift), add(toConversion.unit.anchorShift)),
     divide(__, toConversion.unit.anchor)
   )(value);
 });
