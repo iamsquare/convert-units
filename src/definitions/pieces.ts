@@ -1,6 +1,3 @@
-import { Definition } from '../type';
-import { PiecesUnit } from './type/units.type';
-
 export enum PiecesEnum {
   PIECE = 'pcs',
   BAKERS_DOZEN = 'bk-doz',
@@ -111,7 +108,7 @@ const pieces = {
   }
 };
 
-export default {
+const piecesExport = {
   systems: {
     pieces
   },
@@ -121,4 +118,6 @@ export default {
       ratio: 1
     }
   }
-} as Definition<'pieces', PiecesUnit>;
+};
+
+export default piecesExport;

@@ -1,6 +1,3 @@
-import { Definition } from '../type';
-import { SpeedUnit } from './type/units.type';
-
 export enum MetricSpeedEnum {
   METRE_PER_SECOND = 'm/s',
   KILOMETRE_PER_HOUR = 'km/h',
@@ -61,7 +58,7 @@ const imperial = {
   }
 };
 
-export default {
+const speed = {
   systems: {
     metric,
     imperial
@@ -76,4 +73,6 @@ export default {
       ratio: 1.609344
     }
   }
-} as Definition<'metric' | 'imperial', SpeedUnit>;
+};
+
+export default speed;

@@ -1,6 +1,3 @@
-import { Definition } from '../type';
-import { PaceUnit } from './type/units.type';
-
 export enum MetricPaceEnum {
   MINUTE_PER_KILOMETRE = 'min/km',
   SECOND_PER_METRE = 's/m'
@@ -45,7 +42,7 @@ const imperial = {
   }
 };
 
-export default {
+const pace = {
   systems: {
     metric,
     imperial
@@ -60,4 +57,6 @@ export default {
       ratio: 1 / 0.3048
     }
   }
-} as Definition<'metric' | 'imperial', PaceUnit>;
+};
+
+export default pace;

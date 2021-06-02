@@ -1,6 +1,3 @@
-import { Definition } from '../type';
-import { TemperatureUnit } from './type/units.type';
-
 export enum MetricTemperatureEnum {
   CELSIUS = 'C',
   KELVIN = 'K'
@@ -48,7 +45,7 @@ const imperial = {
   }
 };
 
-export default {
+const temperature = {
   systems: {
     metric,
     imperial
@@ -63,4 +60,6 @@ export default {
       transform: (F: number): number => (F - 32) * (5 / 9)
     }
   }
-} as Definition<'metric' | 'imperial', TemperatureUnit>;
+};
+
+export default temperature;

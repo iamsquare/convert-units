@@ -1,6 +1,3 @@
-import { Definition } from '../type';
-import { FrequencyUnit } from './type/units.type';
-
 export enum FrequencyEnum {
   HERTZ = 'Hz',
   MILLIHERTZ = 'mHz',
@@ -79,7 +76,7 @@ const metric = {
   }
 };
 
-export default {
+const frequency = {
   systems: {
     metric
   },
@@ -89,4 +86,6 @@ export default {
       ratio: 1
     }
   }
-} as Definition<'metric', FrequencyUnit>;
+};
+
+export default frequency;

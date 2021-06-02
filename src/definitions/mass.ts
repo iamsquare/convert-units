@@ -1,6 +1,3 @@
-import { Definition } from '../type';
-import { MassUnit } from './type/units.type';
-
 export enum MetricMassEnum {
   GRAM = 'g',
   MICROGRAM = 'mcg',
@@ -77,7 +74,7 @@ const imperial = {
   }
 };
 
-export default {
+const mass = {
   systems: {
     metric,
     imperial
@@ -92,4 +89,6 @@ export default {
       ratio: 453.592
     }
   }
-} as Definition<'metric' | 'imperial', MassUnit>;
+};
+
+export default mass;

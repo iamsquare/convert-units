@@ -1,6 +1,3 @@
-import { Definition } from '../type';
-import { DigitalUnit } from './type/units.type';
-
 export enum BitEnum {
   BIT = 'b',
   KILOBIT = 'kb',
@@ -93,7 +90,7 @@ const bytes = {
   }
 };
 
-export default {
+const digital = {
   systems: {
     bits,
     bytes
@@ -108,4 +105,6 @@ export default {
       ratio: 8
     }
   }
-} as Definition<'bits' | 'bytes', DigitalUnit>;
+};
+
+export default digital;

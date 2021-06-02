@@ -1,6 +1,3 @@
-import { Definition } from '../type';
-import { PartsPerUnit } from './type/units.type';
-
 export enum PartsPerEnum {
   PART_PER_MILLION = 'ppm',
   PART_PER_BILLION = 'ppb',
@@ -39,7 +36,7 @@ const metric = {
   }
 };
 
-export default {
+const partsPer = {
   systems: {
     metric
   },
@@ -49,4 +46,6 @@ export default {
       ratio: 1e-6
     }
   }
-} as Definition<'metric', PartsPerUnit>;
+};
+
+export default partsPer;
