@@ -50,11 +50,15 @@ const pace = {
   anchors: {
     metric: {
       unit: MetricPaceEnum.SECOND_PER_METRE,
-      ratio: 0.3048
+      ratio: {
+        imperial: 0.3048
+      }
     },
     imperial: {
       unit: ImperialPaceEnum.SECOND_PER_FOOT,
-      ratio: 1 / 0.3048
+      ratio: {
+        metric: 1 / 0.3048
+      }
     }
   }
 };

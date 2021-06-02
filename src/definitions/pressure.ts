@@ -98,11 +98,15 @@ const pressure = {
   anchors: {
     metric: {
       unit: MetricPressureEnum.KILOPASCAL,
-      ratio: 0.14503768078
+      ratio: {
+        imperial: 0.14503768078
+      }
     },
     imperial: {
       unit: ImperialPressureEnum.POUND_PER_SQUARE_INCH,
-      ratio: 1 / 0.14503768078
+      ratio: {
+        metric: 1 / 0.14503768078
+      }
     }
   }
 };

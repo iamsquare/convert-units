@@ -31,12 +31,6 @@ const metric = {
 const force = {
   systems: {
     metric
-  },
-  anchors: {
-    metric: {
-      unit: ForceEnum.NEWTON,
-      ratio: 1
-    }
   }
 };
 

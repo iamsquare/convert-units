@@ -3,7 +3,7 @@ export enum EachEnum {
   DOZEN = 'dz'
 }
 
-const metric = {
+const other = {
   [EachEnum.EACH]: {
     name: {
       singular: 'Each',
@@ -22,13 +22,7 @@ const metric = {
 
 const each = {
   systems: {
-    metric
-  },
-  anchors: {
-    metric: {
-      unit: EachEnum.EACH,
-      ratio: 1
-    }
+    other
   }
 };
 

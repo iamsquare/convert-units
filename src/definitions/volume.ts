@@ -218,11 +218,15 @@ const volume = {
   anchors: {
     metric: {
       unit: MetricVolumeEnum.LITRE,
-      ratio: 33.8140226
+      ratio: {
+        imperial: 33.8140226
+      }
     },
     imperial: {
       unit: ImperialVolumeEnum.FLUID_OUNCE,
-      ratio: 1 / 33.8140226
+      ratio: {
+        metric: 1 / 33.8140226
+      }
     }
   }
 };

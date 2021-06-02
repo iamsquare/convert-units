@@ -66,11 +66,15 @@ const speed = {
   anchors: {
     metric: {
       unit: MetricSpeedEnum.KILOMETRE_PER_HOUR,
-      ratio: 1 / 1.609344
+      ratio: {
+        imperial: 1 / 1.609344
+      }
     },
     imperial: {
       unit: ImperialSpeedEnum.MILE_PER_HOUR,
-      ratio: 1.609344
+      ratio: {
+        metric: 1.609344
+      }
     }
   }
 };

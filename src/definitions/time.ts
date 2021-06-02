@@ -87,12 +87,6 @@ const metric = {
 const time = {
   systems: {
     metric
-  },
-  anchors: {
-    metric: {
-      unit: TimeEnum.SECOND,
-      ratio: 1
-    }
   }
 };
 
