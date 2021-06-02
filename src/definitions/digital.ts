@@ -194,11 +194,15 @@ const digital = {
   anchors: {
     bits: {
       unit: BitEnum.BIT,
-      ratio: 1 / 8
+      ratio: {
+        bytes: 1 / 8
+      }
     },
     bytes: {
       unit: ByteEnum.BYTE,
-      ratio: 8
+      ratio: {
+        bits: 8
+      }
     }
   }
 };

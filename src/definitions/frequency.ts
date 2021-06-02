@@ -79,12 +79,6 @@ const metric = {
 const frequency = {
   systems: {
     metric
-  },
-  anchors: {
-    metric: {
-      unit: FrequencyEnum.HERTZ,
-      ratio: 1
-    }
   }
 };
 

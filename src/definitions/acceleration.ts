@@ -95,12 +95,6 @@ const metric = {
 const acceleration = {
   systems: {
     metric
-  },
-  anchors: {
-    metric: {
-      unit: AccelerationEnum.G0,
-      ratio: 1
-    }
   }
 };
 

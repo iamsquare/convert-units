@@ -28,11 +28,11 @@ import { UnitType } from './definitions/type';
 import voltage from './definitions/voltage';
 import volume from './definitions/volume';
 import volumeFlowRate from './definitions/volumeFlowRate';
-import { Anchor, Measure, PartialRecord, System, Unit } from './type';
+import { Anchor, Maybe, Measure, PartialRecord, System, Unit } from './type';
 
 type PartialMeasureDictionary = {
   systems: PartialRecord<System, PartialRecord<UnitType, Unit>>;
-  anchors: PartialRecord<System, Anchor<UnitType>>;
+  anchors?: Maybe<PartialRecord<System, Anchor<UnitType>>>;
 };
 
 export const measureDictionary: Record<Measure, PartialMeasureDictionary> = {

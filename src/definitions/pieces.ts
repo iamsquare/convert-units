@@ -14,7 +14,7 @@ export enum PiecesEnum {
   TRIO = 'trio'
 }
 
-const pieces = {
+const other = {
   [PiecesEnum.PIECE]: {
     name: {
       singular: 'Piece',
@@ -110,13 +110,7 @@ const pieces = {
 
 const piecesExport = {
   systems: {
-    pieces
-  },
-  anchors: {
-    pieces: {
-      unit: PiecesEnum.PIECE,
-      ratio: 1
-    }
+    other
   }
 };
 

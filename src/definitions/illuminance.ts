@@ -34,11 +34,15 @@ const illuminance = {
   anchors: {
     metric: {
       unit: MetricIlluminanceEnum.LUX,
-      ratio: 1 / 10.76391
+      ratio: {
+        imperial: 1 / 10.76391
+      }
     },
     imperial: {
       unit: ImperialIlluminanceEnum.FOOT_CANDLE,
-      ratio: 10.76391
+      ratio: {
+        metric: 10.76391
+      }
     }
   }
 };

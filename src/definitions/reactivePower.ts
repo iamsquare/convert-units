@@ -47,12 +47,6 @@ const metric = {
 const reactivePower = {
   systems: {
     metric
-  },
-  anchors: {
-    metric: {
-      unit: ReactivePowerEnum.VOLT_AMPERE_REACTIVE,
-      ratio: 1
-    }
   }
 };
 

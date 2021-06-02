@@ -53,11 +53,15 @@ const temperature = {
   anchors: {
     metric: {
       unit: MetricTemperatureEnum.CELSIUS,
-      transform: (C: number): number => C / (5 / 9) + 32
+      transform: {
+        imperial: (C: number): number => C / (5 / 9) + 32
+      }
     },
     imperial: {
       unit: ImperialTemperatureEnum.FAHRENHEIT,
-      transform: (F: number): number => (F - 32) * (5 / 9)
+      transform: {
+        metric: (F: number): number => (F - 32) * (5 / 9)
+      }
     }
   }
 };

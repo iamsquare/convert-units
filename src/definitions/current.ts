@@ -31,12 +31,6 @@ const metric = {
 const current = {
   systems: {
     metric
-  },
-  anchors: {
-    metric: {
-      unit: CurrentEnum.AMPERE,
-      ratio: 1
-    }
   }
 };
 

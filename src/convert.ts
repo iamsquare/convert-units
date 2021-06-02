@@ -4,6 +4,7 @@ import { isNotNil } from 'ramda-adjunct';
 import { UnitType } from './definitions/type';
 import getUnit from './getUnit';
 import { measureDictionary } from './measures';
+import { isDefinedFunction, isDefinedNumber } from './utils/ramdaExtension';
 
 export default curry((from: UnitType, to: UnitType, value: number): number | never => {
   const fromConversion = getUnit(from);
@@ -29,15 +30,15 @@ export default curry((from: UnitType, to: UnitType, value: number): number | nev
       (v) => {
         const { transform, ratio } = measureDictionary[fromConversion.measure].anchors[fromConversion.system];
 
-        if (isNotNil(transform)) {
-          return transform(v);
+        if (isNotNil(transform) && isDefinedFunction(transform[toConversion.system])) {
+          return transform[toConversion.system](v);
         }
 
-        if (isNotNil(ratio)) {
-          return v * ratio;
+        if (isNotNil(ratio) && isDefinedNumber(ratio[toConversion.system])) {
+          return v * ratio[toConversion.system];
         }
 
-        throw new Error('A system anchor needs to either have a defined ratio number or a transform function.');
+        throw new Error(`A system's anchor needs to either have a defined ratio number or a transform function.`);
       }
     ),
     when(() => isNotNil(toConversion.unit.anchorShift), add(toConversion.unit.anchorShift)),

@@ -47,12 +47,6 @@ const metric = {
 const angle = {
   systems: {
     metric
-  },
-  anchors: {
-    metric: {
-      unit: AngleEnum.DEGREES,
-      ratio: 1
-    }
   }
 };
 
