@@ -170,7 +170,7 @@ to see how it's done.
 These imports are _**not** tree-shaken_, so if you're bundling this library in a project please refer to your bundler's documentation.
 Note that _Rollup_ and _Webpack_ should handle tree-shaking without extra-effort.
 
-## To-do list
+## Roadmap
 
 Check the kanban board [`here`](https://github.com/iamsquare/convert-units/projects/1)
 
