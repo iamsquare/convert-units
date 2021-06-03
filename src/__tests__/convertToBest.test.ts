@@ -44,12 +44,17 @@ forEach<{ label: string; value: BestConversion; expected: BestConversion }>(
       }
     },
     {
-      label: 'If all units are excluded return self',
-      value: convertToBest({ exclude: [...values(MetricDistanceEnum)] }, MetricDistanceEnum.KILOMETER, 10),
+      label: 'Does not break when if excluding units from another measurement',
+      value: convertToBest({ exclude: [ChargeEnum.COULOMB] }, MetricDistanceEnum.MILLIMETER, 1200),
       expected: {
-        value: 10,
-        unitType: MetricDistanceEnum.KILOMETER
+        value: 1.2,
+        unitType: MetricDistanceEnum.METER
       }
+    },
+    {
+      label: 'If all units are excluded returns null',
+      value: convertToBest({ exclude: [...values(MetricDistanceEnum)] }, MetricDistanceEnum.KILOMETER, 10),
+      expected: null
     },
     {
       label: 'Pre-cutoff',
