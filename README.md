@@ -12,7 +12,7 @@ npm i @iamsquare/convert-units
 
 ## Usage
 
-`@iamsquare/convert-units` is a functional port with extended type support of <https://www.npmjs.com/package/convert-units>.
+`@iamsquare/convert-units` is a functional port with extended type support of [`convert-units`](https://www.npmjs.com/package/).
 
 Here's how you convert metric units for volume:
 
