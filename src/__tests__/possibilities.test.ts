@@ -150,7 +150,7 @@ forEach<{ label: string; value: string[]; expected: string[] }>(
       expected: [...values(MetricAreaEnum), ...values(ImperialAreaEnum)]
     },
     {
-      label: 'all possibilities',
+      label: 'All possibilities',
       value: possibilities(),
       expected: chain(values, [
         AccelerationEnum,

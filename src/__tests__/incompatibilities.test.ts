@@ -32,7 +32,7 @@ test('kg to nonexistant unit throws', () => {
   }).toThrow();
 });
 
-test('nonexistant unit to kg throws', () => {
+test('Nonexistant unit to kg throws', () => {
   expect(() => {
     //@ts-ignore
     convert('garbage', 'kg', 4);

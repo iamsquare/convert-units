@@ -20,6 +20,11 @@ export interface Anchor<U extends UnitType> {
   transform?: Maybe<PartialRecord<System, (value: number) => number>>;
 }
 
+export interface BestConversion {
+  value: number;
+  unitType: UnitType;
+}
+
 export interface Conversion {
   measure: Measure;
   system: System;
@@ -33,5 +38,6 @@ export interface UnitDescription extends Name {
   system: System;
 }
 
+export { ConvertToBestDto } from './dto.type';
 export { Measure, MeasureEnum } from './measure.type';
 export { System, SystemEnum } from './system.type';
