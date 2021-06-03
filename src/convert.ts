@@ -6,7 +6,30 @@ import getUnit from './getUnit';
 import { measureDictionary } from './measures';
 import { isDefinedFunction, isDefinedNumber } from './utils/ramdaExtension';
 
-export default curry((from: UnitType, to: UnitType, value: number): number | never => {
+/**
+ * Converts a `value` from a compatible unit to another.
+ *
+ * This function is **curried**.
+ * @see {@link https://ramdajs.com/docs/#curry | Ramda's documentation} to understand how curried functions work.
+ *
+ * @throws An Error if `from` or `to` are not a valid {@link UnitType}s
+ * @throws An Error if `from` or `to` have different {@link Measure}s
+ * @throws An Error if a definition is malformed (this should never be thrown, it's been added for development purposes)
+ *
+ * @param from The type `from` which you want to convert
+ * @param to The type `to` which you want to convert
+ * @param value The value you want to convert
+ * @returns The converted value
+ *
+ * ```typescript
+ * const convertFromKilograms = convert('kg');
+ * const convertFromKilogramsToPounds = convertFromKilograms('lbs');
+ * // same as convert('kg', 'lbs') or convert('kg')('lbs')
+ * convertFromKilogramsToPounds(1); // => 2.20462
+ * // same as convert('kg', 'lbs', 1) etc...
+ * ```
+ */
+const convert = curry((from: UnitType, to: UnitType, value: number): number | never => {
   const fromConversion = getUnit(from);
 
   if (isNil(fromConversion)) throw new Error(`Incompatible unit '${from}' for *from* parameter`);
@@ -45,3 +68,5 @@ export default curry((from: UnitType, to: UnitType, value: number): number | nev
     divide(__, toConversion.unit.anchor)
   )(value);
 });
+
+export default convert;
