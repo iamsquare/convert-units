@@ -1,10 +1,10 @@
 import { always, contains, curry, filter, ifElse, pipe, reduce } from 'ramda';
 import { lengthGt } from 'ramda-adjunct';
 
-import { list } from '..';
 import convert from './convert';
 import { UnitType } from './definitions';
 import getUnit from './getUnit';
+import list from './list';
 import { BestConversion, ConvertToBestDto, Measure, UnitDescription } from './type';
 
 const convertToBest = curry((options: Partial<ConvertToBestDto>, from: UnitType, value: number) => {
