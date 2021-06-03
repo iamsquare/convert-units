@@ -179,7 +179,7 @@ Note that _Rollup_ and _Webpack_ should handle tree-shaking without extra-effort
 
 ## Roadmap
 
-Check the kanban board [`here`](https://github.com/iamsquare/convert-units/projects/1)
+Check the kanban board [`here`](https://github.com/orgs/iamsquare/projects/1)
 
 ### Development
 

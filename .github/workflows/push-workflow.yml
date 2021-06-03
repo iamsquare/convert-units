@@ -19,11 +19,3 @@ jobs:
         run: |
           npm ci
           npm run test
-          npm run docs
-
-      - name: Publish Documentation
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
-          force_orphan: true
