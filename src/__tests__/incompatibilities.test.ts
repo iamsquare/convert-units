@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { convert, describe as _describe, possibilities } from '..';
+import { convert, convertToBest, describe as _describe, possibilities } from '..';
 
 test('l to kg throws', () => {
   expect(() => {
@@ -36,6 +36,13 @@ test('Nonexistant unit to kg throws', () => {
   expect(() => {
     //@ts-ignore
     convert('garbage', 'kg', 4);
+  }).toThrow();
+});
+
+test('convertToBest throws if unit is not valid', () => {
+  expect(() => {
+    //@ts-ignore
+    convertToBest({}, 'garbage', 4);
   }).toThrow();
 });
 
