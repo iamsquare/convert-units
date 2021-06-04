@@ -1,5 +1,5 @@
 import { convert } from '../..';
-import { ImperialVolumeEnum, MetricVolumeEnum } from '../volume';
+import { ImperialVolumeEnum, MetricVolumeEnum, SwedishVolumeEnum } from '../volume';
 
 test('l to l', () => {
   expect(convert(MetricVolumeEnum.LITRE, MetricVolumeEnum.LITRE, 2)).toBe(2);
@@ -50,51 +50,51 @@ test('ml to ml', () => {
 });
 
 test('msk to ml', () => {
-  expect(convert(MetricVolumeEnum.MATSKED, MetricVolumeEnum.MILLILITRE, 2)).toBe(30);
+  expect(convert(SwedishVolumeEnum.MATSKED, MetricVolumeEnum.MILLILITRE, 2)).toBe(30);
 });
 
 test('tsk to ml', () => {
-  expect(convert(MetricVolumeEnum.TESKED, MetricVolumeEnum.MILLILITRE, 3)).toBe(15);
+  expect(convert(SwedishVolumeEnum.TESKED, MetricVolumeEnum.MILLILITRE, 3)).toBe(15);
 });
 
 test('krm to ml', () => {
-  expect(convert(MetricVolumeEnum.KRYDDMATTET, MetricVolumeEnum.MILLILITRE, 13)).toBe(13);
+  expect(convert(SwedishVolumeEnum.KRYDDMATTET, MetricVolumeEnum.MILLILITRE, 13)).toBe(13);
 });
 
 test('kanna to l', () => {
-  expect(convert(MetricVolumeEnum.KANNA, MetricVolumeEnum.LITRE, 2)).toBe(5.234);
+  expect(convert(SwedishVolumeEnum.KANNA, MetricVolumeEnum.LITRE, 2)).toBe(5.234);
 });
 
 test('kkp to ml', () => {
-  expect(convert(MetricVolumeEnum.KAFFEKOPP, MetricVolumeEnum.MILLILITRE, 2)).toBe(3e2);
+  expect(convert(SwedishVolumeEnum.KAFFEKOPP, MetricVolumeEnum.MILLILITRE, 2)).toBe(3e2);
 });
 
 test('glas to ml', () => {
-  expect(convert(MetricVolumeEnum.GLAS, MetricVolumeEnum.MILLILITRE, 2)).toBe(4e2);
+  expect(convert(SwedishVolumeEnum.GLAS, MetricVolumeEnum.MILLILITRE, 2)).toBe(4e2);
 });
 
 test('ml to msk', () => {
-  expect(convert(MetricVolumeEnum.MILLILITRE, MetricVolumeEnum.MATSKED, 15)).toBe(1);
+  expect(convert(MetricVolumeEnum.MILLILITRE, SwedishVolumeEnum.MATSKED, 15)).toBe(1);
 });
 
 test('ml to tsk', () => {
-  expect(convert(MetricVolumeEnum.MILLILITRE, MetricVolumeEnum.TESKED, 5)).toBe(1);
+  expect(convert(MetricVolumeEnum.MILLILITRE, SwedishVolumeEnum.TESKED, 5)).toBe(1);
 });
 
 test('ml to krm', () => {
-  expect(convert(MetricVolumeEnum.MILLILITRE, MetricVolumeEnum.KRYDDMATTET, 1)).toBe(1);
+  expect(convert(MetricVolumeEnum.MILLILITRE, SwedishVolumeEnum.KRYDDMATTET, 1)).toBe(1);
 });
 
 test('l to kanna', () => {
-  expect(convert(MetricVolumeEnum.LITRE, MetricVolumeEnum.KANNA, 2.617)).toBe(1);
+  expect(convert(MetricVolumeEnum.LITRE, SwedishVolumeEnum.KANNA, 2.617)).toBe(1);
 });
 
 test('lm to kkp', () => {
-  expect(convert(MetricVolumeEnum.MILLILITRE, MetricVolumeEnum.KAFFEKOPP, 150)).toBe(1);
+  expect(convert(MetricVolumeEnum.MILLILITRE, SwedishVolumeEnum.KAFFEKOPP, 150)).toBe(1);
 });
 
 test('ml to glas', () => {
-  expect(convert(MetricVolumeEnum.MILLILITRE, MetricVolumeEnum.GLAS, 2e2)).toBe(1);
+  expect(convert(MetricVolumeEnum.MILLILITRE, SwedishVolumeEnum.GLAS, 2e2)).toBe(1);
 });
 
 test('fl-oz to fl-oz', () => {

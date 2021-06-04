@@ -39,6 +39,7 @@ import {
   PiecesEnum,
   ReactiveEnergyEnum,
   ReactivePowerEnum,
+  SwedishVolumeEnum,
   TimeEnum,
   VoltageEnum
 } from '../definitions';
@@ -49,7 +50,7 @@ forEach<{ label: string; value: string[]; expected: string[] }>(
     {
       label: 'l possibilities',
       value: possibilities('l'),
-      expected: [...values(MetricVolumeEnum), ...values(ImperialVolumeEnum)]
+      expected: [...values(MetricVolumeEnum), ...values(ImperialVolumeEnum), ...values(SwedishVolumeEnum)]
     },
     {
       label: 'kg possibilities',
@@ -70,7 +71,7 @@ forEach<{ label: string; value: string[]; expected: string[] }>(
     {
       label: 'volume possibilities',
       value: possibilities('volume'),
-      expected: [...values(MetricVolumeEnum), ...values(ImperialVolumeEnum)]
+      expected: [...values(MetricVolumeEnum), ...values(ImperialVolumeEnum), ...values(SwedishVolumeEnum)]
     },
     {
       label: 'volume flow rate possibilities',
@@ -190,6 +191,7 @@ forEach<{ label: string; value: string[]; expected: string[] }>(
         PiecesEnum,
         ReactiveEnergyEnum,
         ReactivePowerEnum,
+        SwedishVolumeEnum,
         TimeEnum,
         VoltageEnum
       ])

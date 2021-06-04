@@ -7,13 +7,7 @@ export enum MetricVolumeEnum {
   LITRE = 'l',
   KILOLITRE = 'kl',
   CUBIC_METER = 'm3',
-  CUBIC_KILOMETER = 'km3',
-  KRYDDMATTET = 'krm',
-  TESKED = 'tsk',
-  MATSKED = 'msk',
-  KAFFEKOPP = 'kkp',
-  GLAS = 'glas',
-  KANNA = 'kanna'
+  CUBIC_KILOMETER = 'km3'
 }
 
 export enum ImperialVolumeEnum {
@@ -27,6 +21,15 @@ export enum ImperialVolumeEnum {
   GALLON = 'gal',
   CUBIC_FOOT = 'ft3',
   CUBIC_YARD = 'yd3'
+}
+
+export enum SwedishVolumeEnum {
+  KRYDDMATTET = 'krm',
+  TESKED = 'tsk',
+  MATSKED = 'msk',
+  KAFFEKOPP = 'kkp',
+  GLAS = 'glas',
+  KANNA = 'kanna'
 }
 
 const metric = {
@@ -92,48 +95,6 @@ const metric = {
       plural: 'Cubic kilometers'
     },
     anchor: 1e12
-  },
-  [MetricVolumeEnum.KRYDDMATTET]: {
-    name: {
-      singular: 'Kryddmåttet',
-      plural: 'Kryddmått'
-    },
-    anchor: 1e-3
-  },
-  [MetricVolumeEnum.TESKED]: {
-    name: {
-      singular: 'Tesked',
-      plural: 'Teskedar'
-    },
-    anchor: 5e-3
-  },
-  [MetricVolumeEnum.MATSKED]: {
-    name: {
-      singular: 'Matsked',
-      plural: 'Matskedar'
-    },
-    anchor: 1.5e-2
-  },
-  [MetricVolumeEnum.KAFFEKOPP]: {
-    name: {
-      singular: 'Kaffekopp',
-      plural: 'Kaffekoppar'
-    },
-    anchor: 0.15
-  },
-  [MetricVolumeEnum.GLAS]: {
-    name: {
-      singular: 'Glas',
-      plural: 'Glas'
-    },
-    anchor: 0.2
-  },
-  [MetricVolumeEnum.KANNA]: {
-    name: {
-      singular: 'Kanna',
-      plural: 'Kannor'
-    },
-    anchor: 2.617
   }
 };
 
@@ -210,22 +171,77 @@ const imperial = {
   }
 };
 
+const swedish = {
+  [SwedishVolumeEnum.KRYDDMATTET]: {
+    name: {
+      singular: 'Kryddmåttet',
+      plural: 'Kryddmått'
+    },
+    anchor: 1e-3
+  },
+  [SwedishVolumeEnum.TESKED]: {
+    name: {
+      singular: 'Tesked',
+      plural: 'Teskedar'
+    },
+    anchor: 5e-3
+  },
+  [SwedishVolumeEnum.MATSKED]: {
+    name: {
+      singular: 'Matsked',
+      plural: 'Matskedar'
+    },
+    anchor: 1.5e-2
+  },
+  [SwedishVolumeEnum.KAFFEKOPP]: {
+    name: {
+      singular: 'Kaffekopp',
+      plural: 'Kaffekoppar'
+    },
+    anchor: 0.15
+  },
+  [SwedishVolumeEnum.GLAS]: {
+    name: {
+      singular: 'Glas',
+      plural: 'Glas'
+    },
+    anchor: 0.2
+  },
+  [SwedishVolumeEnum.KANNA]: {
+    name: {
+      singular: 'Kanna',
+      plural: 'Kannor'
+    },
+    anchor: 2.617
+  }
+};
+
 const volume = {
   systems: {
     metric,
-    imperial
+    imperial,
+    swedish
   },
   anchors: {
     metric: {
       unit: MetricVolumeEnum.LITRE,
       ratio: {
-        imperial: 33.8140226
+        imperial: 33.8140226,
+        swedish: 1
       }
     },
     imperial: {
       unit: ImperialVolumeEnum.FLUID_OUNCE,
       ratio: {
-        metric: 1 / 33.8140226
+        metric: 1 / 33.8140226,
+        swedish: 1 / 33.8140226
+      }
+    },
+    swedish: {
+      unit: SwedishVolumeEnum.KRYDDMATTET,
+      ratio: {
+        metric: 1,
+        imperial: 0.0338140226
       }
     }
   }
