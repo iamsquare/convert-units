@@ -44,7 +44,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "homepage": "https://github.com/iamsquare/convert-units",
+  "homepage": "http://iamsquare.it/convert-units",
   "repository": {
     "type": "git",
     "url": "git://github.com/iamsquare/convert-units.git"

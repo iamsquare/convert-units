@@ -12,7 +12,7 @@ npm i @iamsquare/convert-units
 
 ## Usage
 
-`@iamsquare/convert-units` is a functional port with extended type support of <https://www.npmjs.com/package/convert-units>.
+`@iamsquare/convert-units` is a functional port with extended type support of [`convert-units`](https://www.npmjs.com/package/convert-units).
 
 Here's how you convert metric units for volume:
 
@@ -35,6 +35,22 @@ Just be careful not to ask for an impossible conversion!
 ```js
 convert('oz', 'fl-oz', 1);
 // throws exception -- you can't go from mass to volume!
+```
+
+You can ask to select the best unit for you. Optionally you can explicitly exclude orders of magnitude or specify a cutoff number for selecting the best representation.
+
+```js
+convertToBest({}, 'mm', 12000)
+// { value: 12, unitType: 'm' } (the smallest unit with a value above 1)
+ 
+convertToBest({ exclude: ['m'] }, 'mm', 12000)
+// { value: 1200, unitType: 'cm' } (the smallest unit excluding meters)
+ 
+convertToBest({ cutOffNumber: 10 }, 'mm', 900)
+// { value: 900, unitType: 'cm' } (the smallest unit with a value equal to or above 10)
+  
+convertToBest({ cutOffNumber: 10 }, 'mm', 1000)
+// { value: 10, unitType: 'm' } (the smallest unit with a value equal to or above 10)
 ```
 
 You can get a list of the measurement types supported with `measures`
@@ -150,7 +166,7 @@ For a more in-depth documentation take a look [`here`](http://iamsquare.it/conve
 | _Parts-Per_ | - | - | ppm, ppb, ppt, ppq |
 | _Pieces_ | - | - | pcs, bk-doz, cp, doz-doz, doz, gr-gr, gros, half-dozen, long-hundred, ream, scores, sm-gr, trio |
 | _Power_ | W, mW, kW, MW, GW, PS | Btu/s, ft-lb/s, hp | - |
-| _Pressure_ | Pa, hPa, kPa, MPa, bar, torr, mmHg (_@ 0°C_) | psi, ksi, inHg (_@ 32°F_) | - |
+| _Pressure_ | Pa, hPa, kPa, MPa, bar, torr, mmHg (**@ 0°C**) | psi, ksi, inHg (**@ 32°F**) | - |
 | _Reactive Energy_ | - | - | VARh, mVARh, kVARh, MVARh, GVARh |
 | _Reactive Power_ | - | - | VAR, mVAR, kVAR, MVAR, GVAR |
 | _Speed_ | m/s, km/h | mph, knot, ft/s | - |
