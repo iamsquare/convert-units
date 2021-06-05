@@ -1,9 +1,10 @@
 on:
   push:
+  pull_request:
 
 name: Push Workflow
 jobs:
-  build:
+  tests:
     name: Test library
     runs-on: ubuntu-latest
     steps:
@@ -18,4 +19,9 @@ jobs:
       - name: Run tests
         run: |
           npm ci
-          npm run test
+          npm run test:coverage
+
+      - name: Upload to coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
