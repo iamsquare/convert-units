@@ -1,14 +1,16 @@
 import { forEach } from 'ramda';
 
 import { describe } from '..';
-import { Nullable, UnitDescription } from '../type';
+import { ImperialAreaEnum, ImperialPowerEnum, MetricMassEnum, MetricPowerEnum } from '../definitions';
+import { UnitDescription } from '../type';
+import { Nullable } from '../type/utils.type';
 
 forEach<{ label: string; value: Nullable<UnitDescription>; expected: UnitDescription }>(
   ({ label, value, expected }) => test(label, () => expect(value).toEqual(expected)),
   [
     {
-      label: 'get kg',
-      value: describe('kg'),
+      label: 'Get kg',
+      value: describe(MetricMassEnum.KILOGRAM),
       expected: {
         unitType: 'kg',
         measure: 'mass',
@@ -18,8 +20,8 @@ forEach<{ label: string; value: Nullable<UnitDescription>; expected: UnitDescrip
       }
     },
     {
-      label: 'get ac',
-      value: describe('ac'),
+      label: 'Get ac',
+      value: describe(ImperialAreaEnum.ACRE),
       expected: {
         unitType: 'ac',
         measure: 'area',
@@ -29,8 +31,8 @@ forEach<{ label: string; value: Nullable<UnitDescription>; expected: UnitDescrip
       }
     },
     {
-      label: 'get PS',
-      value: describe('PS'),
+      label: 'Get PS',
+      value: describe(MetricPowerEnum.HORSE_POWER),
       expected: {
         unitType: 'PS',
         measure: 'power',
@@ -40,8 +42,8 @@ forEach<{ label: string; value: Nullable<UnitDescription>; expected: UnitDescrip
       }
     },
     {
-      label: 'get hp',
-      value: describe('hp'),
+      label: 'Get hp',
+      value: describe(ImperialPowerEnum.HORSE_POWER),
       expected: {
         unitType: 'hp',
         measure: 'power',

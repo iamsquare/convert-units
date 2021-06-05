@@ -12,7 +12,7 @@ npm i @iamsquare/convert-units
 
 ## Usage
 
-`@iamsquare/convert-units` is a functional port with extended type support of <https://www.npmjs.com/package/convert-units>.
+`@iamsquare/convert-units` is a functional port with extended type support of [`convert-units`](https://www.npmjs.com/package/convert-units).
 
 Here's how you convert metric units for volume:
 
@@ -35,6 +35,22 @@ Just be careful not to ask for an impossible conversion!
 ```js
 convert('oz', 'fl-oz', 1);
 // throws exception -- you can't go from mass to volume!
+```
+
+You can ask to select the best unit for you. Optionally you can explicitly exclude orders of magnitude or specify a cutoff number for selecting the best representation.
+
+```js
+convertToBest({}, 'mm', 12000)
+// { value: 12, unitType: 'm' } (the smallest unit with a value above 1)
+ 
+convertToBest({ exclude: ['m'] }, 'mm', 12000)
+// { value: 1200, unitType: 'cm' } (the smallest unit excluding meters)
+ 
+convertToBest({ cutOffNumber: 10 }, 'mm', 900)
+// { value: 900, unitType: 'cm' } (the smallest unit with a value equal to or above 10)
+  
+convertToBest({ cutOffNumber: 10 }, 'mm', 1000)
+// { value: 10, unitType: 'm' } (the smallest unit with a value equal to or above 10)
 ```
 
 You can get a list of the measurement types supported with `measures`
@@ -124,6 +140,10 @@ list('mass');
 ]
 ```
 
+### Documentation
+
+For a more in-depth documentation take a look [`here`](http://iamsquare.it/convert-units)
+
 ## Supported Units
 
 | **_Measure_** | **_Metric_** | **_Imperial_** | **_Other_** |
@@ -146,7 +166,7 @@ list('mass');
 | _Parts-Per_ | - | - | ppm, ppb, ppt, ppq |
 | _Pieces_ | - | - | pcs, bk-doz, cp, doz-doz, doz, gr-gr, gros, half-dozen, long-hundred, ream, scores, sm-gr, trio |
 | _Power_ | W, mW, kW, MW, GW, PS | Btu/s, ft-lb/s, hp | - |
-| _Pressure_ | Pa, hPa, kPa, MPa, bar, torr, mmHg (_@ 0°C_) | psi, ksi, inHg (_@ 32°F_) | - |
+| _Pressure_ | Pa, hPa, kPa, MPa, bar, torr, mmHg (**@ 0°C**) | psi, ksi, inHg (**@ 32°F**) | - |
 | _Reactive Energy_ | - | - | VARh, mVARh, kVARh, MVARh, GVARh |
 | _Reactive Power_ | - | - | VAR, mVAR, kVAR, MVAR, GVAR |
 | _Speed_ | m/s, km/h | mph, knot, ft/s | - |
@@ -156,7 +176,9 @@ list('mass');
 | _Volume_ | mm3, cm3, ml, l, kl, m3, km3 | tsp, Tbs, in3, fl-oz, cup, pnt, qt, gal, ft3, yd3 | - |
 | _Volume Flow Rate_ | mm3/s, cm3/s, ml/s, cl/s, dl/s, l/s, l/min, l/h, kl/s, kl/min, kl/h, m3/s, m3/min, m3/h, km3/s | tsp/s, Tbs/s, in3/s, in3/min, in3/h, fl-oz/s, fl-oz/min, fl-oz/h, cup/s, pnt/s, pnt/min, pnt/h, qt/s, gal/s, gal/min, gal/h, ft3/s, ft3/min, ft3/h, yd3/s, yd3/min, yd3/h | - |
 
-**NOTE**: these units are exported as enums so that you don't have to remember which unit is which. Also, if you're using this library in a plain `javascript` environment these are useful to avoid annoying typos. To see a list of these enums take a look in [`here`](https://github.com/iamsquare/convert-units/tree/master/src/definitions).
+**NOTE**: these units are exported as enums so that you don't have to remember which unit is which. Also, if you're using this library in a plain `javascript` environment these are useful to avoid annoying typos.
+
+You can check the list of these enums in the [`documentation`](https://iamsquare.it/convert-units).
 
 ### Want More?
 
@@ -173,7 +195,7 @@ Note that _Rollup_ and _Webpack_ should handle tree-shaking without extra-effort
 
 ## Roadmap
 
-Check the kanban board [`here`](https://github.com/iamsquare/convert-units/projects/1)
+Check the kanban board [`here`](https://github.com/orgs/iamsquare/projects/1)
 
 ### Development
 

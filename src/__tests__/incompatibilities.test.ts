@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { convert, describe as _describe, possibilities } from '..';
+import { convert, convertToBest, describe as _describe, possibilities } from '..';
 
 test('l to kg throws', () => {
   expect(() => {
@@ -32,28 +32,35 @@ test('kg to nonexistant unit throws', () => {
   }).toThrow();
 });
 
-test('nonexistant unit to kg throws', () => {
+test('Nonexistant unit to kg throws', () => {
   expect(() => {
     //@ts-ignore
     convert('garbage', 'kg', 4);
   }).toThrow();
 });
 
-test('describe throws if unit is not found', () => {
+test('convertToBest throws if unit is not valid', () => {
+  expect(() => {
+    //@ts-ignore
+    convertToBest({}, 'garbage', 4);
+  }).toThrow();
+});
+
+test('describe throws if unit is not valid', () => {
   expect(() => {
     //@ts-ignore
     _describe('not-a-unit');
   }).toThrow();
 });
 
-test('possibilities throws if unit is not found', () => {
+test('possibilities throws if unit is not valid', () => {
   expect(() => {
     //@ts-ignore
     possibilities('not-a-unit');
   }).toThrow();
 });
 
-test('unsupported measure should throw', () => {
+test('list throws if measure is not valid', () => {
   expect(() => {
     //@ts-ignore
     list('not-a-measure');

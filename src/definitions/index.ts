@@ -24,5 +24,5 @@ export { ImperialTemperatureEnum, MetricTemperatureEnum } from './temperature';
 export { TimeEnum } from './time';
 export * from './type';
 export { VoltageEnum } from './voltage';
-export { ImperialVolumeEnum, MetricVolumeEnum } from './volume';
+export { ImperialVolumeEnum, MetricVolumeEnum, SwedishVolumeEnum } from './volume';
 export { ImperialVolumeFlowEnum, MetricVolumeFlowEnum } from './volumeFlowRate';

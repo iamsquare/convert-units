@@ -28,7 +28,8 @@ import { UnitType } from './definitions/type';
 import voltage from './definitions/voltage';
 import volume from './definitions/volume';
 import volumeFlowRate from './definitions/volumeFlowRate';
-import { Anchor, Maybe, Measure, PartialRecord, System, Unit } from './type';
+import { Anchor, Measure, System, Unit } from './type';
+import { Maybe, PartialRecord } from './type/utils.type';
 
 type PartialMeasureDictionary = {
   systems: PartialRecord<System, PartialRecord<UnitType, Unit>>;
@@ -65,4 +66,9 @@ export const measureDictionary: Record<Measure, PartialMeasureDictionary> = {
   volumeFlowRate
 };
 
-export default () => keys(measureDictionary);
+/**
+ * @returns All kind of measurements supported by this library
+ */
+const measures = () => keys(measureDictionary);
+
+export default measures;
