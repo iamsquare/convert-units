@@ -1,24 +1,5 @@
-import { UnitType } from '../definitions/type/units.type';
+import { Name, System, Unit, UnitType } from '../definitions/type';
 import { Measure } from './measure.type';
-import { System } from './system.type';
-import { Maybe, PartialRecord } from './utils.type';
-
-export interface Name {
-  singular: string;
-  plural: string;
-}
-
-export type Unit = {
-  name: Name;
-  anchor: number;
-  anchorShift?: Maybe<number>;
-};
-
-export interface Anchor<U extends UnitType> {
-  unit: U;
-  ratio?: Maybe<PartialRecord<System, number>>;
-  transform?: Maybe<PartialRecord<System, (value: number) => number>>;
-}
 
 export interface BestConversion {
   value: number;
@@ -38,6 +19,5 @@ export interface UnitDescription extends Name {
   system: System;
 }
 
-export { ConvertToBestDto } from './dto.type';
-export { Measure, MeasureEnum } from './measure.type';
-export { System, SystemEnum } from './system.type';
+export * from './dto.type';
+export * from './measure.type';
