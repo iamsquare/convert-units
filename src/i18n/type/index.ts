@@ -36,13 +36,7 @@ export type PluralTranslationKey =
 
 export type TranslationKey = SingularTranslationKey | PluralTranslationKey;
 
-export type TranslationModuleOptions = { translations: Translations; language?: string };
-
-export type TranslationsDictionary = PartialRecord<TranslationKey, string>;
-
-export type Translations = {
-  [L in string]: TranslationsDictionary;
-};
+export type Translations = PartialRecord<TranslationKey, string>;
 
 export * from './acceleration';
 export * from './angle';
