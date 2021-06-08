@@ -5,6 +5,6 @@ export enum EachTranslationEnum {
   PLURAL_DOZEN = 'PLURAL_DOZEN'
 }
 
-export type EachSingularTranslationKeys = 'SINGULAR_EACH' | 'SINGULAR_DOZEN';
+export type EachSingularTranslationKey = 'SINGULAR_EACH' | 'SINGULAR_DOZEN';
 
-export type EachPluralTranslationKeys = 'PLURAL_EACH' | 'PLURAL_DOZEN';
+export type EachPluralTranslationKey = 'PLURAL_EACH' | 'PLURAL_DOZEN';

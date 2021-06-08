@@ -4,11 +4,11 @@ import { AnglePluralTranslationKey, AngleSingularTranslationKey } from './angle'
 import { ApparentPowerPluralTranslationKey, ApparentPowerSingularTranslationKey } from './apparentPower';
 import { AreaPluralTranslationKey, AreaSingularTranslationKey } from './area';
 import { ChargePluralTranslationKey, ChargeSingularTranslationKey } from './charge';
-import { CurrentPluralTranslationKeys, CurrentSingularTranslationKeys } from './current';
+import { CurrentPluralTranslationKey, CurrentSingularTranslationKey } from './current';
 import { DigitalPluralTranslationKey, DigitalSingularTranslationKey } from './digital';
 import { DistancePluralTranslationKey, DistanceSingularTranslationKey } from './distance';
-import { EachPluralTranslationKeys, EachSingularTranslationKeys } from './each';
-import { EnergyPluralTranslationKeys, EnergySingularTranslationKeys } from './energy';
+import { EachPluralTranslationKey, EachSingularTranslationKey } from './each';
+import { EnergyPluralTranslationKey, EnergySingularTranslationKey } from './energy';
 
 export type SingularTranslationKey =
   | AccelerationSingularTranslationKey
@@ -16,11 +16,11 @@ export type SingularTranslationKey =
   | ApparentPowerSingularTranslationKey
   | AreaSingularTranslationKey
   | ChargeSingularTranslationKey
-  | CurrentSingularTranslationKeys
+  | CurrentSingularTranslationKey
   | DigitalSingularTranslationKey
   | DistanceSingularTranslationKey
-  | EachSingularTranslationKeys
-  | EnergySingularTranslationKeys;
+  | EachSingularTranslationKey
+  | EnergySingularTranslationKey;
 
 export type PluralTranslationKey =
   | AccelerationPluralTranslationKey
@@ -28,13 +28,13 @@ export type PluralTranslationKey =
   | ApparentPowerPluralTranslationKey
   | AreaPluralTranslationKey
   | ChargePluralTranslationKey
-  | CurrentPluralTranslationKeys
+  | CurrentPluralTranslationKey
   | DigitalPluralTranslationKey
   | DistancePluralTranslationKey
-  | EachPluralTranslationKeys
-  | EnergyPluralTranslationKeys;
+  | EachPluralTranslationKey
+  | EnergyPluralTranslationKey;
 
-export type TranslationKey = SingularTranslationKey | PluralTranslationKey;
+export type TranslationKey = SingularTranslationKey | PluralTranslationKey | 'MISSING_TRANSLATION';
 
 export type Translations = PartialRecord<TranslationKey, string>;
 
@@ -44,3 +44,7 @@ export * from './apparentPower';
 export * from './area';
 export * from './charge';
 export * from './current';
+export * from './digital';
+export * from './distance';
+export * from './each';
+export * from './energy';

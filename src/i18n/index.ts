@@ -10,12 +10,12 @@ export class TranslationModule {
     this._translations = mergeDeepRight(defaultTranslations, translations);
   }
 
-  toDefault() {
+  resetTranslations() {
     this._translations = defaultTranslations;
   }
 
   getTranslationByKey(key: TranslationKey) {
-    return this._translations[key];
+    return this._translations[key] ?? this._translations['MISSING_TRANSLATION'];
   }
 }
 

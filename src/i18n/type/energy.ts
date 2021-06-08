@@ -15,7 +15,7 @@ export enum EnergyTranslationEnum {
   PLURAL_KILOJOULE = 'PLURAL_KILOJOULE'
 }
 
-export type EnergySingularTranslationKeys =
+export type EnergySingularTranslationKey =
   | 'SINGULAR_WATT_HOUR'
   | 'SINGULAR_MILLIWATT_HOUR'
   | 'SINGULAR_KILOWATT_HOUR'
@@ -24,7 +24,7 @@ export type EnergySingularTranslationKeys =
   | 'SINGULAR_JOULE'
   | 'SINGULAR_KILOJOULE';
 
-export type EnergyPluralTranslationKeys =
+export type EnergyPluralTranslationKey =
   | 'PLURAL_WATT_HOUR'
   | 'PLURAL_MILLIWATT_HOUR'
   | 'PLURAL_KILOWATT_HOUR'

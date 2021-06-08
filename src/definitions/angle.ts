@@ -1,3 +1,5 @@
+import { AngleTranslationEnum, translationModule } from '../i18n';
+
 export enum AngleEnum {
   RADIANS = 'rad',
   DEGREES = 'deg',
@@ -9,36 +11,36 @@ export enum AngleEnum {
 const metric = {
   [AngleEnum.RADIANS]: {
     name: {
-      singular: 'Radian',
-      plural: 'Radians'
+      singular: translationModule.getTranslationByKey(AngleTranslationEnum.SINGULAR_RADIANS),
+      plural: translationModule.getTranslationByKey(AngleTranslationEnum.PLURAL_RADIANS)
     },
     anchor: 180 / Math.PI
   },
   [AngleEnum.DEGREES]: {
     name: {
-      singular: 'Degree',
-      plural: 'Degrees'
+      singular: translationModule.getTranslationByKey(AngleTranslationEnum.SINGULAR_DEGREES),
+      plural: translationModule.getTranslationByKey(AngleTranslationEnum.PLURAL_DEGREES)
     },
     anchor: 1
   },
   [AngleEnum.GRADIANS]: {
     name: {
-      singular: 'Gradian',
-      plural: 'Gradians'
+      singular: translationModule.getTranslationByKey(AngleTranslationEnum.SINGULAR_GRADIANS),
+      plural: translationModule.getTranslationByKey(AngleTranslationEnum.PLURAL_GRADIANS)
     },
     anchor: 9 / 10
   },
   [AngleEnum.ARCMINUTES]: {
     name: {
-      singular: 'Arcminute',
-      plural: 'Arcminutes'
+      singular: translationModule.getTranslationByKey(AngleTranslationEnum.SINGULAR_ARCMINUTES),
+      plural: translationModule.getTranslationByKey(AngleTranslationEnum.PLURAL_ARCMINUTES)
     },
     anchor: 1 / 60
   },
   [AngleEnum.ARCSECONDS]: {
     name: {
-      singular: 'Arcsecond',
-      plural: 'Arcseconds'
+      singular: translationModule.getTranslationByKey(AngleTranslationEnum.SINGULAR_ARCSECONDS),
+      plural: translationModule.getTranslationByKey(AngleTranslationEnum.PLURAL_ARCSECONDS)
     },
     anchor: 1 / 3600
   }

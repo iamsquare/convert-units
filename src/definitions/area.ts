@@ -1,3 +1,5 @@
+import { AreaTranslationEnum, translationModule } from '../i18n';
+
 export enum MetricAreaEnum {
   SQUARE_MILLIMETER = 'mm2',
   SQUARE_CENTIMETER = 'cm2',
@@ -17,36 +19,36 @@ export enum ImperialAreaEnum {
 const metric = {
   [MetricAreaEnum.SQUARE_MILLIMETER]: {
     name: {
-      singular: 'Square Millimeter',
-      plural: 'Square Millimeters'
+      singular: translationModule.getTranslationByKey(AreaTranslationEnum.SINGULAR_SQUARE_MILLIMETER),
+      plural: translationModule.getTranslationByKey(AreaTranslationEnum.PLURAL_SQUARE_MILLIMETER)
     },
     anchor: 1e-6
   },
   [MetricAreaEnum.SQUARE_CENTIMETER]: {
     name: {
-      singular: 'Square Centimeter',
-      plural: 'Square Centimeters'
+      singular: translationModule.getTranslationByKey(AreaTranslationEnum.SINGULAR_SQUARE_CENTIMETER),
+      plural: translationModule.getTranslationByKey(AreaTranslationEnum.PLURAL_SQUARE_CENTIMETER)
     },
     anchor: 1e-4
   },
   [MetricAreaEnum.SQUARE_METER]: {
     name: {
-      singular: 'Square Meter',
-      plural: 'Square Meters'
+      singular: translationModule.getTranslationByKey(AreaTranslationEnum.SINGULAR_SQUARE_METER),
+      plural: translationModule.getTranslationByKey(AreaTranslationEnum.PLURAL_SQUARE_METER)
     },
     anchor: 1
   },
   [MetricAreaEnum.SQUARE_KILOMETER]: {
     name: {
-      singular: 'Square Kilometer',
-      plural: 'Square Kilometers'
+      singular: translationModule.getTranslationByKey(AreaTranslationEnum.SINGULAR_SQUARE_KILOMETER),
+      plural: translationModule.getTranslationByKey(AreaTranslationEnum.PLURAL_SQUARE_KILOMETER)
     },
     anchor: 1e6
   },
   [MetricAreaEnum.HECTARE]: {
     name: {
-      singular: 'Hectare',
-      plural: 'Hectares'
+      singular: translationModule.getTranslationByKey(AreaTranslationEnum.SINGULAR_HECTARE),
+      plural: translationModule.getTranslationByKey(AreaTranslationEnum.PLURAL_HECTARE)
     },
     anchor: 1e4
   }
@@ -55,36 +57,36 @@ const metric = {
 const imperial = {
   [ImperialAreaEnum.SQUARE_INCH]: {
     name: {
-      singular: 'Square Inch',
-      plural: 'Square Inches'
+      singular: translationModule.getTranslationByKey(AreaTranslationEnum.SINGULAR_SQUARE_INCH),
+      plural: translationModule.getTranslationByKey(AreaTranslationEnum.PLURAL_SQUARE_INCH)
     },
     anchor: 1 / 144
   },
   [ImperialAreaEnum.SQUARE_YARD]: {
     name: {
-      singular: 'Square Yard',
-      plural: 'Square Yards'
+      singular: translationModule.getTranslationByKey(AreaTranslationEnum.SINGULAR_SQUARE_YARD),
+      plural: translationModule.getTranslationByKey(AreaTranslationEnum.PLURAL_SQUARE_YARD)
     },
     anchor: 9
   },
   [ImperialAreaEnum.SQUARE_FOOT]: {
     name: {
-      singular: 'Square Foot',
-      plural: 'Square Feet'
+      singular: translationModule.getTranslationByKey(AreaTranslationEnum.SINGULAR_SQUARE_FOOT),
+      plural: translationModule.getTranslationByKey(AreaTranslationEnum.PLURAL_SQUARE_FOOT)
     },
     anchor: 1
   },
   [ImperialAreaEnum.SQUARE_MILE]: {
     name: {
-      singular: 'Square Mile',
-      plural: 'Square Miles'
+      singular: translationModule.getTranslationByKey(AreaTranslationEnum.SINGULAR_SQUARE_MILE),
+      plural: translationModule.getTranslationByKey(AreaTranslationEnum.PLURAL_SQUARE_MILE)
     },
     anchor: 27878400
   },
   [ImperialAreaEnum.ACRE]: {
     name: {
-      singular: 'Acre',
-      plural: 'Acres'
+      singular: translationModule.getTranslationByKey(AreaTranslationEnum.SINGULAR_ACRE),
+      plural: translationModule.getTranslationByKey(AreaTranslationEnum.PLURAL_ACRE)
     },
     anchor: 43560
   }

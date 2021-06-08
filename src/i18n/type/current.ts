@@ -7,6 +7,6 @@ export enum CurrentTranslationEnum {
   PLURAL_KILOAMPERE = 'PLURAL_KILOAMPERE'
 }
 
-export type CurrentSingularTranslationKeys = 'SINGULAR_AMPERE' | 'SINGULAR_MILLIAMPERE' | 'SINGULAR_KILOAMPERE';
+export type CurrentSingularTranslationKey = 'SINGULAR_AMPERE' | 'SINGULAR_MILLIAMPERE' | 'SINGULAR_KILOAMPERE';
 
-export type CurrentPluralTranslationKeys = 'PLURAL_AMPERE' | 'PLURAL_MILLIAMPERE' | 'PLURAL_KILOAMPERE';
+export type CurrentPluralTranslationKey = 'PLURAL_AMPERE' | 'PLURAL_MILLIAMPERE' | 'PLURAL_KILOAMPERE';
