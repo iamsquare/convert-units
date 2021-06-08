@@ -1,4 +1,6 @@
 import { CurrentTranslationEnum, translationModule } from '../i18n';
+import { Unit } from '../type';
+import { CurrentUnit } from './type';
 
 export enum CurrentEnum {
   AMPERE = 'A',
@@ -6,7 +8,7 @@ export enum CurrentEnum {
   KILOAMPERE = 'kA'
 }
 
-const metric = {
+const metric: Record<CurrentUnit, Unit> = {
   [CurrentEnum.AMPERE]: {
     name: {
       singular: translationModule.getTranslationByKey(CurrentTranslationEnum.SINGULAR_AMPERE),

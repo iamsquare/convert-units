@@ -167,7 +167,13 @@ const defaultTranslations = Object.freeze<Translations>({
   PLURAL_MEGAWATT_HOUR: 'Megawatt-hours',
   PLURAL_GIGAWATT_HOUR: 'Gigawatt-hours',
   PLURAL_JOULE: 'Joules',
-  PLURAL_KILOJOULE: 'Kilojoules'
+  PLURAL_KILOJOULE: 'Kilojoules',
+  SINGULAR_NEWTON: 'Newton',
+  SINGULAR_KILONEWTON: 'Kilonewton',
+  SINGULAR_POUND_FORCE: 'Pound-force',
+  PLURAL_NEWTON: 'Newtons',
+  PLURAL_KILONEWTON: 'Kilonewtons',
+  PLURAL_POUND_FORCE: 'Pounds-force'
 });
 
 export default defaultTranslations;

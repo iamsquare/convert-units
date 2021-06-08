@@ -4,8 +4,7 @@ import { isNotNil } from 'ramda-adjunct';
 import { UnitType } from './definitions/type';
 import getUnit from './getUnit';
 import measures, { measureDictionary } from './measures';
-import { Measure, MeasureEnum } from './type';
-import { Maybe, Nullable } from './type/utils.type';
+import { Maybe, Measure, MeasureEnum, Nullable } from './type';
 
 /**
  * Gives a list of compatible units with a given {@link UnitType} or {@link Measure} or all the units supported by the library

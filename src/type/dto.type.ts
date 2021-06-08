@@ -1,4 +1,4 @@
-import { UnitType } from '../definitions';
+import { UnitType } from '../definitions/type';
 
 export type ConvertToBestDto = {
   exclude: UnitType[];

@@ -1,4 +1,6 @@
 import { ApparentPowerTranslationEnum, translationModule } from '../i18n';
+import { Unit } from '../type';
+import { ApparentPowerUnit } from './type';
 
 export enum ApparentPowerEnum {
   VOLT_AMPERE = 'VA',
@@ -8,7 +10,7 @@ export enum ApparentPowerEnum {
   GIGAVOLT_AMPERE = 'GVA'
 }
 
-const metric = {
+const metric: Record<ApparentPowerUnit, Unit> = {
   [ApparentPowerEnum.VOLT_AMPERE]: {
     name: {
       singular: translationModule.getTranslationByKey(ApparentPowerTranslationEnum.SINGULAR_VOLT_AMPERE),

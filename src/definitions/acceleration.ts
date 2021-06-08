@@ -1,5 +1,6 @@
 import { AccelerationTranslationEnum, translationModule } from '../i18n';
-import { AccelerationUnit, Unit } from './type';
+import { Unit } from '../type';
+import { AccelerationUnit } from './type';
 
 export enum AccelerationEnum {
   G0 = 'g0',

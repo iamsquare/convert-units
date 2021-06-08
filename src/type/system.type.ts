@@ -1,4 +1,4 @@
-import { CamelToPascalCase } from '../../type/utils.type';
+import { CamelToPascalCase } from './utils.type';
 
 export const SystemEnum: Readonly<Record<CamelToPascalCase<System>, System>> = {
   METRIC: 'metric',

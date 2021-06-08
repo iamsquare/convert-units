@@ -1,4 +1,6 @@
 import { DistanceTranslationEnum, translationModule } from '../i18n';
+import { Unit } from '../type';
+import { ImperialDistanceUnit, MetricDistanceUnit } from './type';
 
 export enum MetricDistanceEnum {
   NANOMETER = 'nm',
@@ -19,7 +21,7 @@ export enum ImperialDistanceEnum {
   NAUTICAL_MILE = 'nMi'
 }
 
-const metric = {
+const metric: Record<MetricDistanceUnit, Unit> = {
   [MetricDistanceEnum.NANOMETER]: {
     name: {
       singular: translationModule.getTranslationByKey(DistanceTranslationEnum.SINGULAR_NANOMETER),
@@ -64,7 +66,7 @@ const metric = {
   }
 };
 
-const imperial = {
+const imperial: Record<ImperialDistanceUnit, Unit> = {
   [ImperialDistanceEnum.INCH]: {
     name: {
       singular: translationModule.getTranslationByKey(DistanceTranslationEnum.SINGULAR_INCH),

@@ -1,4 +1,6 @@
 import { ChargeTranslationEnum, translationModule } from '../i18n';
+import { Unit } from '../type';
+import { ChargeUnit } from './type';
 
 export enum ChargeEnum {
   COULOMB = 'c',
@@ -8,7 +10,7 @@ export enum ChargeEnum {
   PICOCOULOMB = 'pC'
 }
 
-const metric = {
+const metric: Record<ChargeUnit, Unit> = {
   [ChargeEnum.COULOMB]: {
     name: {
       singular: translationModule.getTranslationByKey(ChargeTranslationEnum.SINGULAR_COULOMB),

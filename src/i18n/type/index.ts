@@ -9,6 +9,7 @@ import { DigitalPluralTranslationKey, DigitalSingularTranslationKey } from './di
 import { DistancePluralTranslationKey, DistanceSingularTranslationKey } from './distance';
 import { EachPluralTranslationKey, EachSingularTranslationKey } from './each';
 import { EnergyPluralTranslationKey, EnergySingularTranslationKey } from './energy';
+import { ForcePluralTranslationKey, ForceSingularTranslationKey } from './force';
 
 export type SingularTranslationKey =
   | AccelerationSingularTranslationKey
@@ -20,7 +21,8 @@ export type SingularTranslationKey =
   | DigitalSingularTranslationKey
   | DistanceSingularTranslationKey
   | EachSingularTranslationKey
-  | EnergySingularTranslationKey;
+  | EnergySingularTranslationKey
+  | ForceSingularTranslationKey;
 
 export type PluralTranslationKey =
   | AccelerationPluralTranslationKey
@@ -32,7 +34,8 @@ export type PluralTranslationKey =
   | DigitalPluralTranslationKey
   | DistancePluralTranslationKey
   | EachPluralTranslationKey
-  | EnergyPluralTranslationKey;
+  | EnergyPluralTranslationKey
+  | ForcePluralTranslationKey;
 
 export type TranslationKey = SingularTranslationKey | PluralTranslationKey | 'MISSING_TRANSLATION';
 
@@ -48,3 +51,4 @@ export * from './digital';
 export * from './distance';
 export * from './each';
 export * from './energy';
+export * from './force';

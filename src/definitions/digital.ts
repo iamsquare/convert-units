@@ -1,4 +1,6 @@
 import { DigitalTranslationEnum, translationModule } from '../i18n';
+import { Unit } from '../type';
+import { BitDigitalUnit, ByteDigitalUnit } from './type';
 
 export enum BitEnum {
   BIT = 'b',
@@ -28,7 +30,7 @@ export enum ByteEnum {
   PEBIBYTE = 'PiB'
 }
 
-const bits = {
+const bits: Record<BitDigitalUnit, Unit> = {
   [BitEnum.BIT]: {
     name: {
       singular: translationModule.getTranslationByKey(DigitalTranslationEnum.SINGULAR_BIT),
@@ -108,7 +110,7 @@ const bits = {
   }
 };
 
-const bytes = {
+const bytes: Record<ByteDigitalUnit, Unit> = {
   [ByteEnum.BYTE]: {
     name: {
       singular: translationModule.getTranslationByKey(DigitalTranslationEnum.SINGULAR_BYTE),

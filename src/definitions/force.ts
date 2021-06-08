@@ -1,36 +1,57 @@
-export enum ForceEnum {
+export enum MetricForceEnum {
   NEWTON = 'N',
-  KILONEWTON = 'kN',
+  KILONEWTON = 'kN'
+}
+
+export enum ImperialForceEnum {
   POUND_FORCE = 'lbf'
 }
 
 const metric = {
-  [ForceEnum.NEWTON]: {
+  [MetricForceEnum.NEWTON]: {
     name: {
       singular: 'Newton',
       plural: 'Newtons'
     },
     anchor: 1
   },
-  [ForceEnum.KILONEWTON]: {
+  [MetricForceEnum.KILONEWTON]: {
     name: {
       singular: 'Kilonewton',
       plural: 'Kilonewtons'
     },
     anchor: 1e3
-  },
-  [ForceEnum.POUND_FORCE]: {
+  }
+};
+
+const imperial = {
+  [ImperialForceEnum.POUND_FORCE]: {
     name: {
       singular: 'Pound-force',
-      plural: 'Pound-forces'
+      plural: 'Pounds-force'
     },
-    anchor: 4.44822
+    anchor: 1
   }
 };
 
 const force = {
   systems: {
-    metric
+    metric,
+    imperial
+  },
+  anchors: {
+    metric: {
+      unit: MetricForceEnum.NEWTON,
+      ratio: {
+        imperial: 1 / 4.44822
+      }
+    },
+    imperial: {
+      unit: ImperialForceEnum.POUND_FORCE,
+      ratio: {
+        metric: 4.44822
+      }
+    }
   }
 };
 

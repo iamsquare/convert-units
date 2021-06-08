@@ -1,4 +1,6 @@
 import { AngleTranslationEnum, translationModule } from '../i18n';
+import { Unit } from '../type';
+import { AngleUnit } from './type';
 
 export enum AngleEnum {
   RADIANS = 'rad',
@@ -8,7 +10,7 @@ export enum AngleEnum {
   ARCSECONDS = 'arcsec'
 }
 
-const metric = {
+const metric: Record<AngleUnit, Unit> = {
   [AngleEnum.RADIANS]: {
     name: {
       singular: translationModule.getTranslationByKey(AngleTranslationEnum.SINGULAR_RADIANS),

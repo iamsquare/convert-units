@@ -1,4 +1,6 @@
 import { AreaTranslationEnum, translationModule } from '../i18n';
+import { Unit } from '../type';
+import { ImperialAreaUnit, MetricAreaUnit } from './type';
 
 export enum MetricAreaEnum {
   SQUARE_MILLIMETER = 'mm2',
@@ -16,7 +18,7 @@ export enum ImperialAreaEnum {
   ACRE = 'ac'
 }
 
-const metric = {
+const metric: Record<MetricAreaUnit, Unit> = {
   [MetricAreaEnum.SQUARE_MILLIMETER]: {
     name: {
       singular: translationModule.getTranslationByKey(AreaTranslationEnum.SINGULAR_SQUARE_MILLIMETER),
@@ -54,7 +56,7 @@ const metric = {
   }
 };
 
-const imperial = {
+const imperial: Record<ImperialAreaUnit, Unit> = {
   [ImperialAreaEnum.SQUARE_INCH]: {
     name: {
       singular: translationModule.getTranslationByKey(AreaTranslationEnum.SINGULAR_SQUARE_INCH),
@@ -92,7 +94,7 @@ const imperial = {
   }
 };
 
-export default {
+const area = {
   systems: {
     metric,
     imperial
@@ -112,3 +114,5 @@ export default {
     }
   }
 };
+
+export default area;
