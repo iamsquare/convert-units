@@ -1,10 +1,10 @@
 import { __, add, curry, divide, isNil, multiply, pipe, subtract, when } from 'ramda';
-import { isNotNil } from 'ramda-adjunct';
+import { isNotNil, isValidNumber } from 'ramda-adjunct';
 
 import { UnitType } from './definitions/type';
 import getUnit from './getUnit';
 import { measureDictionary } from './measures';
-import { isDefinedFunction, isDefinedNumber } from './utils/ramdaExtension';
+import { isDefinedFunction } from './utils/ramdaExtension';
 
 /**
  * Converts a `value` from a compatible unit to another.
@@ -57,7 +57,7 @@ const convert = curry((from: UnitType, to: UnitType, value: number): number | ne
           return transform[toConversion.system](v);
         }
 
-        if (isNotNil(ratio) && isDefinedNumber(ratio[toConversion.system])) {
+        if (isNotNil(ratio) && isValidNumber(ratio[toConversion.system])) {
           return v * ratio[toConversion.system];
         }
 
