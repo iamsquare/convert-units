@@ -1,3 +1,4 @@
+import { FrequencyTranslationEnum, translationModule } from '../i18n';
 import { Unit, UnitDefinition } from '../type';
 import { FrequencyUnit } from './type';
 
@@ -16,64 +17,64 @@ export enum FrequencyEnum {
 const metric: Record<FrequencyUnit, Unit> = {
   [FrequencyEnum.HERTZ]: {
     name: {
-      singular: 'Hertz',
-      plural: 'Hertz'
+      singular: translationModule.getTranslationByKey(FrequencyTranslationEnum.SINGULAR_HERTZ),
+      plural: translationModule.getTranslationByKey(FrequencyTranslationEnum.PLURAL_HERTZ)
     },
     anchor: 1
   },
   [FrequencyEnum.MILLIHERTZ]: {
     name: {
-      singular: 'Millihertz',
-      plural: 'Millihertz'
+      singular: translationModule.getTranslationByKey(FrequencyTranslationEnum.SINGULAR_MILLIHERTZ),
+      plural: translationModule.getTranslationByKey(FrequencyTranslationEnum.PLURAL_MILLIHERTZ)
     },
     anchor: 1e-3
   },
   [FrequencyEnum.KILOHERTZ]: {
     name: {
-      singular: 'Kilohertz',
-      plural: 'Kilohertz'
+      singular: translationModule.getTranslationByKey(FrequencyTranslationEnum.SINGULAR_KILOHERTZ),
+      plural: translationModule.getTranslationByKey(FrequencyTranslationEnum.PLURAL_KILOHERTZ)
     },
     anchor: 1e3
   },
   [FrequencyEnum.MEGAHERTZ]: {
     name: {
-      singular: 'Megahertz',
-      plural: 'Megahertz'
+      singular: translationModule.getTranslationByKey(FrequencyTranslationEnum.SINGULAR_MEGAHERTZ),
+      plural: translationModule.getTranslationByKey(FrequencyTranslationEnum.PLURAL_MEGAHERTZ)
     },
     anchor: 1e6
   },
   [FrequencyEnum.GIGAHERTZ]: {
     name: {
-      singular: 'Gigahertz',
-      plural: 'Gigahertz'
+      singular: translationModule.getTranslationByKey(FrequencyTranslationEnum.SINGULAR_GIGAHERTZ),
+      plural: translationModule.getTranslationByKey(FrequencyTranslationEnum.PLURAL_GIGAHERTZ)
     },
     anchor: 1e9
   },
   [FrequencyEnum.TERAHERTZ]: {
     name: {
-      singular: 'Terahertz',
-      plural: 'Terahertz'
+      singular: translationModule.getTranslationByKey(FrequencyTranslationEnum.SINGULAR_TERAHERTZ),
+      plural: translationModule.getTranslationByKey(FrequencyTranslationEnum.PLURAL_TERAHERTZ)
     },
     anchor: 1e12
   },
   [FrequencyEnum.RPM]: {
     name: {
-      singular: 'Rotation per minute',
-      plural: 'Rotations per minute'
+      singular: translationModule.getTranslationByKey(FrequencyTranslationEnum.SINGULAR_RPM),
+      plural: translationModule.getTranslationByKey(FrequencyTranslationEnum.PLURAL_RPM)
     },
     anchor: 1 / 60
   },
   [FrequencyEnum.DEGREE_PER_SECOND]: {
     name: {
-      singular: 'Degree per second',
-      plural: 'Degrees per second'
+      singular: translationModule.getTranslationByKey(FrequencyTranslationEnum.SINGULAR_DEGREE_PER_SECOND),
+      plural: translationModule.getTranslationByKey(FrequencyTranslationEnum.PLURAL_DEGREE_PER_SECOND)
     },
     anchor: 1 / 360
   },
   [FrequencyEnum.RADIAN_PER_SECOND]: {
     name: {
-      singular: 'Radian per second',
-      plural: 'Radians per second'
+      singular: translationModule.getTranslationByKey(FrequencyTranslationEnum.SINGULAR_RADIAN_PER_SECOND),
+      plural: translationModule.getTranslationByKey(FrequencyTranslationEnum.PLURAL_RADIAN_PER_SECOND)
     },
     anchor: 1 / (Math.PI * 2)
   }

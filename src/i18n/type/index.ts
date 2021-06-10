@@ -10,6 +10,10 @@ import { DistancePluralTranslationKey, DistanceSingularTranslationKey } from './
 import { EachPluralTranslationKey, EachSingularTranslationKey } from './each';
 import { EnergyPluralTranslationKey, EnergySingularTranslationKey } from './energy';
 import { ForcePluralTranslationKey, ForceSingularTranslationKey } from './force';
+import { FrequencyPluralTranslationKey, FrequencySingularTranslationKey } from './frequency';
+import { IlluminancePluralTranslationKey, IlluminanceSingularTranslationKey } from './illuminance';
+import { MassPluralTranslationKey, MassSingularTranslationKey } from './mass';
+import { PacePluralTranslationKey, PaceSingularTranslationKey } from './pace';
 
 export type SingularTranslationKey =
   | AccelerationSingularTranslationKey
@@ -22,7 +26,11 @@ export type SingularTranslationKey =
   | DistanceSingularTranslationKey
   | EachSingularTranslationKey
   | EnergySingularTranslationKey
-  | ForceSingularTranslationKey;
+  | ForceSingularTranslationKey
+  | FrequencySingularTranslationKey
+  | IlluminanceSingularTranslationKey
+  | MassSingularTranslationKey
+  | PaceSingularTranslationKey;
 
 export type PluralTranslationKey =
   | AccelerationPluralTranslationKey
@@ -35,7 +43,11 @@ export type PluralTranslationKey =
   | DistancePluralTranslationKey
   | EachPluralTranslationKey
   | EnergyPluralTranslationKey
-  | ForcePluralTranslationKey;
+  | ForcePluralTranslationKey
+  | FrequencyPluralTranslationKey
+  | IlluminancePluralTranslationKey
+  | MassPluralTranslationKey
+  | PacePluralTranslationKey;
 
 export type TranslationKey = SingularTranslationKey | PluralTranslationKey | 'MISSING_TRANSLATION';
 
@@ -52,3 +64,7 @@ export * from './distance';
 export * from './each';
 export * from './energy';
 export * from './force';
+export * from './frequency';
+export * from './illuminance';
+export * from './mass';
+export * from './pace';
