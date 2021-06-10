@@ -1,3 +1,6 @@
+import { Unit, UnitDefinition } from '../type';
+import { IlluminanceUnit, ImperialIlluminanceUnit, MetricIlluminanceUnit } from './type';
+
 export enum MetricIlluminanceEnum {
   LUX = 'lx'
 }
@@ -6,7 +9,7 @@ export enum ImperialIlluminanceEnum {
   FOOT_CANDLE = 'ft-cd'
 }
 
-const metric = {
+const metric: Record<MetricIlluminanceUnit, Unit> = {
   [MetricIlluminanceEnum.LUX]: {
     name: {
       singular: 'Lux',
@@ -16,7 +19,7 @@ const metric = {
   }
 };
 
-const imperial = {
+const imperial: Record<ImperialIlluminanceUnit, Unit> = {
   [ImperialIlluminanceEnum.FOOT_CANDLE]: {
     name: {
       singular: 'Foot-candle',
@@ -26,7 +29,7 @@ const imperial = {
   }
 };
 
-const illuminance = {
+const illuminance: UnitDefinition<'metric' | 'imperial', IlluminanceUnit> = {
   systems: {
     metric,
     imperial

@@ -1,3 +1,6 @@
+import { Unit, UnitDefinition } from '../type';
+import { ImperialVolumeFlowRateUnit, MetricVolumeFlowRateUnit, VolumeFlowRateUnit } from './type';
+
 export enum MetricVolumeFlowEnum {
   CUBIC_MILLIMETER_PER_SECOND = 'mm3/s',
   CUBIC_CENTIMETER_PER_SECOND = 'cm3/s',
@@ -41,7 +44,7 @@ export enum ImperialVolumeFlowEnum {
   CUBIX_YARD_PER_HOUR = 'yd3/h'
 }
 
-const metric = {
+const metric: Record<MetricVolumeFlowRateUnit, Unit> = {
   [MetricVolumeFlowEnum.CUBIC_MILLIMETER_PER_SECOND]: {
     name: {
       singular: 'Cubic Millimeter per second',
@@ -149,7 +152,7 @@ const metric = {
   }
 };
 
-const imperial = {
+const imperial: Record<ImperialVolumeFlowRateUnit, Unit> = {
   [ImperialVolumeFlowEnum.TEASPOON_PER_SECOND]: {
     name: {
       singular: 'Teaspoon per second',
@@ -306,7 +309,7 @@ const imperial = {
   }
 };
 
-const volumeFlowRate = {
+const volumeFlowRate: UnitDefinition<'metric' | 'imperial', VolumeFlowRateUnit> = {
   systems: {
     metric,
     imperial

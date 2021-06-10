@@ -1,3 +1,6 @@
+import { Unit, UnitDefinition } from '../type';
+import { PartsPerUnit } from './type';
+
 export enum PartsPerEnum {
   PART_PER_MILLION = 'ppm',
   PART_PER_BILLION = 'ppb',
@@ -5,7 +8,7 @@ export enum PartsPerEnum {
   PART_PER_QUADRILLION = 'ppq'
 }
 
-const other = {
+const other: Record<PartsPerUnit, Unit> = {
   [PartsPerEnum.PART_PER_MILLION]: {
     name: {
       singular: 'Part-per Million',
@@ -36,7 +39,7 @@ const other = {
   }
 };
 
-const partsPer = {
+const partsPer: UnitDefinition<'other', PartsPerUnit> = {
   systems: {
     other
   }

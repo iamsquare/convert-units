@@ -1,3 +1,6 @@
+import { Unit, UnitDefinition } from '../type';
+import { ImperialPaceUnit, MetricPaceUnit, PaceUnit } from './type';
+
 export enum MetricPaceEnum {
   MINUTE_PER_KILOMETRE = 'min/km',
   SECOND_PER_METRE = 's/m'
@@ -8,7 +11,7 @@ export enum ImperialPaceEnum {
   SECOND_PER_FOOT = 's/ft'
 }
 
-const metric = {
+const metric: Record<MetricPaceUnit, Unit> = {
   [MetricPaceEnum.MINUTE_PER_KILOMETRE]: {
     name: {
       singular: 'Minute per kilometre',
@@ -25,7 +28,7 @@ const metric = {
   }
 };
 
-const imperial = {
+const imperial: Record<ImperialPaceUnit, Unit> = {
   [ImperialPaceEnum.MINUTE_PER_MILE]: {
     name: {
       singular: 'Minute per mile',
@@ -42,7 +45,7 @@ const imperial = {
   }
 };
 
-const pace = {
+const pace: UnitDefinition<'metric' | 'imperial', PaceUnit> = {
   systems: {
     metric,
     imperial

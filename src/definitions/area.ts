@@ -1,6 +1,6 @@
 import { AreaTranslationEnum, translationModule } from '../i18n';
-import { Unit } from '../type';
-import { ImperialAreaUnit, MetricAreaUnit } from './type';
+import { Unit, UnitDefinition } from '../type';
+import { AreaUnit, ImperialAreaUnit, MetricAreaUnit } from './type';
 
 export enum MetricAreaEnum {
   SQUARE_MILLIMETER = 'mm2',
@@ -94,7 +94,7 @@ const imperial: Record<ImperialAreaUnit, Unit> = {
   }
 };
 
-const area = {
+const area: UnitDefinition<'metric' | 'imperial', AreaUnit> = {
   systems: {
     metric,
     imperial

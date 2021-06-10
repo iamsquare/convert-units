@@ -1,3 +1,6 @@
+import { Unit, UnitDefinition } from '../type';
+import { ForceUnit, ImperialForceUnit, MetricForceUnit } from './type';
+
 export enum MetricForceEnum {
   NEWTON = 'N',
   KILONEWTON = 'kN'
@@ -7,7 +10,7 @@ export enum ImperialForceEnum {
   POUND_FORCE = 'lbf'
 }
 
-const metric = {
+const metric: Record<MetricForceUnit, Unit> = {
   [MetricForceEnum.NEWTON]: {
     name: {
       singular: 'Newton',
@@ -24,7 +27,7 @@ const metric = {
   }
 };
 
-const imperial = {
+const imperial: Record<ImperialForceUnit, Unit> = {
   [ImperialForceEnum.POUND_FORCE]: {
     name: {
       singular: 'Pound-force',
@@ -34,7 +37,7 @@ const imperial = {
   }
 };
 
-const force = {
+const force: UnitDefinition<'metric' | 'imperial', ForceUnit> = {
   systems: {
     metric,
     imperial

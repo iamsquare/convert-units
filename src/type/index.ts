@@ -1,25 +1,25 @@
 import { UnitType } from '../definitions/type';
 import { Measure } from './measure.type';
 import { System } from './system.type';
-import { Maybe, PartialRecord } from './utils.type';
+import { Maybe, PartialRecord, RequireAtLeastOne } from './utils.type';
 
-export interface BestConversion {
+export type BestConversion = {
   value: number;
   unitType: UnitType;
-}
+};
 
-export interface Conversion {
+export type Conversion = {
   measure: Measure;
   system: System;
   unitType: UnitType;
   unit: Unit;
-}
+};
 
-export interface UnitDescription extends Name {
+export type UnitDescription = {
   unitType: UnitType;
   measure: Measure;
   system: System;
-}
+} & Name;
 
 export type Name = {
   singular: string;
@@ -32,11 +32,23 @@ export type Unit = {
   anchorShift?: Maybe<number>;
 };
 
-export interface Anchor<S extends System, U extends UnitType> {
-  unit: U;
-  ratio?: Maybe<PartialRecord<S, number>>;
-  transform?: Maybe<PartialRecord<S, (value: number) => number>>;
-}
+export type Anchor<S extends System, U extends UnitType> = RequireAtLeastOne<
+  {
+    unit: U;
+    ratio?: Maybe<PartialRecord<S, number>>;
+    transform?: Maybe<PartialRecord<S, (value: number) => number>>;
+  },
+  'ratio' | 'transform'
+>;
+
+export type ExtractedSystem<E extends System> = Extract<System, E>;
+
+export type AnchorPartialRecord<S extends System, U extends UnitType> = { [P in S]?: Anchor<Exclude<S, P>, U> };
+
+export type UnitDefinition<S extends System, U extends UnitType> = {
+  systems: Record<ExtractedSystem<S>, PartialRecord<U, Unit>>;
+  anchors?: Maybe<AnchorPartialRecord<ExtractedSystem<S>, U>>;
+};
 
 export * from './dto.type';
 export * from './measure.type';

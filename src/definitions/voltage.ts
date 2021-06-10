@@ -1,10 +1,13 @@
+import { Unit, UnitDefinition } from '../type';
+import { VoltageUnit } from './type';
+
 export enum VoltageEnum {
   VOLT = 'V',
   MILLIVOLT = 'mV',
   KILOVOLT = 'kV'
 }
 
-const metric = {
+const metric: Record<VoltageUnit, Unit> = {
   [VoltageEnum.VOLT]: {
     name: {
       singular: 'Volt',
@@ -28,7 +31,7 @@ const metric = {
   }
 };
 
-const voltage = {
+const voltage: UnitDefinition<'metric', VoltageUnit> = {
   systems: {
     metric
   }

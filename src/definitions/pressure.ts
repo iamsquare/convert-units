@@ -1,3 +1,6 @@
+import { Unit, UnitDefinition } from '../type';
+import { ImperialPressureUnit, MetricPressureUnit, PressureUnit } from './type';
+
 export enum MetricPressureEnum {
   PASCAL = 'Pa',
   KILOPASCAL = 'kPa',
@@ -14,7 +17,7 @@ export enum ImperialPressureEnum {
   INCH_OF_MERCURY = 'inHg'
 }
 
-const metric = {
+const metric: Record<MetricPressureUnit, Unit> = {
   [MetricPressureEnum.PASCAL]: {
     name: {
       singular: 'Pascal',
@@ -66,7 +69,7 @@ const metric = {
   }
 };
 
-const imperial = {
+const imperial: Record<ImperialPressureUnit, Unit> = {
   [ImperialPressureEnum.POUND_PER_SQUARE_INCH]: {
     name: {
       singular: 'Pound per square inch',
@@ -90,7 +93,7 @@ const imperial = {
   }
 };
 
-const pressure = {
+const pressure: UnitDefinition<'metric' | 'imperial', PressureUnit> = {
   systems: {
     metric,
     imperial

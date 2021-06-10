@@ -1,3 +1,6 @@
+import { Unit, UnitDefinition } from '../type';
+import { ImperialTemperatureUnit, MetricTemperatureUnit, TemperatureUnit } from './type';
+
 export enum MetricTemperatureEnum {
   CELSIUS = 'C',
   KELVIN = 'K'
@@ -8,7 +11,7 @@ export enum ImperialTemperatureEnum {
   RANKINE = 'R'
 }
 
-const metric = {
+const metric: Record<MetricTemperatureUnit, Unit> = {
   [MetricTemperatureEnum.CELSIUS]: {
     name: {
       singular: 'Degree Celsius',
@@ -27,7 +30,7 @@ const metric = {
   }
 };
 
-const imperial = {
+const imperial: Record<ImperialTemperatureUnit, Unit> = {
   [ImperialTemperatureEnum.FAHRENHEIT]: {
     name: {
       singular: 'Degree Fahrenheit',
@@ -45,7 +48,7 @@ const imperial = {
   }
 };
 
-const temperature = {
+const temperature: UnitDefinition<'metric' | 'imperial', TemperatureUnit> = {
   systems: {
     metric,
     imperial

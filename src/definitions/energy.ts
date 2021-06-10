@@ -1,4 +1,6 @@
 import { EnergyTranslationEnum, translationModule } from '../i18n';
+import { Unit, UnitDefinition } from '../type';
+import { EnergyUnit } from './type';
 
 export enum EnergyEnum {
   WATT_HOUR = 'Wh',
@@ -10,7 +12,7 @@ export enum EnergyEnum {
   KILOJOULE = 'kJ'
 }
 
-const metric = {
+const metric: Record<EnergyUnit, Unit> = {
   [EnergyEnum.WATT_HOUR]: {
     name: {
       singular: translationModule.getTranslationByKey(EnergyTranslationEnum.SINGULAR_WATT_HOUR),
@@ -62,7 +64,7 @@ const metric = {
   }
 };
 
-const energy = {
+const energy: UnitDefinition<'metric', EnergyUnit> = {
   systems: {
     metric
   }

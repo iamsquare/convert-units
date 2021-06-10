@@ -1,3 +1,6 @@
+import { Unit, UnitDefinition } from '../type';
+import { FrequencyUnit } from './type';
+
 export enum FrequencyEnum {
   HERTZ = 'Hz',
   MILLIHERTZ = 'mHz',
@@ -10,7 +13,7 @@ export enum FrequencyEnum {
   RADIAN_PER_SECOND = 'rad/s'
 }
 
-const metric = {
+const metric: Record<FrequencyUnit, Unit> = {
   [FrequencyEnum.HERTZ]: {
     name: {
       singular: 'Hertz',
@@ -76,7 +79,7 @@ const metric = {
   }
 };
 
-const frequency = {
+const frequency: UnitDefinition<'metric', FrequencyUnit> = {
   systems: {
     metric
   }

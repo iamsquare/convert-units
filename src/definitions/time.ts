@@ -1,3 +1,6 @@
+import { Unit, UnitDefinition } from '../type';
+import { TimeUnit } from './type';
+
 export enum TimeEnum {
   NANOSECOND = 'ns',
   MICROSECOND = 'mu',
@@ -11,7 +14,7 @@ export enum TimeEnum {
   YEAR = 'year'
 }
 
-const metric = {
+const metric: Record<TimeUnit, Unit> = {
   [TimeEnum.NANOSECOND]: {
     name: {
       singular: 'Nanosecond',
@@ -84,7 +87,7 @@ const metric = {
   }
 };
 
-const time = {
+const time: UnitDefinition<'metric', TimeUnit> = {
   systems: {
     metric
   }

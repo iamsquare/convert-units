@@ -1,5 +1,5 @@
 import { CurrentTranslationEnum, translationModule } from '../i18n';
-import { Unit } from '../type';
+import { Unit, UnitDefinition } from '../type';
 import { CurrentUnit } from './type';
 
 export enum CurrentEnum {
@@ -32,7 +32,7 @@ const metric: Record<CurrentUnit, Unit> = {
   }
 };
 
-const current = {
+const current: UnitDefinition<'metric', CurrentUnit> = {
   systems: {
     metric
   }

@@ -1,3 +1,6 @@
+import { Unit, UnitDefinition } from '../type';
+import { ImperialMassUnit, MassUnit, MetricMassUnit } from './type';
+
 export enum MetricMassEnum {
   GRAM = 'g',
   MICROGRAM = 'mcg',
@@ -12,7 +15,7 @@ export enum ImperialMassEnum {
   TON = 't'
 }
 
-const metric = {
+const metric: Record<MetricMassUnit, Unit> = {
   [MetricMassEnum.MICROGRAM]: {
     name: {
       singular: 'Microgram',
@@ -50,7 +53,7 @@ const metric = {
   }
 };
 
-const imperial = {
+const imperial: Record<ImperialMassUnit, Unit> = {
   [ImperialMassEnum.OUNCE]: {
     name: {
       singular: 'Ounce',
@@ -74,7 +77,7 @@ const imperial = {
   }
 };
 
-const mass = {
+const mass: UnitDefinition<'metric' | 'imperial', MassUnit> = {
   systems: {
     metric,
     imperial

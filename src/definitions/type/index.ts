@@ -25,11 +25,19 @@ export type ImperialDistanceUnit = 'in' | 'yd' | 'ft-us' | 'ft' | 'mi' | 'nMi' |
 export type DistanceUnit = MetricDistanceUnit | ImperialDistanceUnit;
 export type EachUnit = 'ea' | 'dz';
 export type EnergyUnit = 'Wh' | 'mWh' | 'kWh' | 'MWh' | 'GWh' | 'J' | 'kJ';
-export type ForceUnit = 'N' | 'kN' | 'lbf';
+export type MetricForceUnit = 'N' | 'kN';
+export type ImperialForceUnit = 'lbf';
+export type ForceUnit = MetricForceUnit | ImperialForceUnit;
 export type FrequencyUnit = 'Hz' | 'mHz' | 'kHz' | 'MHz' | 'GHz' | 'THz' | 'rpm' | 'deg/s' | 'rad/s';
-export type IlluminanceUnit = 'lx' | 'ft-cd';
-export type MassUnit = 'mcg' | 'mg' | 'g' | 'kg' | 'oz' | 'lb' | 'mt' | 't';
-export type PaceUnit = 's/m' | 'min/km' | 's/ft' | 'min/mi';
+export type MetricIlluminanceUnit = 'lx';
+export type ImperialIlluminanceUnit = 'ft-cd';
+export type IlluminanceUnit = MetricIlluminanceUnit | ImperialIlluminanceUnit;
+export type MetricMassUnit = 'mcg' | 'mg' | 'g' | 'kg' | 'mt';
+export type ImperialMassUnit = 'oz' | 'lb' | 't';
+export type MassUnit = MetricMassUnit | ImperialMassUnit;
+export type MetricPaceUnit = 's/m' | 'min/km';
+export type ImperialPaceUnit = 's/ft' | 'min/mi';
+export type PaceUnit = MetricPaceUnit | ImperialPaceUnit;
 export type PartsPerUnit = 'ppm' | 'ppb' | 'ppt' | 'ppq';
 export type PiecesUnit =
   | 'pcs'
@@ -45,41 +53,27 @@ export type PiecesUnit =
   | 'scores'
   | 'sm-gr'
   | 'trio';
-export type PowerUnit = 'W' | 'mW' | 'kW' | 'MW' | 'GW' | 'PS' | 'Btu/s' | 'ft-lb/s' | 'hp';
-export type PressureUnit = 'Pa' | 'hPa' | 'kPa' | 'MPa' | 'bar' | 'torr' | 'mmHg' | 'psi' | 'ksi' | 'inHg';
+export type MetricPowerUnit = 'W' | 'mW' | 'kW' | 'MW' | 'GW' | 'PS';
+export type ImperialPowerUnit = 'Btu/s' | 'ft-lb/s' | 'hp';
+export type PowerUnit = MetricPowerUnit | ImperialPowerUnit;
+export type MetricPressureUnit = 'Pa' | 'hPa' | 'kPa' | 'MPa' | 'bar' | 'torr' | 'mmHg';
+export type ImperialPressureUnit = 'psi' | 'ksi' | 'inHg';
+export type PressureUnit = MetricPressureUnit | ImperialPressureUnit;
 export type ReactiveEnergyUnit = 'VARh' | 'mVARh' | 'kVARh' | 'MVARh' | 'GVARh';
 export type ReactivePowerUnit = 'VAR' | 'mVAR' | 'kVAR' | 'MVAR' | 'GVAR';
-export type SpeedUnit = 'm/s' | 'km/h' | 'm/h' | 'knot' | 'ft/s' | 'mph';
-export type TemperatureUnit = 'C' | 'F' | 'K' | 'R';
+export type MetricSpeedUnit = 'm/s' | 'km/h' | 'm/h';
+export type ImperialSpeedUnit = 'knot' | 'ft/s' | 'mph';
+export type SpeedUnit = MetricSpeedUnit | ImperialSpeedUnit;
+export type MetricTemperatureUnit = 'C' | 'K';
+export type ImperialTemperatureUnit = 'F' | 'R';
+export type TemperatureUnit = MetricTemperatureUnit | ImperialTemperatureUnit;
 export type TimeUnit = 'ns' | 'mu' | 'ms' | 's' | 'min' | 'h' | 'd' | 'week' | 'month' | 'year';
 export type VoltageUnit = 'V' | 'mV' | 'kV';
-export type VolumeUnit =
-  | 'mm3'
-  | 'cm3'
-  | 'ml'
-  | 'cl'
-  | 'dl'
-  | 'l'
-  | 'kl'
-  | 'm3'
-  | 'km3'
-  | 'krm'
-  | 'tsk'
-  | 'msk'
-  | 'kkp'
-  | 'glas'
-  | 'kanna'
-  | 'tsp'
-  | 'Tbs'
-  | 'in3'
-  | 'fl-oz'
-  | 'cup'
-  | 'pnt'
-  | 'qt'
-  | 'gal'
-  | 'ft3'
-  | 'yd3';
-export type VolumeFlowRateUnit =
+export type MetricVolumeUnit = 'mm3' | 'cm3' | 'ml' | 'cl' | 'dl' | 'l' | 'kl' | 'm3' | 'km3';
+export type SwedishVolumeUnit = 'krm' | 'tsk' | 'msk' | 'kkp' | 'glas' | 'kanna';
+export type ImperialVolumeUnit = 'tsp' | 'Tbs' | 'in3' | 'fl-oz' | 'cup' | 'pnt' | 'qt' | 'gal' | 'ft3' | 'yd3';
+export type VolumeUnit = MetricVolumeUnit | ImperialVolumeUnit | SwedishVolumeUnit;
+export type MetricVolumeFlowRateUnit =
   | 'mm3/s'
   | 'cm3/s'
   | 'ml/s'
@@ -94,7 +88,8 @@ export type VolumeFlowRateUnit =
   | 'm3/s'
   | 'm3/min'
   | 'm3/h'
-  | 'km3/s'
+  | 'km3/s';
+export type ImperialVolumeFlowRateUnit =
   | 'tsp/s'
   | 'Tbs/s'
   | 'in3/s'
@@ -117,6 +112,7 @@ export type VolumeFlowRateUnit =
   | 'yd3/s'
   | 'yd3/min'
   | 'yd3/h';
+export type VolumeFlowRateUnit = MetricVolumeFlowRateUnit | ImperialVolumeFlowRateUnit;
 
 export type UnitType =
   | AccelerationUnit

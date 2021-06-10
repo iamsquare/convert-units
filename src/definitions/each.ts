@@ -1,11 +1,13 @@
 import { EachTranslationEnum, translationModule } from '../i18n';
+import { Unit, UnitDefinition } from '../type';
+import { EachUnit } from './type';
 
 export enum EachEnum {
   EACH = 'ea',
   DOZEN = 'dz'
 }
 
-const other = {
+const other: Record<EachUnit, Unit> = {
   [EachEnum.EACH]: {
     name: {
       singular: translationModule.getTranslationByKey(EachTranslationEnum.SINGULAR_EACH),
@@ -22,7 +24,7 @@ const other = {
   }
 };
 
-const each = {
+const each: UnitDefinition<'other', EachUnit> = {
   systems: {
     other
   }

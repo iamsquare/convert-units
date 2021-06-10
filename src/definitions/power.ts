@@ -1,3 +1,6 @@
+import { Unit, UnitDefinition } from '../type';
+import { ImperialPowerUnit, MetricPowerUnit, PowerUnit } from './type';
+
 export enum MetricPowerEnum {
   WATT = 'W',
   MILLIWATT = 'mW',
@@ -13,7 +16,7 @@ export enum ImperialPowerEnum {
   HORSE_POWER = 'hp'
 }
 
-const metric = {
+const metric: Record<MetricPowerUnit, Unit> = {
   [MetricPowerEnum.WATT]: {
     name: {
       singular: 'Watt',
@@ -58,7 +61,7 @@ const metric = {
   }
 };
 
-const imperial = {
+const imperial: Record<ImperialPowerUnit, Unit> = {
   [ImperialPowerEnum.BTU_PER_SECOND]: {
     name: {
       singular: 'British thermal unit per second',
@@ -82,7 +85,7 @@ const imperial = {
   }
 };
 
-const power = {
+const power: UnitDefinition<'metric' | 'imperial', PowerUnit> = {
   systems: {
     metric,
     imperial

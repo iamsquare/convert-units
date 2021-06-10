@@ -1,5 +1,6 @@
 import { keys } from 'ramda';
 
+import { UnitType } from './definitions';
 import acceleration from './definitions/acceleration';
 import angle from './definitions/angle';
 import apparentPower from './definitions/apparentPower';
@@ -24,7 +25,6 @@ import reactivePower from './definitions/reactivePower';
 import speed from './definitions/speed';
 import temperature from './definitions/temperature';
 import time from './definitions/time';
-import { UnitType } from './definitions/type';
 import voltage from './definitions/voltage';
 import volume from './definitions/volume';
 import volumeFlowRate from './definitions/volumeFlowRate';

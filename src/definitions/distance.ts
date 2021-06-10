@@ -1,6 +1,6 @@
 import { DistanceTranslationEnum, translationModule } from '../i18n';
-import { Unit } from '../type';
-import { ImperialDistanceUnit, MetricDistanceUnit } from './type';
+import { Unit, UnitDefinition } from '../type';
+import { DistanceUnit, ImperialDistanceUnit, MetricDistanceUnit } from './type';
 
 export enum MetricDistanceEnum {
   NANOMETER = 'nm',
@@ -118,7 +118,7 @@ const imperial: Record<ImperialDistanceUnit, Unit> = {
   }
 };
 
-const distance = {
+const distance: UnitDefinition<'metric' | 'imperial', DistanceUnit> = {
   systems: {
     metric,
     imperial

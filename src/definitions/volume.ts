@@ -1,3 +1,6 @@
+import { Unit, UnitDefinition } from '../type';
+import { ImperialVolumeUnit, MetricVolumeUnit, SwedishVolumeUnit, VolumeUnit } from './type';
+
 export enum MetricVolumeEnum {
   CUBIC_MILLIMETER = 'mm3',
   CUBIC_CENTIMETER = 'cm3',
@@ -32,7 +35,7 @@ export enum SwedishVolumeEnum {
   KANNA = 'kanna'
 }
 
-const metric = {
+const metric: Record<MetricVolumeUnit, Unit> = {
   [MetricVolumeEnum.CUBIC_MILLIMETER]: {
     name: {
       singular: 'Cubic Millimeter',
@@ -98,7 +101,7 @@ const metric = {
   }
 };
 
-const imperial = {
+const imperial: Record<ImperialVolumeUnit, Unit> = {
   [ImperialVolumeEnum.TEASPOON]: {
     name: {
       singular: 'Teaspoon',
@@ -171,7 +174,7 @@ const imperial = {
   }
 };
 
-const swedish = {
+const swedish: Record<SwedishVolumeUnit, Unit> = {
   [SwedishVolumeEnum.KRYDDMATTET]: {
     name: {
       singular: 'Kryddmåttet',
@@ -216,7 +219,7 @@ const swedish = {
   }
 };
 
-const volume = {
+const volume: UnitDefinition<'metric' | 'imperial' | 'swedish', VolumeUnit> = {
   systems: {
     metric,
     imperial,

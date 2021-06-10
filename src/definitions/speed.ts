@@ -1,3 +1,6 @@
+import { Unit, UnitDefinition } from '../type';
+import { ImperialSpeedUnit, MetricSpeedUnit, SpeedUnit } from './type';
+
 export enum MetricSpeedEnum {
   METRE_PER_SECOND = 'm/s',
   KILOMETRE_PER_HOUR = 'km/h',
@@ -10,7 +13,7 @@ export enum ImperialSpeedEnum {
   FOOT_PER_SECOND = 'ft/s'
 }
 
-const metric = {
+const metric: Record<MetricSpeedUnit, Unit> = {
   [MetricSpeedEnum.METRE_PER_SECOND]: {
     name: {
       singular: 'Metre per second',
@@ -34,7 +37,7 @@ const metric = {
   }
 };
 
-const imperial = {
+const imperial: Record<ImperialSpeedUnit, Unit> = {
   [ImperialSpeedEnum.MILE_PER_HOUR]: {
     name: {
       singular: 'Mile per hour',
@@ -58,7 +61,7 @@ const imperial = {
   }
 };
 
-const speed = {
+const speed: UnitDefinition<'metric' | 'imperial', SpeedUnit> = {
   systems: {
     metric,
     imperial

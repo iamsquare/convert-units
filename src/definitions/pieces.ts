@@ -1,3 +1,6 @@
+import { Unit, UnitDefinition } from '../type';
+import { PiecesUnit } from './type';
+
 export enum PiecesEnum {
   PIECE = 'pcs',
   BAKERS_DOZEN = 'bk-doz',
@@ -14,7 +17,7 @@ export enum PiecesEnum {
   TRIO = 'trio'
 }
 
-const other = {
+const other: Record<PiecesUnit, Unit> = {
   [PiecesEnum.PIECE]: {
     name: {
       singular: 'Piece',
@@ -108,7 +111,7 @@ const other = {
   }
 };
 
-const piecesExport = {
+const piecesExport: UnitDefinition<'other', PiecesUnit> = {
   systems: {
     other
   }

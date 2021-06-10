@@ -1,5 +1,5 @@
 import { ApparentPowerTranslationEnum, translationModule } from '../i18n';
-import { Unit } from '../type';
+import { Unit, UnitDefinition } from '../type';
 import { ApparentPowerUnit } from './type';
 
 export enum ApparentPowerEnum {
@@ -48,7 +48,7 @@ const metric: Record<ApparentPowerUnit, Unit> = {
   }
 };
 
-const apparentPower = {
+const apparentPower: UnitDefinition<'metric', ApparentPowerUnit> = {
   systems: {
     metric
   }

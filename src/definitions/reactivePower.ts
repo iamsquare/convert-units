@@ -1,3 +1,6 @@
+import { Unit, UnitDefinition } from '../type';
+import { ReactivePowerUnit } from './type';
+
 export enum ReactivePowerEnum {
   VOLT_AMPERE_REACTIVE = 'VAR',
   MILLIVOLT_AMPERE_REACTIVE = 'mVAR',
@@ -6,7 +9,7 @@ export enum ReactivePowerEnum {
   GIGAVOLT_AMPERE_REACTIVE = 'GVAR'
 }
 
-const metric = {
+const metric: Record<ReactivePowerUnit, Unit> = {
   [ReactivePowerEnum.VOLT_AMPERE_REACTIVE]: {
     name: {
       singular: 'Volt-Ampere Reactive',
@@ -44,7 +47,7 @@ const metric = {
   }
 };
 
-const reactivePower = {
+const reactivePower: UnitDefinition<'metric', ReactivePowerUnit> = {
   systems: {
     metric
   }

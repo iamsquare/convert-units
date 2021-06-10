@@ -1,5 +1,5 @@
 import { ChargeTranslationEnum, translationModule } from '../i18n';
-import { Unit } from '../type';
+import { Unit, UnitDefinition } from '../type';
 import { ChargeUnit } from './type';
 
 export enum ChargeEnum {
@@ -48,7 +48,7 @@ const metric: Record<ChargeUnit, Unit> = {
   }
 };
 
-const charge = {
+const charge: UnitDefinition<'metric', ChargeUnit> = {
   systems: {
     metric
   }
