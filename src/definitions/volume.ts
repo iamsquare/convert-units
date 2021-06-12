@@ -1,3 +1,7 @@
+import { VolumeTranslationEnum } from '../i18n';
+import { Unit, UnitDefinition } from '../type';
+import { ImperialVolumeUnit, MetricVolumeUnit, SwedishVolumeUnit, VolumeUnit } from './type';
+
 export enum MetricVolumeEnum {
   CUBIC_MILLIMETER = 'mm3',
   CUBIC_CENTIMETER = 'cm3',
@@ -32,191 +36,191 @@ export enum SwedishVolumeEnum {
   KANNA = 'kanna'
 }
 
-const metric = {
+const metric: Record<MetricVolumeUnit, Unit> = {
   [MetricVolumeEnum.CUBIC_MILLIMETER]: {
     name: {
-      singular: 'Cubic Millimeter',
-      plural: 'Cubic Millimeters'
+      singular: VolumeTranslationEnum.SINGULAR_CUBIC_MILLIMETER,
+      plural: VolumeTranslationEnum.PLURAL_CUBIC_MILLIMETER
     },
     anchor: 1e-6
   },
   [MetricVolumeEnum.CUBIC_CENTIMETER]: {
     name: {
-      singular: 'Cubic Centimeter',
-      plural: 'Cubic Centimeters'
+      singular: VolumeTranslationEnum.SINGULAR_CUBIC_CENTIMETER,
+      plural: VolumeTranslationEnum.PLURAL_CUBIC_CENTIMETER
     },
     anchor: 1e-3
   },
   [MetricVolumeEnum.MILLILITRE]: {
     name: {
-      singular: 'Millilitre',
-      plural: 'Millilitres'
+      singular: VolumeTranslationEnum.SINGULAR_MILLILITRE,
+      plural: VolumeTranslationEnum.PLURAL_MILLILITRE
     },
     anchor: 1e-3
   },
   [MetricVolumeEnum.CENTILITRE]: {
     name: {
-      singular: 'Centilitre',
-      plural: 'Centilitres'
+      singular: VolumeTranslationEnum.SINGULAR_CENTILITRE,
+      plural: VolumeTranslationEnum.PLURAL_CENTILITRE
     },
     anchor: 1e-2
   },
   [MetricVolumeEnum.DECILITRE]: {
     name: {
-      singular: 'Decilitre',
-      plural: 'Decilitres'
+      singular: VolumeTranslationEnum.SINGULAR_DECILITRE,
+      plural: VolumeTranslationEnum.PLURAL_DECILITRE
     },
     anchor: 1e-1
   },
   [MetricVolumeEnum.LITRE]: {
     name: {
-      singular: 'Litre',
-      plural: 'Litres'
+      singular: VolumeTranslationEnum.SINGULAR_LITRE,
+      plural: VolumeTranslationEnum.PLURAL_LITRE
     },
     anchor: 1
   },
   [MetricVolumeEnum.KILOLITRE]: {
     name: {
-      singular: 'Kilolitre',
-      plural: 'Kilolitres'
+      singular: VolumeTranslationEnum.SINGULAR_KILOLITRE,
+      plural: VolumeTranslationEnum.PLURAL_KILOLITRE
     },
     anchor: 1e3
   },
   [MetricVolumeEnum.CUBIC_METER]: {
     name: {
-      singular: 'Cubic meter',
-      plural: 'Cubic meters'
+      singular: VolumeTranslationEnum.SINGULAR_CUBIC_METER,
+      plural: VolumeTranslationEnum.PLURAL_CUBIC_METER
     },
     anchor: 1e3
   },
   [MetricVolumeEnum.CUBIC_KILOMETER]: {
     name: {
-      singular: 'Cubic kilometer',
-      plural: 'Cubic kilometers'
+      singular: VolumeTranslationEnum.SINGULAR_CUBIC_KILOMETER,
+      plural: VolumeTranslationEnum.PLURAL_CUBIC_KILOMETER
     },
     anchor: 1e12
   }
 };
 
-const imperial = {
+const imperial: Record<ImperialVolumeUnit, Unit> = {
   [ImperialVolumeEnum.TEASPOON]: {
     name: {
-      singular: 'Teaspoon',
-      plural: 'Teaspoons'
+      singular: VolumeTranslationEnum.SINGULAR_TEASPOON,
+      plural: VolumeTranslationEnum.PLURAL_TEASPOON
     },
     anchor: 1 / 6
   },
   [ImperialVolumeEnum.TABLESPOON]: {
     name: {
-      singular: 'Tablespoon',
-      plural: 'Tablespoons'
+      singular: VolumeTranslationEnum.SINGULAR_TABLESPOON,
+      plural: VolumeTranslationEnum.PLURAL_TABLESPOON
     },
     anchor: 1 / 2
   },
   [ImperialVolumeEnum.CUBIC_INCH]: {
     name: {
-      singular: 'Cubic inch',
-      plural: 'Cubic inches'
+      singular: VolumeTranslationEnum.SINGULAR_CUBIC_INCH,
+      plural: VolumeTranslationEnum.PLURAL_CUBIC_INCH
     },
     anchor: 0.55411
   },
   [ImperialVolumeEnum.FLUID_OUNCE]: {
     name: {
-      singular: 'Fluid Ounce',
-      plural: 'Fluid Ounces'
+      singular: VolumeTranslationEnum.SINGULAR_FLUID_OUNCE,
+      plural: VolumeTranslationEnum.PLURAL_FLUID_OUNCE
     },
     anchor: 1
   },
   [ImperialVolumeEnum.CUP]: {
     name: {
-      singular: 'Cup',
-      plural: 'Cups'
+      singular: VolumeTranslationEnum.SINGULAR_CUP,
+      plural: VolumeTranslationEnum.PLURAL_CUP
     },
     anchor: 8
   },
   [ImperialVolumeEnum.PINT]: {
     name: {
-      singular: 'Pint',
-      plural: 'Pints'
+      singular: VolumeTranslationEnum.SINGULAR_PINT,
+      plural: VolumeTranslationEnum.PLURAL_PINT
     },
     anchor: 16
   },
   [ImperialVolumeEnum.QUART]: {
     name: {
-      singular: 'Quart',
-      plural: 'Quarts'
+      singular: VolumeTranslationEnum.SINGULAR_QUART,
+      plural: VolumeTranslationEnum.PLURAL_QUART
     },
     anchor: 32
   },
   [ImperialVolumeEnum.GALLON]: {
     name: {
-      singular: 'Gallon',
-      plural: 'Gallons'
+      singular: VolumeTranslationEnum.SINGULAR_GALLON,
+      plural: VolumeTranslationEnum.PLURAL_GALLON
     },
     anchor: 128
   },
   [ImperialVolumeEnum.CUBIC_FOOT]: {
     name: {
-      singular: 'Cubic foot',
-      plural: 'Cubic feet'
+      singular: VolumeTranslationEnum.SINGULAR_CUBIC_FOOT,
+      plural: VolumeTranslationEnum.PLURAL_CUBIC_FOOT
     },
     anchor: 957.506
   },
   [ImperialVolumeEnum.CUBIC_YARD]: {
     name: {
-      singular: 'Cubic yard',
-      plural: 'Cubic yards'
+      singular: VolumeTranslationEnum.SINGULAR_CUBIC_YARD,
+      plural: VolumeTranslationEnum.PLURAL_CUBIC_YARD
     },
     anchor: 25852.7
   }
 };
 
-const swedish = {
+const swedish: Record<SwedishVolumeUnit, Unit> = {
   [SwedishVolumeEnum.KRYDDMATTET]: {
     name: {
-      singular: 'Kryddmåttet',
-      plural: 'Kryddmått'
+      singular: VolumeTranslationEnum.SINGULAR_KRYDDMATTET,
+      plural: VolumeTranslationEnum.PLURAL_KRYDDMATTET
     },
     anchor: 1e-3
   },
   [SwedishVolumeEnum.TESKED]: {
     name: {
-      singular: 'Tesked',
-      plural: 'Teskedar'
+      singular: VolumeTranslationEnum.SINGULAR_TESKED,
+      plural: VolumeTranslationEnum.PLURAL_TESKED
     },
     anchor: 5e-3
   },
   [SwedishVolumeEnum.MATSKED]: {
     name: {
-      singular: 'Matsked',
-      plural: 'Matskedar'
+      singular: VolumeTranslationEnum.SINGULAR_MATSKED,
+      plural: VolumeTranslationEnum.PLURAL_MATSKED
     },
     anchor: 1.5e-2
   },
   [SwedishVolumeEnum.KAFFEKOPP]: {
     name: {
-      singular: 'Kaffekopp',
-      plural: 'Kaffekoppar'
+      singular: VolumeTranslationEnum.SINGULAR_KAFFEKOPP,
+      plural: VolumeTranslationEnum.PLURAL_KAFFEKOPP
     },
     anchor: 0.15
   },
   [SwedishVolumeEnum.GLAS]: {
     name: {
-      singular: 'Glas',
-      plural: 'Glas'
+      singular: VolumeTranslationEnum.SINGULAR_GLAS,
+      plural: VolumeTranslationEnum.PLURAL_GLAS
     },
     anchor: 0.2
   },
   [SwedishVolumeEnum.KANNA]: {
     name: {
-      singular: 'Kanna',
-      plural: 'Kannor'
+      singular: VolumeTranslationEnum.SINGULAR_KANNA,
+      plural: VolumeTranslationEnum.PLURAL_KANNA
     },
     anchor: 2.617
   }
 };
 
-const volume = {
+const volume: UnitDefinition<'metric' | 'imperial' | 'swedish', VolumeUnit> = {
   systems: {
     metric,
     imperial,

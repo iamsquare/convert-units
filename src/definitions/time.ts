@@ -1,3 +1,7 @@
+import { TimeTranslationEnum } from '../i18n';
+import { Unit, UnitDefinition } from '../type';
+import { TimeUnit } from './type';
+
 export enum TimeEnum {
   NANOSECOND = 'ns',
   MICROSECOND = 'mu',
@@ -11,80 +15,80 @@ export enum TimeEnum {
   YEAR = 'year'
 }
 
-const metric = {
+const metric: Record<TimeUnit, Unit> = {
   [TimeEnum.NANOSECOND]: {
     name: {
-      singular: 'Nanosecond',
-      plural: 'Nanoseconds'
+      singular: TimeTranslationEnum.SINGULAR_NANOSECOND,
+      plural: TimeTranslationEnum.PLURAL_NANOSECOND
     },
     anchor: 1e-9
   },
   [TimeEnum.MICROSECOND]: {
     name: {
-      singular: 'Microsecond',
-      plural: 'Microseconds'
+      singular: TimeTranslationEnum.SINGULAR_MICROSECOND,
+      plural: TimeTranslationEnum.PLURAL_MICROSECOND
     },
     anchor: 1e-6
   },
   [TimeEnum.MILLISECOND]: {
     name: {
-      singular: 'Millisecond',
-      plural: 'Milliseconds'
+      singular: TimeTranslationEnum.SINGULAR_MILLISECOND,
+      plural: TimeTranslationEnum.PLURAL_MILLISECOND
     },
     anchor: 1e-3
   },
   [TimeEnum.SECOND]: {
     name: {
-      singular: 'Second',
-      plural: 'Seconds'
+      singular: TimeTranslationEnum.SINGULAR_SECOND,
+      plural: TimeTranslationEnum.PLURAL_SECOND
     },
     anchor: 1
   },
   [TimeEnum.MINUTE]: {
     name: {
-      singular: 'Minute',
-      plural: 'Minutes'
+      singular: TimeTranslationEnum.SINGULAR_MINUTE,
+      plural: TimeTranslationEnum.PLURAL_MINUTE
     },
     anchor: 60
   },
   [TimeEnum.HOUR]: {
     name: {
-      singular: 'Hour',
-      plural: 'Hours'
+      singular: TimeTranslationEnum.SINGULAR_HOUR,
+      plural: TimeTranslationEnum.PLURAL_HOUR
     },
     anchor: 3600
   },
   [TimeEnum.DAY]: {
     name: {
-      singular: 'Day',
-      plural: 'Days'
+      singular: TimeTranslationEnum.SINGULAR_DAY,
+      plural: TimeTranslationEnum.PLURAL_DAY
     },
     anchor: 86400
   },
   [TimeEnum.WEEK]: {
     name: {
-      singular: 'Week',
-      plural: 'Weeks'
+      singular: TimeTranslationEnum.SINGULAR_WEEK,
+      plural: TimeTranslationEnum.PLURAL_WEEK
     },
     anchor: 604800
   },
   [TimeEnum.MONTH]: {
     name: {
-      singular: 'Month',
-      plural: 'Months'
+      singular: TimeTranslationEnum.SINGULAR_MONTH,
+      plural: TimeTranslationEnum.PLURAL_MONTH
     },
     anchor: 2629800
   },
   [TimeEnum.YEAR]: {
     name: {
-      singular: 'Year',
-      plural: 'Years'
+      singular: TimeTranslationEnum.SINGULAR_YEAR,
+      plural: TimeTranslationEnum.PLURAL_YEAR
     },
     anchor: 31557600
   }
 };
 
-const time = {
+const time: UnitDefinition<'metric', TimeUnit> = {
   systems: {
     metric
   }

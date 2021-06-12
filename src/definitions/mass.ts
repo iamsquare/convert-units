@@ -1,3 +1,7 @@
+import { MassTranslationEnum } from '../i18n';
+import { Unit, UnitDefinition } from '../type';
+import { ImperialMassUnit, MassUnit, MetricMassUnit } from './type';
+
 export enum MetricMassEnum {
   GRAM = 'g',
   MICROGRAM = 'mcg',
@@ -12,69 +16,69 @@ export enum ImperialMassEnum {
   TON = 't'
 }
 
-const metric = {
+const metric: Record<MetricMassUnit, Unit> = {
   [MetricMassEnum.MICROGRAM]: {
     name: {
-      singular: 'Microgram',
-      plural: 'Micrograms'
+      singular: MassTranslationEnum.SINGULAR_MICROGRAM,
+      plural: MassTranslationEnum.PLURAL_MICROGRAM
     },
     anchor: 1e-6
   },
   [MetricMassEnum.MILLIGRAM]: {
     name: {
-      singular: 'Milligram',
-      plural: 'Milligrams'
+      singular: MassTranslationEnum.SINGULAR_MILLIGRAM,
+      plural: MassTranslationEnum.PLURAL_MILLIGRAM
     },
     anchor: 1e-3
   },
   [MetricMassEnum.GRAM]: {
     name: {
-      singular: 'Gram',
-      plural: 'Grams'
+      singular: MassTranslationEnum.SINGULAR_GRAM,
+      plural: MassTranslationEnum.PLURAL_GRAM
     },
     anchor: 1
   },
   [MetricMassEnum.KILOGRAM]: {
     name: {
-      singular: 'Kilogram',
-      plural: 'Kilograms'
+      singular: MassTranslationEnum.SINGULAR_KILOGRAM,
+      plural: MassTranslationEnum.PLURAL_KILOGRAM
     },
     anchor: 1e3
   },
   [MetricMassEnum.METRIC_TONNE]: {
     name: {
-      singular: 'Metric Tonne',
-      plural: 'Metric Tonnes'
+      singular: MassTranslationEnum.SINGULAR_METRIC_TONNE,
+      plural: MassTranslationEnum.PLURAL_METRIC_TONNE
     },
     anchor: 1e6
   }
 };
 
-const imperial = {
+const imperial: Record<ImperialMassUnit, Unit> = {
   [ImperialMassEnum.OUNCE]: {
     name: {
-      singular: 'Ounce',
-      plural: 'Ounces'
+      singular: MassTranslationEnum.SINGULAR_OUNCE,
+      plural: MassTranslationEnum.PLURAL_OUNCE
     },
     anchor: 1 / 16
   },
   [ImperialMassEnum.POUND]: {
     name: {
-      singular: 'Pound',
-      plural: 'Pounds'
+      singular: MassTranslationEnum.SINGULAR_POUND,
+      plural: MassTranslationEnum.PLURAL_POUND
     },
     anchor: 1
   },
   [ImperialMassEnum.TON]: {
     name: {
-      singular: 'Ton',
-      plural: 'Tons'
+      singular: MassTranslationEnum.SINGULAR_TON,
+      plural: MassTranslationEnum.PLURAL_TON
     },
     anchor: 2e3
   }
 };
 
-const mass = {
+const mass: UnitDefinition<'metric' | 'imperial', MassUnit> = {
   systems: {
     metric,
     imperial

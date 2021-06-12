@@ -1,34 +1,38 @@
+import { VoltageTranslationEnum } from '../i18n';
+import { Unit, UnitDefinition } from '../type';
+import { VoltageUnit } from './type';
+
 export enum VoltageEnum {
   VOLT = 'V',
   MILLIVOLT = 'mV',
   KILOVOLT = 'kV'
 }
 
-const metric = {
+const metric: Record<VoltageUnit, Unit> = {
   [VoltageEnum.VOLT]: {
     name: {
-      singular: 'Volt',
-      plural: 'Volts'
+      singular: VoltageTranslationEnum.SINGULAR_VOLT,
+      plural: VoltageTranslationEnum.PLURAL_VOLT
     },
     anchor: 1
   },
   [VoltageEnum.MILLIVOLT]: {
     name: {
-      singular: 'Millivolt',
-      plural: 'Millivolts'
+      singular: VoltageTranslationEnum.SINGULAR_MILLIVOLT,
+      plural: VoltageTranslationEnum.PLURAL_MILLIVOLT
     },
     anchor: 0.001
   },
   [VoltageEnum.KILOVOLT]: {
     name: {
-      singular: 'Kilovolt',
-      plural: 'Kilovolts'
+      singular: VoltageTranslationEnum.SINGULAR_KILOVOLT,
+      plural: VoltageTranslationEnum.PLURAL_KILOVOLT
     },
     anchor: 1000
   }
 };
 
-const voltage = {
+const voltage: UnitDefinition<'metric', VoltageUnit> = {
   systems: {
     metric
   }

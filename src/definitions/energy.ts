@@ -1,3 +1,7 @@
+import { EnergyTranslationEnum } from '../i18n';
+import { Unit, UnitDefinition } from '../type';
+import { EnergyUnit } from './type';
+
 export enum EnergyEnum {
   WATT_HOUR = 'Wh',
   MILLIWATT_HOUR = 'mWh',
@@ -8,59 +12,59 @@ export enum EnergyEnum {
   KILOJOULE = 'kJ'
 }
 
-const metric = {
+const metric: Record<EnergyUnit, Unit> = {
   [EnergyEnum.WATT_HOUR]: {
     name: {
-      singular: 'Watt-hour',
-      plural: 'Watt-hours'
+      singular: EnergyTranslationEnum.SINGULAR_WATT_HOUR,
+      plural: EnergyTranslationEnum.PLURAL_WATT_HOUR
     },
     anchor: 3.6e3
   },
   [EnergyEnum.MILLIWATT_HOUR]: {
     name: {
-      singular: 'Milliwatt-hour',
-      plural: 'Milliwatt-hours'
+      singular: EnergyTranslationEnum.SINGULAR_MILLIWATT_HOUR,
+      plural: EnergyTranslationEnum.PLURAL_MILLIWATT_HOUR
     },
     anchor: 3.6
   },
   [EnergyEnum.KILOWATT_HOUR]: {
     name: {
-      singular: 'Kilowatt-hour',
-      plural: 'Kilowatt-hours'
+      singular: EnergyTranslationEnum.SINGULAR_KILOWATT_HOUR,
+      plural: EnergyTranslationEnum.PLURAL_KILOWATT_HOUR
     },
     anchor: 3.6e6
   },
   [EnergyEnum.MEGAWATT_HOUR]: {
     name: {
-      singular: 'Megawatt-hour',
-      plural: 'Megawatt-hours'
+      singular: EnergyTranslationEnum.SINGULAR_MEGAWATT_HOUR,
+      plural: EnergyTranslationEnum.PLURAL_MEGAWATT_HOUR
     },
     anchor: 3.6e9
   },
   [EnergyEnum.GIGAWATT_HOUR]: {
     name: {
-      singular: 'Gigawatt-hour',
-      plural: 'Gigawatt-hours'
+      singular: EnergyTranslationEnum.SINGULAR_GIGAWATT_HOUR,
+      plural: EnergyTranslationEnum.PLURAL_GIGAWATT_HOUR
     },
     anchor: 3.6e12
   },
   [EnergyEnum.JOULE]: {
     name: {
-      singular: 'Joule',
-      plural: 'Joules'
+      singular: EnergyTranslationEnum.SINGULAR_JOULE,
+      plural: EnergyTranslationEnum.PLURAL_JOULE
     },
     anchor: 1
   },
   [EnergyEnum.KILOJOULE]: {
     name: {
-      singular: 'Kilojoule',
-      plural: 'Kilojoules'
+      singular: EnergyTranslationEnum.SINGULAR_KILOJOULE,
+      plural: EnergyTranslationEnum.PLURAL_KILOJOULE
     },
     anchor: 1e3
   }
 };
 
-const energy = {
+const energy: UnitDefinition<'metric', EnergyUnit> = {
   systems: {
     metric
   }

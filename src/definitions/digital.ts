@@ -1,3 +1,7 @@
+import { DigitalTranslationEnum } from '../i18n';
+import { Unit, UnitDefinition } from '../type';
+import { BitDigitalUnit, ByteDigitalUnit, DigitalUnit } from './type';
+
 export enum BitEnum {
   BIT = 'b',
   KILOBIT = 'kb',
@@ -26,167 +30,167 @@ export enum ByteEnum {
   PEBIBYTE = 'PiB'
 }
 
-const bits = {
+const bits: Record<BitDigitalUnit, Unit> = {
   [BitEnum.BIT]: {
     name: {
-      singular: 'Bit',
-      plural: 'Bits'
+      singular: DigitalTranslationEnum.SINGULAR_BIT,
+      plural: DigitalTranslationEnum.PLURAL_BIT
     },
     anchor: 1
   },
   [BitEnum.KILOBIT]: {
     name: {
-      singular: 'Kilobit',
-      plural: 'Kilobits'
+      singular: DigitalTranslationEnum.SINGULAR_KILOBIT,
+      plural: DigitalTranslationEnum.PLURAL_KILOBIT
     },
     anchor: 1e3
   },
   [BitEnum.KIBIBIT]: {
     name: {
-      singular: 'Kibibit',
-      plural: 'Kibibits'
+      singular: DigitalTranslationEnum.SINGULAR_KIBIBIT,
+      plural: DigitalTranslationEnum.PLURAL_KIBIBIT
     },
     anchor: 1024
   },
   [BitEnum.MEGABIT]: {
     name: {
-      singular: 'Megabit',
-      plural: 'Megabits'
+      singular: DigitalTranslationEnum.SINGULAR_MEGABIT,
+      plural: DigitalTranslationEnum.PLURAL_MEGABIT
     },
     anchor: 1e6
   },
   [BitEnum.MEBIBIT]: {
     name: {
-      singular: 'Mebibit',
-      plural: 'Mebibits'
+      singular: DigitalTranslationEnum.SINGULAR_MEBIBIT,
+      plural: DigitalTranslationEnum.PLURAL_MEBIBIT
     },
     anchor: 1048576
   },
   [BitEnum.GIGABIT]: {
     name: {
-      singular: 'Gigabit',
-      plural: 'Gigabits'
+      singular: DigitalTranslationEnum.SINGULAR_GIGABIT,
+      plural: DigitalTranslationEnum.PLURAL_GIGABIT
     },
     anchor: 1e9
   },
   [BitEnum.GIBIBIT]: {
     name: {
-      singular: 'Gibibit',
-      plural: 'Gibibits'
+      singular: DigitalTranslationEnum.SINGULAR_GIBIBIT,
+      plural: DigitalTranslationEnum.PLURAL_GIBIBIT
     },
     anchor: 1073741824
   },
   [BitEnum.TERABIT]: {
     name: {
-      singular: 'Terabit',
-      plural: 'Terabits'
+      singular: DigitalTranslationEnum.SINGULAR_TERABIT,
+      plural: DigitalTranslationEnum.PLURAL_TERABIT
     },
     anchor: 1e12
   },
   [BitEnum.TEBIBIT]: {
     name: {
-      singular: 'Tebibit',
-      plural: 'Tebibits'
+      singular: DigitalTranslationEnum.SINGULAR_TEBIBIT,
+      plural: DigitalTranslationEnum.PLURAL_TEBIBIT
     },
     anchor: 1099511627776
   },
   [BitEnum.PETABIT]: {
     name: {
-      singular: 'Petabit',
-      plural: 'Petabits'
+      singular: DigitalTranslationEnum.SINGULAR_PETABIT,
+      plural: DigitalTranslationEnum.PLURAL_PETABIT
     },
     anchor: 1e15
   },
   [BitEnum.PEBIBIT]: {
     name: {
-      singular: 'Pebibit',
-      plural: 'Pebibits'
+      singular: DigitalTranslationEnum.SINGULAR_PEBIBIT,
+      plural: DigitalTranslationEnum.PLURAL_PEBIBIT
     },
     anchor: 1125899906842624
   }
 };
 
-const bytes = {
+const bytes: Record<ByteDigitalUnit, Unit> = {
   [ByteEnum.BYTE]: {
     name: {
-      singular: 'Byte',
-      plural: 'Bytes'
+      singular: DigitalTranslationEnum.SINGULAR_BYTE,
+      plural: DigitalTranslationEnum.PLURAL_BYTE
     },
     anchor: 1
   },
   [ByteEnum.KILOBYTE]: {
     name: {
-      singular: 'Kilobyte',
-      plural: 'Kilobytes'
+      singular: DigitalTranslationEnum.SINGULAR_KILOBYTE,
+      plural: DigitalTranslationEnum.PLURAL_KILOBYTE
     },
     anchor: 1e3
   },
   [ByteEnum.KIBIBYTE]: {
     name: {
-      singular: 'Kibibyte',
-      plural: 'Kibibytes'
+      singular: DigitalTranslationEnum.SINGULAR_KIBIBYTE,
+      plural: DigitalTranslationEnum.PLURAL_KIBIBYTE
     },
     anchor: 1024
   },
   [ByteEnum.MEGABYTE]: {
     name: {
-      singular: 'Megabyte',
-      plural: 'Megabytes'
+      singular: DigitalTranslationEnum.SINGULAR_MEGABYTE,
+      plural: DigitalTranslationEnum.PLURAL_MEGABYTE
     },
     anchor: 1e6
   },
   [ByteEnum.MEBIBYTE]: {
     name: {
-      singular: 'Mebibyte',
-      plural: 'Mebibytes'
+      singular: DigitalTranslationEnum.SINGULAR_MEBIBYTE,
+      plural: DigitalTranslationEnum.PLURAL_MEBIBYTE
     },
     anchor: 1048576
   },
   [ByteEnum.GIGABYTE]: {
     name: {
-      singular: 'Gigabyte',
-      plural: 'Gigabytes'
+      singular: DigitalTranslationEnum.SINGULAR_GIGABYTE,
+      plural: DigitalTranslationEnum.PLURAL_GIGABYTE
     },
     anchor: 1e9
   },
   [ByteEnum.GIBIBYTE]: {
     name: {
-      singular: 'Gibibyte',
-      plural: 'Gibibytes'
+      singular: DigitalTranslationEnum.SINGULAR_GIBIBYTE,
+      plural: DigitalTranslationEnum.PLURAL_GIBIBYTE
     },
     anchor: 1073741824
   },
   [ByteEnum.TERABYTE]: {
     name: {
-      singular: 'Terabyte',
-      plural: 'Terabytes'
+      singular: DigitalTranslationEnum.SINGULAR_TERABYTE,
+      plural: DigitalTranslationEnum.PLURAL_TERABYTE
     },
     anchor: 1e12
   },
   [ByteEnum.TEBIBYTE]: {
     name: {
-      singular: 'Tebibyte',
-      plural: 'Tebibytes'
+      singular: DigitalTranslationEnum.SINGULAR_TEBIBYTE,
+      plural: DigitalTranslationEnum.PLURAL_TEBIBYTE
     },
     anchor: 1099511627776
   },
   [ByteEnum.PETABYTE]: {
     name: {
-      singular: 'Petabyte',
-      plural: 'Petabytes'
+      singular: DigitalTranslationEnum.SINGULAR_PETABYTE,
+      plural: DigitalTranslationEnum.PLURAL_PETABYTE
     },
     anchor: 1e15
   },
   [ByteEnum.PEBIBYTE]: {
     name: {
-      singular: 'Pebibyte',
-      plural: 'Pebibytes'
+      singular: DigitalTranslationEnum.SINGULAR_PEBIBYTE,
+      plural: DigitalTranslationEnum.PLURAL_PEBIBYTE
     },
     anchor: 1125899906842624
   }
 };
 
-const digital = {
+const digital: UnitDefinition<'bits' | 'bytes', DigitalUnit> = {
   systems: {
     bits,
     bytes

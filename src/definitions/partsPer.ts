@@ -1,3 +1,7 @@
+import { PartsPerTranslationEnum } from '../i18n';
+import { Unit, UnitDefinition } from '../type';
+import { PartsPerUnit } from './type';
+
 export enum PartsPerEnum {
   PART_PER_MILLION = 'ppm',
   PART_PER_BILLION = 'ppb',
@@ -5,38 +9,38 @@ export enum PartsPerEnum {
   PART_PER_QUADRILLION = 'ppq'
 }
 
-const other = {
+const other: Record<PartsPerUnit, Unit> = {
   [PartsPerEnum.PART_PER_MILLION]: {
     name: {
-      singular: 'Part-per Million',
-      plural: 'Parts-per Million'
+      singular: PartsPerTranslationEnum.SINGULAR_PART_PER_MILLION,
+      plural: PartsPerTranslationEnum.PLURAL_PART_PER_MILLION
     },
     anchor: 1
   },
   [PartsPerEnum.PART_PER_BILLION]: {
     name: {
-      singular: 'Part-per Billion',
-      plural: 'Parts-per Billion'
+      singular: PartsPerTranslationEnum.SINGULAR_PART_PER_BILLION,
+      plural: PartsPerTranslationEnum.PLURAL_PART_PER_BILLION
     },
     anchor: 1e-3
   },
   [PartsPerEnum.PART_PER_TRILLION]: {
     name: {
-      singular: 'Part-per Trillion',
-      plural: 'Parts-per Trillion'
+      singular: PartsPerTranslationEnum.SINGULAR_PART_PER_TRILLION,
+      plural: PartsPerTranslationEnum.PLURAL_PART_PER_TRILLION
     },
     anchor: 1e-6
   },
   [PartsPerEnum.PART_PER_QUADRILLION]: {
     name: {
-      singular: 'Part-per Quadrillion',
-      plural: 'Parts-per Quadrillion'
+      singular: PartsPerTranslationEnum.SINGULAR_PART_PER_QUADRILLION,
+      plural: PartsPerTranslationEnum.PLURAL_PART_PER_QUADRILLION
     },
     anchor: 1e-9
   }
 };
 
-const partsPer = {
+const partsPer: UnitDefinition<'other', PartsPerUnit> = {
   systems: {
     other
   }

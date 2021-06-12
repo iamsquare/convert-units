@@ -1,3 +1,7 @@
+import { PaceTranslationEnum } from '../i18n';
+import { Unit, UnitDefinition } from '../type';
+import { ImperialPaceUnit, MetricPaceUnit, PaceUnit } from './type';
+
 export enum MetricPaceEnum {
   MINUTE_PER_KILOMETRE = 'min/km',
   SECOND_PER_METRE = 's/m'
@@ -8,41 +12,41 @@ export enum ImperialPaceEnum {
   SECOND_PER_FOOT = 's/ft'
 }
 
-const metric = {
+const metric: Record<MetricPaceUnit, Unit> = {
   [MetricPaceEnum.MINUTE_PER_KILOMETRE]: {
     name: {
-      singular: 'Minute per kilometre',
-      plural: 'Minutes per kilometre'
+      singular: PaceTranslationEnum.SINGULAR_MINUTE_PER_KILOMETRE,
+      plural: PaceTranslationEnum.PLURAL_MINUTE_PER_KILOMETRE
     },
     anchor: 0.06
   },
   [MetricPaceEnum.SECOND_PER_METRE]: {
     name: {
-      singular: 'Second per metre',
-      plural: 'Seconds per metre'
+      singular: PaceTranslationEnum.SINGULAR_SECOND_PER_METRE,
+      plural: PaceTranslationEnum.PLURAL_SECOND_PER_METRE
     },
     anchor: 1
   }
 };
 
-const imperial = {
+const imperial: Record<ImperialPaceUnit, Unit> = {
   [ImperialPaceEnum.MINUTE_PER_MILE]: {
     name: {
-      singular: 'Minute per mile',
-      plural: 'Minutes per mile'
+      singular: PaceTranslationEnum.SINGULAR_MINUTE_PER_MILE,
+      plural: PaceTranslationEnum.PLURAL_MINUTE_PER_MILE
     },
     anchor: 0.0113636
   },
   [ImperialPaceEnum.SECOND_PER_FOOT]: {
     name: {
-      singular: 'Second per foot',
-      plural: 'Seconds per foot'
+      singular: PaceTranslationEnum.SINGULAR_SECOND_PER_FOOT,
+      plural: PaceTranslationEnum.PLURAL_SECOND_PER_FOOT
     },
     anchor: 1
   }
 };
 
-const pace = {
+const pace: UnitDefinition<'metric' | 'imperial', PaceUnit> = {
   systems: {
     metric,
     imperial

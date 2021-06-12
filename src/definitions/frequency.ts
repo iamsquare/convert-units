@@ -1,3 +1,7 @@
+import { FrequencyTranslationEnum } from '../i18n';
+import { Unit, UnitDefinition } from '../type';
+import { FrequencyUnit } from './type';
+
 export enum FrequencyEnum {
   HERTZ = 'Hz',
   MILLIHERTZ = 'mHz',
@@ -10,73 +14,73 @@ export enum FrequencyEnum {
   RADIAN_PER_SECOND = 'rad/s'
 }
 
-const metric = {
+const metric: Record<FrequencyUnit, Unit> = {
   [FrequencyEnum.HERTZ]: {
     name: {
-      singular: 'Hertz',
-      plural: 'Hertz'
+      singular: FrequencyTranslationEnum.SINGULAR_HERTZ,
+      plural: FrequencyTranslationEnum.PLURAL_HERTZ
     },
     anchor: 1
   },
   [FrequencyEnum.MILLIHERTZ]: {
     name: {
-      singular: 'Millihertz',
-      plural: 'Millihertz'
+      singular: FrequencyTranslationEnum.SINGULAR_MILLIHERTZ,
+      plural: FrequencyTranslationEnum.PLURAL_MILLIHERTZ
     },
     anchor: 1e-3
   },
   [FrequencyEnum.KILOHERTZ]: {
     name: {
-      singular: 'Kilohertz',
-      plural: 'Kilohertz'
+      singular: FrequencyTranslationEnum.SINGULAR_KILOHERTZ,
+      plural: FrequencyTranslationEnum.PLURAL_KILOHERTZ
     },
     anchor: 1e3
   },
   [FrequencyEnum.MEGAHERTZ]: {
     name: {
-      singular: 'Megahertz',
-      plural: 'Megahertz'
+      singular: FrequencyTranslationEnum.SINGULAR_MEGAHERTZ,
+      plural: FrequencyTranslationEnum.PLURAL_MEGAHERTZ
     },
     anchor: 1e6
   },
   [FrequencyEnum.GIGAHERTZ]: {
     name: {
-      singular: 'Gigahertz',
-      plural: 'Gigahertz'
+      singular: FrequencyTranslationEnum.SINGULAR_GIGAHERTZ,
+      plural: FrequencyTranslationEnum.PLURAL_GIGAHERTZ
     },
     anchor: 1e9
   },
   [FrequencyEnum.TERAHERTZ]: {
     name: {
-      singular: 'Terahertz',
-      plural: 'Terahertz'
+      singular: FrequencyTranslationEnum.SINGULAR_TERAHERTZ,
+      plural: FrequencyTranslationEnum.PLURAL_TERAHERTZ
     },
     anchor: 1e12
   },
   [FrequencyEnum.RPM]: {
     name: {
-      singular: 'Rotation per minute',
-      plural: 'Rotations per minute'
+      singular: FrequencyTranslationEnum.SINGULAR_RPM,
+      plural: FrequencyTranslationEnum.PLURAL_RPM
     },
     anchor: 1 / 60
   },
   [FrequencyEnum.DEGREE_PER_SECOND]: {
     name: {
-      singular: 'Degree per second',
-      plural: 'Degrees per second'
+      singular: FrequencyTranslationEnum.SINGULAR_DEGREE_PER_SECOND,
+      plural: FrequencyTranslationEnum.PLURAL_DEGREE_PER_SECOND
     },
     anchor: 1 / 360
   },
   [FrequencyEnum.RADIAN_PER_SECOND]: {
     name: {
-      singular: 'Radian per second',
-      plural: 'Radians per second'
+      singular: FrequencyTranslationEnum.SINGULAR_RADIAN_PER_SECOND,
+      plural: FrequencyTranslationEnum.PLURAL_RADIAN_PER_SECOND
     },
     anchor: 1 / (Math.PI * 2)
   }
 };
 
-const frequency = {
+const frequency: UnitDefinition<'metric', FrequencyUnit> = {
   systems: {
     metric
   }
