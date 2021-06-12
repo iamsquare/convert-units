@@ -21,7 +21,6 @@ test('mergeTranslations', () => {
 test('resetTranslations', () => {
   translationModule.mergeTranslations({ [AccelerationTranslationEnum.SINGULAR_G0]: translationTestValue });
   translationModule.resetTranslations();
-  console.log(_describe(AccelerationEnum.G0));
 
   expect(_describe(AccelerationEnum.G0).singular).toBe(defaultTranslationsClone.SINGULAR_G0);
 });
@@ -31,5 +30,5 @@ test('getTranslationByKey', () => {
     defaultTranslationsClone.SINGULAR_G0
   );
   //@ts-ignore
-  expect(translationModule.getTranslationByKey('not-a-string')).toBe('MISSING_TRANSLATION');
+  expect(translationModule.getTranslationByKey('not-a-string')).toBe(defaultTranslationsClone.MISSING_TRANSLATION);
 });
