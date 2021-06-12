@@ -1,3 +1,4 @@
+import { PressureTranslationEnum, translationModule } from '../i18n';
 import { Unit, UnitDefinition } from '../type';
 import { ImperialPressureUnit, MetricPressureUnit, PressureUnit } from './type';
 
@@ -20,50 +21,50 @@ export enum ImperialPressureEnum {
 const metric: Record<MetricPressureUnit, Unit> = {
   [MetricPressureEnum.PASCAL]: {
     name: {
-      singular: 'Pascal',
-      plural: 'Pascals'
+      singular: translationModule.getTranslationByKey(PressureTranslationEnum.SINGULAR_PASCAL),
+      plural: translationModule.getTranslationByKey(PressureTranslationEnum.PLURAL_PASCAL)
     },
     anchor: 1e-3
   },
   [MetricPressureEnum.KILOPASCAL]: {
     name: {
-      singular: 'Kilopascal',
-      plural: 'Kilopascals'
+      singular: translationModule.getTranslationByKey(PressureTranslationEnum.SINGULAR_KILOPASCAL),
+      plural: translationModule.getTranslationByKey(PressureTranslationEnum.PLURAL_KILOPASCAL)
     },
     anchor: 1
   },
   [MetricPressureEnum.MEGAPASCAL]: {
     name: {
-      singular: 'Megapascal',
-      plural: 'Megapascals'
+      singular: translationModule.getTranslationByKey(PressureTranslationEnum.SINGULAR_MEGAPASCAL),
+      plural: translationModule.getTranslationByKey(PressureTranslationEnum.PLURAL_MEGAPASCAL)
     },
     anchor: 1e3
   },
   [MetricPressureEnum.HECTOPASCAL]: {
     name: {
-      singular: 'Hectopascal',
-      plural: 'Hectopascals'
+      singular: translationModule.getTranslationByKey(PressureTranslationEnum.SINGULAR_HECTOPASCAL),
+      plural: translationModule.getTranslationByKey(PressureTranslationEnum.PLURAL_HECTOPASCAL)
     },
     anchor: 0.1
   },
   [MetricPressureEnum.BAR]: {
     name: {
-      singular: 'Bar',
-      plural: 'Bar'
+      singular: translationModule.getTranslationByKey(PressureTranslationEnum.SINGULAR_BAR),
+      plural: translationModule.getTranslationByKey(PressureTranslationEnum.PLURAL_BAR)
     },
     anchor: 1e2
   },
   [MetricPressureEnum.TORR]: {
     name: {
-      singular: 'Torr',
-      plural: 'Torr'
+      singular: translationModule.getTranslationByKey(PressureTranslationEnum.SINGULAR_TORR),
+      plural: translationModule.getTranslationByKey(PressureTranslationEnum.PLURAL_TORR)
     },
     anchor: 1 / 7.500616827
   },
   [MetricPressureEnum.MILLIMETRE_OF_MERCURY]: {
     name: {
-      singular: 'Millimetre of mercury',
-      plural: 'Millimetres of mercury'
+      singular: translationModule.getTranslationByKey(PressureTranslationEnum.SINGULAR_MILLIMETRE_OF_MERCURY),
+      plural: translationModule.getTranslationByKey(PressureTranslationEnum.PLURAL_MILLIMETRE_OF_MERCURY)
     },
     anchor: 0.133322387415
   }
@@ -72,22 +73,22 @@ const metric: Record<MetricPressureUnit, Unit> = {
 const imperial: Record<ImperialPressureUnit, Unit> = {
   [ImperialPressureEnum.POUND_PER_SQUARE_INCH]: {
     name: {
-      singular: 'Pound per square inch',
-      plural: 'Pounds per square inch'
+      singular: translationModule.getTranslationByKey(PressureTranslationEnum.SINGULAR_POUND_PER_SQUARE_INCH),
+      plural: translationModule.getTranslationByKey(PressureTranslationEnum.PLURAL_POUND_PER_SQUARE_INCH)
     },
     anchor: 1
   },
   [ImperialPressureEnum.KILOPOUND_PER_SQUARE_INCH]: {
     name: {
-      singular: 'Kilopound per square inch',
-      plural: 'Kilopound per square inch'
+      singular: translationModule.getTranslationByKey(PressureTranslationEnum.SINGULAR_KILOPOUND_PER_SQUARE_INCH),
+      plural: translationModule.getTranslationByKey(PressureTranslationEnum.PLURAL_KILOPOUND_PER_SQUARE_INCH)
     },
     anchor: 1e3
   },
   [ImperialPressureEnum.INCH_OF_MERCURY]: {
     name: {
-      singular: 'Inch of mercury',
-      plural: 'Inches of mercury'
+      singular: translationModule.getTranslationByKey(PressureTranslationEnum.SINGULAR_INCH_OF_MERCURY),
+      plural: translationModule.getTranslationByKey(PressureTranslationEnum.PLURAL_INCH_OF_MERCURY)
     },
     anchor: 0.49115
   }

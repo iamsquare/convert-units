@@ -195,6 +195,6 @@ test('pnt/min to kl/h', () => {
 
 test('yd3/h to m3/min', () => {
   expect(
-    convert(ImperialVolumeFlowEnum.CUBIX_YARD_PER_HOUR, MetricVolumeFlowEnum.CUBIC_METER_PER_MINUTE, 1)
+    convert(ImperialVolumeFlowEnum.CUBIC_YARD_PER_HOUR, MetricVolumeFlowEnum.CUBIC_METER_PER_MINUTE, 1)
   ).toBeCloseTo(0.012742581);
 });

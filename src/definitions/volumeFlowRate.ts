@@ -41,7 +41,7 @@ export enum ImperialVolumeFlowEnum {
   CUBIC_FOOT_PER_HOUR = 'ft3/h',
   CUBIC_YARD_PER_SECOND = 'yd3/s',
   CUBIC_YARD_PER_MINUTE = 'yd3/min',
-  CUBIX_YARD_PER_HOUR = 'yd3/h'
+  CUBIC_YARD_PER_HOUR = 'yd3/h'
 }
 
 const metric: Record<MetricVolumeFlowRateUnit, Unit> = {
@@ -300,7 +300,7 @@ const imperial: Record<ImperialVolumeFlowRateUnit, Unit> = {
     },
     anchor: 25852.7 / 60
   },
-  [ImperialVolumeFlowEnum.CUBIX_YARD_PER_HOUR]: {
+  [ImperialVolumeFlowEnum.CUBIC_YARD_PER_HOUR]: {
     name: {
       singular: 'Cubic yard per hour',
       plural: 'Cubic yards per hour'

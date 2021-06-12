@@ -14,6 +14,18 @@ import { FrequencyPluralTranslationKey, FrequencySingularTranslationKey } from '
 import { IlluminancePluralTranslationKey, IlluminanceSingularTranslationKey } from './illuminance';
 import { MassPluralTranslationKey, MassSingularTranslationKey } from './mass';
 import { PacePluralTranslationKey, PaceSingularTranslationKey } from './pace';
+import { PartsPerPluralTranslationKey, PartsPerSingularTranslationKey } from './partsPer';
+import { PiecesPluralTranslationKey, PiecesSingularTranslationKey } from './pieces';
+import { PowerPluralTranslationKey, PowerSingularTranslationKey } from './power';
+import { PressurePluralTranslationKey, PressureSingularTranslationKey } from './pressure';
+import { ReactiveEnergyPluralTranslationKey, ReactiveEnergySingularTranslationKey } from './reactiveEnergy';
+import { ReactivePowerPluralTranslationKey, ReactivePowerSingularTranslationKey } from './reactivePower';
+import { SpeedPluralTranslationKey, SpeedSingularTranslationKey } from './speed';
+import { TemperaturePluralTranslationKey, TemperatureSingularTranslationKey } from './temperature';
+import { TimePluralTranslationKey, TimeSingularTranslationKey } from './time';
+import { VoltagePluralTranslationKey, VoltageSingularTranslationKey } from './voltage';
+import { VolumePluralTranslationKey, VolumeSingularTranslationKey } from './volume';
+import { VolumeFlowRatePluralTranslationKey, VolumeFlowRateSingularTranslationKey } from './volumeFlowRate';
 
 export type SingularTranslationKey =
   | AccelerationSingularTranslationKey
@@ -30,7 +42,19 @@ export type SingularTranslationKey =
   | FrequencySingularTranslationKey
   | IlluminanceSingularTranslationKey
   | MassSingularTranslationKey
-  | PaceSingularTranslationKey;
+  | PaceSingularTranslationKey
+  | PartsPerSingularTranslationKey
+  | PiecesSingularTranslationKey
+  | PowerSingularTranslationKey
+  | PressureSingularTranslationKey
+  | ReactiveEnergySingularTranslationKey
+  | ReactivePowerSingularTranslationKey
+  | SpeedSingularTranslationKey
+  | TemperatureSingularTranslationKey
+  | TimeSingularTranslationKey
+  | VoltageSingularTranslationKey
+  | VolumeSingularTranslationKey
+  | VolumeFlowRateSingularTranslationKey;
 
 export type PluralTranslationKey =
   | AccelerationPluralTranslationKey
@@ -47,7 +71,19 @@ export type PluralTranslationKey =
   | FrequencyPluralTranslationKey
   | IlluminancePluralTranslationKey
   | MassPluralTranslationKey
-  | PacePluralTranslationKey;
+  | PacePluralTranslationKey
+  | PartsPerPluralTranslationKey
+  | PiecesPluralTranslationKey
+  | PowerPluralTranslationKey
+  | PressurePluralTranslationKey
+  | ReactiveEnergyPluralTranslationKey
+  | ReactivePowerPluralTranslationKey
+  | SpeedPluralTranslationKey
+  | TemperaturePluralTranslationKey
+  | TimePluralTranslationKey
+  | VoltagePluralTranslationKey
+  | VolumePluralTranslationKey
+  | VolumeFlowRatePluralTranslationKey;
 
 export type TranslationKey = SingularTranslationKey | PluralTranslationKey | 'MISSING_TRANSLATION';
 
@@ -68,3 +104,15 @@ export * from './frequency';
 export * from './illuminance';
 export * from './mass';
 export * from './pace';
+export * from './partsPer';
+export * from './pieces';
+export * from './power';
+export * from './pressure';
+export * from './reactiveEnergy';
+export * from './reactivePower';
+export * from './speed';
+export * from './temperature';
+export * from './time';
+export * from './voltage';
+export * from './volume';
+export * from './volumeFlowRate';
