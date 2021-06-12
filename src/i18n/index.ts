@@ -3,7 +3,7 @@ import { mergeDeepRight } from 'ramda';
 import defaultTranslations from './defaultTranslations';
 import { TranslationKey, Translations } from './type';
 
-export const translationModule = new (class TranslationModule {
+class TranslationModule {
   private _translations: Translations = defaultTranslations;
 
   /**
@@ -28,6 +28,8 @@ export const translationModule = new (class TranslationModule {
   getTranslationByKey(key: TranslationKey) {
     return this._translations[key] ?? this._translations['MISSING_TRANSLATION'];
   }
-})();
+}
+
+export const translationModule = new TranslationModule();
 
 export * from './type';
