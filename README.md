@@ -186,6 +186,23 @@ Adding new measurement sets is easy. Take a look at
 [`src/definitions`](https://github.com/iamsquare/convert-units/tree/master/src/definitions)
 to see how it's done.
 
+## i18n
+
+This library exposes an i18n module (`translationModule`) that can be used to translate every unit singular and plural names.
+This module is a singleton that exposes two methods: `mergeTranslations` and `resetTranslations`.
+
+```javascript
+translationModule.mergeTranslations({ ... })
+```
+
+accepts a JSON containing key-value pairs, where the key is a [`translationKey`](https://www.iamsquare.it/convert-units/modules.html#translationkey) and the value is a `string`.
+
+```javascript
+translationModule.mergeTranslations()
+```
+
+Resets the translations to their original state.
+
 ## Dependencies
 
 > This library depends on [`ramda`](https://github.com/ramda/ramda) and [`ramda-extension`](https://github.com/tommmyy/ramda-extension).
