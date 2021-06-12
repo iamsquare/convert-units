@@ -1,3 +1,4 @@
+import { translationModule, VoltageTranslationEnum } from '../i18n';
 import { Unit, UnitDefinition } from '../type';
 import { VoltageUnit } from './type';
 
@@ -10,22 +11,22 @@ export enum VoltageEnum {
 const metric: Record<VoltageUnit, Unit> = {
   [VoltageEnum.VOLT]: {
     name: {
-      singular: 'Volt',
-      plural: 'Volts'
+      singular: translationModule.getTranslationByKey(VoltageTranslationEnum.SINGULAR_VOLT),
+      plural: translationModule.getTranslationByKey(VoltageTranslationEnum.PLURAL_VOLT)
     },
     anchor: 1
   },
   [VoltageEnum.MILLIVOLT]: {
     name: {
-      singular: 'Millivolt',
-      plural: 'Millivolts'
+      singular: translationModule.getTranslationByKey(VoltageTranslationEnum.SINGULAR_MILLIVOLT),
+      plural: translationModule.getTranslationByKey(VoltageTranslationEnum.PLURAL_MILLIVOLT)
     },
     anchor: 0.001
   },
   [VoltageEnum.KILOVOLT]: {
     name: {
-      singular: 'Kilovolt',
-      plural: 'Kilovolts'
+      singular: translationModule.getTranslationByKey(VoltageTranslationEnum.SINGULAR_KILOVOLT),
+      plural: translationModule.getTranslationByKey(VoltageTranslationEnum.PLURAL_KILOVOLT)
     },
     anchor: 1000
   }

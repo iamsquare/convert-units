@@ -1,3 +1,4 @@
+import { translationModule, VolumeTranslationEnum } from '../i18n';
 import { Unit, UnitDefinition } from '../type';
 import { ImperialVolumeUnit, MetricVolumeUnit, SwedishVolumeUnit, VolumeUnit } from './type';
 
@@ -38,64 +39,64 @@ export enum SwedishVolumeEnum {
 const metric: Record<MetricVolumeUnit, Unit> = {
   [MetricVolumeEnum.CUBIC_MILLIMETER]: {
     name: {
-      singular: 'Cubic Millimeter',
-      plural: 'Cubic Millimeters'
+      singular: translationModule.getTranslationByKey(VolumeTranslationEnum.SINGULAR_CUBIC_MILLIMETER),
+      plural: translationModule.getTranslationByKey(VolumeTranslationEnum.PLURAL_CUBIC_MILLIMETER)
     },
     anchor: 1e-6
   },
   [MetricVolumeEnum.CUBIC_CENTIMETER]: {
     name: {
-      singular: 'Cubic Centimeter',
-      plural: 'Cubic Centimeters'
+      singular: translationModule.getTranslationByKey(VolumeTranslationEnum.SINGULAR_CUBIC_CENTIMETER),
+      plural: translationModule.getTranslationByKey(VolumeTranslationEnum.PLURAL_CUBIC_CENTIMETER)
     },
     anchor: 1e-3
   },
   [MetricVolumeEnum.MILLILITRE]: {
     name: {
-      singular: 'Millilitre',
-      plural: 'Millilitres'
+      singular: translationModule.getTranslationByKey(VolumeTranslationEnum.SINGULAR_MILLILITRE),
+      plural: translationModule.getTranslationByKey(VolumeTranslationEnum.PLURAL_MILLILITRE)
     },
     anchor: 1e-3
   },
   [MetricVolumeEnum.CENTILITRE]: {
     name: {
-      singular: 'Centilitre',
-      plural: 'Centilitres'
+      singular: translationModule.getTranslationByKey(VolumeTranslationEnum.SINGULAR_CENTILITRE),
+      plural: translationModule.getTranslationByKey(VolumeTranslationEnum.PLURAL_CENTILITRE)
     },
     anchor: 1e-2
   },
   [MetricVolumeEnum.DECILITRE]: {
     name: {
-      singular: 'Decilitre',
-      plural: 'Decilitres'
+      singular: translationModule.getTranslationByKey(VolumeTranslationEnum.SINGULAR_DECILITRE),
+      plural: translationModule.getTranslationByKey(VolumeTranslationEnum.PLURAL_DECILITRE)
     },
     anchor: 1e-1
   },
   [MetricVolumeEnum.LITRE]: {
     name: {
-      singular: 'Litre',
-      plural: 'Litres'
+      singular: translationModule.getTranslationByKey(VolumeTranslationEnum.SINGULAR_LITRE),
+      plural: translationModule.getTranslationByKey(VolumeTranslationEnum.PLURAL_LITRE)
     },
     anchor: 1
   },
   [MetricVolumeEnum.KILOLITRE]: {
     name: {
-      singular: 'Kilolitre',
-      plural: 'Kilolitres'
+      singular: translationModule.getTranslationByKey(VolumeTranslationEnum.SINGULAR_KILOLITRE),
+      plural: translationModule.getTranslationByKey(VolumeTranslationEnum.PLURAL_KILOLITRE)
     },
     anchor: 1e3
   },
   [MetricVolumeEnum.CUBIC_METER]: {
     name: {
-      singular: 'Cubic meter',
-      plural: 'Cubic meters'
+      singular: translationModule.getTranslationByKey(VolumeTranslationEnum.SINGULAR_CUBIC_METER),
+      plural: translationModule.getTranslationByKey(VolumeTranslationEnum.PLURAL_CUBIC_METER)
     },
     anchor: 1e3
   },
   [MetricVolumeEnum.CUBIC_KILOMETER]: {
     name: {
-      singular: 'Cubic kilometer',
-      plural: 'Cubic kilometers'
+      singular: translationModule.getTranslationByKey(VolumeTranslationEnum.SINGULAR_CUBIC_KILOMETER),
+      plural: translationModule.getTranslationByKey(VolumeTranslationEnum.PLURAL_CUBIC_KILOMETER)
     },
     anchor: 1e12
   }
@@ -104,71 +105,71 @@ const metric: Record<MetricVolumeUnit, Unit> = {
 const imperial: Record<ImperialVolumeUnit, Unit> = {
   [ImperialVolumeEnum.TEASPOON]: {
     name: {
-      singular: 'Teaspoon',
-      plural: 'Teaspoons'
+      singular: translationModule.getTranslationByKey(VolumeTranslationEnum.SINGULAR_TEASPOON),
+      plural: translationModule.getTranslationByKey(VolumeTranslationEnum.PLURAL_TEASPOON)
     },
     anchor: 1 / 6
   },
   [ImperialVolumeEnum.TABLESPOON]: {
     name: {
-      singular: 'Tablespoon',
-      plural: 'Tablespoons'
+      singular: translationModule.getTranslationByKey(VolumeTranslationEnum.SINGULAR_TABLESPOON),
+      plural: translationModule.getTranslationByKey(VolumeTranslationEnum.PLURAL_TABLESPOON)
     },
     anchor: 1 / 2
   },
   [ImperialVolumeEnum.CUBIC_INCH]: {
     name: {
-      singular: 'Cubic inch',
-      plural: 'Cubic inches'
+      singular: translationModule.getTranslationByKey(VolumeTranslationEnum.SINGULAR_CUBIC_INCH),
+      plural: translationModule.getTranslationByKey(VolumeTranslationEnum.PLURAL_CUBIC_INCH)
     },
     anchor: 0.55411
   },
   [ImperialVolumeEnum.FLUID_OUNCE]: {
     name: {
-      singular: 'Fluid Ounce',
-      plural: 'Fluid Ounces'
+      singular: translationModule.getTranslationByKey(VolumeTranslationEnum.SINGULAR_FLUID_OUNCE),
+      plural: translationModule.getTranslationByKey(VolumeTranslationEnum.PLURAL_FLUID_OUNCE)
     },
     anchor: 1
   },
   [ImperialVolumeEnum.CUP]: {
     name: {
-      singular: 'Cup',
-      plural: 'Cups'
+      singular: translationModule.getTranslationByKey(VolumeTranslationEnum.SINGULAR_CUP),
+      plural: translationModule.getTranslationByKey(VolumeTranslationEnum.PLURAL_CUP)
     },
     anchor: 8
   },
   [ImperialVolumeEnum.PINT]: {
     name: {
-      singular: 'Pint',
-      plural: 'Pints'
+      singular: translationModule.getTranslationByKey(VolumeTranslationEnum.SINGULAR_PINT),
+      plural: translationModule.getTranslationByKey(VolumeTranslationEnum.PLURAL_PINT)
     },
     anchor: 16
   },
   [ImperialVolumeEnum.QUART]: {
     name: {
-      singular: 'Quart',
-      plural: 'Quarts'
+      singular: translationModule.getTranslationByKey(VolumeTranslationEnum.SINGULAR_QUART),
+      plural: translationModule.getTranslationByKey(VolumeTranslationEnum.PLURAL_QUART)
     },
     anchor: 32
   },
   [ImperialVolumeEnum.GALLON]: {
     name: {
-      singular: 'Gallon',
-      plural: 'Gallons'
+      singular: translationModule.getTranslationByKey(VolumeTranslationEnum.SINGULAR_GALLON),
+      plural: translationModule.getTranslationByKey(VolumeTranslationEnum.PLURAL_GALLON)
     },
     anchor: 128
   },
   [ImperialVolumeEnum.CUBIC_FOOT]: {
     name: {
-      singular: 'Cubic foot',
-      plural: 'Cubic feet'
+      singular: translationModule.getTranslationByKey(VolumeTranslationEnum.SINGULAR_CUBIC_FOOT),
+      plural: translationModule.getTranslationByKey(VolumeTranslationEnum.PLURAL_CUBIC_FOOT)
     },
     anchor: 957.506
   },
   [ImperialVolumeEnum.CUBIC_YARD]: {
     name: {
-      singular: 'Cubic yard',
-      plural: 'Cubic yards'
+      singular: translationModule.getTranslationByKey(VolumeTranslationEnum.SINGULAR_CUBIC_YARD),
+      plural: translationModule.getTranslationByKey(VolumeTranslationEnum.PLURAL_CUBIC_YARD)
     },
     anchor: 25852.7
   }
@@ -177,43 +178,43 @@ const imperial: Record<ImperialVolumeUnit, Unit> = {
 const swedish: Record<SwedishVolumeUnit, Unit> = {
   [SwedishVolumeEnum.KRYDDMATTET]: {
     name: {
-      singular: 'Kryddmåttet',
-      plural: 'Kryddmått'
+      singular: translationModule.getTranslationByKey(VolumeTranslationEnum.SINGULAR_KRYDDMATTET),
+      plural: translationModule.getTranslationByKey(VolumeTranslationEnum.PLURAL_KRYDDMATTET)
     },
     anchor: 1e-3
   },
   [SwedishVolumeEnum.TESKED]: {
     name: {
-      singular: 'Tesked',
-      plural: 'Teskedar'
+      singular: translationModule.getTranslationByKey(VolumeTranslationEnum.SINGULAR_TESKED),
+      plural: translationModule.getTranslationByKey(VolumeTranslationEnum.PLURAL_TESKED)
     },
     anchor: 5e-3
   },
   [SwedishVolumeEnum.MATSKED]: {
     name: {
-      singular: 'Matsked',
-      plural: 'Matskedar'
+      singular: translationModule.getTranslationByKey(VolumeTranslationEnum.SINGULAR_MATSKED),
+      plural: translationModule.getTranslationByKey(VolumeTranslationEnum.PLURAL_MATSKED)
     },
     anchor: 1.5e-2
   },
   [SwedishVolumeEnum.KAFFEKOPP]: {
     name: {
-      singular: 'Kaffekopp',
-      plural: 'Kaffekoppar'
+      singular: translationModule.getTranslationByKey(VolumeTranslationEnum.SINGULAR_KAFFEKOPP),
+      plural: translationModule.getTranslationByKey(VolumeTranslationEnum.PLURAL_KAFFEKOPP)
     },
     anchor: 0.15
   },
   [SwedishVolumeEnum.GLAS]: {
     name: {
-      singular: 'Glas',
-      plural: 'Glas'
+      singular: translationModule.getTranslationByKey(VolumeTranslationEnum.SINGULAR_GLAS),
+      plural: translationModule.getTranslationByKey(VolumeTranslationEnum.PLURAL_GLAS)
     },
     anchor: 0.2
   },
   [SwedishVolumeEnum.KANNA]: {
     name: {
-      singular: 'Kanna',
-      plural: 'Kannor'
+      singular: translationModule.getTranslationByKey(VolumeTranslationEnum.SINGULAR_KANNA),
+      plural: translationModule.getTranslationByKey(VolumeTranslationEnum.PLURAL_KANNA)
     },
     anchor: 2.617
   }

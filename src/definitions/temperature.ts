@@ -1,3 +1,4 @@
+import { TemperatureTranslationEnum, translationModule } from '../i18n';
 import { Unit, UnitDefinition } from '../type';
 import { ImperialTemperatureUnit, MetricTemperatureUnit, TemperatureUnit } from './type';
 
@@ -14,16 +15,16 @@ export enum ImperialTemperatureEnum {
 const metric: Record<MetricTemperatureUnit, Unit> = {
   [MetricTemperatureEnum.CELSIUS]: {
     name: {
-      singular: 'Degree Celsius',
-      plural: 'Degrees Celsius'
+      singular: translationModule.getTranslationByKey(TemperatureTranslationEnum.SINGULAR_CELSIUS),
+      plural: translationModule.getTranslationByKey(TemperatureTranslationEnum.PLURAL_CELSIUS)
     },
     anchor: 1,
     anchorShift: 0
   },
   [MetricTemperatureEnum.KELVIN]: {
     name: {
-      singular: 'Degree Kelvin',
-      plural: 'Degrees Kelvin'
+      singular: translationModule.getTranslationByKey(TemperatureTranslationEnum.SINGULAR_KELVIN),
+      plural: translationModule.getTranslationByKey(TemperatureTranslationEnum.PLURAL_KELVIN)
     },
     anchor: 1,
     anchorShift: 273.15
@@ -33,15 +34,15 @@ const metric: Record<MetricTemperatureUnit, Unit> = {
 const imperial: Record<ImperialTemperatureUnit, Unit> = {
   [ImperialTemperatureEnum.FAHRENHEIT]: {
     name: {
-      singular: 'Degree Fahrenheit',
-      plural: 'Degrees Fahrenheit'
+      singular: translationModule.getTranslationByKey(TemperatureTranslationEnum.SINGULAR_FAHRENHEIT),
+      plural: translationModule.getTranslationByKey(TemperatureTranslationEnum.PLURAL_FAHRENHEIT)
     },
     anchor: 1
   },
   [ImperialTemperatureEnum.RANKINE]: {
     name: {
-      singular: 'Degree Rankine',
-      plural: 'Degrees Rankine'
+      singular: translationModule.getTranslationByKey(TemperatureTranslationEnum.SINGULAR_RANKINE),
+      plural: translationModule.getTranslationByKey(TemperatureTranslationEnum.PLURAL_RANKINE)
     },
     anchor: 1,
     anchorShift: 459.67
