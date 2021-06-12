@@ -1,4 +1,4 @@
-import { TemperatureTranslationEnum, translationModule } from '../i18n';
+import { TemperatureTranslationEnum } from '../i18n';
 import { Unit, UnitDefinition } from '../type';
 import { ImperialTemperatureUnit, MetricTemperatureUnit, TemperatureUnit } from './type';
 
@@ -15,16 +15,16 @@ export enum ImperialTemperatureEnum {
 const metric: Record<MetricTemperatureUnit, Unit> = {
   [MetricTemperatureEnum.CELSIUS]: {
     name: {
-      singular: translationModule.getTranslationByKey(TemperatureTranslationEnum.SINGULAR_CELSIUS),
-      plural: translationModule.getTranslationByKey(TemperatureTranslationEnum.PLURAL_CELSIUS)
+      singular: TemperatureTranslationEnum.SINGULAR_CELSIUS,
+      plural: TemperatureTranslationEnum.PLURAL_CELSIUS
     },
     anchor: 1,
     anchorShift: 0
   },
   [MetricTemperatureEnum.KELVIN]: {
     name: {
-      singular: translationModule.getTranslationByKey(TemperatureTranslationEnum.SINGULAR_KELVIN),
-      plural: translationModule.getTranslationByKey(TemperatureTranslationEnum.PLURAL_KELVIN)
+      singular: TemperatureTranslationEnum.SINGULAR_KELVIN,
+      plural: TemperatureTranslationEnum.PLURAL_KELVIN
     },
     anchor: 1,
     anchorShift: 273.15
@@ -34,15 +34,15 @@ const metric: Record<MetricTemperatureUnit, Unit> = {
 const imperial: Record<ImperialTemperatureUnit, Unit> = {
   [ImperialTemperatureEnum.FAHRENHEIT]: {
     name: {
-      singular: translationModule.getTranslationByKey(TemperatureTranslationEnum.SINGULAR_FAHRENHEIT),
-      plural: translationModule.getTranslationByKey(TemperatureTranslationEnum.PLURAL_FAHRENHEIT)
+      singular: TemperatureTranslationEnum.SINGULAR_FAHRENHEIT,
+      plural: TemperatureTranslationEnum.PLURAL_FAHRENHEIT
     },
     anchor: 1
   },
   [ImperialTemperatureEnum.RANKINE]: {
     name: {
-      singular: translationModule.getTranslationByKey(TemperatureTranslationEnum.SINGULAR_RANKINE),
-      plural: translationModule.getTranslationByKey(TemperatureTranslationEnum.PLURAL_RANKINE)
+      singular: TemperatureTranslationEnum.SINGULAR_RANKINE,
+      plural: TemperatureTranslationEnum.PLURAL_RANKINE
     },
     anchor: 1,
     anchorShift: 459.67

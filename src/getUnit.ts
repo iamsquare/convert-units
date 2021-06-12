@@ -10,7 +10,7 @@ import { Conversion, Nullable } from './type';
  * This function is {@link https://scotch.io/tutorials/understanding-memoization-in-javascript | memoized }
  *
  * @param unitType The type you want get the {@link Conversion} of
- * @returns A valid conversion unit or `null`
+ * @returns The raw valid conversion unit or `null`. Raw meaning that i18n values are _not_ translated.
  */
 const getUnit = memoizeWith(identity, (unitType: UnitType): Nullable<Conversion> => {
   for (const [measure, measureValue] of toPairs(measureDictionary)) {

@@ -1,4 +1,4 @@
-import { DigitalTranslationEnum, translationModule } from '../i18n';
+import { DigitalTranslationEnum } from '../i18n';
 import { Unit, UnitDefinition } from '../type';
 import { BitDigitalUnit, ByteDigitalUnit, DigitalUnit } from './type';
 
@@ -33,78 +33,78 @@ export enum ByteEnum {
 const bits: Record<BitDigitalUnit, Unit> = {
   [BitEnum.BIT]: {
     name: {
-      singular: translationModule.getTranslationByKey(DigitalTranslationEnum.SINGULAR_BIT),
-      plural: translationModule.getTranslationByKey(DigitalTranslationEnum.PLURAL_BIT)
+      singular: DigitalTranslationEnum.SINGULAR_BIT,
+      plural: DigitalTranslationEnum.PLURAL_BIT
     },
     anchor: 1
   },
   [BitEnum.KILOBIT]: {
     name: {
-      singular: translationModule.getTranslationByKey(DigitalTranslationEnum.SINGULAR_KILOBIT),
-      plural: translationModule.getTranslationByKey(DigitalTranslationEnum.PLURAL_KILOBIT)
+      singular: DigitalTranslationEnum.SINGULAR_KILOBIT,
+      plural: DigitalTranslationEnum.PLURAL_KILOBIT
     },
     anchor: 1e3
   },
   [BitEnum.KIBIBIT]: {
     name: {
-      singular: translationModule.getTranslationByKey(DigitalTranslationEnum.SINGULAR_KIBIBIT),
-      plural: translationModule.getTranslationByKey(DigitalTranslationEnum.PLURAL_KIBIBIT)
+      singular: DigitalTranslationEnum.SINGULAR_KIBIBIT,
+      plural: DigitalTranslationEnum.PLURAL_KIBIBIT
     },
     anchor: 1024
   },
   [BitEnum.MEGABIT]: {
     name: {
-      singular: translationModule.getTranslationByKey(DigitalTranslationEnum.SINGULAR_MEGABIT),
-      plural: translationModule.getTranslationByKey(DigitalTranslationEnum.PLURAL_MEGABIT)
+      singular: DigitalTranslationEnum.SINGULAR_MEGABIT,
+      plural: DigitalTranslationEnum.PLURAL_MEGABIT
     },
     anchor: 1e6
   },
   [BitEnum.MEBIBIT]: {
     name: {
-      singular: translationModule.getTranslationByKey(DigitalTranslationEnum.SINGULAR_MEBIBIT),
-      plural: translationModule.getTranslationByKey(DigitalTranslationEnum.PLURAL_MEBIBIT)
+      singular: DigitalTranslationEnum.SINGULAR_MEBIBIT,
+      plural: DigitalTranslationEnum.PLURAL_MEBIBIT
     },
     anchor: 1048576
   },
   [BitEnum.GIGABIT]: {
     name: {
-      singular: translationModule.getTranslationByKey(DigitalTranslationEnum.SINGULAR_GIGABIT),
-      plural: translationModule.getTranslationByKey(DigitalTranslationEnum.PLURAL_GIGABIT)
+      singular: DigitalTranslationEnum.SINGULAR_GIGABIT,
+      plural: DigitalTranslationEnum.PLURAL_GIGABIT
     },
     anchor: 1e9
   },
   [BitEnum.GIBIBIT]: {
     name: {
-      singular: translationModule.getTranslationByKey(DigitalTranslationEnum.SINGULAR_GIBIBIT),
-      plural: translationModule.getTranslationByKey(DigitalTranslationEnum.PLURAL_GIBIBIT)
+      singular: DigitalTranslationEnum.SINGULAR_GIBIBIT,
+      plural: DigitalTranslationEnum.PLURAL_GIBIBIT
     },
     anchor: 1073741824
   },
   [BitEnum.TERABIT]: {
     name: {
-      singular: translationModule.getTranslationByKey(DigitalTranslationEnum.SINGULAR_TERABIT),
-      plural: translationModule.getTranslationByKey(DigitalTranslationEnum.PLURAL_TERABIT)
+      singular: DigitalTranslationEnum.SINGULAR_TERABIT,
+      plural: DigitalTranslationEnum.PLURAL_TERABIT
     },
     anchor: 1e12
   },
   [BitEnum.TEBIBIT]: {
     name: {
-      singular: translationModule.getTranslationByKey(DigitalTranslationEnum.SINGULAR_TEBIBIT),
-      plural: translationModule.getTranslationByKey(DigitalTranslationEnum.PLURAL_TEBIBIT)
+      singular: DigitalTranslationEnum.SINGULAR_TEBIBIT,
+      plural: DigitalTranslationEnum.PLURAL_TEBIBIT
     },
     anchor: 1099511627776
   },
   [BitEnum.PETABIT]: {
     name: {
-      singular: translationModule.getTranslationByKey(DigitalTranslationEnum.SINGULAR_PETABIT),
-      plural: translationModule.getTranslationByKey(DigitalTranslationEnum.PLURAL_PETABIT)
+      singular: DigitalTranslationEnum.SINGULAR_PETABIT,
+      plural: DigitalTranslationEnum.PLURAL_PETABIT
     },
     anchor: 1e15
   },
   [BitEnum.PEBIBIT]: {
     name: {
-      singular: translationModule.getTranslationByKey(DigitalTranslationEnum.SINGULAR_PEBIBIT),
-      plural: translationModule.getTranslationByKey(DigitalTranslationEnum.PLURAL_PEBIBIT)
+      singular: DigitalTranslationEnum.SINGULAR_PEBIBIT,
+      plural: DigitalTranslationEnum.PLURAL_PEBIBIT
     },
     anchor: 1125899906842624
   }
@@ -113,78 +113,78 @@ const bits: Record<BitDigitalUnit, Unit> = {
 const bytes: Record<ByteDigitalUnit, Unit> = {
   [ByteEnum.BYTE]: {
     name: {
-      singular: translationModule.getTranslationByKey(DigitalTranslationEnum.SINGULAR_BYTE),
-      plural: translationModule.getTranslationByKey(DigitalTranslationEnum.PLURAL_BYTE)
+      singular: DigitalTranslationEnum.SINGULAR_BYTE,
+      plural: DigitalTranslationEnum.PLURAL_BYTE
     },
     anchor: 1
   },
   [ByteEnum.KILOBYTE]: {
     name: {
-      singular: translationModule.getTranslationByKey(DigitalTranslationEnum.SINGULAR_KILOBYTE),
-      plural: translationModule.getTranslationByKey(DigitalTranslationEnum.PLURAL_KILOBYTE)
+      singular: DigitalTranslationEnum.SINGULAR_KILOBYTE,
+      plural: DigitalTranslationEnum.PLURAL_KILOBYTE
     },
     anchor: 1e3
   },
   [ByteEnum.KIBIBYTE]: {
     name: {
-      singular: translationModule.getTranslationByKey(DigitalTranslationEnum.SINGULAR_KIBIBYTE),
-      plural: translationModule.getTranslationByKey(DigitalTranslationEnum.PLURAL_KIBIBYTE)
+      singular: DigitalTranslationEnum.SINGULAR_KIBIBYTE,
+      plural: DigitalTranslationEnum.PLURAL_KIBIBYTE
     },
     anchor: 1024
   },
   [ByteEnum.MEGABYTE]: {
     name: {
-      singular: translationModule.getTranslationByKey(DigitalTranslationEnum.SINGULAR_MEGABYTE),
-      plural: translationModule.getTranslationByKey(DigitalTranslationEnum.PLURAL_MEGABYTE)
+      singular: DigitalTranslationEnum.SINGULAR_MEGABYTE,
+      plural: DigitalTranslationEnum.PLURAL_MEGABYTE
     },
     anchor: 1e6
   },
   [ByteEnum.MEBIBYTE]: {
     name: {
-      singular: translationModule.getTranslationByKey(DigitalTranslationEnum.SINGULAR_MEBIBYTE),
-      plural: translationModule.getTranslationByKey(DigitalTranslationEnum.PLURAL_MEBIBYTE)
+      singular: DigitalTranslationEnum.SINGULAR_MEBIBYTE,
+      plural: DigitalTranslationEnum.PLURAL_MEBIBYTE
     },
     anchor: 1048576
   },
   [ByteEnum.GIGABYTE]: {
     name: {
-      singular: translationModule.getTranslationByKey(DigitalTranslationEnum.SINGULAR_GIGABYTE),
-      plural: translationModule.getTranslationByKey(DigitalTranslationEnum.PLURAL_GIGABYTE)
+      singular: DigitalTranslationEnum.SINGULAR_GIGABYTE,
+      plural: DigitalTranslationEnum.PLURAL_GIGABYTE
     },
     anchor: 1e9
   },
   [ByteEnum.GIBIBYTE]: {
     name: {
-      singular: translationModule.getTranslationByKey(DigitalTranslationEnum.SINGULAR_GIBIBYTE),
-      plural: translationModule.getTranslationByKey(DigitalTranslationEnum.PLURAL_GIBIBYTE)
+      singular: DigitalTranslationEnum.SINGULAR_GIBIBYTE,
+      plural: DigitalTranslationEnum.PLURAL_GIBIBYTE
     },
     anchor: 1073741824
   },
   [ByteEnum.TERABYTE]: {
     name: {
-      singular: translationModule.getTranslationByKey(DigitalTranslationEnum.SINGULAR_TERABYTE),
-      plural: translationModule.getTranslationByKey(DigitalTranslationEnum.PLURAL_TERABYTE)
+      singular: DigitalTranslationEnum.SINGULAR_TERABYTE,
+      plural: DigitalTranslationEnum.PLURAL_TERABYTE
     },
     anchor: 1e12
   },
   [ByteEnum.TEBIBYTE]: {
     name: {
-      singular: translationModule.getTranslationByKey(DigitalTranslationEnum.SINGULAR_TEBIBYTE),
-      plural: translationModule.getTranslationByKey(DigitalTranslationEnum.PLURAL_TEBIBYTE)
+      singular: DigitalTranslationEnum.SINGULAR_TEBIBYTE,
+      plural: DigitalTranslationEnum.PLURAL_TEBIBYTE
     },
     anchor: 1099511627776
   },
   [ByteEnum.PETABYTE]: {
     name: {
-      singular: translationModule.getTranslationByKey(DigitalTranslationEnum.SINGULAR_PETABYTE),
-      plural: translationModule.getTranslationByKey(DigitalTranslationEnum.PLURAL_PETABYTE)
+      singular: DigitalTranslationEnum.SINGULAR_PETABYTE,
+      plural: DigitalTranslationEnum.PLURAL_PETABYTE
     },
     anchor: 1e15
   },
   [ByteEnum.PEBIBYTE]: {
     name: {
-      singular: translationModule.getTranslationByKey(DigitalTranslationEnum.SINGULAR_PEBIBYTE),
-      plural: translationModule.getTranslationByKey(DigitalTranslationEnum.PLURAL_PEBIBYTE)
+      singular: DigitalTranslationEnum.SINGULAR_PEBIBYTE,
+      plural: DigitalTranslationEnum.PLURAL_PEBIBYTE
     },
     anchor: 1125899906842624
   }

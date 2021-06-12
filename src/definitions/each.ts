@@ -1,4 +1,4 @@
-import { EachTranslationEnum, translationModule } from '../i18n';
+import { EachTranslationEnum } from '../i18n';
 import { Unit, UnitDefinition } from '../type';
 import { EachUnit } from './type';
 
@@ -10,15 +10,15 @@ export enum EachEnum {
 const other: Record<EachUnit, Unit> = {
   [EachEnum.EACH]: {
     name: {
-      singular: translationModule.getTranslationByKey(EachTranslationEnum.SINGULAR_EACH),
-      plural: translationModule.getTranslationByKey(EachTranslationEnum.PLURAL_EACH)
+      singular: EachTranslationEnum.SINGULAR_EACH,
+      plural: EachTranslationEnum.PLURAL_EACH
     },
     anchor: 1
   },
   [EachEnum.DOZEN]: {
     name: {
-      singular: translationModule.getTranslationByKey(EachTranslationEnum.SINGULAR_DOZEN),
-      plural: translationModule.getTranslationByKey(EachTranslationEnum.PLURAL_DOZEN)
+      singular: EachTranslationEnum.SINGULAR_DOZEN,
+      plural: EachTranslationEnum.PLURAL_DOZEN
     },
     anchor: 12
   }

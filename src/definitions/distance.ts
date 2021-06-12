@@ -1,4 +1,4 @@
-import { DistanceTranslationEnum, translationModule } from '../i18n';
+import { DistanceTranslationEnum } from '../i18n';
 import { Unit, UnitDefinition } from '../type';
 import { DistanceUnit, ImperialDistanceUnit, MetricDistanceUnit } from './type';
 
@@ -24,43 +24,43 @@ export enum ImperialDistanceEnum {
 const metric: Record<MetricDistanceUnit, Unit> = {
   [MetricDistanceEnum.NANOMETER]: {
     name: {
-      singular: translationModule.getTranslationByKey(DistanceTranslationEnum.SINGULAR_NANOMETER),
-      plural: translationModule.getTranslationByKey(DistanceTranslationEnum.PLURAL_NANOMETER)
+      singular: DistanceTranslationEnum.SINGULAR_NANOMETER,
+      plural: DistanceTranslationEnum.PLURAL_NANOMETER
     },
     anchor: 1e-9
   },
   [MetricDistanceEnum.MICROMETER]: {
     name: {
-      singular: translationModule.getTranslationByKey(DistanceTranslationEnum.SINGULAR_MICROMETER),
-      plural: translationModule.getTranslationByKey(DistanceTranslationEnum.PLURAL_MICROMETER)
+      singular: DistanceTranslationEnum.SINGULAR_MICROMETER,
+      plural: DistanceTranslationEnum.PLURAL_MICROMETER
     },
     anchor: 1e-6
   },
   [MetricDistanceEnum.MILLIMETER]: {
     name: {
-      singular: translationModule.getTranslationByKey(DistanceTranslationEnum.SINGULAR_MILLIMETER),
-      plural: translationModule.getTranslationByKey(DistanceTranslationEnum.PLURAL_MILLIMETER)
+      singular: DistanceTranslationEnum.SINGULAR_MILLIMETER,
+      plural: DistanceTranslationEnum.PLURAL_MILLIMETER
     },
     anchor: 1e-3
   },
   [MetricDistanceEnum.CENTIMETER]: {
     name: {
-      singular: translationModule.getTranslationByKey(DistanceTranslationEnum.SINGULAR_CENTIMETER),
-      plural: translationModule.getTranslationByKey(DistanceTranslationEnum.PLURAL_CENTIMETER)
+      singular: DistanceTranslationEnum.SINGULAR_CENTIMETER,
+      plural: DistanceTranslationEnum.PLURAL_CENTIMETER
     },
     anchor: 1e-2
   },
   [MetricDistanceEnum.METER]: {
     name: {
-      singular: translationModule.getTranslationByKey(DistanceTranslationEnum.SINGULAR_METER),
-      plural: translationModule.getTranslationByKey(DistanceTranslationEnum.PLURAL_METER)
+      singular: DistanceTranslationEnum.SINGULAR_METER,
+      plural: DistanceTranslationEnum.PLURAL_METER
     },
     anchor: 1
   },
   [MetricDistanceEnum.KILOMETER]: {
     name: {
-      singular: translationModule.getTranslationByKey(DistanceTranslationEnum.SINGULAR_KILOMETER),
-      plural: translationModule.getTranslationByKey(DistanceTranslationEnum.PLURAL_KILOMETER)
+      singular: DistanceTranslationEnum.SINGULAR_KILOMETER,
+      plural: DistanceTranslationEnum.PLURAL_KILOMETER
     },
     anchor: 1e3
   }
@@ -69,50 +69,50 @@ const metric: Record<MetricDistanceUnit, Unit> = {
 const imperial: Record<ImperialDistanceUnit, Unit> = {
   [ImperialDistanceEnum.INCH]: {
     name: {
-      singular: translationModule.getTranslationByKey(DistanceTranslationEnum.SINGULAR_INCH),
-      plural: translationModule.getTranslationByKey(DistanceTranslationEnum.PLURAL_INCH)
+      singular: DistanceTranslationEnum.SINGULAR_INCH,
+      plural: DistanceTranslationEnum.PLURAL_INCH
     },
     anchor: 1 / 12
   },
   [ImperialDistanceEnum.YARD]: {
     name: {
-      singular: translationModule.getTranslationByKey(DistanceTranslationEnum.SINGULAR_YARD),
-      plural: translationModule.getTranslationByKey(DistanceTranslationEnum.PLURAL_YARD)
+      singular: DistanceTranslationEnum.SINGULAR_YARD,
+      plural: DistanceTranslationEnum.PLURAL_YARD
     },
     anchor: 3
   },
   [ImperialDistanceEnum.US_SURVEY_FOOT]: {
     name: {
-      singular: translationModule.getTranslationByKey(DistanceTranslationEnum.SINGULAR_US_SURVEY_FOOT),
-      plural: translationModule.getTranslationByKey(DistanceTranslationEnum.PLURAL_US_SURVEY_FOOT)
+      singular: DistanceTranslationEnum.SINGULAR_US_SURVEY_FOOT,
+      plural: DistanceTranslationEnum.PLURAL_US_SURVEY_FOOT
     },
     anchor: 1.000002
   },
   [ImperialDistanceEnum.FOOT]: {
     name: {
-      singular: translationModule.getTranslationByKey(DistanceTranslationEnum.SINGULAR_FOOT),
-      plural: translationModule.getTranslationByKey(DistanceTranslationEnum.PLURAL_FOOT)
+      singular: DistanceTranslationEnum.SINGULAR_FOOT,
+      plural: DistanceTranslationEnum.PLURAL_FOOT
     },
     anchor: 1
   },
   [ImperialDistanceEnum.FATHOM]: {
     name: {
-      singular: translationModule.getTranslationByKey(DistanceTranslationEnum.SINGULAR_FATHOM),
-      plural: translationModule.getTranslationByKey(DistanceTranslationEnum.PLURAL_FATHOM)
+      singular: DistanceTranslationEnum.SINGULAR_FATHOM,
+      plural: DistanceTranslationEnum.PLURAL_FATHOM
     },
     anchor: 6
   },
   [ImperialDistanceEnum.MILE]: {
     name: {
-      singular: translationModule.getTranslationByKey(DistanceTranslationEnum.SINGULAR_MILE),
-      plural: translationModule.getTranslationByKey(DistanceTranslationEnum.PLURAL_MILE)
+      singular: DistanceTranslationEnum.SINGULAR_MILE,
+      plural: DistanceTranslationEnum.PLURAL_MILE
     },
     anchor: 5280
   },
   [ImperialDistanceEnum.NAUTICAL_MILE]: {
     name: {
-      singular: translationModule.getTranslationByKey(DistanceTranslationEnum.SINGULAR_NAUTICAL_MILE),
-      plural: translationModule.getTranslationByKey(DistanceTranslationEnum.PLURAL_NAUTICAL_MILE)
+      singular: DistanceTranslationEnum.SINGULAR_NAUTICAL_MILE,
+      plural: DistanceTranslationEnum.PLURAL_NAUTICAL_MILE
     },
     anchor: 6076.12
   }

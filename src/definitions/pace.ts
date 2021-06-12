@@ -1,4 +1,4 @@
-import { PaceTranslationEnum, translationModule } from '../i18n';
+import { PaceTranslationEnum } from '../i18n';
 import { Unit, UnitDefinition } from '../type';
 import { ImperialPaceUnit, MetricPaceUnit, PaceUnit } from './type';
 
@@ -15,15 +15,15 @@ export enum ImperialPaceEnum {
 const metric: Record<MetricPaceUnit, Unit> = {
   [MetricPaceEnum.MINUTE_PER_KILOMETRE]: {
     name: {
-      singular: translationModule.getTranslationByKey(PaceTranslationEnum.SINGULAR_MINUTE_PER_KILOMETRE),
-      plural: translationModule.getTranslationByKey(PaceTranslationEnum.PLURAL_MINUTE_PER_KILOMETRE)
+      singular: PaceTranslationEnum.SINGULAR_MINUTE_PER_KILOMETRE,
+      plural: PaceTranslationEnum.PLURAL_MINUTE_PER_KILOMETRE
     },
     anchor: 0.06
   },
   [MetricPaceEnum.SECOND_PER_METRE]: {
     name: {
-      singular: translationModule.getTranslationByKey(PaceTranslationEnum.SINGULAR_SECOND_PER_METRE),
-      plural: translationModule.getTranslationByKey(PaceTranslationEnum.PLURAL_SECOND_PER_METRE)
+      singular: PaceTranslationEnum.SINGULAR_SECOND_PER_METRE,
+      plural: PaceTranslationEnum.PLURAL_SECOND_PER_METRE
     },
     anchor: 1
   }
@@ -32,15 +32,15 @@ const metric: Record<MetricPaceUnit, Unit> = {
 const imperial: Record<ImperialPaceUnit, Unit> = {
   [ImperialPaceEnum.MINUTE_PER_MILE]: {
     name: {
-      singular: translationModule.getTranslationByKey(PaceTranslationEnum.SINGULAR_MINUTE_PER_MILE),
-      plural: translationModule.getTranslationByKey(PaceTranslationEnum.PLURAL_MINUTE_PER_MILE)
+      singular: PaceTranslationEnum.SINGULAR_MINUTE_PER_MILE,
+      plural: PaceTranslationEnum.PLURAL_MINUTE_PER_MILE
     },
     anchor: 0.0113636
   },
   [ImperialPaceEnum.SECOND_PER_FOOT]: {
     name: {
-      singular: translationModule.getTranslationByKey(PaceTranslationEnum.SINGULAR_SECOND_PER_FOOT),
-      plural: translationModule.getTranslationByKey(PaceTranslationEnum.PLURAL_SECOND_PER_FOOT)
+      singular: PaceTranslationEnum.SINGULAR_SECOND_PER_FOOT,
+      plural: PaceTranslationEnum.PLURAL_SECOND_PER_FOOT
     },
     anchor: 1
   }

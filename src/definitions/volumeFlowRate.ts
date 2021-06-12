@@ -1,4 +1,4 @@
-import { translationModule, VolumeFlowRateTranslationEnum } from '../i18n';
+import { VolumeFlowRateTranslationEnum } from '../i18n';
 import { Unit, UnitDefinition } from '../type';
 import { ImperialVolumeFlowRateUnit, MetricVolumeFlowRateUnit, VolumeFlowRateUnit } from './type';
 
@@ -48,112 +48,106 @@ export enum ImperialVolumeFlowEnum {
 const metric: Record<MetricVolumeFlowRateUnit, Unit> = {
   [MetricVolumeFlowEnum.CUBIC_MILLIMETER_PER_SECOND]: {
     name: {
-      singular: translationModule.getTranslationByKey(
-        VolumeFlowRateTranslationEnum.SINGULAR_CUBIC_MILLIMETER_PER_SECOND
-      ),
-      plural: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.PLURAL_CUBIC_MILLIMETER_PER_SECOND)
+      singular: VolumeFlowRateTranslationEnum.SINGULAR_CUBIC_MILLIMETER_PER_SECOND,
+      plural: VolumeFlowRateTranslationEnum.PLURAL_CUBIC_MILLIMETER_PER_SECOND
     },
     anchor: 1e-6
   },
   [MetricVolumeFlowEnum.CUBIC_CENTIMETER_PER_SECOND]: {
     name: {
-      singular: translationModule.getTranslationByKey(
-        VolumeFlowRateTranslationEnum.SINGULAR_CUBIC_CENTIMETER_PER_SECOND
-      ),
-      plural: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.PLURAL_CUBIC_CENTIMETER_PER_SECOND)
+      singular: VolumeFlowRateTranslationEnum.SINGULAR_CUBIC_CENTIMETER_PER_SECOND,
+      plural: VolumeFlowRateTranslationEnum.PLURAL_CUBIC_CENTIMETER_PER_SECOND
     },
     anchor: 1e-3
   },
   [MetricVolumeFlowEnum.MILLILITRE_PER_SECOND]: {
     name: {
-      singular: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.SINGULAR_MILLILITRE_PER_SECOND),
-      plural: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.PLURAL_MILLILITRE_PER_SECOND)
+      singular: VolumeFlowRateTranslationEnum.SINGULAR_MILLILITRE_PER_SECOND,
+      plural: VolumeFlowRateTranslationEnum.PLURAL_MILLILITRE_PER_SECOND
     },
     anchor: 1e-3
   },
   [MetricVolumeFlowEnum.CENTILITRE_PER_SECOND]: {
     name: {
-      singular: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.SINGULAR_CENTILITRE_PER_SECOND),
-      plural: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.PLURAL_CENTILITRE_PER_SECOND)
+      singular: VolumeFlowRateTranslationEnum.SINGULAR_CENTILITRE_PER_SECOND,
+      plural: VolumeFlowRateTranslationEnum.PLURAL_CENTILITRE_PER_SECOND
     },
     anchor: 1e-2
   },
   [MetricVolumeFlowEnum.DECILITRE_PER_SECOND]: {
     name: {
-      singular: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.SINGULAR_DECILITRE_PER_SECOND),
-      plural: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.PLURAL_DECILITRE_PER_SECOND)
+      singular: VolumeFlowRateTranslationEnum.SINGULAR_DECILITRE_PER_SECOND,
+      plural: VolumeFlowRateTranslationEnum.PLURAL_DECILITRE_PER_SECOND
     },
     anchor: 0.1
   },
   [MetricVolumeFlowEnum.LITRE_PER_SECOND]: {
     name: {
-      singular: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.SINGULAR_LITRE_PER_SECOND),
-      plural: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.PLURAL_LITRE_PER_SECOND)
+      singular: VolumeFlowRateTranslationEnum.SINGULAR_LITRE_PER_SECOND,
+      plural: VolumeFlowRateTranslationEnum.PLURAL_LITRE_PER_SECOND
     },
     anchor: 1
   },
   [MetricVolumeFlowEnum.LITRE_PER_MINUTE]: {
     name: {
-      singular: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.SINGULAR_LITRE_PER_MINUTE),
-      plural: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.PLURAL_LITRE_PER_MINUTE)
+      singular: VolumeFlowRateTranslationEnum.SINGULAR_LITRE_PER_MINUTE,
+      plural: VolumeFlowRateTranslationEnum.PLURAL_LITRE_PER_MINUTE
     },
     anchor: 1 / 60
   },
   [MetricVolumeFlowEnum.LITRE_PER_HOUR]: {
     name: {
-      singular: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.SINGULAR_LITRE_PER_HOUR),
-      plural: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.PLURAL_LITRE_PER_HOUR)
+      singular: VolumeFlowRateTranslationEnum.SINGULAR_LITRE_PER_HOUR,
+      plural: VolumeFlowRateTranslationEnum.PLURAL_LITRE_PER_HOUR
     },
     anchor: 1 / 3600
   },
   [MetricVolumeFlowEnum.KILOLITRE_PER_SECOND]: {
     name: {
-      singular: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.SINGULAR_KILOLITRE_PER_SECOND),
-      plural: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.PLURAL_KILOLITRE_PER_SECOND)
+      singular: VolumeFlowRateTranslationEnum.SINGULAR_KILOLITRE_PER_SECOND,
+      plural: VolumeFlowRateTranslationEnum.PLURAL_KILOLITRE_PER_SECOND
     },
     anchor: 1e3
   },
   [MetricVolumeFlowEnum.KILOLITRE_PER_MINUTE]: {
     name: {
-      singular: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.SINGULAR_KILOLITRE_PER_MINUTE),
-      plural: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.PLURAL_KILOLITRE_PER_MINUTE)
+      singular: VolumeFlowRateTranslationEnum.SINGULAR_KILOLITRE_PER_MINUTE,
+      plural: VolumeFlowRateTranslationEnum.PLURAL_KILOLITRE_PER_MINUTE
     },
     anchor: 50 / 3
   },
   [MetricVolumeFlowEnum.KILOLITRE_PER_HOUR]: {
     name: {
-      singular: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.SINGULAR_KILOLITRE_PER_HOUR),
-      plural: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.PLURAL_KILOLITRE_PER_HOUR)
+      singular: VolumeFlowRateTranslationEnum.SINGULAR_KILOLITRE_PER_HOUR,
+      plural: VolumeFlowRateTranslationEnum.PLURAL_KILOLITRE_PER_HOUR
     },
     anchor: 5 / 18
   },
   [MetricVolumeFlowEnum.CUBIC_METER_PER_SECOND]: {
     name: {
-      singular: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.SINGULAR_CUBIC_METER_PER_SECOND),
-      plural: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.PLURAL_CUBIC_METER_PER_SECOND)
+      singular: VolumeFlowRateTranslationEnum.SINGULAR_CUBIC_METER_PER_SECOND,
+      plural: VolumeFlowRateTranslationEnum.PLURAL_CUBIC_METER_PER_SECOND
     },
     anchor: 1e3
   },
   [MetricVolumeFlowEnum.CUBIC_METER_PER_MINUTE]: {
     name: {
-      singular: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.SINGULAR_CUBIC_METER_PER_MINUTE),
-      plural: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.PLURAL_CUBIC_METER_PER_MINUTE)
+      singular: VolumeFlowRateTranslationEnum.SINGULAR_CUBIC_METER_PER_MINUTE,
+      plural: VolumeFlowRateTranslationEnum.PLURAL_CUBIC_METER_PER_MINUTE
     },
     anchor: 50 / 3
   },
   [MetricVolumeFlowEnum.CUBIC_METER_PER_HOUR]: {
     name: {
-      singular: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.SINGULAR_CUBIC_METER_PER_HOUR),
-      plural: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.PLURAL_CUBIC_METER_PER_HOUR)
+      singular: VolumeFlowRateTranslationEnum.SINGULAR_CUBIC_METER_PER_HOUR,
+      plural: VolumeFlowRateTranslationEnum.PLURAL_CUBIC_METER_PER_HOUR
     },
     anchor: 5 / 18
   },
   [MetricVolumeFlowEnum.CUBIC_KILOMETER_PER_SECOND]: {
     name: {
-      singular: translationModule.getTranslationByKey(
-        VolumeFlowRateTranslationEnum.SINGULAR_CUBIC_KILOMETER_PER_SECOND
-      ),
-      plural: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.PLURAL_CUBIC_KILOMETER_PER_SECOND)
+      singular: VolumeFlowRateTranslationEnum.SINGULAR_CUBIC_KILOMETER_PER_SECOND,
+      plural: VolumeFlowRateTranslationEnum.PLURAL_CUBIC_KILOMETER_PER_SECOND
     },
     anchor: 1e12
   }
@@ -162,155 +156,155 @@ const metric: Record<MetricVolumeFlowRateUnit, Unit> = {
 const imperial: Record<ImperialVolumeFlowRateUnit, Unit> = {
   [ImperialVolumeFlowEnum.TEASPOON_PER_SECOND]: {
     name: {
-      singular: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.SINGULAR_TEASPOON_PER_SECOND),
-      plural: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.PLURAL_TEASPOON_PER_SECOND)
+      singular: VolumeFlowRateTranslationEnum.SINGULAR_TEASPOON_PER_SECOND,
+      plural: VolumeFlowRateTranslationEnum.PLURAL_TEASPOON_PER_SECOND
     },
     anchor: 1 / 6
   },
   [ImperialVolumeFlowEnum.TABLESPOON_PER_SECOND]: {
     name: {
-      singular: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.SINGULAR_TABLESPOON_PER_SECOND),
-      plural: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.PLURAL_TABLESPOON_PER_SECOND)
+      singular: VolumeFlowRateTranslationEnum.SINGULAR_TABLESPOON_PER_SECOND,
+      plural: VolumeFlowRateTranslationEnum.PLURAL_TABLESPOON_PER_SECOND
     },
     anchor: 1 / 2
   },
   [ImperialVolumeFlowEnum.CUBIC_INCH_PER_SECOND]: {
     name: {
-      singular: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.SINGULAR_CUBIC_INCH_PER_SECOND),
-      plural: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.PLURAL_CUBIC_INCH_PER_SECOND)
+      singular: VolumeFlowRateTranslationEnum.SINGULAR_CUBIC_INCH_PER_SECOND,
+      plural: VolumeFlowRateTranslationEnum.PLURAL_CUBIC_INCH_PER_SECOND
     },
     anchor: 0.55411
   },
   [ImperialVolumeFlowEnum.CUBIC_INCH_PER_MINUTE]: {
     name: {
-      singular: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.SINGULAR_CUBIC_INCH_PER_MINUTE),
-      plural: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.PLURAL_CUBIC_INCH_PER_MINUTE)
+      singular: VolumeFlowRateTranslationEnum.SINGULAR_CUBIC_INCH_PER_MINUTE,
+      plural: VolumeFlowRateTranslationEnum.PLURAL_CUBIC_INCH_PER_MINUTE
     },
     anchor: 0.55411 / 60
   },
   [ImperialVolumeFlowEnum.CUBIC_INCH_PER_HOUR]: {
     name: {
-      singular: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.SINGULAR_CUBIC_INCH_PER_HOUR),
-      plural: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.PLURAL_CUBIC_INCH_PER_HOUR)
+      singular: VolumeFlowRateTranslationEnum.SINGULAR_CUBIC_INCH_PER_HOUR,
+      plural: VolumeFlowRateTranslationEnum.PLURAL_CUBIC_INCH_PER_HOUR
     },
     anchor: 0.55411 / 3600
   },
   [ImperialVolumeFlowEnum.FLUID_OUNCE_PER_SECOND]: {
     name: {
-      singular: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.SINGULAR_FLUID_OUNCE_PER_SECOND),
-      plural: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.PLURAL_FLUID_OUNCE_PER_SECOND)
+      singular: VolumeFlowRateTranslationEnum.SINGULAR_FLUID_OUNCE_PER_SECOND,
+      plural: VolumeFlowRateTranslationEnum.PLURAL_FLUID_OUNCE_PER_SECOND
     },
     anchor: 1
   },
   [ImperialVolumeFlowEnum.FLUID_OUNCE_PER_MINUTE]: {
     name: {
-      singular: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.SINGULAR_FLUID_OUNCE_PER_MINUTE),
-      plural: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.PLURAL_FLUID_OUNCE_PER_MINUTE)
+      singular: VolumeFlowRateTranslationEnum.SINGULAR_FLUID_OUNCE_PER_MINUTE,
+      plural: VolumeFlowRateTranslationEnum.PLURAL_FLUID_OUNCE_PER_MINUTE
     },
     anchor: 1 / 60
   },
   [ImperialVolumeFlowEnum.FLUID_OUNCE_PER_HOUR]: {
     name: {
-      singular: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.SINGULAR_FLUID_OUNCE_PER_HOUR),
-      plural: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.PLURAL_FLUID_OUNCE_PER_HOUR)
+      singular: VolumeFlowRateTranslationEnum.SINGULAR_FLUID_OUNCE_PER_HOUR,
+      plural: VolumeFlowRateTranslationEnum.PLURAL_FLUID_OUNCE_PER_HOUR
     },
     anchor: 1 / 3600
   },
   [ImperialVolumeFlowEnum.CUP_PER_SECOND]: {
     name: {
-      singular: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.SINGULAR_CUP_PER_SECOND),
-      plural: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.PLURAL_CUP_PER_SECOND)
+      singular: VolumeFlowRateTranslationEnum.SINGULAR_CUP_PER_SECOND,
+      plural: VolumeFlowRateTranslationEnum.PLURAL_CUP_PER_SECOND
     },
     anchor: 8
   },
   [ImperialVolumeFlowEnum.PINT_PER_SECOND]: {
     name: {
-      singular: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.SINGULAR_PINT_PER_SECOND),
-      plural: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.PLURAL_PINT_PER_SECOND)
+      singular: VolumeFlowRateTranslationEnum.SINGULAR_PINT_PER_SECOND,
+      plural: VolumeFlowRateTranslationEnum.PLURAL_PINT_PER_SECOND
     },
     anchor: 16
   },
   [ImperialVolumeFlowEnum.PINT_PER_MINUTE]: {
     name: {
-      singular: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.SINGULAR_PINT_PER_MINUTE),
-      plural: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.PLURAL_PINT_PER_MINUTE)
+      singular: VolumeFlowRateTranslationEnum.SINGULAR_PINT_PER_MINUTE,
+      plural: VolumeFlowRateTranslationEnum.PLURAL_PINT_PER_MINUTE
     },
     anchor: 4 / 15
   },
   [ImperialVolumeFlowEnum.PINT_PER_HOUR]: {
     name: {
-      singular: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.SINGULAR_PINT_PER_HOUR),
-      plural: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.PLURAL_PINT_PER_HOUR)
+      singular: VolumeFlowRateTranslationEnum.SINGULAR_PINT_PER_HOUR,
+      plural: VolumeFlowRateTranslationEnum.PLURAL_PINT_PER_HOUR
     },
     anchor: 1 / 225
   },
   [ImperialVolumeFlowEnum.QUART_PER_SECOND]: {
     name: {
-      singular: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.SINGULAR_QUART_PER_SECOND),
-      plural: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.PLURAL_QUART_PER_SECOND)
+      singular: VolumeFlowRateTranslationEnum.SINGULAR_QUART_PER_SECOND,
+      plural: VolumeFlowRateTranslationEnum.PLURAL_QUART_PER_SECOND
     },
     anchor: 32
   },
   [ImperialVolumeFlowEnum.GALLON_PER_SECOND]: {
     name: {
-      singular: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.SINGULAR_GALLON_PER_SECOND),
-      plural: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.PLURAL_GALLON_PER_SECOND)
+      singular: VolumeFlowRateTranslationEnum.SINGULAR_GALLON_PER_SECOND,
+      plural: VolumeFlowRateTranslationEnum.PLURAL_GALLON_PER_SECOND
     },
     anchor: 128
   },
   [ImperialVolumeFlowEnum.GALLON_PER_MINUTE]: {
     name: {
-      singular: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.SINGULAR_GALLON_PER_MINUTE),
-      plural: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.PLURAL_GALLON_PER_MINUTE)
+      singular: VolumeFlowRateTranslationEnum.SINGULAR_GALLON_PER_MINUTE,
+      plural: VolumeFlowRateTranslationEnum.PLURAL_GALLON_PER_MINUTE
     },
     anchor: 32 / 15
   },
   [ImperialVolumeFlowEnum.GALLON_PER_HOUR]: {
     name: {
-      singular: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.SINGULAR_GALLON_PER_HOUR),
-      plural: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.PLURAL_GALLON_PER_HOUR)
+      singular: VolumeFlowRateTranslationEnum.SINGULAR_GALLON_PER_HOUR,
+      plural: VolumeFlowRateTranslationEnum.PLURAL_GALLON_PER_HOUR
     },
     anchor: 8 / 225
   },
   [ImperialVolumeFlowEnum.CUBIC_FOOT_PER_SECOND]: {
     name: {
-      singular: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.SINGULAR_CUBIC_FOOT_PER_SECOND),
-      plural: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.PLURAL_CUBIC_FOOT_PER_SECOND)
+      singular: VolumeFlowRateTranslationEnum.SINGULAR_CUBIC_FOOT_PER_SECOND,
+      plural: VolumeFlowRateTranslationEnum.PLURAL_CUBIC_FOOT_PER_SECOND
     },
     anchor: 957.506
   },
   [ImperialVolumeFlowEnum.CUBIC_FOOT_PER_MINUTE]: {
     name: {
-      singular: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.SINGULAR_CUBIC_FOOT_PER_MINUTE),
-      plural: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.PLURAL_CUBIC_FOOT_PER_MINUTE)
+      singular: VolumeFlowRateTranslationEnum.SINGULAR_CUBIC_FOOT_PER_MINUTE,
+      plural: VolumeFlowRateTranslationEnum.PLURAL_CUBIC_FOOT_PER_MINUTE
     },
     anchor: 957.506 / 60
   },
   [ImperialVolumeFlowEnum.CUBIC_FOOT_PER_HOUR]: {
     name: {
-      singular: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.SINGULAR_CUBIC_FOOT_PER_HOUR),
-      plural: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.PLURAL_CUBIC_FOOT_PER_HOUR)
+      singular: VolumeFlowRateTranslationEnum.SINGULAR_CUBIC_FOOT_PER_HOUR,
+      plural: VolumeFlowRateTranslationEnum.PLURAL_CUBIC_FOOT_PER_HOUR
     },
     anchor: 957.506 / 3600
   },
   [ImperialVolumeFlowEnum.CUBIC_YARD_PER_SECOND]: {
     name: {
-      singular: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.SINGULAR_CUBIC_YARD_PER_SECOND),
-      plural: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.PLURAL_CUBIC_YARD_PER_SECOND)
+      singular: VolumeFlowRateTranslationEnum.SINGULAR_CUBIC_YARD_PER_SECOND,
+      plural: VolumeFlowRateTranslationEnum.PLURAL_CUBIC_YARD_PER_SECOND
     },
     anchor: 25852.7
   },
   [ImperialVolumeFlowEnum.CUBIC_YARD_PER_MINUTE]: {
     name: {
-      singular: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.SINGULAR_CUBIC_YARD_PER_MINUTE),
-      plural: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.PLURAL_CUBIC_YARD_PER_MINUTE)
+      singular: VolumeFlowRateTranslationEnum.SINGULAR_CUBIC_YARD_PER_MINUTE,
+      plural: VolumeFlowRateTranslationEnum.PLURAL_CUBIC_YARD_PER_MINUTE
     },
     anchor: 25852.7 / 60
   },
   [ImperialVolumeFlowEnum.CUBIC_YARD_PER_HOUR]: {
     name: {
-      singular: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.SINGULAR_CUBIC_YARD_PER_HOUR),
-      plural: translationModule.getTranslationByKey(VolumeFlowRateTranslationEnum.PLURAL_CUBIC_YARD_PER_HOUR)
+      singular: VolumeFlowRateTranslationEnum.SINGULAR_CUBIC_YARD_PER_HOUR,
+      plural: VolumeFlowRateTranslationEnum.PLURAL_CUBIC_YARD_PER_HOUR
     },
     anchor: 25852.7 / 3600
   }

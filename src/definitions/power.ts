@@ -1,4 +1,4 @@
-import { PowerTranslationEnum, translationModule } from '../i18n';
+import { PowerTranslationEnum } from '../i18n';
 import { Unit, UnitDefinition } from '../type';
 import { ImperialPowerUnit, MetricPowerUnit, PowerUnit } from './type';
 
@@ -20,43 +20,43 @@ export enum ImperialPowerEnum {
 const metric: Record<MetricPowerUnit, Unit> = {
   [MetricPowerEnum.WATT]: {
     name: {
-      singular: translationModule.getTranslationByKey(PowerTranslationEnum.SINGULAR_WATT),
-      plural: translationModule.getTranslationByKey(PowerTranslationEnum.PLURAL_WATT)
+      singular: PowerTranslationEnum.SINGULAR_WATT,
+      plural: PowerTranslationEnum.PLURAL_WATT
     },
     anchor: 1
   },
   [MetricPowerEnum.MILLIWATT]: {
     name: {
-      singular: translationModule.getTranslationByKey(PowerTranslationEnum.SINGULAR_MILLIWATT),
-      plural: translationModule.getTranslationByKey(PowerTranslationEnum.PLURAL_MILLIWATT)
+      singular: PowerTranslationEnum.SINGULAR_MILLIWATT,
+      plural: PowerTranslationEnum.PLURAL_MILLIWATT
     },
     anchor: 1e-3
   },
   [MetricPowerEnum.KILOWATT]: {
     name: {
-      singular: translationModule.getTranslationByKey(PowerTranslationEnum.SINGULAR_KILOWATT),
-      plural: translationModule.getTranslationByKey(PowerTranslationEnum.PLURAL_KILOWATT)
+      singular: PowerTranslationEnum.SINGULAR_KILOWATT,
+      plural: PowerTranslationEnum.PLURAL_KILOWATT
     },
     anchor: 1e3
   },
   [MetricPowerEnum.MEGAWATT]: {
     name: {
-      singular: translationModule.getTranslationByKey(PowerTranslationEnum.SINGULAR_MEGAWATT),
-      plural: translationModule.getTranslationByKey(PowerTranslationEnum.PLURAL_MEGAWATT)
+      singular: PowerTranslationEnum.SINGULAR_MEGAWATT,
+      plural: PowerTranslationEnum.PLURAL_MEGAWATT
     },
     anchor: 1e6
   },
   [MetricPowerEnum.GIGAWATT]: {
     name: {
-      singular: translationModule.getTranslationByKey(PowerTranslationEnum.SINGULAR_GIGAWATT),
-      plural: translationModule.getTranslationByKey(PowerTranslationEnum.PLURAL_GIGAWATT)
+      singular: PowerTranslationEnum.SINGULAR_GIGAWATT,
+      plural: PowerTranslationEnum.PLURAL_GIGAWATT
     },
     anchor: 1e9
   },
   [MetricPowerEnum.HORSE_POWER]: {
     name: {
-      singular: translationModule.getTranslationByKey(PowerTranslationEnum.SINGULAR_HORSE_POWER),
-      plural: translationModule.getTranslationByKey(PowerTranslationEnum.PLURAL_HORSE_POWER)
+      singular: PowerTranslationEnum.SINGULAR_HORSE_POWER,
+      plural: PowerTranslationEnum.PLURAL_HORSE_POWER
     },
     anchor: 735.49875
   }
@@ -65,22 +65,22 @@ const metric: Record<MetricPowerUnit, Unit> = {
 const imperial: Record<ImperialPowerUnit, Unit> = {
   [ImperialPowerEnum.BTU_PER_SECOND]: {
     name: {
-      singular: translationModule.getTranslationByKey(PowerTranslationEnum.SINGULAR_BTU_PER_SECOND),
-      plural: translationModule.getTranslationByKey(PowerTranslationEnum.PLURAL_BTU_PER_SECOND)
+      singular: PowerTranslationEnum.SINGULAR_BTU_PER_SECOND,
+      plural: PowerTranslationEnum.PLURAL_BTU_PER_SECOND
     },
     anchor: 778.16937
   },
   [ImperialPowerEnum.FOOT_POUND_PER_SECOND]: {
     name: {
-      singular: translationModule.getTranslationByKey(PowerTranslationEnum.SINGULAR_FOOT_POUND_PER_SECOND),
-      plural: translationModule.getTranslationByKey(PowerTranslationEnum.PLURAL_FOOT_POUND_PER_SECOND)
+      singular: PowerTranslationEnum.SINGULAR_FOOT_POUND_PER_SECOND,
+      plural: PowerTranslationEnum.PLURAL_FOOT_POUND_PER_SECOND
     },
     anchor: 1
   },
   [ImperialPowerEnum.HORSE_POWER]: {
     name: {
-      singular: translationModule.getTranslationByKey(PowerTranslationEnum.SINGULAR_IMPERIAL_HORSE_POWER),
-      plural: translationModule.getTranslationByKey(PowerTranslationEnum.PLURAL_IMPERIAL_HORSE_POWER)
+      singular: PowerTranslationEnum.SINGULAR_IMPERIAL_HORSE_POWER,
+      plural: PowerTranslationEnum.PLURAL_IMPERIAL_HORSE_POWER
     },
     anchor: 550
   }

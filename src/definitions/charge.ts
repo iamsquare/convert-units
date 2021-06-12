@@ -1,4 +1,4 @@
-import { ChargeTranslationEnum, translationModule } from '../i18n';
+import { ChargeTranslationEnum } from '../i18n';
 import { Unit, UnitDefinition } from '../type';
 import { ChargeUnit } from './type';
 
@@ -13,36 +13,36 @@ export enum ChargeEnum {
 const metric: Record<ChargeUnit, Unit> = {
   [ChargeEnum.COULOMB]: {
     name: {
-      singular: translationModule.getTranslationByKey(ChargeTranslationEnum.SINGULAR_COULOMB),
-      plural: translationModule.getTranslationByKey(ChargeTranslationEnum.PLURAL_COULOMB)
+      singular: ChargeTranslationEnum.SINGULAR_COULOMB,
+      plural: ChargeTranslationEnum.PLURAL_COULOMB
     },
     anchor: 1
   },
   [ChargeEnum.MILLICOULOMB]: {
     name: {
-      singular: translationModule.getTranslationByKey(ChargeTranslationEnum.SINGULAR_MILLICOULOMB),
-      plural: translationModule.getTranslationByKey(ChargeTranslationEnum.PLURAL_MILLICOULOMB)
+      singular: ChargeTranslationEnum.SINGULAR_MILLICOULOMB,
+      plural: ChargeTranslationEnum.PLURAL_MILLICOULOMB
     },
     anchor: 1e-3
   },
   [ChargeEnum.MICROCOULOMB]: {
     name: {
-      singular: translationModule.getTranslationByKey(ChargeTranslationEnum.SINGULAR_MICROCOULOMB),
-      plural: translationModule.getTranslationByKey(ChargeTranslationEnum.PLURAL_MICROCOULOMB)
+      singular: ChargeTranslationEnum.SINGULAR_MICROCOULOMB,
+      plural: ChargeTranslationEnum.PLURAL_MICROCOULOMB
     },
     anchor: 1e-6
   },
   [ChargeEnum.NANOCOULOMB]: {
     name: {
-      singular: translationModule.getTranslationByKey(ChargeTranslationEnum.SINGULAR_NANOCOULOMB),
-      plural: translationModule.getTranslationByKey(ChargeTranslationEnum.PLURAL_NANOCOULOMB)
+      singular: ChargeTranslationEnum.SINGULAR_NANOCOULOMB,
+      plural: ChargeTranslationEnum.PLURAL_NANOCOULOMB
     },
     anchor: 1e-9
   },
   [ChargeEnum.PICOCOULOMB]: {
     name: {
-      singular: translationModule.getTranslationByKey(ChargeTranslationEnum.SINGULAR_PICOCOULOMB),
-      plural: translationModule.getTranslationByKey(ChargeTranslationEnum.PLURAL_PICOCOULOMB)
+      singular: ChargeTranslationEnum.SINGULAR_PICOCOULOMB,
+      plural: ChargeTranslationEnum.PLURAL_PICOCOULOMB
     },
     anchor: 1e-12
   }

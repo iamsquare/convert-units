@@ -1,4 +1,4 @@
-import { CurrentTranslationEnum, translationModule } from '../i18n';
+import { CurrentTranslationEnum } from '../i18n';
 import { Unit, UnitDefinition } from '../type';
 import { CurrentUnit } from './type';
 
@@ -11,22 +11,22 @@ export enum CurrentEnum {
 const metric: Record<CurrentUnit, Unit> = {
   [CurrentEnum.AMPERE]: {
     name: {
-      singular: translationModule.getTranslationByKey(CurrentTranslationEnum.SINGULAR_AMPERE),
-      plural: translationModule.getTranslationByKey(CurrentTranslationEnum.PLURAL_AMPERE)
+      singular: CurrentTranslationEnum.SINGULAR_AMPERE,
+      plural: CurrentTranslationEnum.PLURAL_AMPERE
     },
     anchor: 1
   },
   [CurrentEnum.MILLIAMPERE]: {
     name: {
-      singular: translationModule.getTranslationByKey(CurrentTranslationEnum.SINGULAR_MILLIAMPERE),
-      plural: translationModule.getTranslationByKey(CurrentTranslationEnum.PLURAL_MILLIAMPERE)
+      singular: CurrentTranslationEnum.SINGULAR_MILLIAMPERE,
+      plural: CurrentTranslationEnum.PLURAL_MILLIAMPERE
     },
     anchor: 1e-3
   },
   [CurrentEnum.KILOAMPERE]: {
     name: {
-      singular: translationModule.getTranslationByKey(CurrentTranslationEnum.SINGULAR_KILOAMPERE),
-      plural: translationModule.getTranslationByKey(CurrentTranslationEnum.PLURAL_KILOAMPERE)
+      singular: CurrentTranslationEnum.SINGULAR_KILOAMPERE,
+      plural: CurrentTranslationEnum.PLURAL_KILOAMPERE
     },
     anchor: 1e3
   }

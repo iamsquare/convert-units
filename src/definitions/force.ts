@@ -1,4 +1,4 @@
-import { ForceTranslationEnum, translationModule } from '../i18n';
+import { ForceTranslationEnum } from '../i18n';
 import { Unit, UnitDefinition } from '../type';
 import { ForceUnit, ImperialForceUnit, MetricForceUnit } from './type';
 
@@ -14,15 +14,15 @@ export enum ImperialForceEnum {
 const metric: Record<MetricForceUnit, Unit> = {
   [MetricForceEnum.NEWTON]: {
     name: {
-      singular: translationModule.getTranslationByKey(ForceTranslationEnum.SINGULAR_NEWTON),
-      plural: translationModule.getTranslationByKey(ForceTranslationEnum.PLURAL_NEWTON)
+      singular: ForceTranslationEnum.SINGULAR_NEWTON,
+      plural: ForceTranslationEnum.PLURAL_NEWTON
     },
     anchor: 1
   },
   [MetricForceEnum.KILONEWTON]: {
     name: {
-      singular: translationModule.getTranslationByKey(ForceTranslationEnum.SINGULAR_KILONEWTON),
-      plural: translationModule.getTranslationByKey(ForceTranslationEnum.PLURAL_KILONEWTON)
+      singular: ForceTranslationEnum.SINGULAR_KILONEWTON,
+      plural: ForceTranslationEnum.PLURAL_KILONEWTON
     },
     anchor: 1e3
   }
@@ -31,8 +31,8 @@ const metric: Record<MetricForceUnit, Unit> = {
 const imperial: Record<ImperialForceUnit, Unit> = {
   [ImperialForceEnum.POUND_FORCE]: {
     name: {
-      singular: translationModule.getTranslationByKey(ForceTranslationEnum.SINGULAR_POUND_FORCE),
-      plural: translationModule.getTranslationByKey(ForceTranslationEnum.PLURAL_POUND_FORCE)
+      singular: ForceTranslationEnum.SINGULAR_POUND_FORCE,
+      plural: ForceTranslationEnum.PLURAL_POUND_FORCE
     },
     anchor: 1
   }

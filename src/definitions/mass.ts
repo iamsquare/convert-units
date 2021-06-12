@@ -1,4 +1,4 @@
-import { MassTranslationEnum, translationModule } from '../i18n';
+import { MassTranslationEnum } from '../i18n';
 import { Unit, UnitDefinition } from '../type';
 import { ImperialMassUnit, MassUnit, MetricMassUnit } from './type';
 
@@ -19,36 +19,36 @@ export enum ImperialMassEnum {
 const metric: Record<MetricMassUnit, Unit> = {
   [MetricMassEnum.MICROGRAM]: {
     name: {
-      singular: translationModule.getTranslationByKey(MassTranslationEnum.SINGULAR_MICROGRAM),
-      plural: translationModule.getTranslationByKey(MassTranslationEnum.PLURAL_MICROGRAM)
+      singular: MassTranslationEnum.SINGULAR_MICROGRAM,
+      plural: MassTranslationEnum.PLURAL_MICROGRAM
     },
     anchor: 1e-6
   },
   [MetricMassEnum.MILLIGRAM]: {
     name: {
-      singular: translationModule.getTranslationByKey(MassTranslationEnum.SINGULAR_MILLIGRAM),
-      plural: translationModule.getTranslationByKey(MassTranslationEnum.PLURAL_MILLIGRAM)
+      singular: MassTranslationEnum.SINGULAR_MILLIGRAM,
+      plural: MassTranslationEnum.PLURAL_MILLIGRAM
     },
     anchor: 1e-3
   },
   [MetricMassEnum.GRAM]: {
     name: {
-      singular: translationModule.getTranslationByKey(MassTranslationEnum.SINGULAR_GRAM),
-      plural: translationModule.getTranslationByKey(MassTranslationEnum.PLURAL_GRAM)
+      singular: MassTranslationEnum.SINGULAR_GRAM,
+      plural: MassTranslationEnum.PLURAL_GRAM
     },
     anchor: 1
   },
   [MetricMassEnum.KILOGRAM]: {
     name: {
-      singular: translationModule.getTranslationByKey(MassTranslationEnum.SINGULAR_KILOGRAM),
-      plural: translationModule.getTranslationByKey(MassTranslationEnum.PLURAL_KILOGRAM)
+      singular: MassTranslationEnum.SINGULAR_KILOGRAM,
+      plural: MassTranslationEnum.PLURAL_KILOGRAM
     },
     anchor: 1e3
   },
   [MetricMassEnum.METRIC_TONNE]: {
     name: {
-      singular: translationModule.getTranslationByKey(MassTranslationEnum.SINGULAR_METRIC_TONNE),
-      plural: translationModule.getTranslationByKey(MassTranslationEnum.PLURAL_METRIC_TONNE)
+      singular: MassTranslationEnum.SINGULAR_METRIC_TONNE,
+      plural: MassTranslationEnum.PLURAL_METRIC_TONNE
     },
     anchor: 1e6
   }
@@ -57,22 +57,22 @@ const metric: Record<MetricMassUnit, Unit> = {
 const imperial: Record<ImperialMassUnit, Unit> = {
   [ImperialMassEnum.OUNCE]: {
     name: {
-      singular: translationModule.getTranslationByKey(MassTranslationEnum.SINGULAR_OUNCE),
-      plural: translationModule.getTranslationByKey(MassTranslationEnum.PLURAL_OUNCE)
+      singular: MassTranslationEnum.SINGULAR_OUNCE,
+      plural: MassTranslationEnum.PLURAL_OUNCE
     },
     anchor: 1 / 16
   },
   [ImperialMassEnum.POUND]: {
     name: {
-      singular: translationModule.getTranslationByKey(MassTranslationEnum.SINGULAR_POUND),
-      plural: translationModule.getTranslationByKey(MassTranslationEnum.PLURAL_POUND)
+      singular: MassTranslationEnum.SINGULAR_POUND,
+      plural: MassTranslationEnum.PLURAL_POUND
     },
     anchor: 1
   },
   [ImperialMassEnum.TON]: {
     name: {
-      singular: translationModule.getTranslationByKey(MassTranslationEnum.SINGULAR_TON),
-      plural: translationModule.getTranslationByKey(MassTranslationEnum.PLURAL_TON)
+      singular: MassTranslationEnum.SINGULAR_TON,
+      plural: MassTranslationEnum.PLURAL_TON
     },
     anchor: 2e3
   }
