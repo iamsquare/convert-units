@@ -4,8 +4,7 @@ import convert from './convert';
 import { UnitType } from './definitions';
 import getUnit from './getUnit';
 import list from './list';
-import { BestConversion, ConvertToBestDto, Measure, UnitDescription } from './type';
-import { Nullable } from './type/utils.type';
+import { BestConversion, ConvertToBestDto, Measure, Nullable, UnitDescription } from './type';
 
 /**
  * Converts a `value` from a compatible unit to the best unit (or _smallest_) given some optional parameters.

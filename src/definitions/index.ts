@@ -8,7 +8,7 @@ export { BitEnum, ByteEnum } from './digital';
 export { ImperialDistanceEnum, MetricDistanceEnum } from './distance';
 export { EachEnum } from './each';
 export { EnergyEnum } from './energy';
-export { ForceEnum } from './force';
+export { ImperialForceEnum, MetricForceEnum } from './force';
 export { FrequencyEnum } from './frequency';
 export { ImperialIlluminanceEnum, MetricIlluminanceEnum } from './illuminance';
 export { ImperialMassEnum, MetricMassEnum } from './mass';

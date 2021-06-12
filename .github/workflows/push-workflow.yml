@@ -1,9 +1,10 @@
 on:
   push:
+  pull_request:
 
 name: Push Workflow
 jobs:
-  build:
+  tests:
     name: Test library
     runs-on: ubuntu-latest
     steps:

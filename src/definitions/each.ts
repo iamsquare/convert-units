@@ -1,26 +1,30 @@
+import { EachTranslationEnum } from '../i18n';
+import { Unit, UnitDefinition } from '../type';
+import { EachUnit } from './type';
+
 export enum EachEnum {
   EACH = 'ea',
   DOZEN = 'dz'
 }
 
-const other = {
+const other: Record<EachUnit, Unit> = {
   [EachEnum.EACH]: {
     name: {
-      singular: 'Each',
-      plural: 'Each'
+      singular: EachTranslationEnum.SINGULAR_EACH,
+      plural: EachTranslationEnum.PLURAL_EACH
     },
     anchor: 1
   },
   [EachEnum.DOZEN]: {
     name: {
-      singular: 'Dozen',
-      plural: 'Dozens'
+      singular: EachTranslationEnum.SINGULAR_DOZEN,
+      plural: EachTranslationEnum.PLURAL_DOZEN
     },
     anchor: 12
   }
 };
 
-const each = {
+const each: UnitDefinition<'other', EachUnit> = {
   systems: {
     other
   }

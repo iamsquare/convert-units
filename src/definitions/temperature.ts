@@ -1,3 +1,7 @@
+import { TemperatureTranslationEnum } from '../i18n';
+import { Unit, UnitDefinition } from '../type';
+import { ImperialTemperatureUnit, MetricTemperatureUnit, TemperatureUnit } from './type';
+
 export enum MetricTemperatureEnum {
   CELSIUS = 'C',
   KELVIN = 'K'
@@ -8,44 +12,44 @@ export enum ImperialTemperatureEnum {
   RANKINE = 'R'
 }
 
-const metric = {
+const metric: Record<MetricTemperatureUnit, Unit> = {
   [MetricTemperatureEnum.CELSIUS]: {
     name: {
-      singular: 'Degree Celsius',
-      plural: 'Degrees Celsius'
+      singular: TemperatureTranslationEnum.SINGULAR_CELSIUS,
+      plural: TemperatureTranslationEnum.PLURAL_CELSIUS
     },
     anchor: 1,
     anchorShift: 0
   },
   [MetricTemperatureEnum.KELVIN]: {
     name: {
-      singular: 'Degree Kelvin',
-      plural: 'Degrees Kelvin'
+      singular: TemperatureTranslationEnum.SINGULAR_KELVIN,
+      plural: TemperatureTranslationEnum.PLURAL_KELVIN
     },
     anchor: 1,
     anchorShift: 273.15
   }
 };
 
-const imperial = {
+const imperial: Record<ImperialTemperatureUnit, Unit> = {
   [ImperialTemperatureEnum.FAHRENHEIT]: {
     name: {
-      singular: 'Degree Fahrenheit',
-      plural: 'Degrees Fahrenheit'
+      singular: TemperatureTranslationEnum.SINGULAR_FAHRENHEIT,
+      plural: TemperatureTranslationEnum.PLURAL_FAHRENHEIT
     },
     anchor: 1
   },
   [ImperialTemperatureEnum.RANKINE]: {
     name: {
-      singular: 'Degree Rankine',
-      plural: 'Degrees Rankine'
+      singular: TemperatureTranslationEnum.SINGULAR_RANKINE,
+      plural: TemperatureTranslationEnum.PLURAL_RANKINE
     },
     anchor: 1,
     anchorShift: 459.67
   }
 };
 
-const temperature = {
+const temperature: UnitDefinition<'metric' | 'imperial', TemperatureUnit> = {
   systems: {
     metric,
     imperial

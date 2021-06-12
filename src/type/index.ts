@@ -1,12 +1,30 @@
-import { UnitType } from '../definitions/type/units.type';
+import { UnitType } from '../definitions/type';
 import { Measure } from './measure.type';
 import { System } from './system.type';
-import { Maybe, PartialRecord } from './utils.type';
+import { Maybe, PartialRecord, RequireAtLeastOne } from './utils.type';
 
-export interface Name {
+export type BestConversion = {
+  value: number;
+  unitType: UnitType;
+};
+
+export type Conversion = {
+  measure: Measure;
+  system: System;
+  unitType: UnitType;
+  unit: Unit;
+};
+
+export type UnitDescription = {
+  unitType: UnitType;
+  measure: Measure;
+  system: System;
+} & Name;
+
+export type Name = {
   singular: string;
   plural: string;
-}
+};
 
 export type Unit = {
   name: Name;
@@ -14,30 +32,25 @@ export type Unit = {
   anchorShift?: Maybe<number>;
 };
 
-export interface Anchor<U extends UnitType> {
-  unit: U;
-  ratio?: Maybe<PartialRecord<System, number>>;
-  transform?: Maybe<PartialRecord<System, (value: number) => number>>;
-}
+export type Anchor<S extends System, U extends UnitType> = RequireAtLeastOne<
+  {
+    unit: U;
+    ratio?: Maybe<PartialRecord<S, number>>;
+    transform?: Maybe<PartialRecord<S, (value: number) => number>>;
+  },
+  'ratio' | 'transform'
+>;
 
-export interface BestConversion {
-  value: number;
-  unitType: UnitType;
-}
+export type ExtractedSystem<E extends System> = Extract<System, E>;
 
-export interface Conversion {
-  measure: Measure;
-  system: System;
-  unitType: UnitType;
-  unit: Unit;
-}
+export type AnchorPartialRecord<S extends System, U extends UnitType> = { [P in S]?: Anchor<Exclude<S, P>, U> };
 
-export interface UnitDescription extends Name {
-  unitType: UnitType;
-  measure: Measure;
-  system: System;
-}
+export type UnitDefinition<S extends System, U extends UnitType> = {
+  systems: Record<ExtractedSystem<S>, PartialRecord<U, Unit>>;
+  anchors?: Maybe<AnchorPartialRecord<ExtractedSystem<S>, U>>;
+};
 
-export { ConvertToBestDto } from './dto.type';
-export { Measure, MeasureEnum } from './measure.type';
-export { System, SystemEnum } from './system.type';
+export * from './dto.type';
+export * from './measure.type';
+export * from './system.type';
+export * from './utils.type';

@@ -1,3 +1,7 @@
+import { PowerTranslationEnum } from '../i18n';
+import { Unit, UnitDefinition } from '../type';
+import { ImperialPowerUnit, MetricPowerUnit, PowerUnit } from './type';
+
 export enum MetricPowerEnum {
   WATT = 'W',
   MILLIWATT = 'mW',
@@ -13,76 +17,76 @@ export enum ImperialPowerEnum {
   HORSE_POWER = 'hp'
 }
 
-const metric = {
+const metric: Record<MetricPowerUnit, Unit> = {
   [MetricPowerEnum.WATT]: {
     name: {
-      singular: 'Watt',
-      plural: 'Watts'
+      singular: PowerTranslationEnum.SINGULAR_WATT,
+      plural: PowerTranslationEnum.PLURAL_WATT
     },
     anchor: 1
   },
   [MetricPowerEnum.MILLIWATT]: {
     name: {
-      singular: 'Milliwatt',
-      plural: 'Milliwatts'
+      singular: PowerTranslationEnum.SINGULAR_MILLIWATT,
+      plural: PowerTranslationEnum.PLURAL_MILLIWATT
     },
     anchor: 1e-3
   },
   [MetricPowerEnum.KILOWATT]: {
     name: {
-      singular: 'Kilowatt',
-      plural: 'Kilowatts'
+      singular: PowerTranslationEnum.SINGULAR_KILOWATT,
+      plural: PowerTranslationEnum.PLURAL_KILOWATT
     },
     anchor: 1e3
   },
   [MetricPowerEnum.MEGAWATT]: {
     name: {
-      singular: 'Megawatt',
-      plural: 'Megawatts'
+      singular: PowerTranslationEnum.SINGULAR_MEGAWATT,
+      plural: PowerTranslationEnum.PLURAL_MEGAWATT
     },
     anchor: 1e6
   },
   [MetricPowerEnum.GIGAWATT]: {
     name: {
-      singular: 'Gigawatt',
-      plural: 'Gigawatts'
+      singular: PowerTranslationEnum.SINGULAR_GIGAWATT,
+      plural: PowerTranslationEnum.PLURAL_GIGAWATT
     },
     anchor: 1e9
   },
   [MetricPowerEnum.HORSE_POWER]: {
     name: {
-      singular: 'Horsepower (metric)',
-      plural: 'Horsepower (metric)'
+      singular: PowerTranslationEnum.SINGULAR_HORSE_POWER,
+      plural: PowerTranslationEnum.PLURAL_HORSE_POWER
     },
     anchor: 735.49875
   }
 };
 
-const imperial = {
+const imperial: Record<ImperialPowerUnit, Unit> = {
   [ImperialPowerEnum.BTU_PER_SECOND]: {
     name: {
-      singular: 'British thermal unit per second',
-      plural: 'British thermal units per second'
+      singular: PowerTranslationEnum.SINGULAR_BTU_PER_SECOND,
+      plural: PowerTranslationEnum.PLURAL_BTU_PER_SECOND
     },
     anchor: 778.16937
   },
   [ImperialPowerEnum.FOOT_POUND_PER_SECOND]: {
     name: {
-      singular: 'Foot-pound per second',
-      plural: 'Foot-pounds per second'
+      singular: PowerTranslationEnum.SINGULAR_FOOT_POUND_PER_SECOND,
+      plural: PowerTranslationEnum.PLURAL_FOOT_POUND_PER_SECOND
     },
     anchor: 1
   },
   [ImperialPowerEnum.HORSE_POWER]: {
     name: {
-      singular: 'Horsepower (British)',
-      plural: 'Horsepower (British)'
+      singular: PowerTranslationEnum.SINGULAR_IMPERIAL_HORSE_POWER,
+      plural: PowerTranslationEnum.PLURAL_IMPERIAL_HORSE_POWER
     },
     anchor: 550
   }
 };
 
-const power = {
+const power: UnitDefinition<'metric' | 'imperial', PowerUnit> = {
   systems: {
     metric,
     imperial

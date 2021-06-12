@@ -1,3 +1,7 @@
+import { ReactiveEnergyTranslationEnum } from '../i18n';
+import { Unit, UnitDefinition } from '../type';
+import { ReactiveEnergyUnit } from './type';
+
 export enum ReactiveEnergyEnum {
   VOLT_AMPERE_REACTIVE_HOUR = 'VARh',
   MILLIVOLT_AMPERE_REACTIVE_HOUR = 'mVARh',
@@ -6,45 +10,45 @@ export enum ReactiveEnergyEnum {
   GIGAVOLT_AMPERE_REACTIVE_HOUR = 'GVARh'
 }
 
-const metric = {
+const metric: Record<ReactiveEnergyUnit, Unit> = {
   [ReactiveEnergyEnum.VOLT_AMPERE_REACTIVE_HOUR]: {
     name: {
-      singular: 'Volt-Ampere Reactive Hour',
-      plural: 'Volt-Amperes Reactive Hour'
+      singular: ReactiveEnergyTranslationEnum.SINGULAR_VOLT_AMPERE_REACTIVE_HOUR,
+      plural: ReactiveEnergyTranslationEnum.PLURAL_VOLT_AMPERE_REACTIVE_HOUR
     },
     anchor: 1
   },
   [ReactiveEnergyEnum.MILLIVOLT_AMPERE_REACTIVE_HOUR]: {
     name: {
-      singular: 'Millivolt-Ampere Reactive Hour',
-      plural: 'Millivolt-Amperes Reactive Hour'
+      singular: ReactiveEnergyTranslationEnum.SINGULAR_MILLIVOLT_AMPERE_REACTIVE_HOUR,
+      plural: ReactiveEnergyTranslationEnum.PLURAL_MILLIVOLT_AMPERE_REACTIVE_HOUR
     },
     anchor: 1e-3
   },
   [ReactiveEnergyEnum.KILOVOLT_AMPERE_REACTIVE_HOUR]: {
     name: {
-      singular: 'Kilovolt-Ampere Reactive Hour',
-      plural: 'Kilovolt-Amperes Reactive Hour'
+      singular: ReactiveEnergyTranslationEnum.SINGULAR_KILOVOLT_AMPERE_REACTIVE_HOUR,
+      plural: ReactiveEnergyTranslationEnum.PLURAL_KILOVOLT_AMPERE_REACTIVE_HOUR
     },
     anchor: 1e3
   },
   [ReactiveEnergyEnum.MEGAVOLT_AMPERE_REACTIVE_HOUR]: {
     name: {
-      singular: 'Megavolt-Ampere Reactive Hour',
-      plural: 'Megavolt-Amperes Reactive Hour'
+      singular: ReactiveEnergyTranslationEnum.SINGULAR_MEGAVOLT_AMPERE_REACTIVE_HOUR,
+      plural: ReactiveEnergyTranslationEnum.PLURAL_MEGAVOLT_AMPERE_REACTIVE_HOUR
     },
     anchor: 1e6
   },
   [ReactiveEnergyEnum.GIGAVOLT_AMPERE_REACTIVE_HOUR]: {
     name: {
-      singular: 'Gigavolt-Ampere Reactive Hour',
-      plural: 'Gigavolt-Amperes Reactive Hour'
+      singular: ReactiveEnergyTranslationEnum.SINGULAR_GIGAVOLT_AMPERE_REACTIVE_HOUR,
+      plural: ReactiveEnergyTranslationEnum.PLURAL_GIGAVOLT_AMPERE_REACTIVE_HOUR
     },
     anchor: 1e9
   }
 };
 
-const reactiveEnergy = {
+const reactiveEnergy: UnitDefinition<'metric', ReactiveEnergyUnit> = {
   systems: {
     metric
   }

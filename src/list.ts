@@ -3,8 +3,7 @@ import { map, pipe } from 'ramda';
 import { UnitType } from './definitions/type';
 import describe from './describe';
 import possibilities from './possibilities';
-import { Measure, UnitDescription } from './type';
-import { Maybe } from './type/utils.type';
+import { Maybe, Measure, UnitDescription } from './type';
 
 /**
  * Gives a list of descriptions of the units for a given {@link Measure}, or all the units supported by the library.

@@ -1,3 +1,7 @@
+import { SpeedTranslationEnum } from '../i18n';
+import { Unit, UnitDefinition } from '../type';
+import { ImperialSpeedUnit, MetricSpeedUnit, SpeedUnit } from './type';
+
 export enum MetricSpeedEnum {
   METRE_PER_SECOND = 'm/s',
   KILOMETRE_PER_HOUR = 'km/h',
@@ -10,55 +14,55 @@ export enum ImperialSpeedEnum {
   FOOT_PER_SECOND = 'ft/s'
 }
 
-const metric = {
+const metric: Record<MetricSpeedUnit, Unit> = {
   [MetricSpeedEnum.METRE_PER_SECOND]: {
     name: {
-      singular: 'Metre per second',
-      plural: 'Metres per second'
+      singular: SpeedTranslationEnum.SINGULAR_METRE_PER_SECOND,
+      plural: SpeedTranslationEnum.PLURAL_METRE_PER_SECOND
     },
     anchor: 3.6
   },
   [MetricSpeedEnum.KILOMETRE_PER_HOUR]: {
     name: {
-      singular: 'Kilometre per hour',
-      plural: 'Kilometres per hour'
+      singular: SpeedTranslationEnum.SINGULAR_KILOMETRE_PER_HOUR,
+      plural: SpeedTranslationEnum.PLURAL_KILOMETRE_PER_HOUR
     },
     anchor: 1
   },
   [MetricSpeedEnum.METRE_PER_HOUR]: {
     name: {
-      singular: 'Metre per hour',
-      plural: 'Metres per hour'
+      singular: SpeedTranslationEnum.SINGULAR_METRE_PER_HOUR,
+      plural: SpeedTranslationEnum.PLURAL_METRE_PER_HOUR
     },
     anchor: 1e3
   }
 };
 
-const imperial = {
+const imperial: Record<ImperialSpeedUnit, Unit> = {
   [ImperialSpeedEnum.MILE_PER_HOUR]: {
     name: {
-      singular: 'Mile per hour',
-      plural: 'Miles per hour'
+      singular: SpeedTranslationEnum.SINGULAR_MILE_PER_HOUR,
+      plural: SpeedTranslationEnum.PLURAL_MILE_PER_HOUR
     },
     anchor: 1
   },
   [ImperialSpeedEnum.KNOT]: {
     name: {
-      singular: 'Knot',
-      plural: 'Knots'
+      singular: SpeedTranslationEnum.SINGULAR_KNOT,
+      plural: SpeedTranslationEnum.PLURAL_KNOT
     },
     anchor: 1.150779
   },
   [ImperialSpeedEnum.FOOT_PER_SECOND]: {
     name: {
-      singular: 'Foot per second',
-      plural: 'Feet per second'
+      singular: SpeedTranslationEnum.SINGULAR_FOOT_PER_SECOND,
+      plural: SpeedTranslationEnum.PLURAL_FOOT_PER_SECOND
     },
     anchor: 0.681818
   }
 };
 
-const speed = {
+const speed: UnitDefinition<'metric' | 'imperial', SpeedUnit> = {
   systems: {
     metric,
     imperial

@@ -1,3 +1,7 @@
+import { ChargeTranslationEnum } from '../i18n';
+import { Unit, UnitDefinition } from '../type';
+import { ChargeUnit } from './type';
+
 export enum ChargeEnum {
   COULOMB = 'c',
   MILLICOULOMB = 'mC',
@@ -6,45 +10,45 @@ export enum ChargeEnum {
   PICOCOULOMB = 'pC'
 }
 
-const metric = {
+const metric: Record<ChargeUnit, Unit> = {
   [ChargeEnum.COULOMB]: {
     name: {
-      singular: 'Coulomb',
-      plural: 'Coulombs'
+      singular: ChargeTranslationEnum.SINGULAR_COULOMB,
+      plural: ChargeTranslationEnum.PLURAL_COULOMB
     },
     anchor: 1
   },
   [ChargeEnum.MILLICOULOMB]: {
     name: {
-      singular: 'Millicoulomb',
-      plural: 'Millicoulombs'
+      singular: ChargeTranslationEnum.SINGULAR_MILLICOULOMB,
+      plural: ChargeTranslationEnum.PLURAL_MILLICOULOMB
     },
     anchor: 1e-3
   },
   [ChargeEnum.MICROCOULOMB]: {
     name: {
-      singular: 'Microcoulomb',
-      plural: 'Microcoulombs'
+      singular: ChargeTranslationEnum.SINGULAR_MICROCOULOMB,
+      plural: ChargeTranslationEnum.PLURAL_MICROCOULOMB
     },
     anchor: 1e-6
   },
   [ChargeEnum.NANOCOULOMB]: {
     name: {
-      singular: 'Nanocoulomb',
-      plural: 'Nanocoulombs'
+      singular: ChargeTranslationEnum.SINGULAR_NANOCOULOMB,
+      plural: ChargeTranslationEnum.PLURAL_NANOCOULOMB
     },
     anchor: 1e-9
   },
   [ChargeEnum.PICOCOULOMB]: {
     name: {
-      singular: 'Picocoulomb',
-      plural: 'Picocoulombs'
+      singular: ChargeTranslationEnum.SINGULAR_PICOCOULOMB,
+      plural: ChargeTranslationEnum.PLURAL_PICOCOULOMB
     },
     anchor: 1e-12
   }
 };
 
-const charge = {
+const charge: UnitDefinition<'metric', ChargeUnit> = {
   systems: {
     metric
   }

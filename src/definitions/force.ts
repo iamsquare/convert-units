@@ -1,36 +1,61 @@
-export enum ForceEnum {
+import { ForceTranslationEnum } from '../i18n';
+import { Unit, UnitDefinition } from '../type';
+import { ForceUnit, ImperialForceUnit, MetricForceUnit } from './type';
+
+export enum MetricForceEnum {
   NEWTON = 'N',
-  KILONEWTON = 'kN',
+  KILONEWTON = 'kN'
+}
+
+export enum ImperialForceEnum {
   POUND_FORCE = 'lbf'
 }
 
-const metric = {
-  [ForceEnum.NEWTON]: {
+const metric: Record<MetricForceUnit, Unit> = {
+  [MetricForceEnum.NEWTON]: {
     name: {
-      singular: 'Newton',
-      plural: 'Newtons'
+      singular: ForceTranslationEnum.SINGULAR_NEWTON,
+      plural: ForceTranslationEnum.PLURAL_NEWTON
     },
     anchor: 1
   },
-  [ForceEnum.KILONEWTON]: {
+  [MetricForceEnum.KILONEWTON]: {
     name: {
-      singular: 'Kilonewton',
-      plural: 'Kilonewtons'
+      singular: ForceTranslationEnum.SINGULAR_KILONEWTON,
+      plural: ForceTranslationEnum.PLURAL_KILONEWTON
     },
     anchor: 1e3
-  },
-  [ForceEnum.POUND_FORCE]: {
-    name: {
-      singular: 'Pound-force',
-      plural: 'Pound-forces'
-    },
-    anchor: 4.44822
   }
 };
 
-const force = {
+const imperial: Record<ImperialForceUnit, Unit> = {
+  [ImperialForceEnum.POUND_FORCE]: {
+    name: {
+      singular: ForceTranslationEnum.SINGULAR_POUND_FORCE,
+      plural: ForceTranslationEnum.PLURAL_POUND_FORCE
+    },
+    anchor: 1
+  }
+};
+
+const force: UnitDefinition<'metric' | 'imperial', ForceUnit> = {
   systems: {
-    metric
+    metric,
+    imperial
+  },
+  anchors: {
+    metric: {
+      unit: MetricForceEnum.NEWTON,
+      ratio: {
+        imperial: 1 / 4.44822
+      }
+    },
+    imperial: {
+      unit: ImperialForceEnum.POUND_FORCE,
+      ratio: {
+        metric: 4.44822
+      }
+    }
   }
 };
 

@@ -1,3 +1,7 @@
+import { IlluminanceTranslationEnum } from '../i18n';
+import { Unit, UnitDefinition } from '../type';
+import { IlluminanceUnit, ImperialIlluminanceUnit, MetricIlluminanceUnit } from './type';
+
 export enum MetricIlluminanceEnum {
   LUX = 'lx'
 }
@@ -6,27 +10,27 @@ export enum ImperialIlluminanceEnum {
   FOOT_CANDLE = 'ft-cd'
 }
 
-const metric = {
+const metric: Record<MetricIlluminanceUnit, Unit> = {
   [MetricIlluminanceEnum.LUX]: {
     name: {
-      singular: 'Lux',
-      plural: 'Lux'
+      singular: IlluminanceTranslationEnum.SINGULAR_LUX,
+      plural: IlluminanceTranslationEnum.PLURAL_LUX
     },
     anchor: 1
   }
 };
 
-const imperial = {
+const imperial: Record<ImperialIlluminanceUnit, Unit> = {
   [ImperialIlluminanceEnum.FOOT_CANDLE]: {
     name: {
-      singular: 'Foot-candle',
-      plural: 'Foot-candles'
+      singular: IlluminanceTranslationEnum.SINGULAR_FOOT_CANDLE,
+      plural: IlluminanceTranslationEnum.PLURAL_FOOT_CANDLE
     },
     anchor: 1
   }
 };
 
-const illuminance = {
+const illuminance: UnitDefinition<'metric' | 'imperial', IlluminanceUnit> = {
   systems: {
     metric,
     imperial

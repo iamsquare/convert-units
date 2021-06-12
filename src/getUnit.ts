@@ -2,8 +2,7 @@ import { identity, memoizeWith, toPairs } from 'ramda';
 
 import { UnitType } from './definitions/type';
 import { measureDictionary } from './measures';
-import { Conversion } from './type';
-import { Nullable } from './type/utils.type';
+import { Conversion, Nullable } from './type';
 
 /**
  * Gives a {@link Conversion} object from an {@link UnitType}
@@ -11,7 +10,7 @@ import { Nullable } from './type/utils.type';
  * This function is {@link https://scotch.io/tutorials/understanding-memoization-in-javascript | memoized }
  *
  * @param unitType The type you want get the {@link Conversion} of
- * @returns A valid conversion unit or `null`
+ * @returns The raw valid conversion unit or `null`. Raw meaning that i18n values are _not_ translated.
  */
 const getUnit = memoizeWith(identity, (unitType: UnitType): Nullable<Conversion> => {
   for (const [measure, measureValue] of toPairs(measureDictionary)) {
