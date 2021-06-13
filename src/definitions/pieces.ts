@@ -112,10 +112,10 @@ const other: Record<PiecesUnit, Unit> = {
   }
 };
 
-const piecesExport: UnitDefinition<'other', PiecesUnit> = {
+const pieces: UnitDefinition<'other', PiecesUnit> = {
   systems: {
     other
   }
 };
 
-export default piecesExport;
+export default pieces;

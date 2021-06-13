@@ -1,7 +1,13 @@
-import { Translations } from './type';
+import { TranslationKey } from './type';
 
-const defaultTranslations = Object.freeze<Translations>({
-  MISSING_TRANSLATION: 'Missing translation',
+export const MISSING_TRANSLATION = {
+  MISSING_TRANSLATION: 'Missing translation'
+};
+
+export type AllTranslations = Record<TranslationKey, string>;
+
+const allTranslations = Object.freeze<AllTranslations>({
+  ...MISSING_TRANSLATION,
   SINGULAR_G0: 'g0',
   SINGULAR_G_SUN: 'g-sun',
   SINGULAR_G_MERCURY: 'g-mercury',
@@ -482,4 +488,4 @@ const defaultTranslations = Object.freeze<Translations>({
   PLURAL_CUBIC_YARD_PER_HOUR: 'Cubic yards per hour'
 });
 
-export default defaultTranslations;
+export default allTranslations;

@@ -1,4 +1,5 @@
 export { default as convert } from './convert';
+export { Converter } from './converter';
 export { default as convertToBest } from './convertToBest';
 export * from './definitions';
 export { default as describe } from './describe';

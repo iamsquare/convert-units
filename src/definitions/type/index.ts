@@ -114,7 +114,7 @@ export type ImperialVolumeFlowRateUnit =
   | 'yd3/h';
 export type VolumeFlowRateUnit = MetricVolumeFlowRateUnit | ImperialVolumeFlowRateUnit;
 
-export type UnitType =
+export type AllUnitType =
   | AccelerationUnit
   | AngleUnit
   | ApparentPowerUnit
