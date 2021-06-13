@@ -1,5 +1,5 @@
 import { TimeTranslationEnum } from '../i18n';
-import { Unit, UnitDefinition } from '../type';
+import { MeasureDefinition, Unit } from '../type';
 import { TimeUnit } from './type';
 
 export enum TimeEnum {
@@ -88,7 +88,7 @@ const metric: Record<TimeUnit, Unit> = {
   }
 };
 
-const time: UnitDefinition<'metric', TimeUnit> = {
+const time: MeasureDefinition<'metric', TimeUnit> = {
   systems: {
     metric
   }

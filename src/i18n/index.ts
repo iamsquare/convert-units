@@ -1,5 +1,6 @@
 import { mergeDeepRight } from 'ramda';
 
+import allTranslations from './allTranslations';
 import { TranslationKey, Translations } from './type';
 
 export class TranslationModule {
@@ -13,6 +14,7 @@ export class TranslationModule {
 
   /**
    * Overrides the default english translations with an object containing custom unit translations.
+   *
    * @param translations The object containing the translations you want to override
    */
   mergeTranslations(translations: Translations): void | never {
@@ -36,4 +38,5 @@ export class TranslationModule {
 }
 
 export { default as allTranslations } from './allTranslations';
+export * from './allTranslations';
 export * from './type';

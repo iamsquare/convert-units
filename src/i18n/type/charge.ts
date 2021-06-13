@@ -24,3 +24,16 @@ export type ChargePluralTranslationKey =
   | 'PLURAL_MICROCOULOMB'
   | 'PLURAL_NANOCOULOMB'
   | 'PLURAL_PICOCOULOMB';
+
+export const chargeTranslations: Record<ChargeSingularTranslationKey | ChargePluralTranslationKey, string> = {
+  [ChargeTranslationEnum.SINGULAR_COULOMB]: 'Coulomb',
+  [ChargeTranslationEnum.SINGULAR_MILLICOULOMB]: 'Millicoulomb',
+  [ChargeTranslationEnum.SINGULAR_MICROCOULOMB]: 'Microcoulomb',
+  [ChargeTranslationEnum.SINGULAR_NANOCOULOMB]: 'Nanocoulomb',
+  [ChargeTranslationEnum.SINGULAR_PICOCOULOMB]: 'Picocoulomb',
+  [ChargeTranslationEnum.PLURAL_COULOMB]: 'Coulombs',
+  [ChargeTranslationEnum.PLURAL_MILLICOULOMB]: 'Millicoulombs',
+  [ChargeTranslationEnum.PLURAL_MICROCOULOMB]: 'Microcoulombs',
+  [ChargeTranslationEnum.PLURAL_NANOCOULOMB]: 'Nanocoulombs',
+  [ChargeTranslationEnum.PLURAL_PICOCOULOMB]: 'Picocoulombs'
+};

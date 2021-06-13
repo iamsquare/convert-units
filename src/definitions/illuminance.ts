@@ -1,5 +1,5 @@
 import { IlluminanceTranslationEnum } from '../i18n';
-import { Unit, UnitDefinition } from '../type';
+import { MeasureDefinition, Unit } from '../type';
 import { IlluminanceUnit, ImperialIlluminanceUnit, MetricIlluminanceUnit } from './type';
 
 export enum MetricIlluminanceEnum {
@@ -30,7 +30,7 @@ const imperial: Record<ImperialIlluminanceUnit, Unit> = {
   }
 };
 
-const illuminance: UnitDefinition<'metric' | 'imperial', IlluminanceUnit> = {
+const illuminance: MeasureDefinition<'metric' | 'imperial', IlluminanceUnit> = {
   systems: {
     metric,
     imperial

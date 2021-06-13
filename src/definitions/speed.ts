@@ -1,5 +1,5 @@
 import { SpeedTranslationEnum } from '../i18n';
-import { Unit, UnitDefinition } from '../type';
+import { MeasureDefinition, Unit } from '../type';
 import { ImperialSpeedUnit, MetricSpeedUnit, SpeedUnit } from './type';
 
 export enum MetricSpeedEnum {
@@ -62,7 +62,7 @@ const imperial: Record<ImperialSpeedUnit, Unit> = {
   }
 };
 
-const speed: UnitDefinition<'metric' | 'imperial', SpeedUnit> = {
+const speed: MeasureDefinition<'metric' | 'imperial', SpeedUnit> = {
   systems: {
     metric,
     imperial

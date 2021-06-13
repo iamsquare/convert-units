@@ -1,5 +1,5 @@
 import { DistanceTranslationEnum } from '../i18n';
-import { Unit, UnitDefinition } from '../type';
+import { MeasureDefinition, Unit } from '../type';
 import { DistanceUnit, ImperialDistanceUnit, MetricDistanceUnit } from './type';
 
 export enum MetricDistanceEnum {
@@ -118,7 +118,7 @@ const imperial: Record<ImperialDistanceUnit, Unit> = {
   }
 };
 
-const distance: UnitDefinition<'metric' | 'imperial', DistanceUnit> = {
+const distance: MeasureDefinition<'metric' | 'imperial', DistanceUnit> = {
   systems: {
     metric,
     imperial

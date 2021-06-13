@@ -1,5 +1,5 @@
 import { TemperatureTranslationEnum } from '../i18n';
-import { Unit, UnitDefinition } from '../type';
+import { MeasureDefinition, Unit } from '../type';
 import { ImperialTemperatureUnit, MetricTemperatureUnit, TemperatureUnit } from './type';
 
 export enum MetricTemperatureEnum {
@@ -49,7 +49,7 @@ const imperial: Record<ImperialTemperatureUnit, Unit> = {
   }
 };
 
-const temperature: UnitDefinition<'metric' | 'imperial', TemperatureUnit> = {
+const temperature: MeasureDefinition<'metric' | 'imperial', TemperatureUnit> = {
   systems: {
     metric,
     imperial

@@ -1,6 +1,6 @@
 # iamsquare/convert-units
 
-[![NPM](https://img.shields.io/npm/v/@iamsquare/convert-units.svg?style=flat-square)](https://www.npmjs.com/package/@iamsquare/convert-units) [![GitHub issues](https://img.shields.io/github/issues-raw/iamsquare/convert-units.svg?style=flat-square)](https://github.com/iamsquare/complex.js/issues) ![GitHub](https://img.shields.io/github/license/iamsquare/convert-units?style=flat-square) ![npm bundle size (scoped)](https://img.shields.io/bundlephobia/min/@iamsquare/convert-units?style=flat-square)
+[![NPM](https://img.shields.io/npm/v/@iamsquare/convert-units.svg?style=flat-square)](https://www.npmjs.com/package/@iamsquare/convert-units) [![Coverage](https://img.shields.io/coveralls/github/iamsquare/convert-units/master?style=flat-square)](https://coveralls.io/github/iamsquare/convert-units) [![GitHub issues](https://img.shields.io/github/issues-raw/iamsquare/convert-units.svg?style=flat-square)](https://github.com/iamsquare/complex.js/issues) ![npm bundle size (scoped)](https://img.shields.io/bundlephobia/min/@iamsquare/convert-units?style=flat-square) [![GitHub](https://img.shields.io/github/license/iamsquare/convert-units?style=flat-square)](https://github.com/iamsquare/convert-units/blob/master/LICENSE)
 
 > A handy utility for converting between quantities in different units.
 
@@ -12,7 +12,7 @@ npm i @iamsquare/convert-units
 
 ## Usage
 
-`@iamsquare/convert-units` is a functional port with extended type support of [`convert-units`](https://www.npmjs.com/package/convert-units).
+`@iamsquare/convert-units` is a functional port of [`convert-units`](https://www.npmjs.com/package/convert-units) with extended type support.
 
 Here's how you convert metric units for volume:
 
@@ -97,8 +97,10 @@ describe('kg');
   unitType: 'kg',
   measure: 'mass',
   system: 'metric',
-  singular: 'Kilogram',
-  plural: 'Kilograms'
+  name: {
+    singular: 'Kilogram',
+    plural: 'Kilograms'
+  }
 }
 ```
 
@@ -114,8 +116,10 @@ list();
     unitType: 'kg',
     measure: 'mass',
     system: 'metric',
-    singular: 'Kilogram',
-    plural: 'Kilograms'
+    name: {
+      singular: 'Kilogram',
+      plural: 'Kilograms'
+    }
   },
   ...
 ]
@@ -133,8 +137,10 @@ list('mass');
     unitType: 'kg',
     measure: 'mass',
     system: 'metric',
-    singular: 'Kilogram',
-    plural: 'Kilograms'
+    name: {
+      singular: 'Kilogram',
+      plural: 'Kilograms'
+    }
   },
   ...
 ]
@@ -173,19 +179,21 @@ For a more in-depth documentation take a look [`here`](http://iamsquare.it/conve
 | _Temperature_ | C, K | F, R | - |
 | _Time_ | - | - | ns, mu, ms, s, min, h, d, week, month, year |
 | _Voltage_ | - | - | V, mV, kV |
-| _Volume_ | mm3, cm3, ml, l, kl, m3, km3 | tsp, Tbs, in3, fl-oz, cup, pnt, qt, gal, ft3, yd3 | - |
+| _Volume_ | mm3, cm3, ml, l, kl, m3, km3 | tsp, Tbs, in3, fl-oz, cup, pnt, qt, gal, ft3, yd3 | krm, tsk, msk, kkp, glas, kanna |
 | _Volume Flow Rate_ | mm3/s, cm3/s, ml/s, cl/s, dl/s, l/s, l/min, l/h, kl/s, kl/min, kl/h, m3/s, m3/min, m3/h, km3/s | tsp/s, Tbs/s, in3/s, in3/min, in3/h, fl-oz/s, fl-oz/min, fl-oz/h, cup/s, pnt/s, pnt/min, pnt/h, qt/s, gal/s, gal/min, gal/h, ft3/s, ft3/min, ft3/h, yd3/s, yd3/min, yd3/h | - |
 
 **NOTE**: these units are exported as enums so that you don't have to remember which unit is which. Also, if you're using this library in a plain `javascript` environment these are useful to avoid annoying typos.
 
 You can check the list of these enums in the [`documentation`](https://iamsquare.it/convert-units).
 
+<!-- TODO: REWRITE THIS -->
 ### Want More?
 
 Adding new measurement sets is easy. Take a look at
 [`src/definitions`](https://github.com/iamsquare/convert-units/tree/master/src/definitions)
 to see how it's done.
 
+<!-- TODO: REWRITE THIS -->
 ## i18n
 
 This library exposes an i18n module (`translationModule`) that can be used to translate every unit singular and plural names.

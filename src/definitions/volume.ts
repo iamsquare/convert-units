@@ -1,5 +1,5 @@
 import { VolumeTranslationEnum } from '../i18n';
-import { Unit, UnitDefinition } from '../type';
+import { MeasureDefinition, Unit } from '../type';
 import { ImperialVolumeUnit, MetricVolumeUnit, SwedishVolumeUnit, VolumeUnit } from './type';
 
 export enum MetricVolumeEnum {
@@ -220,7 +220,7 @@ const swedish: Record<SwedishVolumeUnit, Unit> = {
   }
 };
 
-const volume: UnitDefinition<'metric' | 'imperial' | 'swedish', VolumeUnit> = {
+const volume: MeasureDefinition<'metric' | 'imperial' | 'swedish', VolumeUnit> = {
   systems: {
     metric,
     imperial,

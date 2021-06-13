@@ -4,9 +4,9 @@ import { AccelerationEnum } from '../../definitions';
 import { default as _describe } from '../../describe';
 import { allMeasures } from '../../measures';
 import allTranslations from '../allTranslations';
-import { AccelerationTranslationEnum } from '../type';
+import { AccelerationTranslationEnum, accelerationTranslations } from '../type';
 
-const converter = new Converter({ measuresData: allMeasures, translations: allTranslations });
+const converter = new Converter({ measuresData: allMeasures, translations: accelerationTranslations });
 const translationTestValue = 'test-value';
 
 afterEach(() => {

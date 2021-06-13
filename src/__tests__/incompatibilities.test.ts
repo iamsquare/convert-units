@@ -3,7 +3,7 @@ import convert from '../convert';
 import { Converter } from '../converter';
 import convertToBest from '../convertToBest';
 import { default as _describe } from '../describe';
-import { allTranslations } from '../i18n';
+import allTranslations from '../i18n/allTranslations';
 import list from '../list';
 import { allMeasures } from '../measures';
 import possibilities from '../possibilities';

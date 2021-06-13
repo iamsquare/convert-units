@@ -1,5 +1,5 @@
 import { PaceTranslationEnum } from '../i18n';
-import { Unit, UnitDefinition } from '../type';
+import { MeasureDefinition, Unit } from '../type';
 import { ImperialPaceUnit, MetricPaceUnit, PaceUnit } from './type';
 
 export enum MetricPaceEnum {
@@ -46,7 +46,7 @@ const imperial: Record<ImperialPaceUnit, Unit> = {
   }
 };
 
-const pace: UnitDefinition<'metric' | 'imperial', PaceUnit> = {
+const pace: MeasureDefinition<'metric' | 'imperial', PaceUnit> = {
   systems: {
     metric,
     imperial

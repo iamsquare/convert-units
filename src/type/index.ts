@@ -56,7 +56,7 @@ export type AnchorPartialRecord<S extends AllSystem, U extends AllUnitType> = {
   [P in S]?: GenericAnchor<Exclude<S, P>, U>;
 };
 
-export type UnitDefinition<S extends AllSystem, U extends AllUnitType> = {
+export type MeasureDefinition<S extends AllSystem, U extends AllUnitType> = {
   systems: Record<ExtractedSystem<S>, PartialRecord<U, Unit>>;
   anchors?: Maybe<AnchorPartialRecord<ExtractedSystem<S>, U>>;
 };

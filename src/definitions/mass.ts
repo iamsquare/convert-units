@@ -1,5 +1,5 @@
 import { MassTranslationEnum } from '../i18n';
-import { Unit, UnitDefinition } from '../type';
+import { MeasureDefinition, Unit } from '../type';
 import { ImperialMassUnit, MassUnit, MetricMassUnit } from './type';
 
 export enum MetricMassEnum {
@@ -78,7 +78,7 @@ const imperial: Record<ImperialMassUnit, Unit> = {
   }
 };
 
-const mass: UnitDefinition<'metric' | 'imperial', MassUnit> = {
+const mass: MeasureDefinition<'metric' | 'imperial', MassUnit> = {
   systems: {
     metric,
     imperial

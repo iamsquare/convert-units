@@ -1,5 +1,5 @@
 import { ReactivePowerTranslationEnum } from '../i18n';
-import { Unit, UnitDefinition } from '../type';
+import { MeasureDefinition, Unit } from '../type';
 import { ReactivePowerUnit } from './type';
 
 export enum ReactivePowerEnum {
@@ -48,7 +48,7 @@ const metric: Record<ReactivePowerUnit, Unit> = {
   }
 };
 
-const reactivePower: UnitDefinition<'metric', ReactivePowerUnit> = {
+const reactivePower: MeasureDefinition<'metric', ReactivePowerUnit> = {
   systems: {
     metric
   }
