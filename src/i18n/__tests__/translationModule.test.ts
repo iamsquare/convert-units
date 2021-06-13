@@ -36,5 +36,5 @@ test('getTranslationByKey', () => {
   );
 
   //@ts-expect-error
-  expect(converter.translationModule.getTranslationByKey('not-a-string')).toBe(allTranslations.MISSING_TRANSLATION);
+  expect(converter.translationModule.getTranslationByKey('not-a-string')).toBe('not-a-string');
 });

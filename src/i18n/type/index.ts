@@ -84,7 +84,7 @@ export type PluralTranslationKey =
   | VolumePluralTranslationKey
   | VolumeFlowRatePluralTranslationKey;
 
-export type TranslationKey = SingularTranslationKey | PluralTranslationKey | 'MISSING_TRANSLATION';
+export type TranslationKey = SingularTranslationKey | PluralTranslationKey;
 
 export type Translations = Record<string, string>;
 

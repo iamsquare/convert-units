@@ -1,13 +1,8 @@
 import { TranslationKey } from './type';
 
-export const MISSING_TRANSLATION = {
-  MISSING_TRANSLATION: 'Missing translation'
-};
-
 export type AllTranslations = Record<TranslationKey, string>;
 
 const allTranslations = Object.freeze<AllTranslations>({
-  ...MISSING_TRANSLATION,
   SINGULAR_G0: 'g0',
   SINGULAR_G_SUN: 'g-sun',
   SINGULAR_G_MERCURY: 'g-mercury',
