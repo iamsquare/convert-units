@@ -3,10 +3,15 @@ import { TranslationModule } from '../i18n';
 import { AllSystem } from './system.type';
 import { Maybe, PartialRecord, RequireAtLeastOne } from './utils.type';
 
-export interface IConverter<TMeasures extends string, TSystems extends string, TUnitType extends string> {
+export interface IConverter<
+  TMeasures extends string,
+  TSystems extends string,
+  TUnitType extends string,
+  TTranslationKeys extends string = null
+> {
   guid: string;
   measuresData: MeasureDictionary<TMeasures, TSystems, TUnitType>;
-  translationModule: TranslationModule;
+  translationModule: TranslationModule<TTranslationKeys>;
 }
 
 export type BestConversion<TUnitType extends string> = {

@@ -14,8 +14,14 @@ import { IConverter, Maybe, UnitDescription } from './type';
  * @param measure the measure of which you want the list of units
  * @returns The list of descriptions of the units for a given measure, or all the units supported by the {@link Converter} instance passed as argument.
  */
-function list<TMeasures extends string, TSystems extends string, TUnitType extends string>(
-  converter: IConverter<TMeasures, TSystems, TUnitType>,
+
+function list<
+  TMeasures extends string,
+  TSystems extends string,
+  TUnitType extends string,
+  TTranslationKeys extends string
+>(
+  converter: IConverter<TMeasures, TSystems, TUnitType, TTranslationKeys>,
   measure?: Maybe<TMeasures>
 ): UnitDescription<TMeasures, TSystems, TUnitType>[] | never {
   return pipe(

@@ -2,7 +2,6 @@ import { isNil } from 'ramda';
 import { isNilOrEmpty } from 'ramda-adjunct';
 
 import getUnit from './getUnit';
-import { PluralTranslationKey, SingularTranslationKey } from './i18n/type';
 import { IConverter, UnitDescription } from './type';
 import { InstanceError } from './utils/error';
 
@@ -16,8 +15,13 @@ import { InstanceError } from './utils/error';
  * @param type The type you want get a description of
  * @returns An in-depth description of `type`. Names are _translated_ with the i18n module.
  */
-function describe<TMeasures extends string, TSystems extends string, TUnitType extends string>(
-  converter: IConverter<TMeasures, TSystems, TUnitType>,
+function describe<
+  TMeasures extends string,
+  TSystems extends string,
+  TUnitType extends string,
+  TTranslationKeys extends string
+>(
+  converter: IConverter<TMeasures, TSystems, TUnitType, TTranslationKeys>,
   type: TUnitType
 ): UnitDescription<TMeasures, TSystems, TUnitType> | never {
   if (isNilOrEmpty(converter)) throw new InstanceError();
@@ -34,8 +38,8 @@ function describe<TMeasures extends string, TSystems extends string, TUnitType e
     measure,
     system,
     name: {
-      singular: converter.translationModule.getTranslationByKey(<SingularTranslationKey>singular),
-      plural: converter.translationModule.getTranslationByKey(<PluralTranslationKey>plural)
+      singular: converter.translationModule.getTranslationByKey(<TTranslationKeys>singular),
+      plural: converter.translationModule.getTranslationByKey(<TTranslationKeys>plural)
     }
   };
 }

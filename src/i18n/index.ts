@@ -1,23 +1,21 @@
-import { mergeDeepRight } from 'ramda';
+import { Translations } from './type';
 
-import { TranslationKey, Translations } from './type';
+export class TranslationModule<TTranslationKeys extends string> {
+  private _defaultTranslations: Translations<TTranslationKeys>;
+  private _translations: Translations<TTranslationKeys>;
 
-export class TranslationModule {
-  private _defaultTranslations: Translations;
-  private _translations: Translations;
-
-  constructor(defaultTranslations: Translations = {}) {
-    this._defaultTranslations = mergeDeepRight(this._defaultTranslations, defaultTranslations);
+  constructor(defaultTranslations: Translations<TTranslationKeys> = {}) {
+    this._defaultTranslations = { ...this._defaultTranslations, ...defaultTranslations };
     this.resetTranslations();
   }
 
   /**
-   * Overrides the default english translations with an object containing custom unit translations.
+   * Merges the current translations with an object containing translations.
    *
-   * @param translations The object containing the translations you want to override
+   * @param translations The object containing the merged translations
    */
-  mergeTranslations(translations: Translations): void | never {
-    this._translations = mergeDeepRight(this._defaultTranslations, translations);
+  mergeTranslations(translations: Translations<TTranslationKeys>): void | never {
+    this._translations = { ...this._translations, ...translations };
   }
 
   /**
@@ -31,7 +29,7 @@ export class TranslationModule {
    * @param key The translation key
    * @returns The current translation value for the given key or the key if the translation is missing
    */
-  getTranslationByKey(key: TranslationKey) {
+  getTranslationByKey(key: TTranslationKeys) {
     return this._translations[key] ?? key;
   }
 }

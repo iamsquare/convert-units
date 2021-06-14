@@ -1,3 +1,4 @@
+import { PartialRecord } from '../../type/utils.type';
 import { AccelerationPluralTranslationKey, AccelerationSingularTranslationKey } from './acceleration';
 import { AnglePluralTranslationKey, AngleSingularTranslationKey } from './angle';
 import { ApparentPowerPluralTranslationKey, ApparentPowerSingularTranslationKey } from './apparentPower';
@@ -86,7 +87,7 @@ export type PluralTranslationKey =
 
 export type TranslationKey = SingularTranslationKey | PluralTranslationKey;
 
-export type Translations = Record<string, string>;
+export type Translations<TTranslationKeys extends string> = PartialRecord<TTranslationKeys, string>;
 
 export * from './acceleration';
 export * from './angle';
