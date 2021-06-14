@@ -36,3 +36,22 @@ export type MassPluralTranslationKey =
   | 'PLURAL_OUNCE'
   | 'PLURAL_POUND'
   | 'PLURAL_TON';
+
+export const massTranslations: Record<MassSingularTranslationKey | MassPluralTranslationKey, string> = {
+  [MassTranslationEnum.SINGULAR_GRAM]: 'Gram',
+  [MassTranslationEnum.SINGULAR_MICROGRAM]: 'Microgram',
+  [MassTranslationEnum.SINGULAR_MILLIGRAM]: 'Milligram',
+  [MassTranslationEnum.SINGULAR_KILOGRAM]: 'Kilogram',
+  [MassTranslationEnum.SINGULAR_METRIC_TONNE]: 'Metric Tonne',
+  [MassTranslationEnum.SINGULAR_OUNCE]: 'Ounce',
+  [MassTranslationEnum.SINGULAR_POUND]: 'Pound',
+  [MassTranslationEnum.SINGULAR_TON]: 'Ton',
+  [MassTranslationEnum.PLURAL_GRAM]: 'Grams',
+  [MassTranslationEnum.PLURAL_MICROGRAM]: 'Micrograms',
+  [MassTranslationEnum.PLURAL_MILLIGRAM]: 'Milligrams',
+  [MassTranslationEnum.PLURAL_KILOGRAM]: 'Kilograms',
+  [MassTranslationEnum.PLURAL_METRIC_TONNE]: 'Metric Tonnes',
+  [MassTranslationEnum.PLURAL_OUNCE]: 'Ounces',
+  [MassTranslationEnum.PLURAL_POUND]: 'Pounds',
+  [MassTranslationEnum.PLURAL_TON]: 'Tons'
+};

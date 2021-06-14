@@ -16,13 +16,15 @@ import { InstanceError } from './utils/error';
  * @returns The raw valid conversion unit or `null`. Raw meaning that i18n values are _not_ translated.
  */
 const getUnit = memoizeWith(
-  (c, u) => `${c.guid}-${u}`,
+  (converter, unitType) => {
+    if (isNilOrEmpty(converter)) throw new InstanceError();
+
+    return `${converter.guid}-${unitType}`;
+  },
   function <TMeasures extends string, TSystems extends string, TUnitType extends string>(
     converter: IConverter<TMeasures, TSystems, TUnitType>,
     unitType: TUnitType
   ): Nullable<Conversion<TMeasures, TSystems, TUnitType>> {
-    if (isNilOrEmpty(converter)) throw new InstanceError();
-
     for (const [measure, measureValue] of toPairs(converter.measuresData)) {
       for (const [system, systemValue] of toPairs(measureValue.systems)) {
         for (const [unitKey, unit] of toPairs(systemValue)) {

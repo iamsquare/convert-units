@@ -33,7 +33,7 @@ export class TranslationModule {
    * @returns The current translation value for the given key or the key if the translation is missing
    */
   getTranslationByKey(key: TranslationKey) {
-    return this._translations?.[key] ?? key;
+    return this._translations[key] ?? key;
   }
 }
 

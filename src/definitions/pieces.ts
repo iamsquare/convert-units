@@ -49,8 +49,8 @@ const other: Record<PiecesUnit, Unit> = {
   },
   [PiecesEnum.DOZEN]: {
     name: {
-      singular: PiecesTranslationEnum.SINGULAR_DOZEN,
-      plural: PiecesTranslationEnum.PLURAL_DOZEN
+      singular: PiecesTranslationEnum.SINGULAR_PIECE_DOZEN,
+      plural: PiecesTranslationEnum.PLURAL_PIECE_DOZEN
     },
     anchor: 12
   },

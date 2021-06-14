@@ -1,12 +1,16 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
+import { forEach } from 'ramda';
+
 import convert from '../convert';
 import { Converter } from '../converter';
 import convertToBest from '../convertToBest';
 import { default as _describe } from '../describe';
+import getUnit from '../getUnit';
 import allTranslations from '../i18n/allTranslations';
 import list from '../list';
-import { allMeasures } from '../measures';
+import measures, { allMeasures } from '../measures';
 import possibilities from '../possibilities';
+import { InstanceError } from '../utils/error';
 
 const converter = new Converter({ measuresData: allMeasures, translations: allTranslations });
 
@@ -69,4 +73,24 @@ test('list throws if measure is not valid', () => {
   expect(() => {
     list(converter, 'not-a-measure');
   }).toThrow();
+});
+
+describe('function throws if missing converter argument', () => {
+  forEach(
+    ({ label, fn }) =>
+      test(label, () =>
+        expect(() => {
+          fn();
+        }).toThrow(InstanceError)
+      ),
+    [
+      { label: 'convert', fn: () => convert(null, 'ml', 'ml', 1) },
+      { label: 'convertToBest', fn: () => convertToBest(null, {}, 'ml', 1) },
+      { label: 'describe', fn: () => _describe(null, 'ml') },
+      { label: 'getUnit', fn: () => getUnit(null, 'ml') },
+      { label: 'list', fn: () => list(null) },
+      { label: 'measures', fn: () => measures(null) },
+      { label: 'possibilities', fn: () => possibilities(null) }
+    ]
+  );
 });
