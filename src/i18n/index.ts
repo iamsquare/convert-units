@@ -1,6 +1,5 @@
 import { mergeDeepRight } from 'ramda';
 
-import allTranslations from './allTranslations';
 import { TranslationKey, Translations } from './type';
 
 export class TranslationModule {

@@ -118,7 +118,9 @@ const imperial: Record<ImperialDistanceUnit, Unit> = {
   }
 };
 
-const distance: MeasureDefinition<'metric' | 'imperial', DistanceUnit> = {
+export type DistanceSystems = 'metric' | 'imperial';
+
+const distance: MeasureDefinition<DistanceSystems, DistanceUnit> = {
   systems: {
     metric,
     imperial

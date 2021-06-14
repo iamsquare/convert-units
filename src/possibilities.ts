@@ -7,14 +7,14 @@ import { IConverter, Maybe, Nullable } from './type';
 import { InstanceError } from './utils/error';
 
 /**
- * Gives a list of compatible units from a given {@link UnitType} or {@link Measure} (it gives all the units supported by the library if no argument is provided)
+ * Gives a list of compatible units from a given unit type or measure (it gives all the units supported by the library if no argument is provided)
  *
  * @param converter The converter instance to use with this function
- * @throws An Error if `arg` is not a valid {@link UnitType} or {@link Measure}
+ * @throws An Error if `arg` is not a valid unit type or measure
  *
  * @param converter The converter instance to use with this function
  * @param arg A valid type or measure from which you want to get a list of compatible conversion units
- * @returns A list of compatible units with a given {@link UnitType} or {@link Measure} or all the units supported by the {@link Converter} instance passed as argument
+ * @returns A list of compatible units with a given unit type or measure or all the units supported by the {@link Converter} instance passed as argument
  */
 function possibilities<TMeasures extends string, TSystems extends string, TUnitType extends string>(
   converter: IConverter<TMeasures, TSystems, TUnitType>,

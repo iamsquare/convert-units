@@ -5,7 +5,7 @@ import { Conversion, IConverter, Nullable } from './type';
 import { InstanceError } from './utils/error';
 
 /**
- * Gives a {@link Conversion} object from an {@link UnitType}
+ * Gives a {@link Conversion} object from an unit type
  *
  * This function is {@link https://scotch.io/tutorials/understanding-memoization-in-javascript | memoized }
  *

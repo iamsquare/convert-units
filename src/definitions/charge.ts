@@ -48,7 +48,9 @@ const metric: Record<ChargeUnit, Unit> = {
   }
 };
 
-const charge: MeasureDefinition<'metric', ChargeUnit> = {
+export type ChargeSystems = 'metric';
+
+const charge: MeasureDefinition<ChargeSystems, ChargeUnit> = {
   systems: {
     metric
   }

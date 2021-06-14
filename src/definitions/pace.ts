@@ -46,7 +46,9 @@ const imperial: Record<ImperialPaceUnit, Unit> = {
   }
 };
 
-const pace: MeasureDefinition<'metric' | 'imperial', PaceUnit> = {
+export type PaceSystems = 'metric' | 'imperial';
+
+const pace: MeasureDefinition<PaceSystems, PaceUnit> = {
   systems: {
     metric,
     imperial

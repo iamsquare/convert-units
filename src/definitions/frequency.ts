@@ -80,7 +80,9 @@ const metric: Record<FrequencyUnit, Unit> = {
   }
 };
 
-const frequency: MeasureDefinition<'metric', FrequencyUnit> = {
+export type FrequencySystems = 'metric';
+
+const frequency: MeasureDefinition<FrequencySystems, FrequencyUnit> = {
   systems: {
     metric
   }

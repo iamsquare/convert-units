@@ -190,7 +190,9 @@ const bytes: Record<ByteDigitalUnit, Unit> = {
   }
 };
 
-const digital: MeasureDefinition<'bits' | 'bytes', DigitalUnit> = {
+export type DigitalSystems = 'bits' | 'bytes';
+
+const digital: MeasureDefinition<DigitalSystems, DigitalUnit> = {
   systems: {
     bits,
     bytes

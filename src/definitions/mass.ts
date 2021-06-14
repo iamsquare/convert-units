@@ -78,7 +78,9 @@ const imperial: Record<ImperialMassUnit, Unit> = {
   }
 };
 
-const mass: MeasureDefinition<'metric' | 'imperial', MassUnit> = {
+export type MassSystems = 'metric' | 'imperial';
+
+const mass: MeasureDefinition<MassSystems, MassUnit> = {
   systems: {
     metric,
     imperial

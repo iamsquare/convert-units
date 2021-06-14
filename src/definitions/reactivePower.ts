@@ -48,7 +48,9 @@ const metric: Record<ReactivePowerUnit, Unit> = {
   }
 };
 
-const reactivePower: MeasureDefinition<'metric', ReactivePowerUnit> = {
+export type ReactivePowerSystems = 'metric';
+
+const reactivePower: MeasureDefinition<ReactivePowerSystems, ReactivePowerUnit> = {
   systems: {
     metric
   }

@@ -11,7 +11,7 @@ import { InstanceError } from './utils/error';
  * Converts a `value` from a compatible unit to the best unit (or _smallest_) given some optional parameters.
  *
  * @throws An {@link InstanceError} if `converter` is not provided
- * @throws An {@link IncompatibleUnitError} if `from` is not a valid {@link UnitType}
+ * @throws An {@link IncompatibleUnitError} if `from` is not a valid unit type
  *
  * @param converter The converter instance to use with this function
  * @param options The conversion configuration

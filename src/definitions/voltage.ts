@@ -32,7 +32,9 @@ const metric: Record<VoltageUnit, Unit> = {
   }
 };
 
-const voltage: MeasureDefinition<'metric', VoltageUnit> = {
+export type VoltageSystems = 'metric';
+
+const voltage: MeasureDefinition<VoltageSystems, VoltageUnit> = {
   systems: {
     metric
   }

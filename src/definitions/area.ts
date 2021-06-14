@@ -94,7 +94,9 @@ const imperial: Record<ImperialAreaUnit, Unit> = {
   }
 };
 
-const area: MeasureDefinition<'metric' | 'imperial', AreaUnit> = {
+export type AreaSystems = 'metric' | 'imperial';
+
+const area: MeasureDefinition<AreaSystems, AreaUnit> = {
   systems: {
     metric,
     imperial

@@ -62,7 +62,9 @@ const imperial: Record<ImperialSpeedUnit, Unit> = {
   }
 };
 
-const speed: MeasureDefinition<'metric' | 'imperial', SpeedUnit> = {
+export type SpeedSystems = 'metric' | 'imperial';
+
+const speed: MeasureDefinition<SpeedSystems, SpeedUnit> = {
   systems: {
     metric,
     imperial

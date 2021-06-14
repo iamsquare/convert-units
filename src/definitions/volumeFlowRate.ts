@@ -310,7 +310,9 @@ const imperial: Record<ImperialVolumeFlowRateUnit, Unit> = {
   }
 };
 
-const volumeFlowRate: MeasureDefinition<'metric' | 'imperial', VolumeFlowRateUnit> = {
+export type VolumeFlowRateSystems = 'metric' | 'imperial';
+
+const volumeFlowRate: MeasureDefinition<VolumeFlowRateSystems, VolumeFlowRateUnit> = {
   systems: {
     metric,
     imperial

@@ -10,8 +10,8 @@ import { isDefinedFunction } from './utils/ramdaExtension';
  * Converts a `value` from a compatible unit to another.
  *
  * @throws An {@link InstanceError} if `converter` is not provided
- * @throws An {@link IncompatibleUnitError} if `from` or `to` are not a valid {@link UnitType}s
- * @throws An Error if `from` and `to` have different {@link Measure}s
+ * @throws An {@link IncompatibleUnitError} if `from` or `to` are not valid unit types
+ * @throws An Error if `from` and `to` have different measures
  * @throws An Error if a definition is malformed
  *
  * @param converter The converter instance to use with this function

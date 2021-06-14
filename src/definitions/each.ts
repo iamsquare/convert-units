@@ -24,7 +24,9 @@ const other: Record<EachUnit, Unit> = {
   }
 };
 
-const each: MeasureDefinition<'other', EachUnit> = {
+export type EachSystems = 'other';
+
+const each: MeasureDefinition<EachSystems, EachUnit> = {
   systems: {
     other
   }

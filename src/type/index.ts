@@ -39,11 +39,11 @@ export type Unit = {
   anchorShift?: Maybe<number>;
 };
 
-type GenericAnchor<S extends string, U extends string> = RequireAtLeastOne<
+type GenericAnchor<TSystems extends string, TUnitType extends string> = RequireAtLeastOne<
   {
-    unit: U;
-    ratio?: Maybe<PartialRecord<S, number>>;
-    transform?: Maybe<PartialRecord<S, (value: number) => number>>;
+    unit: TUnitType;
+    ratio?: Maybe<PartialRecord<TSystems, number>>;
+    transform?: Maybe<PartialRecord<TSystems, (value: number) => number>>;
   },
   'ratio' | 'transform'
 >;
@@ -61,13 +61,13 @@ export type MeasureDefinition<S extends AllSystem, U extends AllUnitType> = {
   anchors?: Maybe<AnchorPartialRecord<ExtractedSystem<S>, U>>;
 };
 
-export type MeasureDictionaryValue<TSystem extends string, TUnitType extends string> = {
-  systems: PartialRecord<TSystem, PartialRecord<TUnitType, Unit>>;
-  anchors?: Maybe<PartialRecord<TSystem, GenericAnchor<TSystem, TUnitType>>>;
+export type MeasureDictionaryValue<TSystems extends string, TUnitType extends string> = {
+  systems: PartialRecord<TSystems, PartialRecord<TUnitType, Unit>>;
+  anchors?: Maybe<PartialRecord<TSystems, GenericAnchor<TSystems, TUnitType>>>;
 };
 
-export type MeasureDictionary<TMeasure extends string, TSystem extends string, TUnitType extends string> =
-  PartialRecord<TMeasure, MeasureDictionaryValue<TSystem, TUnitType>>;
+export type MeasureDictionary<TMeasures extends string, TSystems extends string, TUnitType extends string> =
+  PartialRecord<TMeasures, MeasureDictionaryValue<TSystems, TUnitType>>;
 
 export * from './dto.type';
 export * from './measure.type';

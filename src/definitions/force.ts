@@ -38,7 +38,9 @@ const imperial: Record<ImperialForceUnit, Unit> = {
   }
 };
 
-const force: MeasureDefinition<'metric' | 'imperial', ForceUnit> = {
+export type ForceSystems = 'metric' | 'imperial';
+
+const force: MeasureDefinition<ForceSystems, ForceUnit> = {
   systems: {
     metric,
     imperial

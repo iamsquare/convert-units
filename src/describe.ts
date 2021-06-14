@@ -2,15 +2,15 @@ import { isNil } from 'ramda';
 import { isNilOrEmpty } from 'ramda-adjunct';
 
 import getUnit from './getUnit';
-import { PluralTranslationKey, SingularTranslationKey } from './i18n';
+import { PluralTranslationKey, SingularTranslationKey } from './i18n/type';
 import { IConverter, UnitDescription } from './type';
 import { InstanceError } from './utils/error';
 
 /**
- * Describes an {@link UnitType}
+ * Describes an unit type
  *
  * @throws An {@link InstanceError} if `converter` is not provided
- * @throws An {@link IncompatibleUnitError} if `type` is not a valid {@link UnitType}
+ * @throws An {@link IncompatibleUnitError} if `type` is not a valid unit type
  *
  * @param converter The converter instance to use with this function
  * @param type The type you want get a description of

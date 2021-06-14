@@ -48,7 +48,9 @@ const metric: Record<AngleUnit, Unit> = {
   }
 };
 
-const angle: MeasureDefinition<'metric', AngleUnit> = {
+export type AngleSystems = 'metric';
+
+const angle: MeasureDefinition<AngleSystems, AngleUnit> = {
   systems: {
     metric
   }

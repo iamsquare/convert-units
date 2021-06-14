@@ -220,7 +220,9 @@ const swedish: Record<SwedishVolumeUnit, Unit> = {
   }
 };
 
-const volume: MeasureDefinition<'metric' | 'imperial' | 'swedish', VolumeUnit> = {
+export type VolumeSystems = 'metric' | 'imperial' | 'swedish';
+
+const volume: MeasureDefinition<VolumeSystems, VolumeUnit> = {
   systems: {
     metric,
     imperial,

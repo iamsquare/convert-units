@@ -48,7 +48,9 @@ const metric: Record<ApparentPowerUnit, Unit> = {
   }
 };
 
-const apparentPower: MeasureDefinition<'metric', ApparentPowerUnit> = {
+export type ApparentPowerSystems = 'metric';
+
+const apparentPower: MeasureDefinition<ApparentPowerSystems, ApparentPowerUnit> = {
   systems: {
     metric
   }

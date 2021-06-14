@@ -112,7 +112,9 @@ const other: Record<PiecesUnit, Unit> = {
   }
 };
 
-const pieces: MeasureDefinition<'other', PiecesUnit> = {
+export type PiecesSystems = 'other';
+
+const pieces: MeasureDefinition<PiecesSystems, PiecesUnit> = {
   systems: {
     other
   }

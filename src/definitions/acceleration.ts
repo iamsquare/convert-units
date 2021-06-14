@@ -96,7 +96,9 @@ const metric: Record<AccelerationUnit, Unit> = {
   }
 };
 
-const acceleration: MeasureDefinition<'metric', AccelerationUnit> = {
+export type AccelerationSystems = 'metric';
+
+const acceleration: MeasureDefinition<AccelerationSystems, AccelerationUnit> = {
   systems: {
     metric
   }

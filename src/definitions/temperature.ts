@@ -49,7 +49,9 @@ const imperial: Record<ImperialTemperatureUnit, Unit> = {
   }
 };
 
-const temperature: MeasureDefinition<'metric' | 'imperial', TemperatureUnit> = {
+export type TemperatureSystems = 'metric' | 'imperial';
+
+const temperature: MeasureDefinition<TemperatureSystems, TemperatureUnit> = {
   systems: {
     metric,
     imperial

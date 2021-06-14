@@ -32,7 +32,9 @@ const metric: Record<CurrentUnit, Unit> = {
   }
 };
 
-const current: MeasureDefinition<'metric', CurrentUnit> = {
+export type CurrentSystems = 'metric';
+
+const current: MeasureDefinition<CurrentSystems, CurrentUnit> = {
   systems: {
     metric
   }

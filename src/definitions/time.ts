@@ -88,7 +88,9 @@ const metric: Record<TimeUnit, Unit> = {
   }
 };
 
-const time: MeasureDefinition<'metric', TimeUnit> = {
+export type TimeSystems = 'metric';
+
+const time: MeasureDefinition<TimeSystems, TimeUnit> = {
   systems: {
     metric
   }

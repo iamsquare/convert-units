@@ -30,7 +30,9 @@ const imperial: Record<ImperialIlluminanceUnit, Unit> = {
   }
 };
 
-const illuminance: MeasureDefinition<'metric' | 'imperial', IlluminanceUnit> = {
+export type IlluminanceSystems = 'metric' | 'imperial';
+
+const illuminance: MeasureDefinition<IlluminanceSystems, IlluminanceUnit> = {
   systems: {
     metric,
     imperial

@@ -94,7 +94,9 @@ const imperial: Record<ImperialPressureUnit, Unit> = {
   }
 };
 
-const pressure: MeasureDefinition<'metric' | 'imperial', PressureUnit> = {
+export type PressureSystems = 'metric' | 'imperial';
+
+const pressure: MeasureDefinition<PressureSystems, PressureUnit> = {
   systems: {
     metric,
     imperial

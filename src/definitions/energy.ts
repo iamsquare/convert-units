@@ -64,7 +64,9 @@ const metric: Record<EnergyUnit, Unit> = {
   }
 };
 
-const energy: MeasureDefinition<'metric', EnergyUnit> = {
+export type EnergySystems = 'metric';
+
+const energy: MeasureDefinition<EnergySystems, EnergyUnit> = {
   systems: {
     metric
   }

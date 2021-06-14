@@ -86,7 +86,9 @@ const imperial: Record<ImperialPowerUnit, Unit> = {
   }
 };
 
-const power: MeasureDefinition<'metric' | 'imperial', PowerUnit> = {
+export type PowerSystems = 'metric' | 'imperial';
+
+const power: MeasureDefinition<PowerSystems, PowerUnit> = {
   systems: {
     metric,
     imperial

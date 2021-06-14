@@ -40,7 +40,9 @@ const other: Record<PartsPerUnit, Unit> = {
   }
 };
 
-const partsPer: MeasureDefinition<'other', PartsPerUnit> = {
+export type PartsPerSystems = 'other';
+
+const partsPer: MeasureDefinition<PartsPerSystems, PartsPerUnit> = {
   systems: {
     other
   }
