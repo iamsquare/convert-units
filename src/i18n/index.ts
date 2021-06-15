@@ -1,7 +1,7 @@
 import { Translations } from './type';
 
 export class TranslationModule<TTranslationKeys extends string> {
-  private _defaultTranslations: Translations<TTranslationKeys>;
+  private _defaultTranslations: Translations<TTranslationKeys> = {};
   private _translations: Translations<TTranslationKeys>;
 
   constructor(defaultTranslations: Translations<TTranslationKeys> = {}) {
@@ -10,11 +10,20 @@ export class TranslationModule<TTranslationKeys extends string> {
   }
 
   /**
-   * Merges the current translations with an object containing translations.
+   * Set the current translations
    *
-   * @param translations The object containing the merged translations
+   * @param translations The dictionary containing the translations
    */
-  mergeTranslations(translations: Translations<TTranslationKeys>): void | never {
+  setTranslations(translations: Translations<TTranslationKeys>) {
+    this._translations = translations;
+  }
+
+  /**
+   * Merges the current translations with a translation dictionary (if two keys are the same the dictionary passed as parameter takes precedence)
+   *
+   * @param translations The dictionary containing the merged translations
+   */
+  mergeTranslations(translations: Translations<TTranslationKeys>) {
     this._translations = { ...this._translations, ...translations };
   }
 

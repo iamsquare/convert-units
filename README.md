@@ -30,7 +30,7 @@ import { allMeasures } from '@iamsquare/convert-units';
 const converter = new Converter({ measuresData: allMeasures }); // TMeasures => AllMeasures, TSystems => AllSystems, TUnitTypes => AllUnitType
 ```
 
-If you want to use a subset of all measure type you must declare `TMeasures`, `TSystems` and `TUnitTypes` explicitly (typescript can't infer types on its own if they get too complex. **e.g**: _two measure types with different systems_):
+If you want to use a subset of all measure type you must declare `TMeasures`, `TSystems` and `TUnitTypes` explicitly (typescript can't infer types on its own if they get too complex. **e.g.**: _two measure types with different systems_):
 
 ```js
 import {
@@ -185,7 +185,7 @@ list(converter, 'mass');
 ]
 ```
 
-**NOTE**: By default i18n is _not_ active so until a translation dictionary is provided `list` and `describe` will return the raw dictionary key instead.
+**NOTE**: By default the i18n module is _not_ active so until a translation dictionary is provided `list` and `describe` will return the raw dictionary key instead.
 
 ### Documentation
 
@@ -193,49 +193,68 @@ For a more in-depth documentation take a look [`here`](http://iamsquare.it/conve
 
 ## Supported Units
 
-|   **_Measure_**    | **_Metric_**                                                                                   | **_Imperial_**                                                                                                                                                            | **_Other_**                                                                                     |
-| :----------------: | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-|   _Acceleration_   | m/s2, g0, g-sun, g-mercury, g-venus, g-mars, g-saturn, g-jupiter, g-neptune, g-pluto, g-moon   | -                                                                                                                                                                         | -                                                                                               |
-|      _Angle_       | -                                                                                              | -                                                                                                                                                                         | deg, rad, grad, arcmin, arcsec                                                                  |
-|  _Apparent Power_  | -                                                                                              | -                                                                                                                                                                         | VA, mVA, kVA, MVA, GVA                                                                          |
-|       _Area_       | mm2, cm2, m2, ha, km2                                                                          | in2, ft2, ac, mi2                                                                                                                                                         | -                                                                                               |
-|      _Charge_      | -                                                                                              | -                                                                                                                                                                         | c, mC, μC, nC, pC                                                                               |
-|     _Current_      | -                                                                                              | -                                                                                                                                                                         | A, mA, kA                                                                                       |
-|     _Digital_      | -                                                                                              | -                                                                                                                                                                         | b, kb, Mb, Gb, Tb, Pb, kib, Mib, Gib, Tib, Pib, B, kB, MB, GB, TB, PB, kiB, MiB, GiB, TiB, PiB  |
-|     _Distance_     | nm, μm, mm, cm, m, km                                                                          | in, yd, ft-us, ft, fathom, mi, nMi                                                                                                                                        | -                                                                                               |
-|       _Each_       | -                                                                                              | -                                                                                                                                                                         | ea, dz                                                                                          |
-|      _Energy_      | -                                                                                              | -                                                                                                                                                                         | Wh, mWh, kWh, MWh, GWh, J, kJ                                                                   |
-|      _Force_       | N, kN                                                                                          | lbf                                                                                                                                                                       | -                                                                                               |
-|    _Frequency_     | -                                                                                              | -                                                                                                                                                                         | Hz, mHz, kHz, MHz, GHz, THz, rpm, deg/s, rad/s                                                  |
-|   _Illuminance_    | lx                                                                                             | ft-cd                                                                                                                                                                     | -                                                                                               |
-|       _Mass_       | mcg, mg, g, kg, mt                                                                             | oz, lb, t                                                                                                                                                                 | -                                                                                               |
-|       _Pace_       | s/m, min/km                                                                                    | s/ft, min/mi                                                                                                                                                              | -                                                                                               |
-|    _Parts-Per_     | -                                                                                              | -                                                                                                                                                                         | ppm, ppb, ppt, ppq                                                                              |
-|      _Pieces_      | -                                                                                              | -                                                                                                                                                                         | pcs, bk-doz, cp, doz-doz, doz, gr-gr, gros, half-dozen, long-hundred, ream, scores, sm-gr, trio |
-|      _Power_       | W, mW, kW, MW, GW, PS                                                                          | Btu/s, ft-lb/s, hp                                                                                                                                                        | -                                                                                               |
-|     _Pressure_     | Pa, hPa, kPa, MPa, bar, torr, mmHg (**@ 0°C**)                                                 | psi, ksi, inHg (**@ 32°F**)                                                                                                                                               | -                                                                                               |
-| _Reactive Energy_  | -                                                                                              | -                                                                                                                                                                         | VARh, mVARh, kVARh, MVARh, GVARh                                                                |
-|  _Reactive Power_  | -                                                                                              | -                                                                                                                                                                         | VAR, mVAR, kVAR, MVAR, GVAR                                                                     |
-|      _Speed_       | m/s, km/h                                                                                      | mph, knot, ft/s                                                                                                                                                           | -                                                                                               |
-|   _Temperature_    | C, K                                                                                           | F, R                                                                                                                                                                      | -                                                                                               |
-|       _Time_       | -                                                                                              | -                                                                                                                                                                         | ns, mu, ms, s, min, h, d, week, month, year                                                     |
-|     _Voltage_      | -                                                                                              | -                                                                                                                                                                         | V, mV, kV                                                                                       |
-|      _Volume_      | mm3, cm3, ml, l, kl, m3, km3                                                                   | tsp, Tbs, in3, fl-oz, cup, pnt, qt, gal, ft3, yd3                                                                                                                         | krm, tsk, msk, kkp, glas, kanna                                                                 |
-| _Volume Flow Rate_ | mm3/s, cm3/s, ml/s, cl/s, dl/s, l/s, l/min, l/h, kl/s, kl/min, kl/h, m3/s, m3/min, m3/h, km3/s | tsp/s, Tbs/s, in3/s, in3/min, in3/h, fl-oz/s, fl-oz/min, fl-oz/h, cup/s, pnt/s, pnt/min, pnt/h, qt/s, gal/s, gal/min, gal/h, ft3/s, ft3/min, ft3/h, yd3/s, yd3/min, yd3/h | -                                                                                               |
+| **_Measure_** | **_Metric_** | **_Imperial_** | **_Other_** |
+|:-:|-|-|-|
+| _Area_ | mm2, cm2, m2, ha, km2 | in2, ft2, ac, mi2 | - |
+| _Acceleration_ | g-force, m/s2 | - | - |
+| _Angle_ | - | - | deg, rad, grad, arcmin, arcsec |
+| _Apparent Power_ | - | - | VA, mVA, kVA, MVA, GVA |
+| _Charge_ | - | - | c, mC, μC, nC, pC |
+| _Current_ | - | - | A, mA, kA |
+| _Digital_ | - | - | b, Kb, Mb, Gb, Tb, B, KB, MB, GB, TB |
+| _Energy_ | - | - | Wh, mWh, kWh, MWh, GWh, J, kJ |
+| _Force_ | N, kN | lbf | - |
+| _Frequency_ | - | - | Hz, mHz, kHz, MHz, GHz, THz, rpm, deg/s, rad/s |
+| _Illuminance_ | lx | ft-cd | - |
+| _Length_ | nm, μm, mm, cm, m, km | in, yd, ft-us, ft, fathom, mi, nMi | - |
+| _Mass_ | mcg, mg, g, kg, mt | oz, lb, t | - |
+| _Pace_ | s/m, min/km | s/ft, min/mi | - |
+| _Parts-Per_ | - | - | ppm, ppb, ppt, ppq |
+| _Pieces_ | - | - | pcs, bk-doz, cp, doz-doz, doz, gr-gr, gros, half-dozen, long-hundred, ream, scores, sm-gr, trio |
+| _Power_ | W, mW, kW, MW, GW, PS | Btu/s, ft-lb/s, hp | - |
+| _Pressure_ | Pa, hPa, kPa, MPa, bar, torr | psi, ksi | - |
+| _Reactive Energy_ | - | - | VARh, mVARh, kVARh, MVARh, GVARh |
+| _Reactive Power_ | - | - | VAR, mVAR, kVAR, MVAR, GVAR |
+| _Speed_ | m/s, km/h | mph, knot, ft/s | - |
+| _Temperature_ | C, K | F, R | - |
+| _Time_ | - | - | ns, mu, ms, s, min, h, d, week, month, year |
+| _Voltage_ | - | - | V, mV, kV |
+| _Volume_ | mm3, cm3, ml, l, kl, m3, km3 | tsp, Tbs, in3, fl-oz, cup, pnt, qt, gal, ft3, yd3 | - |
+| _Volume Flow Rate_ | mm3/s, cm3/s, ml/s, cl/s, dl/s, l/s, l/min, l/h, kl/s, kl/min, kl/h, m3/s, m3/min, m3/h, km3/s | tsp/s, Tbs/s, in3/s, in3/min, in3/h, fl-oz/s, fl-oz/min, fl-oz/h, cup/s, pnt/s, pnt/min, pnt/h, qt/s, gal/s, gal/min, gal/h, ft3/s, ft3/min, ft3/h, yd3/s, yd3/min, yd3/h | - |
 
 **NOTE**: these units are exported as enums so that you don't have to remember which unit is which. Also, if you're using this library in a plain `javascript` environment these are useful to avoid annoying typos.
 
 You can check the list of these enums in the [`documentation`](https://iamsquare.it/convert-units).
 
-<!-- TODO: REWRITE THIS -->
-
 ### Want More?
 
-Adding new measurement sets is easy. Take a look at
-[`src/definitions`](https://github.com/iamsquare/convert-units/tree/master/src/definitions)
-to see how it's done.
+Adding new measurement type is easy. Check one of these [`definitions`](https://github.com/iamsquare/convert-units/tree/master/src/definitions) to see how they are implemented. When you're done you can import them just like any other measure provided by the library.
 
-<!-- TODO: REWRITE THIS -->
+```js
+import {
+  Converter,
+  distance,
+  DistanceSystems,
+  DistanceUnits,
+} from '@iamsquare/convert-units';
+
+import {
+  customMeasure,
+  CustomMeasureSystems,
+  CustomUnits
+} from './customMeasure';
+
+type Measures = 'customMeasure' | 'distance';
+type Systems = CustomMeasureSystems | DistanceSystems;
+type Units = CustomUnits | DistanceUnits;
+
+const converter = new Converter<Measures, Systems, Units>({
+  customMeasure,
+  distance
+});
+```
+
+Feel free to open a PR if you feel that your custom definition should be added to the library!
 
 ## i18n
 
@@ -251,8 +270,8 @@ const converter = new Converter({ measureData: allMeasures, translations: allTra
 Or if you only need a subset of measures:
 
 ```js
-import { 
-  Converter, 
+import {
+  Converter,
   area,
   areaTranslations,
   AreaSystems,
@@ -270,19 +289,26 @@ type Units = AreaUnits | DistanceUnits;
 const converter = new Converter<Measures, Systems, Units>({ measureData: { area, distance }, translations: { ...areaTranslations, ...distanceTranslations }});
 ```
 
-To module is a singleton that exposes two methods: `mergeTranslations` and `resetTranslations`.
+The `translationModule` inside the `Converter` class exposes three methods:
 
 ```javascript
+converter.translationModule.setTranslations({ ... })
 converter.translationModule.mergeTranslations({ ... })
 ```
 
-accepts a JSON containing key-value pairs, where the key is a [`translationKey`](https://www.iamsquare.it/convert-units/modules.html#translationkey) and the value is a `string`.
+Both accept a JSON containing key-value pairs, where the key is a valid [`translationKey`](https://www.iamsquare.it/convert-units/modules.html#translationkey) and the value is a `string`. The first one overwrites the current translations dictionary, the second merges the two dictionaries together.
 
 ```javascript
 converter.translationModule.resetTranslations();
 ```
 
-Resets the translations to their original state (when the class has been instanced).
+Resets the translations dictionary to its original state (when the class has been instanced).
+
+```javascript
+converter.translationModule.getTranslationByKey(key);
+```
+
+Returns the translation for a given key (or the key itself in case it's undefined in the dictionary).
 
 ## Dependencies
 

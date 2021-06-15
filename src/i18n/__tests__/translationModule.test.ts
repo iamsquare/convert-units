@@ -14,6 +14,24 @@ afterEach(() => {
   converter.translationModule.resetTranslations();
 });
 
+test('setTranslations', () => {
+  converter.translationModule.setTranslations({ [AccelerationTranslationEnum.SINGULAR_G0]: translationTestValue });
+
+  expect(converter.translationModule.getTranslationByKey(AccelerationTranslationEnum.SINGULAR_G0)).toBe(
+    translationTestValue
+  );
+  expect(_describe(converter, AccelerationEnum.G0).name.singular).toBe(translationTestValue);
+
+  converter.translationModule.setTranslations({ [AccelerationTranslationEnum.PLURAL_G0]: translationTestValue });
+
+  expect(converter.translationModule.getTranslationByKey(AccelerationTranslationEnum.PLURAL_G0)).toBe(
+    translationTestValue
+  );
+
+  expect(_describe(converter, AccelerationEnum.G0).name.singular).toBe(AccelerationTranslationEnum.SINGULAR_G0);
+  expect(_describe(converter, AccelerationEnum.G0).name.plural).toBe(translationTestValue);
+});
+
 test('mergeTranslations', () => {
   converter.translationModule.mergeTranslations({ [AccelerationTranslationEnum.SINGULAR_G0]: translationTestValue });
 
