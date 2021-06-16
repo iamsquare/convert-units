@@ -44,3 +44,26 @@ export type TimePluralTranslationKey =
   | 'PLURAL_WEEK'
   | 'PLURAL_MONTH'
   | 'PLURAL_YEAR';
+
+export const timeTranslations: Record<TimeSingularTranslationKey | TimePluralTranslationKey, string> = {
+  [TimeTranslationEnum.SINGULAR_NANOSECOND]: 'Nanosecond',
+  [TimeTranslationEnum.SINGULAR_MICROSECOND]: 'Microsecond',
+  [TimeTranslationEnum.SINGULAR_MILLISECOND]: 'Millisecond',
+  [TimeTranslationEnum.SINGULAR_SECOND]: 'Second',
+  [TimeTranslationEnum.SINGULAR_MINUTE]: 'Minute',
+  [TimeTranslationEnum.SINGULAR_HOUR]: 'Hour',
+  [TimeTranslationEnum.SINGULAR_DAY]: 'Day',
+  [TimeTranslationEnum.SINGULAR_WEEK]: 'Week',
+  [TimeTranslationEnum.SINGULAR_MONTH]: 'Month',
+  [TimeTranslationEnum.SINGULAR_YEAR]: 'Year',
+  [TimeTranslationEnum.PLURAL_NANOSECOND]: 'Nanoseconds',
+  [TimeTranslationEnum.PLURAL_MICROSECOND]: 'Microseconds',
+  [TimeTranslationEnum.PLURAL_MILLISECOND]: 'Milliseconds',
+  [TimeTranslationEnum.PLURAL_SECOND]: 'Seconds',
+  [TimeTranslationEnum.PLURAL_MINUTE]: 'Minutes',
+  [TimeTranslationEnum.PLURAL_HOUR]: 'Hours',
+  [TimeTranslationEnum.PLURAL_DAY]: 'Days',
+  [TimeTranslationEnum.PLURAL_WEEK]: 'Weeks',
+  [TimeTranslationEnum.PLURAL_MONTH]: 'Months',
+  [TimeTranslationEnum.PLURAL_YEAR]: 'Years'
+};

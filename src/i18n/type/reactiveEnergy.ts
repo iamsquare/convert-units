@@ -24,3 +24,19 @@ export type ReactiveEnergyPluralTranslationKey =
   | 'PLURAL_KILOVOLT_AMPERE_REACTIVE_HOUR'
   | 'PLURAL_MEGAVOLT_AMPERE_REACTIVE_HOUR'
   | 'PLURAL_GIGAVOLT_AMPERE_REACTIVE_HOUR';
+
+export const reactiveEnergyTranslations: Record<
+  ReactiveEnergySingularTranslationKey | ReactiveEnergyPluralTranslationKey,
+  string
+> = {
+  [ReactiveEnergyTranslationEnum.SINGULAR_VOLT_AMPERE_REACTIVE_HOUR]: 'Volt-Ampere Reactive Hour',
+  [ReactiveEnergyTranslationEnum.SINGULAR_MILLIVOLT_AMPERE_REACTIVE_HOUR]: 'Millivolt-Ampere Reactive Hour',
+  [ReactiveEnergyTranslationEnum.SINGULAR_KILOVOLT_AMPERE_REACTIVE_HOUR]: 'Kilovolt-Ampere Reactive Hour',
+  [ReactiveEnergyTranslationEnum.SINGULAR_MEGAVOLT_AMPERE_REACTIVE_HOUR]: 'Megavolt-Ampere Reactive Hour',
+  [ReactiveEnergyTranslationEnum.SINGULAR_GIGAVOLT_AMPERE_REACTIVE_HOUR]: 'Gigavolt-Ampere Reactive Hour',
+  [ReactiveEnergyTranslationEnum.PLURAL_VOLT_AMPERE_REACTIVE_HOUR]: 'Volt-Amperes Reactive Hour',
+  [ReactiveEnergyTranslationEnum.PLURAL_MILLIVOLT_AMPERE_REACTIVE_HOUR]: 'Millivolt-Amperes Reactive Hour',
+  [ReactiveEnergyTranslationEnum.PLURAL_KILOVOLT_AMPERE_REACTIVE_HOUR]: 'Kilovolt-Amperes Reactive Hour',
+  [ReactiveEnergyTranslationEnum.PLURAL_MEGAVOLT_AMPERE_REACTIVE_HOUR]: 'Megavolt-Amperes Reactive Hour',
+  [ReactiveEnergyTranslationEnum.PLURAL_GIGAVOLT_AMPERE_REACTIVE_HOUR]: 'Gigavolt-Amperes Reactive Hour'
+};

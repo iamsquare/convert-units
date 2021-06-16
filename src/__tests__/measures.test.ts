@@ -1,7 +1,10 @@
-import { measures } from '..';
+import { Converter } from '../converter';
+import measures, { allMeasures } from '../measures';
+
+const converter = new Converter({ measuresData: allMeasures });
 
 test('measures', () => {
-  const actual = measures();
+  const actual = measures(converter);
   const expected = [
     'acceleration',
     'angle',

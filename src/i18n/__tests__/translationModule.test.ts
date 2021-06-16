@@ -1,34 +1,63 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { AccelerationEnum, describe as _describe } from '../../';
-import { translationModule } from '../';
-import defaultTranslations from '../defaultTranslations';
-import { AccelerationTranslationEnum } from '../type';
+import { Converter } from '../../converter';
+import { AccelerationEnum } from '../../definitions';
+import acceleration from '../../definitions/acceleration';
+import { default as _describe } from '../../describe';
+import allTranslations from '../allTranslations';
+import { AccelerationTranslationEnum, accelerationTranslations } from '../type';
 
+const converter = new Converter({ measuresData: { acceleration }, translations: accelerationTranslations });
+const converterWithoutTranslations = new Converter({ measuresData: { acceleration } });
 const translationTestValue = 'test-value';
-const defaultTranslationsClone = { ...defaultTranslations };
 
 afterEach(() => {
-  translationModule.resetTranslations();
+  converter.translationModule.resetTranslations();
+});
+
+test('setTranslations', () => {
+  converter.translationModule.setTranslations({ [AccelerationTranslationEnum.SINGULAR_G0]: translationTestValue });
+
+  expect(converter.translationModule.getTranslationByKey(AccelerationTranslationEnum.SINGULAR_G0)).toBe(
+    translationTestValue
+  );
+  expect(_describe(converter, AccelerationEnum.G0).name.singular).toBe(translationTestValue);
+
+  converter.translationModule.setTranslations({ [AccelerationTranslationEnum.PLURAL_G0]: translationTestValue });
+
+  expect(converter.translationModule.getTranslationByKey(AccelerationTranslationEnum.PLURAL_G0)).toBe(
+    translationTestValue
+  );
+
+  expect(_describe(converter, AccelerationEnum.G0).name.singular).toBe(AccelerationTranslationEnum.SINGULAR_G0);
+  expect(_describe(converter, AccelerationEnum.G0).name.plural).toBe(translationTestValue);
 });
 
 test('mergeTranslations', () => {
-  translationModule.mergeTranslations({ [AccelerationTranslationEnum.SINGULAR_G0]: translationTestValue });
+  converter.translationModule.mergeTranslations({ [AccelerationTranslationEnum.SINGULAR_G0]: translationTestValue });
 
-  expect(translationModule.getTranslationByKey(AccelerationTranslationEnum.SINGULAR_G0)).toBe(translationTestValue);
-  expect(_describe(AccelerationEnum.G0).singular).toBe(translationTestValue);
+  expect(converter.translationModule.getTranslationByKey(AccelerationTranslationEnum.SINGULAR_G0)).toBe(
+    translationTestValue
+  );
+  expect(_describe(converter, AccelerationEnum.G0).name.singular).toBe(translationTestValue);
 });
 
 test('resetTranslations', () => {
-  translationModule.mergeTranslations({ [AccelerationTranslationEnum.SINGULAR_G0]: translationTestValue });
-  translationModule.resetTranslations();
+  converter.translationModule.mergeTranslations({ [AccelerationTranslationEnum.SINGULAR_G0]: translationTestValue });
 
-  expect(_describe(AccelerationEnum.G0).singular).toBe(defaultTranslationsClone.SINGULAR_G0);
+  converter.translationModule.resetTranslations();
+
+  expect(_describe(converter, AccelerationEnum.G0).name.singular).toBe(allTranslations.SINGULAR_G0);
 });
 
 test('getTranslationByKey', () => {
-  expect(translationModule.getTranslationByKey(AccelerationTranslationEnum.SINGULAR_G0)).toBe(
-    defaultTranslationsClone.SINGULAR_G0
+  expect(converter.translationModule.getTranslationByKey(AccelerationTranslationEnum.SINGULAR_G0)).toBe(
+    allTranslations.SINGULAR_G0
   );
-  //@ts-ignore
-  expect(translationModule.getTranslationByKey('not-a-string')).toBe(defaultTranslationsClone.MISSING_TRANSLATION);
+
+  expect(
+    converterWithoutTranslations.translationModule.getTranslationByKey(AccelerationTranslationEnum.SINGULAR_G0)
+  ).toBe(AccelerationTranslationEnum.SINGULAR_G0);
+
+  //@ts-expect-error
+  expect(converter.translationModule.getTranslationByKey('not-a-string')).toBe('not-a-string');
 });

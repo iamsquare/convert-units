@@ -1,5 +1,5 @@
 import { FrequencyTranslationEnum } from '../i18n';
-import { Unit, UnitDefinition } from '../type';
+import { MeasureDefinition, Unit } from '../type';
 import { FrequencyUnit } from './type';
 
 export enum FrequencyEnum {
@@ -80,7 +80,9 @@ const metric: Record<FrequencyUnit, Unit> = {
   }
 };
 
-const frequency: UnitDefinition<'metric', FrequencyUnit> = {
+export type FrequencySystems = 'metric';
+
+const frequency: MeasureDefinition<FrequencySystems, FrequencyUnit> = {
   systems: {
     metric
   }

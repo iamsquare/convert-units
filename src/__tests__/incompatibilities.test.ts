@@ -1,68 +1,96 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { convert, convertToBest, describe as _describe, possibilities } from '..';
+import { forEach } from 'ramda';
+
+import convert from '../convert';
+import { Converter } from '../converter';
+import convertToBest from '../convertToBest';
+import { default as _describe } from '../describe';
+import getUnit from '../getUnit';
+import allTranslations from '../i18n/allTranslations';
+import list from '../list';
+import measures, { allMeasures } from '../measures';
+import possibilities from '../possibilities';
+import { InstanceError } from '../utils/error';
+
+const converter = new Converter({ measuresData: allMeasures, translations: allTranslations });
 
 test('l to kg throws', () => {
   expect(() => {
-    convert('l', 'kg', 2);
+    convert(converter, 'l', 'kg', 2);
   }).toThrow();
 });
 
 test('fl-oz to oz throws', () => {
   expect(() => {
-    convert('fl-oz', 'oz', 4);
+    convert(converter, 'fl-oz', 'oz', 4);
   }).toThrow();
 });
 
 test('kg to fl-oz throws', () => {
   expect(() => {
-    convert('kg', 'fl-oz', 4);
+    convert(converter, 'kg', 'fl-oz', 4);
   }).toThrow();
 });
 
 test('kg to ft throws', () => {
   expect(() => {
-    convert('kg', 'ft', 3);
+    convert(converter, 'kg', 'ft', 3);
   }).toThrow();
 });
 
 test('kg to nonexistant unit throws', () => {
   expect(() => {
-    //@ts-ignore
-    convert('kg', 'garbage', 4);
+    convert(converter, 'kg', 'garbage', 4);
   }).toThrow();
 });
 
 test('Nonexistant unit to kg throws', () => {
   expect(() => {
-    //@ts-ignore
-    convert('garbage', 'kg', 4);
+    convert(converter, 'garbage', 'kg', 4);
   }).toThrow();
 });
 
 test('convertToBest throws if unit is not valid', () => {
   expect(() => {
-    //@ts-ignore
-    convertToBest({}, 'garbage', 4);
+    convertToBest(converter, {}, 'garbage', 4);
   }).toThrow();
 });
 
 test('describe throws if unit is not valid', () => {
   expect(() => {
-    //@ts-ignore
-    _describe('not-a-unit');
+    _describe(converter, 'not-a-unit');
   }).toThrow();
 });
 
 test('possibilities throws if unit is not valid', () => {
   expect(() => {
-    //@ts-ignore
-    possibilities('not-a-unit');
+    //@ts-expect-error
+    possibilities(converter, 'not-a-unit');
   }).toThrow();
 });
 
 test('list throws if measure is not valid', () => {
   expect(() => {
-    //@ts-ignore
-    list('not-a-measure');
+    list(converter, 'not-a-measure');
   }).toThrow();
+});
+
+describe('function throws if missing converter argument', () => {
+  forEach(
+    ({ label, fn }) =>
+      test(label, () =>
+        expect(() => {
+          fn();
+        }).toThrow(InstanceError)
+      ),
+    [
+      { label: 'convert', fn: () => convert(null, 'ml', 'ml', 1) },
+      { label: 'convertToBest', fn: () => convertToBest(null, {}, 'ml', 1) },
+      { label: 'describe', fn: () => _describe(null, 'ml') },
+      { label: 'getUnit', fn: () => getUnit(null, 'ml') },
+      { label: 'list', fn: () => list(null) },
+      { label: 'measures', fn: () => measures(null) },
+      { label: 'possibilities', fn: () => possibilities(null) }
+    ]
+  );
 });

@@ -1,5 +1,5 @@
 import { AccelerationTranslationEnum } from '../i18n';
-import { Unit, UnitDefinition } from '../type';
+import { MeasureDefinition, Unit } from '../type';
 import { AccelerationUnit } from './type';
 
 export enum AccelerationEnum {
@@ -96,7 +96,9 @@ const metric: Record<AccelerationUnit, Unit> = {
   }
 };
 
-const acceleration: UnitDefinition<'metric', AccelerationUnit> = {
+export type AccelerationSystems = 'metric';
+
+const acceleration: MeasureDefinition<AccelerationSystems, AccelerationUnit> = {
   systems: {
     metric
   }

@@ -56,3 +56,32 @@ export type DistancePluralTranslationKey =
   | 'PLURAL_FATHOM'
   | 'PLURAL_MILE'
   | 'PLURAL_NAUTICAL_MILE';
+
+export const distanceTranslations: Record<DistanceSingularTranslationKey | DistancePluralTranslationKey, string> = {
+  [DistanceTranslationEnum.SINGULAR_NANOMETER]: 'Nanometer',
+  [DistanceTranslationEnum.SINGULAR_MICROMETER]: 'Micrometer',
+  [DistanceTranslationEnum.SINGULAR_MILLIMETER]: 'Millimeter',
+  [DistanceTranslationEnum.SINGULAR_CENTIMETER]: 'Centimeter',
+  [DistanceTranslationEnum.SINGULAR_METER]: 'Meter',
+  [DistanceTranslationEnum.SINGULAR_KILOMETER]: 'Kilometer',
+  [DistanceTranslationEnum.SINGULAR_INCH]: 'Inch',
+  [DistanceTranslationEnum.SINGULAR_YARD]: 'Yard',
+  [DistanceTranslationEnum.SINGULAR_US_SURVEY_FOOT]: 'US Survey Foot',
+  [DistanceTranslationEnum.SINGULAR_FOOT]: 'Foot',
+  [DistanceTranslationEnum.SINGULAR_FATHOM]: 'Fathom',
+  [DistanceTranslationEnum.SINGULAR_MILE]: 'Mile',
+  [DistanceTranslationEnum.SINGULAR_NAUTICAL_MILE]: 'Nautical Mile',
+  [DistanceTranslationEnum.PLURAL_NANOMETER]: 'Nanometers',
+  [DistanceTranslationEnum.PLURAL_MICROMETER]: 'Micrometers',
+  [DistanceTranslationEnum.PLURAL_MILLIMETER]: 'Millimeters',
+  [DistanceTranslationEnum.PLURAL_CENTIMETER]: 'Centimeters',
+  [DistanceTranslationEnum.PLURAL_METER]: 'Meters',
+  [DistanceTranslationEnum.PLURAL_KILOMETER]: 'Kilometers',
+  [DistanceTranslationEnum.PLURAL_INCH]: 'Inches',
+  [DistanceTranslationEnum.PLURAL_YARD]: 'Yards',
+  [DistanceTranslationEnum.PLURAL_US_SURVEY_FOOT]: 'US Survey Feet',
+  [DistanceTranslationEnum.PLURAL_FOOT]: 'Feet',
+  [DistanceTranslationEnum.PLURAL_FATHOM]: 'Fathoms',
+  [DistanceTranslationEnum.PLURAL_MILE]: 'Miles',
+  [DistanceTranslationEnum.PLURAL_NAUTICAL_MILE]: 'Nautical Miles'
+};

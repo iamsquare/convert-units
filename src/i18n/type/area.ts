@@ -44,3 +44,26 @@ export type AreaPluralTranslationKey =
   | 'PLURAL_SQUARE_FOOT'
   | 'PLURAL_SQUARE_MILE'
   | 'PLURAL_ACRE';
+
+export const areaTranslations: Record<AreaSingularTranslationKey | AreaPluralTranslationKey, string> = {
+  [AreaTranslationEnum.SINGULAR_SQUARE_MILLIMETER]: 'Square Millimeter',
+  [AreaTranslationEnum.SINGULAR_SQUARE_CENTIMETER]: 'Square Centimeter',
+  [AreaTranslationEnum.SINGULAR_SQUARE_METER]: 'Square Meter',
+  [AreaTranslationEnum.SINGULAR_SQUARE_KILOMETER]: 'Square Kilometer',
+  [AreaTranslationEnum.SINGULAR_HECTARE]: 'Hectare',
+  [AreaTranslationEnum.SINGULAR_SQUARE_INCH]: 'Square Inch',
+  [AreaTranslationEnum.SINGULAR_SQUARE_YARD]: 'Square Yard',
+  [AreaTranslationEnum.SINGULAR_SQUARE_FOOT]: 'Square Foot',
+  [AreaTranslationEnum.SINGULAR_SQUARE_MILE]: 'Square Mile',
+  [AreaTranslationEnum.SINGULAR_ACRE]: 'Acre',
+  [AreaTranslationEnum.PLURAL_SQUARE_MILLIMETER]: 'Square Millimeters',
+  [AreaTranslationEnum.PLURAL_SQUARE_CENTIMETER]: 'Square Centimeters',
+  [AreaTranslationEnum.PLURAL_SQUARE_METER]: 'Square Meters',
+  [AreaTranslationEnum.PLURAL_SQUARE_KILOMETER]: 'Square Kilometers',
+  [AreaTranslationEnum.PLURAL_HECTARE]: 'Hectares',
+  [AreaTranslationEnum.PLURAL_SQUARE_INCH]: 'Square Inches',
+  [AreaTranslationEnum.PLURAL_SQUARE_YARD]: 'Square Yards',
+  [AreaTranslationEnum.PLURAL_SQUARE_FOOT]: 'Square Feet',
+  [AreaTranslationEnum.PLURAL_SQUARE_MILE]: 'Square Miles',
+  [AreaTranslationEnum.PLURAL_ACRE]: 'Acres'
+};

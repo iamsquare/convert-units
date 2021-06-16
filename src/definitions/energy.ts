@@ -1,5 +1,5 @@
 import { EnergyTranslationEnum } from '../i18n';
-import { Unit, UnitDefinition } from '../type';
+import { MeasureDefinition, Unit } from '../type';
 import { EnergyUnit } from './type';
 
 export enum EnergyEnum {
@@ -64,7 +64,9 @@ const metric: Record<EnergyUnit, Unit> = {
   }
 };
 
-const energy: UnitDefinition<'metric', EnergyUnit> = {
+export type EnergySystems = 'metric';
+
+const energy: MeasureDefinition<EnergySystems, EnergyUnit> = {
   systems: {
     metric
   }

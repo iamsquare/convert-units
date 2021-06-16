@@ -11,6 +11,7 @@
     "checkJs": false,
     "baseUrl": "./",
     "noImplicitAny": true,
+    "noImplicitThis": true,
     "outDir": "./lib/esm",
     "esModuleInterop": true,
     "typeRoots": ["node_modules/@types"],

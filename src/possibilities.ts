@@ -1,35 +1,43 @@
 import { chain, includes, isNil, keys, pipe, values } from 'ramda';
-import { isNotNil } from 'ramda-adjunct';
+import { isNilOrEmpty, isNotNil } from 'ramda-adjunct';
 
-import { UnitType } from './definitions/type';
 import getUnit from './getUnit';
-import measures, { measureDictionary } from './measures';
-import { Maybe, Measure, MeasureEnum, Nullable } from './type';
+import measures from './measures';
+import { IConverter, Maybe, Nullable } from './type';
+import { InstanceError } from './utils/error';
 
 /**
- * Gives a list of compatible units with a given {@link UnitType} or {@link Measure} or all the units supported by the library
+ * Gives a list of compatible units from a given unit type or measure (it gives all the units supported by the library if no argument is provided)
  *
- * @throws An Error if `arg` is not a valid {@link UnitType} or {@link Measure}
+ * @param converter The converter instance to use with this function
+ * @throws An Error if `arg` is not a valid unit type or measure
  *
+ * @param converter The converter instance to use with this function
  * @param arg A valid type or measure from which you want to get a list of compatible conversion units
- * @returns A list of compatible units with a given {@link UnitType} or {@link Measure} or all the units supported by the library
+ * @returns A list of compatible units with a given unit type or measure or all the units supported by the {@link Converter} instance passed as argument
  */
-const possibilities = (arg?: Maybe<UnitType | Measure>): UnitType[] | never =>
-  pipe(
-    (arg: Maybe<UnitType | Measure>): Nullable<Measure> | never => {
+function possibilities<TMeasures extends string, TSystems extends string, TUnitType extends string>(
+  converter: IConverter<TMeasures, TSystems, TUnitType>,
+  arg?: Maybe<TMeasures | TUnitType>
+): TUnitType[] {
+  if (isNilOrEmpty(converter)) throw new InstanceError();
+
+  return pipe(
+    (arg: Maybe<TMeasures | TUnitType>): Nullable<TMeasures> | never => {
       if (isNil(arg)) return null;
 
-      if (includes(arg, values(MeasureEnum))) return arg as Measure;
+      if (includes(arg, measures(converter))) return arg as TMeasures;
 
-      const unit = getUnit(arg as UnitType);
+      const unit = getUnit(converter, arg as TUnitType);
 
-      if (isNil(unit)) throw new Error(`Cannot get possibilities for incompatible unit '${arg}'`);
+      if (isNil(unit)) throw new Error(`Cannot get possibilities for incompatible unit or measure '${arg}'`);
 
       return unit.measure;
     },
-    (m) => (isNotNil(m) ? [m] : measures()),
-    chain((m) => values(measureDictionary[m].systems)),
-    chain((s) => keys(s))
+    (m) => (isNotNil(m) ? [m] : measures(converter)),
+    chain((m) => values(converter.measuresData[m].systems)),
+    chain((s) => keys(s) as TUnitType[])
   )(arg);
+}
 
 export default possibilities;

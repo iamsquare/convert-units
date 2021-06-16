@@ -24,3 +24,19 @@ export type ReactivePowerPluralTranslationKey =
   | 'PLURAL_KILOVOLT_AMPERE_REACTIVE'
   | 'PLURAL_MEGAVOLT_AMPERE_REACTIVE'
   | 'PLURAL_GIGAVOLT_AMPERE_REACTIVE';
+
+export const reactivePowerTranslations: Record<
+  ReactivePowerSingularTranslationKey | ReactivePowerPluralTranslationKey,
+  string
+> = {
+  [ReactivePowerTranslationEnum.SINGULAR_VOLT_AMPERE_REACTIVE]: 'Volt-Ampere Reactive',
+  [ReactivePowerTranslationEnum.SINGULAR_MILLIVOLT_AMPERE_REACTIVE]: 'Millivolt-Ampere Reactive',
+  [ReactivePowerTranslationEnum.SINGULAR_KILOVOLT_AMPERE_REACTIVE]: 'Kilovolt-Ampere Reactive',
+  [ReactivePowerTranslationEnum.SINGULAR_MEGAVOLT_AMPERE_REACTIVE]: 'Megavolt-Ampere Reactive',
+  [ReactivePowerTranslationEnum.SINGULAR_GIGAVOLT_AMPERE_REACTIVE]: 'Gigavolt-Ampere Reactive',
+  [ReactivePowerTranslationEnum.PLURAL_VOLT_AMPERE_REACTIVE]: 'Volt-Amperes Reactive',
+  [ReactivePowerTranslationEnum.PLURAL_MILLIVOLT_AMPERE_REACTIVE]: 'Millivolt-Amperes Reactive',
+  [ReactivePowerTranslationEnum.PLURAL_KILOVOLT_AMPERE_REACTIVE]: 'Kilovolt-Amperes Reactive',
+  [ReactivePowerTranslationEnum.PLURAL_MEGAVOLT_AMPERE_REACTIVE]: 'Megavolt-Amperes Reactive',
+  [ReactivePowerTranslationEnum.PLURAL_GIGAVOLT_AMPERE_REACTIVE]: 'Gigavolt-Amperes Reactive'
+};

@@ -20,3 +20,17 @@ export type TemperaturePluralTranslationKey =
   | 'PLURAL_KELVIN'
   | 'PLURAL_FAHRENHEIT'
   | 'PLURAL_RANKINE';
+
+export const temperatureTranslations: Record<
+  TemperatureSingularTranslationKey | TemperaturePluralTranslationKey,
+  string
+> = {
+  [TemperatureTranslationEnum.SINGULAR_CELSIUS]: 'Degree Celsius',
+  [TemperatureTranslationEnum.SINGULAR_KELVIN]: 'Degree Kelvin',
+  [TemperatureTranslationEnum.SINGULAR_FAHRENHEIT]: 'Degree Fahrenheit',
+  [TemperatureTranslationEnum.SINGULAR_RANKINE]: 'Degree Rankine',
+  [TemperatureTranslationEnum.PLURAL_CELSIUS]: 'Degrees Celsius',
+  [TemperatureTranslationEnum.PLURAL_KELVIN]: 'Degrees Kelvin',
+  [TemperatureTranslationEnum.PLURAL_FAHRENHEIT]: 'Degrees Fahrenheit',
+  [TemperatureTranslationEnum.PLURAL_RANKINE]: 'Degrees Rankine'
+};

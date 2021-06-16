@@ -44,3 +44,26 @@ export type PressurePluralTranslationKey =
   | 'PLURAL_POUND_PER_SQUARE_INCH'
   | 'PLURAL_KILOPOUND_PER_SQUARE_INCH'
   | 'PLURAL_INCH_OF_MERCURY';
+
+export const pressureTranslations: Record<PressureSingularTranslationKey | PressurePluralTranslationKey, string> = {
+  [PressureTranslationEnum.SINGULAR_PASCAL]: 'Pascal',
+  [PressureTranslationEnum.SINGULAR_KILOPASCAL]: 'Kilopascal',
+  [PressureTranslationEnum.SINGULAR_MEGAPASCAL]: 'Megapascal',
+  [PressureTranslationEnum.SINGULAR_HECTOPASCAL]: 'Hectopascal',
+  [PressureTranslationEnum.SINGULAR_BAR]: 'Bar',
+  [PressureTranslationEnum.SINGULAR_TORR]: 'Torr',
+  [PressureTranslationEnum.SINGULAR_MILLIMETRE_OF_MERCURY]: 'Millimetre of mercury',
+  [PressureTranslationEnum.SINGULAR_POUND_PER_SQUARE_INCH]: 'Pound per square inch',
+  [PressureTranslationEnum.SINGULAR_KILOPOUND_PER_SQUARE_INCH]: 'Kilopound per square inch',
+  [PressureTranslationEnum.SINGULAR_INCH_OF_MERCURY]: 'Inch of mercury',
+  [PressureTranslationEnum.PLURAL_PASCAL]: 'Pascals',
+  [PressureTranslationEnum.PLURAL_KILOPASCAL]: 'Kilopascals',
+  [PressureTranslationEnum.PLURAL_MEGAPASCAL]: 'Megapascals',
+  [PressureTranslationEnum.PLURAL_HECTOPASCAL]: 'Hectopascals',
+  [PressureTranslationEnum.PLURAL_BAR]: 'Bar',
+  [PressureTranslationEnum.PLURAL_TORR]: 'Torr',
+  [PressureTranslationEnum.PLURAL_MILLIMETRE_OF_MERCURY]: 'Millimetres of mercury',
+  [PressureTranslationEnum.PLURAL_POUND_PER_SQUARE_INCH]: 'Pounds per square inch',
+  [PressureTranslationEnum.PLURAL_KILOPOUND_PER_SQUARE_INCH]: 'Kilopound per square inch',
+  [PressureTranslationEnum.PLURAL_INCH_OF_MERCURY]: 'Inches of mercury'
+};
