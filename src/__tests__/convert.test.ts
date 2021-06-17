@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import convert from '../convert';
 import { Converter } from '../converter';
 import { allMeasures } from '../measures';
