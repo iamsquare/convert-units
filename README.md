@@ -228,7 +228,7 @@ You can check the list of these enums in the [`documentation`](https://iamsquare
 
 ### Want More?
 
-Adding new measurement type is easy. Check one of these [`definitions`](https://github.com/iamsquare/convert-units/tree/master/src/definitions) to see how they are implemented. When you're done you can import them just like any other measure provided by the library.
+Adding new measurement types is easy. Check one of these [`definitions`](https://github.com/iamsquare/convert-units/tree/master/src/definitions) or [`unit tests`](https://github.com/iamsquare/convert-units/tree/master/src/__tests__/customType.test.ts) to see how they are implemented. When you're done you can import them just like any other measure provided by the library:
 
 ```js
 import {
@@ -254,7 +254,7 @@ const converter = new Converter<Measures, Systems, Units>({
 });
 ```
 
-Feel free to open a PR if you feel that your custom definition should be added to the library!
+Feel free to open a PR if you think that your custom definition should be added to the library!
 
 ## i18n
 
@@ -321,7 +321,7 @@ Note that _Rollup_ and _Webpack_ should handle tree-shaking without extra-effort
 
 Check the kanban board [`here`](https://github.com/orgs/iamsquare/projects/1)
 
-### Development
+## Development
 
 If you want to help remember to run the command `npm run setup:dev`.
 It will install all dependencies and [`husky`](https://www.npmjs.com/package/husky) so that code will get tested and linted before every commit.
