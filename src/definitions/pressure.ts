@@ -1,5 +1,5 @@
 import { PressureTranslationEnum } from '../i18n';
-import { Unit, UnitDefinition } from '../type';
+import { MeasureDefinition, Unit } from '../type';
 import { ImperialPressureUnit, MetricPressureUnit, PressureUnit } from './type';
 
 export enum MetricPressureEnum {
@@ -94,7 +94,9 @@ const imperial: Record<ImperialPressureUnit, Unit> = {
   }
 };
 
-const pressure: UnitDefinition<'metric' | 'imperial', PressureUnit> = {
+export type PressureSystems = 'metric' | 'imperial';
+
+const pressure: MeasureDefinition<PressureSystems, PressureUnit> = {
   systems: {
     metric,
     imperial

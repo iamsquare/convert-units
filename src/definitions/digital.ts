@@ -1,5 +1,5 @@
 import { DigitalTranslationEnum } from '../i18n';
-import { Unit, UnitDefinition } from '../type';
+import { MeasureDefinition, Unit } from '../type';
 import { BitDigitalUnit, ByteDigitalUnit, DigitalUnit } from './type';
 
 export enum BitEnum {
@@ -190,7 +190,9 @@ const bytes: Record<ByteDigitalUnit, Unit> = {
   }
 };
 
-const digital: UnitDefinition<'bits' | 'bytes', DigitalUnit> = {
+export type DigitalSystems = 'bits' | 'bytes';
+
+const digital: MeasureDefinition<DigitalSystems, DigitalUnit> = {
   systems: {
     bits,
     bytes

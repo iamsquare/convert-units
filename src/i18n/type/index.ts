@@ -85,9 +85,9 @@ export type PluralTranslationKey =
   | VolumePluralTranslationKey
   | VolumeFlowRatePluralTranslationKey;
 
-export type TranslationKey = SingularTranslationKey | PluralTranslationKey | 'MISSING_TRANSLATION';
+export type TranslationKey = SingularTranslationKey | PluralTranslationKey;
 
-export type Translations = PartialRecord<TranslationKey, string>;
+export type Translations<TTranslationKeys extends string> = PartialRecord<TTranslationKeys, string>;
 
 export * from './acceleration';
 export * from './angle';

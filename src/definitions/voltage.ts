@@ -1,5 +1,5 @@
 import { VoltageTranslationEnum } from '../i18n';
-import { Unit, UnitDefinition } from '../type';
+import { MeasureDefinition, Unit } from '../type';
 import { VoltageUnit } from './type';
 
 export enum VoltageEnum {
@@ -32,7 +32,9 @@ const metric: Record<VoltageUnit, Unit> = {
   }
 };
 
-const voltage: UnitDefinition<'metric', VoltageUnit> = {
+export type VoltageSystems = 'metric';
+
+const voltage: MeasureDefinition<VoltageSystems, VoltageUnit> = {
   systems: {
     metric
   }

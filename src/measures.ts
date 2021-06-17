@@ -1,6 +1,7 @@
 import { keys } from 'ramda';
+import { isNilOrEmpty } from 'ramda-adjunct';
 
-import { UnitType } from './definitions';
+import { AllUnitType } from './definitions';
 import acceleration from './definitions/acceleration';
 import angle from './definitions/angle';
 import apparentPower from './definitions/apparentPower';
@@ -28,14 +29,10 @@ import time from './definitions/time';
 import voltage from './definitions/voltage';
 import volume from './definitions/volume';
 import volumeFlowRate from './definitions/volumeFlowRate';
-import { Anchor, Maybe, Measure, PartialRecord, System, Unit } from './type';
+import { AllMeasure, AllSystem, IConverter, MeasureDictionary } from './type';
+import { InstanceError } from './utils/error';
 
-type PartialMeasureDictionary = {
-  systems: PartialRecord<System, PartialRecord<UnitType, Unit>>;
-  anchors?: Maybe<PartialRecord<System, Anchor<System, UnitType>>>;
-};
-
-export const measureDictionary: Record<Measure, PartialMeasureDictionary> = {
+export const allMeasures: MeasureDictionary<AllMeasure, AllSystem, AllUnitType> = {
   acceleration,
   angle,
   apparentPower,
@@ -66,8 +63,18 @@ export const measureDictionary: Record<Measure, PartialMeasureDictionary> = {
 };
 
 /**
- * @returns All kind of measurements supported by this library
+ * @throws An {@link InstanceError} if `converter` is not provided
+ *
+ * @param converter The converter instance to use with this function
+ *
+ * @returns All kind of measurements supported by the {@link Converter} instance passed as argument
  */
-const measures = () => keys(measureDictionary);
+function measures<TMeasures extends string, TSystems extends string, TUnitType extends string>(
+  converter: IConverter<TMeasures, TSystems, TUnitType>
+): TMeasures[] {
+  if (isNilOrEmpty(converter)) throw new InstanceError();
+
+  return keys(converter.measuresData);
+}
 
 export default measures;

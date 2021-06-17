@@ -1,5 +1,5 @@
 import { VolumeFlowRateTranslationEnum } from '../i18n';
-import { Unit, UnitDefinition } from '../type';
+import { MeasureDefinition, Unit } from '../type';
 import { ImperialVolumeFlowRateUnit, MetricVolumeFlowRateUnit, VolumeFlowRateUnit } from './type';
 
 export enum MetricVolumeFlowEnum {
@@ -310,7 +310,9 @@ const imperial: Record<ImperialVolumeFlowRateUnit, Unit> = {
   }
 };
 
-const volumeFlowRate: UnitDefinition<'metric' | 'imperial', VolumeFlowRateUnit> = {
+export type VolumeFlowRateSystems = 'metric' | 'imperial';
+
+const volumeFlowRate: MeasureDefinition<VolumeFlowRateSystems, VolumeFlowRateUnit> = {
   systems: {
     metric,
     imperial

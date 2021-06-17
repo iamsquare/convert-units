@@ -1,5 +1,5 @@
 import { PartsPerTranslationEnum } from '../i18n';
-import { Unit, UnitDefinition } from '../type';
+import { MeasureDefinition, Unit } from '../type';
 import { PartsPerUnit } from './type';
 
 export enum PartsPerEnum {
@@ -40,7 +40,9 @@ const other: Record<PartsPerUnit, Unit> = {
   }
 };
 
-const partsPer: UnitDefinition<'other', PartsPerUnit> = {
+export type PartsPerSystems = 'other';
+
+const partsPer: MeasureDefinition<PartsPerSystems, PartsPerUnit> = {
   systems: {
     other
   }

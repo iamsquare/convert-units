@@ -1,39 +1,44 @@
-import { contains, curry, filter, pipe, reduce } from 'ramda';
+import { filter, includes, pipe, reduce } from 'ramda';
+import { isNilOrEmpty } from 'ramda-adjunct';
 
 import convert from './convert';
-import { UnitType } from './definitions';
 import getUnit from './getUnit';
 import list from './list';
-import { BestConversion, ConvertToBestDto, Measure, Nullable, UnitDescription } from './type';
+import { BestConversion, ConvertToBestDto, IConverter, Nullable, UnitDescription } from './type';
+import { InstanceError } from './utils/error';
 
 /**
  * Converts a `value` from a compatible unit to the best unit (or _smallest_) given some optional parameters.
  *
- * This function is **curried**.
- * @see {@link https://ramdajs.com/docs/#curry | Ramda's documentation} to understand how curried functions work.
+ * @throws An {@link InstanceError} if `converter` is not provided
+ * @throws An {@link IncompatibleUnitError} if `from` is not a valid unit type
  *
- * @throws An Error if `from` is not a valid {@link UnitType}
- *
+ * @param converter The converter instance to use with this function
  * @param options The conversion configuration
  * @param from The type `from` which you want to convert
  * @param value The value you want to convert
  * @returns An object containing the best unit given the optional parameters and its converted value
- *
- * ```typescript
- * const convertToBestFromGrams = convertToBest({}, 'g');
- * convertToBestFromGrams(1000); // => { value: 1, unitType: 'kg' }
- * ```
  */
-const convertToBest = curry((options: Partial<ConvertToBestDto>, from: UnitType, value: number) => {
-  const opt: ConvertToBestDto = { cutoff: 1, exclude: [], ...options };
 
-  const fromUnit = getUnit(from);
+function convertToBest<TMeasures extends string, TSystems extends string, TUnitType extends string>(
+  converter: IConverter<TMeasures, TSystems, TUnitType>,
+  options: Partial<ConvertToBestDto<TUnitType>>,
+  from: TUnitType,
+  value: number
+): BestConversion<TUnitType> {
+  if (isNilOrEmpty(converter)) throw new InstanceError();
 
-  return pipe<Measure, UnitDescription[], readonly UnitDescription[], Nullable<BestConversion>>(
-    list,
-    filter<UnitDescription>((d) => !contains(d.unitType, opt.exclude) && fromUnit.system === d.system),
-    reduce<UnitDescription, Nullable<BestConversion>>((acc, curr) => {
-      const result = convert(fromUnit.unitType, curr.unitType, value);
+  const opt: ConvertToBestDto<TUnitType> = { cutoff: 1, exclude: [], ...options };
+
+  const fromUnit = getUnit(converter, from);
+
+  return pipe(
+    (m: TMeasures) => list(converter, m),
+    filter<UnitDescription<TMeasures, TSystems, TUnitType>>(
+      (d) => !includes(d.unitType, opt.exclude) && fromUnit.system === d.system
+    ),
+    reduce<UnitDescription<TMeasures, TSystems, TUnitType>, Nullable<BestConversion<TUnitType>>>((acc, curr) => {
+      const result = convert(converter, fromUnit.unitType, curr.unitType, value);
 
       if (acc !== null && (Math.abs(result) < Math.abs(opt.cutoff) || Math.abs(result) >= Math.abs(acc.value))) {
         return acc;
@@ -45,6 +50,6 @@ const convertToBest = curry((options: Partial<ConvertToBestDto>, from: UnitType,
       };
     }, null)
   )(fromUnit.measure);
-});
+}
 
 export default convertToBest;

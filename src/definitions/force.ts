@@ -1,5 +1,5 @@
 import { ForceTranslationEnum } from '../i18n';
-import { Unit, UnitDefinition } from '../type';
+import { MeasureDefinition, Unit } from '../type';
 import { ForceUnit, ImperialForceUnit, MetricForceUnit } from './type';
 
 export enum MetricForceEnum {
@@ -38,7 +38,9 @@ const imperial: Record<ImperialForceUnit, Unit> = {
   }
 };
 
-const force: UnitDefinition<'metric' | 'imperial', ForceUnit> = {
+export type ForceSystems = 'metric' | 'imperial';
+
+const force: MeasureDefinition<ForceSystems, ForceUnit> = {
   systems: {
     metric,
     imperial

@@ -1,5 +1,5 @@
 import { AngleTranslationEnum } from '../i18n';
-import { Unit, UnitDefinition } from '../type';
+import { MeasureDefinition, Unit } from '../type';
 import { AngleUnit } from './type';
 
 export enum AngleEnum {
@@ -48,7 +48,9 @@ const metric: Record<AngleUnit, Unit> = {
   }
 };
 
-const angle: UnitDefinition<'metric', AngleUnit> = {
+export type AngleSystems = 'metric';
+
+const angle: MeasureDefinition<AngleSystems, AngleUnit> = {
   systems: {
     metric
   }

@@ -1,6 +1,4 @@
-import { UnitType } from '../definitions/type';
-
-export type ConvertToBestDto = {
-  exclude: UnitType[];
+export type ConvertToBestDto<TUnitType extends string> = {
+  exclude: TUnitType[];
   cutoff: number;
 };
